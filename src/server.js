@@ -28,5 +28,5 @@ app.use('/api', routes);
 app.use((req, res) => R.err(res, `${req.method} ${req.originalUrl} not found`, 404));
 app.use(errorHandler);
 
-app.listen(PORT, () => logger.info(`🚀 Server on port ${PORT} [${process.env.NODE_ENV}]`));
+app.listen(PORT, () => logger.info(`Server on port ${PORT} [${process.env.NODE_ENV}]`));
 module.exports = app;
