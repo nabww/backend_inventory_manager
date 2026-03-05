@@ -548,3 +548,5 @@
 {"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-04 19:01:15"}
 {"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-04 19:01:16"}
 {"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-04 19:01:16"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-05 08:15:57"}
+{"level":"info","message":"Server on port 5000 [development]","timestamp":"2026-03-05 08:16:32"}
