@@ -1,5 +1,5 @@
-const db      = require('../config/db');
-const { encrypt, decrypt } = require('../utils');
+const db = require("../config/db");
+const { encrypt, decrypt } = require("../utils");
 
 const BASE = `
   SELECT
@@ -36,45 +36,82 @@ const BASE = `
 
 const decryptSim = (row) => {
   if (!row) return null;
-  return { ...row, pin: decrypt(row.pin_enc), puk: decrypt(row.puk_enc), pin_enc: undefined, puk_enc: undefined };
+  return {
+    ...row,
+    pin: decrypt(row.pin_enc),
+    puk: decrypt(row.puk_enc),
+    pin_enc: undefined,
+    puk_enc: undefined,
+  };
 };
 
-const list = async ({ page = 1, limit = 20, search = '', status = '', facilityId = '', affiliationId = '', countyId = '' }) => {
-  const p   = parseInt(page)  || 1;
+const list = async ({
+  page = 1,
+  limit = 20,
+  search = "",
+  status = "",
+  facilityId = "",
+  affiliationId = "",
+  countyId = "",
+}) => {
+  const p = parseInt(page) || 1;
   const lim = parseInt(limit) || 20;
   const off = (p - 1) * lim;
-  const conds  = ['1=1'];
+  const conds = ["1=1"];
   const params = [];
 
   if (search) {
-    conds.push('(d.serial_number LIKE ? OR d.imei LIKE ? OR d.asset_tag LIKE ? OR d.model LIKE ? OR f.mfl_code LIKE ? OR f.name LIKE ? OR s.phone_number LIKE ?)');
+    conds.push(
+      "(d.serial_number LIKE ? OR d.imei LIKE ? OR d.asset_tag LIKE ? OR d.model LIKE ? OR f.mfl_code LIKE ? OR f.name LIKE ? OR s.phone_number LIKE ?)",
+    );
     const like = `%${search}%`;
     params.push(like, like, like, like, like, like, like);
   }
-  if (status)        { conds.push('d.status = ?');        params.push(status); }
-  if (facilityId)    { conds.push('d.facility_id = ?');    params.push(parseInt(facilityId)); }
-  if (affiliationId) { conds.push('d.affiliation_id = ?'); params.push(parseInt(affiliationId)); }
-  if (countyId)      { conds.push('f.county_id = ?');      params.push(parseInt(countyId)); }
+  if (status) {
+    conds.push("d.status = ?");
+    params.push(status);
+  }
+  if (facilityId) {
+    conds.push("d.facility_id = ?");
+    params.push(parseInt(facilityId));
+  }
+  if (affiliationId) {
+    conds.push("d.affiliation_id = ?");
+    params.push(parseInt(affiliationId));
+  }
+  if (countyId) {
+    conds.push("f.county_id = ?");
+    params.push(parseInt(countyId));
+  }
 
-  const where = `WHERE ${conds.join(' AND ')}`;
+  const where = `WHERE ${conds.join(" AND ")}`;
 
-  const [rows]      = await db.query(`${BASE} ${where} ORDER BY d.created_at DESC LIMIT ${lim} OFFSET ${off}`, params);
-  const [[{total}]] = await db.query(
+  const [rows] = await db.query(
+    `${BASE} ${where} ORDER BY d.created_at DESC LIMIT ${lim} OFFSET ${off}`,
+    params,
+  );
+  const [[{ total }]] = await db.query(
     `SELECT COUNT(*) AS total FROM devices d
      JOIN facilities f ON f.id = d.facility_id
      LEFT JOIN sim_cards s ON s.id = d.sim_card_id
-     ${where}`, params);
+     ${where}`,
+    params,
+  );
 
   return { rows: rows.map(decryptSim), total };
 };
 
 const getById = async (id) => {
-  const [[row]] = await db.query(`${BASE} WHERE d.id = ? LIMIT 1`, [parseInt(id)]);
+  const [[row]] = await db.query(`${BASE} WHERE d.id = ? LIMIT 1`, [
+    parseInt(id),
+  ]);
   return decryptSim(row ?? null);
 };
 
 const getBySerial = async (serial) => {
-  const [[row]] = await db.query(`${BASE} WHERE d.serial_number = ? LIMIT 1`, [serial]);
+  const [[row]] = await db.query(`${BASE} WHERE d.serial_number = ? LIMIT 1`, [
+    serial,
+  ]);
   return decryptSim(row ?? null);
 };
 
@@ -92,12 +129,12 @@ const create = async (fields, createdBy) => {
       const [sr] = await conn.query(
         `INSERT INTO sim_cards (sim_serial, phone_number, pin, puk, network) VALUES (?, ?, ?, ?, ?)`,
         [
-          fields.simSerial   || null,
+          fields.simSerial || null,
           fields.phoneNumber || null,
-          fields.pin         ? encrypt(fields.pin) : null,
-          fields.puk         ? encrypt(fields.puk) : null,
-          fields.network     || null,
-        ]
+          fields.pin ? encrypt(fields.pin) : null,
+          fields.puk ? encrypt(fields.puk) : null,
+          fields.network || null,
+        ],
       );
       simCardId = sr.insertId;
     }
@@ -114,18 +151,18 @@ const create = async (fields, createdBy) => {
         simCardId,
         fields.hasSim ? 1 : 0,
         fields.serialNumber,
-        fields.imei          || null,
-        fields.model         || null,
-        fields.assetTag      || null,
-        fields.ipAddress     || null,
-        fields.coverCondition || 'good',
-        fields.coverNotes    || null,
-        fields.dateIssued    || null,
-        fields.assignedTo    || null,
-        fields.status        || 'active',
-        fields.notes         || null,
+        fields.imei || null,
+        fields.model || null,
+        fields.assetTag || null,
+        fields.ipAddress || null,
+        fields.coverCondition || "good",
+        fields.coverNotes || null,
+        fields.dateIssued || null,
+        fields.assignedTo || null,
+        fields.status || "active",
+        fields.notes || null,
         createdBy,
-      ]
+      ],
     );
 
     await conn.commit();
@@ -148,64 +185,100 @@ const update = async (id, fields, updatedBy) => {
 
     // Get current device
     const [[current]] = await conn.query(
-      `SELECT sim_card_id, has_sim FROM devices WHERE id = ?`, [parseInt(id)]
+      `SELECT sim_card_id, has_sim FROM devices WHERE id = ?`,
+      [parseInt(id)],
     );
 
     // ── SIM handling
     if (fields.hasSim) {
       if (current.sim_card_id) {
         // Update existing SIM
-        const simSets = [], simVals = [];
-        const simMap  = { simSerial: 'sim_serial', phoneNumber: 'phone_number', network: 'network' };
+        const simSets = [],
+          simVals = [];
+        const simMap = {
+          simSerial: "sim_serial",
+          phoneNumber: "phone_number",
+          network: "network",
+        };
         for (const [k, col] of Object.entries(simMap)) {
-          if (fields[k] !== undefined) { simSets.push(`${col} = ?`); simVals.push(fields[k]); }
+          if (fields[k] !== undefined) {
+            simSets.push(`${col} = ?`);
+            simVals.push(fields[k]);
+          }
         }
-        if (fields.pin !== undefined) { simSets.push('pin = ?'); simVals.push(encrypt(fields.pin)); }
-        if (fields.puk !== undefined) { simSets.push('puk = ?'); simVals.push(encrypt(fields.puk)); }
+        if (fields.pin !== undefined) {
+          simSets.push("pin = ?");
+          simVals.push(encrypt(fields.pin));
+        }
+        if (fields.puk !== undefined) {
+          simSets.push("puk = ?");
+          simVals.push(encrypt(fields.puk));
+        }
         if (simSets.length) {
           simVals.push(current.sim_card_id);
-          await conn.query(`UPDATE sim_cards SET ${simSets.join(', ')} WHERE id = ?`, simVals);
+          await conn.query(
+            `UPDATE sim_cards SET ${simSets.join(", ")} WHERE id = ?`,
+            simVals,
+          );
         }
       } else if (fields.simSerial || fields.phoneNumber) {
         // Create new SIM
         const [sr] = await conn.query(
           `INSERT INTO sim_cards (sim_serial, phone_number, pin, puk, network) VALUES (?, ?, ?, ?, ?)`,
-          [fields.simSerial || null, fields.phoneNumber || null,
-           fields.pin ? encrypt(fields.pin) : null,
-           fields.puk ? encrypt(fields.puk) : null,
-           fields.network || null]
+          [
+            fields.simSerial || null,
+            fields.phoneNumber || null,
+            fields.pin ? encrypt(fields.pin) : null,
+            fields.puk ? encrypt(fields.puk) : null,
+            fields.network || null,
+          ],
         );
-        await conn.query(`UPDATE devices SET sim_card_id = ? WHERE id = ?`, [sr.insertId, parseInt(id)]);
+        await conn.query(`UPDATE devices SET sim_card_id = ? WHERE id = ?`, [
+          sr.insertId,
+          parseInt(id),
+        ]);
       }
     } else if (!fields.hasSim && current.sim_card_id) {
       // Toggle SIM off — unlink (keep SIM record for audit)
-      await conn.query(`UPDATE devices SET sim_card_id = NULL WHERE id = ?`, [parseInt(id)]);
+      await conn.query(`UPDATE devices SET sim_card_id = NULL WHERE id = ?`, [
+        parseInt(id),
+      ]);
     }
 
     // ── Device fields
-    const devSets = [], devVals = [];
-    const devMap  = {
-      facilityId:     'facility_id',
-      affiliationId:  'affiliation_id',
-      serialNumber:   'serial_number',
-      imei:           'imei',
-      model:          'model',
-      assetTag:       'asset_tag',
-      ipAddress:      'ip_address',
-      coverCondition: 'cover_condition',
-      coverNotes:     'cover_notes',
-      dateIssued:     'date_issued',
-      assignedTo:     'assigned_to',
-      status:         'status',
-      notes:          'notes',
+    const devSets = [],
+      devVals = [];
+    const devMap = {
+      facilityId: "facility_id",
+      affiliationId: "affiliation_id",
+      serialNumber: "serial_number",
+      imei: "imei",
+      model: "model",
+      assetTag: "asset_tag",
+      ipAddress: "ip_address",
+      coverCondition: "cover_condition",
+      coverNotes: "cover_notes",
+      dateIssued: "date_issued",
+      assignedTo: "assigned_to",
+      status: "status",
+      notes: "notes",
     };
     for (const [k, col] of Object.entries(devMap)) {
-      if (fields[k] !== undefined) { devSets.push(`${col} = ?`); devVals.push(fields[k] || null); }
+      if (fields[k] !== undefined) {
+        devSets.push(`${col} = ?`);
+        devVals.push(fields[k] || null);
+      }
     }
-    if (fields.hasSim !== undefined) { devSets.push('has_sim = ?'); devVals.push(fields.hasSim ? 1 : 0); }
-    devSets.push('updated_by = ?');
+    if (fields.hasSim !== undefined) {
+      devSets.push("has_sim = ?");
+      devVals.push(fields.hasSim ? 1 : 0);
+    }
+    devSets.push("updated_by = ?");
     devVals.push(updatedBy, parseInt(id));
-    await conn.query(`UPDATE devices SET ${devSets.join(', ')} WHERE id = ?`, devVals);
+    await conn.query(
+      `UPDATE devices SET ${devSets.join(", ")} WHERE id = ?`,
+      devVals,
+    );
 
     await conn.commit();
   } catch (e) {
@@ -223,13 +296,24 @@ const transfer = async (id, toFacilityId, reason, userId) => {
   const conn = await db.getConnection();
   try {
     await conn.beginTransaction();
-    const [[dev]] = await conn.query(`SELECT facility_id FROM devices WHERE id = ?`, [parseInt(id)]);
-    await conn.query(`UPDATE devices SET facility_id = ?, updated_by = ? WHERE id = ?`,
-      [parseInt(toFacilityId), userId, parseInt(id)]);
+    const [[dev]] = await conn.query(
+      `SELECT facility_id FROM devices WHERE id = ?`,
+      [parseInt(id)],
+    );
+    await conn.query(
+      `UPDATE devices SET facility_id = ?, updated_by = ? WHERE id = ?`,
+      [parseInt(toFacilityId), userId, parseInt(id)],
+    );
     await conn.query(
       `INSERT INTO facility_transfers (device_id, from_facility_id, to_facility_id, transferred_by, reason)
        VALUES (?, ?, ?, ?, ?)`,
-      [parseInt(id), dev.facility_id, parseInt(toFacilityId), userId, reason || null]
+      [
+        parseInt(id),
+        dev.facility_id,
+        parseInt(toFacilityId),
+        userId,
+        reason || null,
+      ],
     );
     await conn.commit();
     return dev.facility_id;
@@ -241,7 +325,8 @@ const transfer = async (id, toFacilityId, reason, userId) => {
   }
 };
 
-const remove = (id) => db.query(`DELETE FROM devices WHERE id = ?`, [parseInt(id)]);
+const remove = (id) =>
+  db.query(`DELETE FROM devices WHERE id = ?`, [parseInt(id)]);
 
 const getTransfers = async (deviceId) => {
   const [rows] = await db.query(
@@ -252,7 +337,8 @@ const getTransfers = async (deviceId) => {
      JOIN facilities ff ON ff.id = ft.from_facility_id
      JOIN facilities tf ON tf.id = ft.to_facility_id
      JOIN users u ON u.id = ft.transferred_by
-     WHERE ft.device_id = ? ORDER BY ft.transferred_at DESC`, [parseInt(deviceId)]
+     WHERE ft.device_id = ? ORDER BY ft.transferred_at DESC`,
+    [parseInt(deviceId)],
   );
   return rows;
 };
@@ -289,7 +375,27 @@ const getDashboardStats = async () => {
     JOIN users u ON u.id = v.verified_by
     ORDER BY v.verified_at DESC LIMIT 5`);
 
-  return { ...stats, unverified_this_year: unverified, recent_verifications: recentVerifications };
+  const [[{ verified_this_year }]] = await db.query(`
+    SELECT COUNT(DISTINCT device_id) AS verified_this_year
+    FROM verifications
+    WHERE YEAR(verified_at) = YEAR(CURDATE())`);
+
+  return {
+    ...stats,
+    verified_this_year,
+    unverified_this_year: unverified,
+    recent_verifications: recentVerifications,
+  };
 };
 
-module.exports = { list, getById, getBySerial, create, update, transfer, remove, getTransfers, getDashboardStats };
+module.exports = {
+  list,
+  getById,
+  getBySerial,
+  create,
+  update,
+  transfer,
+  remove,
+  getTransfers,
+  getDashboardStats,
+};

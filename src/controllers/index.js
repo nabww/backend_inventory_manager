@@ -6,6 +6,7 @@ const Verify = require("../models/verification.model");
 const Ref = require("../models/reference.model");
 const Audit = require("../models/audit.model");
 const { signToken, R } = require("../utils");
+// const { sendWelcomeEmail } = require("../config/mailer");
 
 // ================================================================
 // AUTH
@@ -73,6 +74,9 @@ const register = async (req, res, next) => {
       newValues: { fullName, email, roleId },
       req,
     });
+    // Send welcome email — non-blocking, failure won't break account creation
+    const roleMap = { 1: "viewer", 2: "field_officer", 3: "admin" };
+    sendWelcomeEmail({ fullName, email, password, role: roleMap[roleId || 1] });
     return R.created(res, { id }, "User created");
   } catch (e) {
     next(e);
@@ -188,6 +192,16 @@ const createAffiliation = async (req, res, next) => {
       { id, name: name.trim(), shortCode },
       "Affiliation created",
     );
+  } catch (e) {
+    next(e);
+  }
+};
+
+const getFacility = async (req, res, next) => {
+  try {
+    const fac = await Ref.getFacilityById(parseInt(req.params.id));
+    if (!fac) return R.notFound(res, "Facility not found");
+    return R.ok(res, fac);
   } catch (e) {
     next(e);
   }
@@ -674,6 +688,7 @@ module.exports = {
   getSubCounties,
   getAffiliations,
   createAffiliation,
+  getFacility,
   listFacilities,
   createFacility,
   updateFacility,
