@@ -779,3 +779,77 @@
 {"level":"info","message":"Server on port 5000 [development]","timestamp":"2026-03-06 11:45:17"}
 {"level":"info","message":"Server on port 5000 [development]","timestamp":"2026-03-06 11:45:28"}
 {"level":"debug","message":"GET /main.da18ca918a72cb371603.hot-update.json","timestamp":"2026-03-06 11:47:35"}
+{"level":"info","message":"Server on port 5000 [development]","timestamp":"2026-03-06 11:50:05"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-06 11:52:27"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-06 11:52:28"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-06 11:52:28"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-06 11:52:28"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-06 11:52:35"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-06 11:52:35"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-03-06 11:52:36"}
+{"level":"debug","message":"GET /api/facilities/71","timestamp":"2026-03-06 11:52:37"}
+{"level":"debug","message":"GET /api/devices?facilityId=71&page=1&limit=20","timestamp":"2026-03-06 11:52:37"}
+{"level":"debug","message":"GET /api/facilities/71","timestamp":"2026-03-06 11:52:37"}
+{"level":"debug","message":"GET /api/devices?facilityId=71&page=1&limit=20","timestamp":"2026-03-06 11:52:37"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-06 11:52:40"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-06 11:52:40"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-03-06 11:52:40"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=kise","timestamp":"2026-03-06 11:52:43"}
+{"level":"debug","message":"GET /api/facilities/134","timestamp":"2026-03-06 11:52:44"}
+{"level":"debug","message":"GET /api/devices?facilityId=134&page=1&limit=20","timestamp":"2026-03-06 11:52:44"}
+{"level":"debug","message":"GET /api/facilities/134","timestamp":"2026-03-06 11:52:45"}
+{"level":"debug","message":"GET /api/devices?facilityId=134&page=1&limit=20","timestamp":"2026-03-06 11:52:45"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-06 11:52:48"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-06 11:52:49"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-03-06 11:52:49"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=malela","timestamp":"2026-03-06 11:52:51"}
+{"level":"debug","message":"GET /api/facilities/84","timestamp":"2026-03-06 11:52:52"}
+{"level":"debug","message":"GET /api/devices?facilityId=84&page=1&limit=20","timestamp":"2026-03-06 11:52:53"}
+{"level":"debug","message":"GET /api/facilities/84","timestamp":"2026-03-06 11:52:53"}
+{"level":"debug","message":"GET /api/devices?facilityId=84&page=1&limit=20","timestamp":"2026-03-06 11:52:53"}
+{"level":"debug","message":"GET /api/devices/18","timestamp":"2026-03-06 11:52:55"}
+{"level":"debug","message":"GET /api/devices/18","timestamp":"2026-03-06 11:52:56"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-06 11:52:58"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-06 11:52:58"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-06 11:52:59"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=g&status=&countyId=","timestamp":"2026-03-06 11:53:03"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=got&status=&countyId=","timestamp":"2026-03-06 11:53:05"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-06 11:53:12"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-06 11:53:12"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-03-06 11:53:13"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=got+","timestamp":"2026-03-06 11:53:14"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=got+ko","timestamp":"2026-03-06 11:53:15"}
+{"level":"debug","message":"GET /api/facilities/73","timestamp":"2026-03-06 11:53:16"}
+{"level":"debug","message":"GET /api/devices?facilityId=73&page=1&limit=20","timestamp":"2026-03-06 11:53:17"}
+{"level":"debug","message":"GET /api/facilities/73","timestamp":"2026-03-06 11:53:17"}
+{"level":"debug","message":"GET /api/devices?facilityId=73&page=1&limit=20","timestamp":"2026-03-06 11:53:17"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-06 11:53:28"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-06 11:53:28"}
+{"level":"debug","message":"GET /api/devices/5","timestamp":"2026-03-06 11:53:35"}
+{"level":"debug","message":"GET /api/devices/5","timestamp":"2026-03-06 11:53:35"}
+{"level":"debug","message":"POST /api/devices/5/verify","timestamp":"2026-03-06 11:53:38"}
+{"level":"debug","message":"GET /api/devices/5","timestamp":"2026-03-06 11:53:38"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-06 11:53:41"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-06 11:53:41"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-06 11:53:41"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-06 11:53:46"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-06 11:53:47"}
+{"level":"debug","message":"GET /api/devices/8","timestamp":"2026-03-06 11:54:51"}
+{"level":"debug","message":"GET /api/devices/8","timestamp":"2026-03-06 11:54:51"}
+{"level":"debug","message":"POST /api/devices/8/verify","timestamp":"2026-03-06 11:54:55"}
+{"level":"debug","message":"GET /api/devices/8","timestamp":"2026-03-06 11:54:56"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-06 11:54:57"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-06 11:54:58"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-06 12:08:18"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-06 12:08:18"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-06 12:08:19"}
+{"level":"debug","message":"POST /api/devices/import","timestamp":"2026-03-06 12:08:22"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-06 12:08:25"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-06 12:08:26"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-06 12:26:01"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-06 12:26:01"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-06 12:26:01"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-06 12:26:02"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-09 12:23:29"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-09 12:23:30"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-09 12:23:30"}
