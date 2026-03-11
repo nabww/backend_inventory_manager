@@ -6,7 +6,12 @@ const Verify = require("../models/verification.model");
 const Ref = require("../models/reference.model");
 const Audit = require("../models/audit.model");
 const { signToken, R } = require("../utils");
-// const { sendWelcomeEmail } = require("../config/mailer");
+const {
+  sendWelcomeEmail,
+  sendLostDeviceAlert,
+  sendEscalationAlert,
+} = require("../config/mailer");
+const Loss = require("../models/loss.model");
 
 // ================================================================
 // AUTH
@@ -356,14 +361,16 @@ const getDevice = async (req, res, next) => {
   try {
     const device = await Device.getById(parseInt(req.params.id));
     if (!device) return R.notFound(res, "Device not found");
-    const [verifications, transfers] = await Promise.all([
+    const [verifications, transfers, lossReport] = await Promise.all([
       Verify.getByDevice(device.id),
       Device.getTransfers(device.id),
+      Loss.getByDevice(device.id),
     ]);
     return R.ok(res, {
       ...device,
       verifications: verifications.rows,
       transfers,
+      lossReport: lossReport || null,
     });
   } catch (e) {
     next(e);
@@ -392,6 +399,11 @@ const updateDevice = async (req, res, next) => {
     const id = parseInt(req.params.id);
     const existing = await Device.getById(id);
     if (!existing) return R.notFound(res, "Device not found");
+    if (existing.locked && req.user.role !== "admin")
+      return R.forbidden(
+        res,
+        "Device is locked pending loss review. Contact an administrator.",
+      );
     await Audit.write({
       userId: req.user.id,
       action: "UPDATE",
@@ -625,6 +637,8 @@ const verifyDevice = async (req, res, next) => {
     const deviceId = parseInt(req.params.id);
     const device = await Device.getById(deviceId);
     if (!device) return R.notFound(res, "Device not found");
+    if (device.locked || device.status === "lost")
+      return R.badRequest(res, "Cannot verify a lost device");
     const id = await Verify.create({
       deviceId,
       verifiedBy: req.user.id,
@@ -676,6 +690,258 @@ const listAuditLogs = async (req, res, next) => {
   }
 };
 
+const getEscalationUsers = async (req, res, next) => {
+  try {
+    const users = await User.getByMinRole("field_officer");
+    return R.ok(res, users);
+  } catch (e) {
+    next(e);
+  }
+};
+
+// ================================================================
+// LOSS REPORTS
+// ================================================================
+
+const reportLost = async (req, res, next) => {
+  try {
+    const deviceId = parseInt(req.params.id);
+    const device = await Device.getById(deviceId);
+    if (!device) return R.notFound(res, "Device not found");
+    if (device.status === "lost")
+      return R.badRequest(res, "Device is already marked as lost");
+
+    const {
+      dateLost,
+      circumstances,
+      lastKnownLocation,
+      reportedByName,
+      policeAbstract,
+    } = req.body;
+    if (!dateLost || !circumstances || !reportedByName)
+      return R.badRequest(
+        res,
+        "Date lost, circumstances and reporter name are required",
+      );
+
+    // Grab uploaded file paths if present
+    const incidentReportPath = req.files?.incidentReport?.[0]?.filename || null;
+    const policeObPath = req.files?.policeOb?.[0]?.filename || null;
+
+    // Lock device and mark lost
+    await Device.update(
+      deviceId,
+      { status: "lost", locked: true },
+      req.user.id,
+    );
+
+    // Create loss report
+    const reportId = await Loss.create({
+      deviceId,
+      reportedBy: req.user.id,
+      dateLost,
+      circumstances,
+      lastKnownLocation,
+      reportedByName,
+      policeAbstract,
+      incidentReportPath,
+      policeObPath,
+    });
+
+    // Fire alert to all admins (non-blocking)
+    const admins = await User.getByRole("admin");
+    const fullDevice = await Device.getById(deviceId);
+    const report = await Loss.getByDevice(deviceId);
+    sendLostDeviceAlert({ device: fullDevice, report, admins }).catch(() => {});
+
+    await Audit.write({
+      userId: req.user.id,
+      action: "UPDATE",
+      entityType: "device",
+      entityId: deviceId,
+      newValues: { status: "lost", reportId },
+      req,
+    });
+
+    return R.created(
+      res,
+      { reportId },
+      "Device marked as lost and report submitted",
+    );
+  } catch (e) {
+    next(e);
+  }
+};
+
+const getLossDocument = async (req, res, next) => {
+  try {
+    const deviceId = parseInt(req.params.id);
+    const { type } = req.params; // 'incident' or 'police'
+    const download = req.query.download === "1";
+
+    const report = await Loss.getByDevice(deviceId);
+    if (!report) return R.notFound(res, "No loss report found");
+
+    const filename =
+      type === "incident"
+        ? report.incident_report_path
+        : type === "police"
+          ? report.police_ob_path
+          : null;
+    if (!filename) return R.notFound(res, "No document uploaded for this type");
+
+    const filePath = require("path").join(
+      __dirname,
+      "../../uploads/loss-docs",
+      filename,
+    );
+    if (!require("fs").existsSync(filePath))
+      return R.notFound(res, "File not found on server");
+
+    const friendlyName =
+      type === "incident" ? "incident-report.pdf" : "police-ob.pdf";
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader(
+      "Content-Disposition",
+      `${download ? "attachment" : "inline"}; filename="${friendlyName}"`,
+    );
+    require("fs").createReadStream(filePath).pipe(res);
+  } catch (e) {
+    next(e);
+  }
+};
+
+const reviewLossReport = async (req, res, next) => {
+  try {
+    const deviceId = parseInt(req.params.id);
+    const device = await Device.getById(deviceId);
+    if (!device) return R.notFound(res, "Device not found");
+
+    const report = await Loss.getByDevice(deviceId);
+    if (!report) return R.notFound(res, "No loss report found for this device");
+
+    const { action, adminNotes, escalateToUserId } = req.body;
+    const validActions = ["acknowledge", "reject", "insure", "escalate"];
+    if (!validActions.includes(action))
+      return R.badRequest(res, "Invalid action");
+
+    if (action === "escalate") {
+      if (!escalateToUserId)
+        return R.badRequest(res, "Escalation target user is required");
+      const escalateTo = await User.findById(escalateToUserId);
+      if (!escalateTo)
+        return R.notFound(res, "Escalation target user not found");
+      const admins = await User.getByRole("admin");
+      const escalatedBy = await User.findById(req.user.id);
+      sendEscalationAlert({
+        device,
+        report,
+        escalateTo,
+        admins,
+        escalatedBy,
+      }).catch(() => {});
+      await Loss.review(report.id, {
+        status: "escalated",
+        adminNotes,
+        reviewedBy: req.user.id,
+      });
+      await Audit.write({
+        userId: req.user.id,
+        action: "UPDATE",
+        entityType: "device",
+        entityId: deviceId,
+        newValues: { lossAction: "escalated", escalateToUserId },
+        req,
+      });
+      return R.ok(res, null, "Report escalated");
+    }
+
+    if (action === "reject") {
+      if (!adminNotes)
+        return R.badRequest(
+          res,
+          "A reason is required when rejecting a loss report",
+        );
+      // Unlock and restore device to active
+      await Device.update(
+        deviceId,
+        { status: "active", locked: false },
+        req.user.id,
+      );
+      await Loss.review(report.id, {
+        status: "rejected",
+        adminNotes,
+        reviewedBy: req.user.id,
+      });
+      await Audit.write({
+        userId: req.user.id,
+        action: "UPDATE",
+        entityType: "device",
+        entityId: deviceId,
+        newValues: { lossAction: "rejected", adminNotes },
+        req,
+      });
+      return R.ok(res, null, "Device restored to active");
+    }
+
+    // acknowledge or insure — keep device locked as lost
+    const status = action === "insure" ? "acknowledged" : "acknowledged";
+    await Loss.review(report.id, {
+      status,
+      adminNotes,
+      reviewedBy: req.user.id,
+    });
+    await Audit.write({
+      userId: req.user.id,
+      action: "UPDATE",
+      entityType: "device",
+      entityId: deviceId,
+      newValues: { lossAction: action, adminNotes },
+      req,
+    });
+    return R.ok(res, null, "Loss report updated");
+  } catch (e) {
+    next(e);
+  }
+};
+
+const recoverDevice = async (req, res, next) => {
+  try {
+    const deviceId = parseInt(req.params.id);
+    const device = await Device.getById(deviceId);
+    if (!device) return R.notFound(res, "Device not found");
+    if (device.status !== "lost")
+      return R.badRequest(res, "Device is not marked as lost");
+
+    const { adminNotes } = req.body;
+    if (!adminNotes)
+      return R.badRequest(res, "A reason/note is required to recover a device");
+
+    await Device.update(
+      deviceId,
+      { status: "active", locked: false },
+      req.user.id,
+    );
+
+    const report = await Loss.getByDevice(deviceId);
+    if (report)
+      await Loss.recover(report.id, { adminNotes, reviewedBy: req.user.id });
+
+    await Audit.write({
+      userId: req.user.id,
+      action: "UPDATE",
+      entityType: "device",
+      entityId: deviceId,
+      newValues: { status: "active", recoveryNote: adminNotes },
+      req,
+    });
+
+    return R.ok(res, null, "Device recovered and unlocked");
+  } catch (e) {
+    next(e);
+  }
+};
+
 module.exports = {
   login,
   me,
@@ -706,4 +972,9 @@ module.exports = {
   verifyDevice,
   listVerifications,
   listAuditLogs,
+  reportLost,
+  reviewLossReport,
+  recoverDevice,
+  getEscalationUsers,
+  getLossDocument,
 };

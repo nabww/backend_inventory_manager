@@ -5,7 +5,7 @@ const BASE = `
   SELECT
     d.id, d.serial_number, d.imei, d.model, d.asset_tag, d.ip_address,
     d.cover_condition, d.cover_notes, d.date_issued, d.assigned_to,
-    d.status, d.notes, d.has_sim, d.created_at, d.updated_at,
+    d.status, d.notes, d.has_sim, d.locked, d.created_at, d.updated_at,
     -- facility
     f.id AS facility_id, f.mfl_code, f.name AS facility_name,
     c.name AS county, sc.name AS sub_county,
@@ -262,11 +262,14 @@ const update = async (id, fields, updatedBy) => {
       assignedTo: "assigned_to",
       status: "status",
       notes: "notes",
+      locked: "locked",
     };
     for (const [k, col] of Object.entries(devMap)) {
       if (fields[k] !== undefined) {
+        // locked is boolean — must not coerce false to null
+        const val = k === "locked" ? (fields[k] ? 1 : 0) : fields[k] || null;
         devSets.push(`${col} = ?`);
-        devVals.push(fields[k] || null);
+        devVals.push(val);
       }
     }
     if (fields.hasSim !== undefined) {
@@ -375,14 +378,8 @@ const getDashboardStats = async () => {
     JOIN users u ON u.id = v.verified_by
     ORDER BY v.verified_at DESC LIMIT 5`);
 
-  const [[{ verified_this_year }]] = await db.query(`
-    SELECT COUNT(DISTINCT device_id) AS verified_this_year
-    FROM verifications
-    WHERE YEAR(verified_at) = YEAR(CURDATE())`);
-
   return {
     ...stats,
-    verified_this_year,
     unverified_this_year: unverified,
     recent_verifications: recentVerifications,
   };

@@ -48,7 +48,7 @@ const STATEMENTS = [
      Hash taken directly from live dump. Change after first login. */
   `INSERT IGNORE INTO \`users\` (id, role_id, full_name, email, password_hash, is_active) VALUES
     (1, 3, 'System Admin', 'admin@inventory.org',
-     '$2b$12$2EI1vlCamkoiecSvsJxiM./RuNEid0kJgeXHUHDY/zC4J5cHp6KPS', 1)`,
+     '$2b$12$AkFrPmyVFvZwScdYqzGiWuR.5dGliE9YCyBM0/7Sk1uaGREGl1c2q', 1)`,
 
   /* ── affiliations ────────────────────────────────────────────── */
   `CREATE TABLE IF NOT EXISTS \`affiliations\` (
@@ -400,7 +400,7 @@ const STATEMENTS = [
     \`cover_ok\`       TINYINT(1) NOT NULL DEFAULT 0,
     \`powers_on\`      TINYINT(1) NOT NULL DEFAULT 0,
     \`emr_working\`    TINYINT(1) NOT NULL DEFAULT 0,
-    \`overall_status\` ENUM('pass','fail','partial') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pass',
+    \`overall_status\` ENUM('pass','fail','partial','lost') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pass',
     \`notes\`          TEXT COLLATE utf8mb4_unicode_ci,
     PRIMARY KEY (\`id\`),
     KEY \`idx_verification_device\` (\`device_id\`),
@@ -427,6 +427,34 @@ const STATEMENTS = [
     KEY \`idx_audit_created\` (\`created_at\`),
     CONSTRAINT \`fk_audit_user\` FOREIGN KEY (\`user_id\`) REFERENCES \`users\` (\`id\`)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+
+  /* ── locked column on devices (added separately below) ───────── */
+
+  /* ── device_loss_reports ─────────────────────────────────────── */
+  `CREATE TABLE IF NOT EXISTS \`device_loss_reports\` (
+    \`id\`                  INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    \`device_id\`           INT UNSIGNED NOT NULL,
+    \`reported_by\`         INT UNSIGNED NOT NULL,
+    \`date_lost\`           DATE NOT NULL,
+    \`circumstances\`       TEXT COLLATE utf8mb4_unicode_ci NOT NULL,
+    \`last_known_location\` VARCHAR(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    \`reported_by_name\`    VARCHAR(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+    \`police_abstract\`          VARCHAR(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    \`incident_report_path\`     VARCHAR(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    \`police_ob_path\`           VARCHAR(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    \`status\`              ENUM('pending','acknowledged','rejected','escalated','recovered')
+                           COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
+    \`admin_notes\`         TEXT COLLATE utf8mb4_unicode_ci,
+    \`reviewed_by\`         INT UNSIGNED DEFAULT NULL,
+    \`reviewed_at\`         DATETIME DEFAULT NULL,
+    \`created_at\`          DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (\`id\`),
+    KEY \`idx_loss_device\`  (\`device_id\`),
+    KEY \`idx_loss_status\`  (\`status\`),
+    CONSTRAINT \`fk_loss_device\`      FOREIGN KEY (\`device_id\`)   REFERENCES \`devices\` (\`id\`),
+    CONSTRAINT \`fk_loss_reported_by\` FOREIGN KEY (\`reported_by\`) REFERENCES \`users\`   (\`id\`),
+    CONSTRAINT \`fk_loss_reviewed_by\` FOREIGN KEY (\`reviewed_by\`) REFERENCES \`users\`   (\`id\`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
 ];
 
 /* ================================================================ */
@@ -449,6 +477,36 @@ const run = async () => {
 
     for (const sql of STATEMENTS) {
       await conn.query(sql);
+    }
+
+    // Add locked column if it doesn't exist yet (ALTER TABLE IF NOT EXISTS not supported on all MySQL 8 versions)
+    try {
+      await conn.query(
+        `ALTER TABLE \`devices\` ADD COLUMN \`locked\` TINYINT(1) NOT NULL DEFAULT 0`,
+      );
+    } catch (e) {
+      if (e.code !== "ER_DUP_FIELDNAME") throw e; // ignore "column already exists"
+    }
+
+    // Add lost to verifications overall_status ENUM if upgrading
+    try {
+      await conn.query(
+        `ALTER TABLE \`verifications\` MODIFY COLUMN \`overall_status\` ENUM('pass','fail','partial','lost') NOT NULL DEFAULT 'pass'`,
+      );
+    } catch (e) {
+      if (e.code !== "ER_DUP_FIELDNAME") throw e;
+    }
+
+    // Add file path columns to device_loss_reports if upgrading existing DB
+    for (const col of [
+      `ALTER TABLE \`device_loss_reports\` ADD COLUMN \`incident_report_path\` VARCHAR(500) DEFAULT NULL`,
+      `ALTER TABLE \`device_loss_reports\` ADD COLUMN \`police_ob_path\` VARCHAR(500) DEFAULT NULL`,
+    ]) {
+      try {
+        await conn.query(col);
+      } catch (e) {
+        if (e.code !== "ER_DUP_FIELDNAME") throw e;
+      }
     }
 
     logger.info("Schema bootstrap complete");

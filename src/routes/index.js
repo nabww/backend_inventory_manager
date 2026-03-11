@@ -1,12 +1,35 @@
 const router = require("express").Router();
 const { body, param } = require("express-validator");
 const multer = require("multer");
+const path = require("path");
+const fs = require("fs");
 const C = require("../controllers");
 const { authenticate, isAdmin, isOfficer, validate } = require("../middleware");
 
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 10 * 1024 * 1024 },
+});
+
+// Disk storage for loss report documents (PDFs)
+const DOCS_DIR = path.join(__dirname, "../../uploads/loss-docs");
+if (!fs.existsSync(DOCS_DIR)) fs.mkdirSync(DOCS_DIR, { recursive: true });
+
+const lossDocStorage = multer.diskStorage({
+  destination: (req, file, cb) => cb(null, DOCS_DIR),
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname).toLowerCase();
+    const name = `device-${req.params.id}-${file.fieldname}-${Date.now()}${ext}`;
+    cb(null, name);
+  },
+});
+const uploadLossDocs = multer({
+  storage: lossDocStorage,
+  limits: { fileSize: 10 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype === "application/pdf") return cb(null, true);
+    cb(new Error("Only PDF files are accepted"));
+  },
 });
 
 // ── Auth (public)
@@ -146,9 +169,57 @@ router.post(
   isOfficer,
   param("id").isInt({ min: 1 }),
   body("devicePresent").isBoolean(),
-  body("overallStatus").isIn(["pass", "fail", "partial"]),
+  body("overallStatus").isIn(["pass", "fail", "partial", "lost"]),
   validate,
   C.verifyDevice,
+);
+
+// ── Loss reports
+router.get("/users/escalation-targets", isOfficer, C.getEscalationUsers);
+router.post(
+  "/devices/:id/report-lost",
+  isOfficer,
+  uploadLossDocs.fields([
+    { name: "incidentReport", maxCount: 1 },
+    { name: "policeOb", maxCount: 1 },
+  ]),
+  param("id").isInt({ min: 1 }),
+  body("dateLost").notEmpty().withMessage("Date lost is required"),
+  body("circumstances")
+    .trim()
+    .notEmpty()
+    .withMessage("Circumstances are required"),
+  body("reportedByName")
+    .trim()
+    .notEmpty()
+    .withMessage("Reporter name is required"),
+  validate,
+  C.reportLost,
+);
+
+router.get("/devices/:id/loss-documents/:type", isOfficer, C.getLossDocument);
+
+router.post(
+  "/devices/:id/review-loss",
+  isAdmin,
+  param("id").isInt({ min: 1 }),
+  body("action")
+    .isIn(["acknowledge", "reject", "insure", "escalate"])
+    .withMessage("Invalid action"),
+  validate,
+  C.reviewLossReport,
+);
+
+router.post(
+  "/devices/:id/recover",
+  isAdmin,
+  param("id").isInt({ min: 1 }),
+  body("adminNotes")
+    .trim()
+    .notEmpty()
+    .withMessage("Recovery reason is required"),
+  validate,
+  C.recoverDevice,
 );
 
 // ── Audit log (admin only)

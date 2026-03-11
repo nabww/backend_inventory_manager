@@ -853,3 +853,265 @@
 {"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-09 12:23:29"}
 {"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-09 12:23:30"}
 {"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-09 12:23:30"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 08:22:01"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 08:22:02"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 08:22:02"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-03-11 08:22:53"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-11 08:22:56"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 08:22:57"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 08:22:57"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 08:23:08"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 08:23:08"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-03-11 08:23:08"}
+{"level":"debug","message":"GET /api/facilities?page=2&limit=20&search=","timestamp":"2026-03-11 08:23:12"}
+{"level":"debug","message":"GET /api/facilities?page=3&limit=20&search=","timestamp":"2026-03-11 08:23:15"}
+{"level":"debug","message":"GET /api/facilities?page=4&limit=20&search=","timestamp":"2026-03-11 08:23:19"}
+{"level":"debug","message":"GET /api/facilities?page=5&limit=20&search=","timestamp":"2026-03-11 08:23:22"}
+{"level":"debug","message":"GET /api/facilities?page=6&limit=20&search=","timestamp":"2026-03-11 08:23:26"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 09:00:01"}
+{"level":"error","message":"Bootstrap failed: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF NOT EXISTS `locked` TINYINT(1) NOT NULL DEFAULT 0' at line 1","timestamp":"2026-03-11 09:00:02"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 09:00:03"}
+{"level":"error","message":"Bootstrap failed: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IF NOT EXISTS `locked` TINYINT(1) NOT NULL DEFAULT 0' at line 1","timestamp":"2026-03-11 09:00:03"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 09:02:17"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 09:02:17"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 09:02:17"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 09:09:02"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 09:09:02"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 09:09:02"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 09:09:07"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 09:09:07"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 09:09:07"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 09:09:07"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 09:10:04"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 09:10:04"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 09:10:04"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 09:10:12"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 09:10:12"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 09:10:12"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 09:10:13"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 09:10:13"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 09:10:13"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 09:30:12"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 09:30:12"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 09:30:12"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 09:30:13"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 09:30:13"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 09:30:13"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-11 09:30:37"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 09:30:37"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 09:30:37"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 09:45:15"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 09:45:15"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 09:45:15"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 09:45:15"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 09:45:15"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 09:45:15"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 09:45:15"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 09:45:15"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 09:46:45"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 09:46:45"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-11 09:46:45"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-11 09:46:46"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-11 09:46:46"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 09:46:46"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-11 09:46:46"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 09:46:46"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-11 09:46:46"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 09:47:40"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 09:47:40"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 09:47:47"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 09:47:47"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-11 09:47:48"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 09:47:49"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-11 09:47:49"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-11 09:47:49"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 09:47:49"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-11 09:47:49"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-11 09:47:49"}
+{"level":"debug","message":"POST /api/devices","timestamp":"2026-03-11 09:48:59"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-11 09:48:59"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 09:49:04"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 09:49:04"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 09:49:06"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 09:49:06"}
+{"level":"debug","message":"POST /api/devices/1/verify","timestamp":"2026-03-11 09:49:21"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 09:49:21"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 09:49:28"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 09:49:28"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 09:49:31"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 09:49:31"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 09:49:34"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-11 09:49:34"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 09:49:34"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-11 09:49:34"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 09:49:56"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-11 09:49:56"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-11 09:49:56"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 09:49:56"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-11 09:49:56"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-11 09:49:56"}
+{"level":"debug","message":"POST /api/devices/1/report-lost","timestamp":"2026-03-11 09:50:22"}
+{"level":"warn","message":"Mail not configured — skipping email","timestamp":"2026-03-11 09:50:22"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 09:50:22"}
+{"level":"debug","message":"GET /api/users/escalation-targets","timestamp":"2026-03-11 09:50:29"}
+{"level":"debug","message":"POST /api/devices/1/review-loss","timestamp":"2026-03-11 09:50:44"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 09:50:44"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 09:50:47"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 09:50:47"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 09:50:50"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 09:50:50"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 09:51:01"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 09:51:01"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-11 09:51:01"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:03:52"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:03:52"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 10:03:52"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 10:03:52"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-11 10:03:52"}
+{"level":"debug","message":"GET /main.3eda7a5703cf38d35163.hot-update.json","timestamp":"2026-03-11 10:04:38"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:04:38"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:04:38"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:04:38"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:04:38"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:04:39"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:04:39"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 10:04:39"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 10:04:39"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-11 10:04:39"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-03-11 10:07:33"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-11 10:07:46"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-11 10:16:11"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:16:12"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:16:12"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 10:34:54"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 10:34:54"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 10:34:54"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 10:36:58"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 10:36:58"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 10:36:58"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 10:37:11"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 10:37:11"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 10:37:11"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 10:37:11"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 10:37:11"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 10:37:11"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:38:03"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:38:03"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:38:03"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:38:03"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:38:03"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:38:03"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:38:03"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:38:03"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:40:25"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:40:25"}
+{"level":"debug","message":"POST /api/devices/1/recover","timestamp":"2026-03-11 10:40:36"}
+{"level":"error","message":"Unhandled error Column 'locked' cannot be null","stack":"Error: Column 'locked' cannot be null\n    at PromisePoolConnection.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/connection.js:29:22)\n    at Object.update (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:279:16)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async recoverDevice (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:914:5)","timestamp":"2026-03-11 10:40:36","url":"/api/devices/1/recover"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 10:42:18"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 10:42:18"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 10:42:18"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 10:42:18"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:42:24"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:42:24"}
+{"level":"debug","message":"POST /api/devices/1/recover","timestamp":"2026-03-11 10:42:29"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:42:29"}
+{"level":"debug","message":"POST /api/devices/1/verify","timestamp":"2026-03-11 10:42:39"}
+{"level":"debug","message":"POST /api/devices/1/verify","timestamp":"2026-03-11 10:42:53"}
+{"level":"debug","message":"POST /api/devices/1/verify","timestamp":"2026-03-11 10:42:54"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 10:44:19"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 10:44:19"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 10:44:19"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 10:44:28"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 10:44:28"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 10:44:28"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 10:44:28"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 10:44:29"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 10:44:29"}
+{"level":"debug","message":"POST /api/devices/1/verify","timestamp":"2026-03-11 10:44:36"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:45:41"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:45:41"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:45:41"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:45:41"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:45:41"}
+{"level":"debug","message":"POST /api/devices/1/verify","timestamp":"2026-03-11 10:45:56"}
+{"level":"debug","message":"POST /api/devices/1/report-lost","timestamp":"2026-03-11 10:46:53"}
+{"level":"warn","message":"Mail not configured — skipping email","timestamp":"2026-03-11 10:46:53"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:46:53"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:47:00"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:47:00"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:47:00"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:47:00"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:47:07"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:47:07"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:47:07"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:47:07"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 10:55:19"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 10:55:19"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 10:55:19"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 10:55:21"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 10:55:22"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 10:55:22"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 10:56:08"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 10:56:08"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 10:56:08"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 10:56:32"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 10:56:32"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 10:56:32"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:56:59"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:56:59"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:56:59"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:56:59"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:56:59"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:56:59"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:56:59"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:56:59"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:57:20"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:57:20"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:57:36"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:57:36"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:57:36"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:57:36"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:57:38"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:57:38"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:57:38"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:57:38"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:57:54"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:57:54"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:57:54"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:57:54"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:59:40"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:59:40"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:59:40"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:59:40"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:59:40"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:59:40"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:59:40"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:59:40"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:59:40"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:59:40"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:59:40"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:59:40"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:59:40"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:59:40"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:59:40"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 10:59:40"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:59:58"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:59:58"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:59:58"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 10:59:58"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:59:58"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:59:58"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:59:58"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 10:59:58"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 11:00:07"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 11:00:07"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 11:00:07"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 11:00:13"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 11:00:13"}
+{"level":"debug","message":"GET /api/devices/1/loss-documents/police","timestamp":"2026-03-11 11:00:15"}
+{"level":"debug","message":"GET /api/devices/1/loss-documents/police","timestamp":"2026-03-11 11:00:22"}
+{"level":"debug","message":"GET /api/devices/1/loss-documents/incident","timestamp":"2026-03-11 11:00:25"}
+{"level":"debug","message":"GET /api/users/escalation-targets","timestamp":"2026-03-11 11:00:36"}
+{"level":"debug","message":"POST /api/devices/1/review-loss","timestamp":"2026-03-11 11:01:38"}
+{"level":"warn","message":"Mail not configured — skipping email","timestamp":"2026-03-11 11:01:38"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 11:01:38"}
