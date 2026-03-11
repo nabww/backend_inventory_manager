@@ -1121,3 +1121,10 @@
 {"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 11:20:59"}
 {"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 11:20:59"}
 {"level":"error","message":"SMTP connection failed: Invalid login: 535 5.7.3 Authentication unsuccessful [JNAP275CA0070.ZAFP275.PROD.OUTLOOK.COM 2026-03-11T08:20:51.114Z 08DE7F0AF1ADCB5C]","timestamp":"2026-03-11 11:21:06"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 11:23:34"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 11:23:34"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 11:23:34"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 11:23:35"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 11:23:35"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 11:23:35"}
+{"level":"error","message":"SMTP connection failed: Invalid login: 535 5.7.3 Authentication unsuccessful [JN3P275CA0093.ZAFP275.PROD.OUTLOOK.COM 2026-03-11T08:23:49.976Z 08DE7EF58E355FFE]","timestamp":"2026-03-11 11:23:41"}
