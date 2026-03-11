@@ -130,6 +130,7 @@ const create = async (fields, createdBy) => {
         `INSERT INTO sim_cards (sim_serial, phone_number, pin, puk, network)
          VALUES (?, ?, ?, ?, ?)
          ON DUPLICATE KEY UPDATE
+           sim_serial   = sim_serial,
            phone_number = COALESCE(VALUES(phone_number), phone_number),
            pin          = COALESCE(VALUES(pin),          pin),
            puk          = COALESCE(VALUES(puk),          puk),
@@ -142,15 +143,13 @@ const create = async (fields, createdBy) => {
           fields.network || null,
         ],
       );
-      // insertId is 0 on duplicate key update — fetch the existing record's id
       simCardId =
         sr.insertId ||
         (await (async () => {
-          const lookup = fields.simSerial
-            ? `SELECT id FROM sim_cards WHERE sim_serial = ? LIMIT 1`
-            : `SELECT id FROM sim_cards WHERE phone_number = ? LIMIT 1`;
-          const val = fields.simSerial || fields.phoneNumber;
-          const [[existing]] = await conn.query(lookup, [val]);
+          const [[existing]] = await conn.query(
+            `SELECT id FROM sim_cards WHERE phone_number = ? LIMIT 1`,
+            [fields.phoneNumber],
+          );
           return existing?.id || null;
         })());
     }
@@ -371,8 +370,16 @@ const getDashboardStats = async () => {
       SUM(d.has_sim = 0)                      AS wifi_only,
       SUM(d.cover_condition != 'good')        AS cover_issues,
       SUM(d.status = 'lost')                  AS lost_devices,
-      SUM(d.status = 'under_repair')          AS under_repair
+      SUM(d.status = 'under_repair')          AS under_repair,
+      (SELECT COUNT(DISTINCT device_id) FROM verifications
+       WHERE YEAR(verified_at) = YEAR(CURDATE()))
+                                              AS verified_this_year
     FROM devices d`);
+
+  const [[verifiedCount]] = await db.query(`
+    SELECT COUNT(DISTINCT device_id) AS verified_this_year
+    FROM verifications
+    WHERE YEAR(verified_at) = YEAR(CURDATE())`);
 
   const [unverified] = await db.query(`
     SELECT d.id, d.serial_number, d.model, f.name AS facility, f.mfl_code
@@ -383,8 +390,7 @@ const getDashboardStats = async () => {
       WHERE YEAR(verified_at) = YEAR(CURDATE())
     )
     AND d.status = 'active'
-    ORDER BY d.created_at ASC
-    LIMIT 5`);
+    ORDER BY d.created_at ASC`);
 
   const [recentVerifications] = await db.query(`
     SELECT v.*, d.serial_number, d.model, f.name AS facility, u.full_name AS verified_by_name
@@ -396,6 +402,7 @@ const getDashboardStats = async () => {
 
   return {
     ...stats,
+    verified_this_year: verifiedCount.verified_this_year,
     unverified_this_year: unverified,
     recent_verifications: recentVerifications,
   };
