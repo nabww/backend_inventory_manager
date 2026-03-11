@@ -30,7 +30,16 @@ const appUrl = () => process.env.CORS_ORIGIN || "https://your-app.vercel.app";
 const header = `
   <tr>
     <td style="background:linear-gradient(135deg,#7c3aed,#a78bfa);padding:28px 36px;text-align:center;">
-      <div style="font-size:26px;margin-bottom:6px;">💊</div>
+      <div style="margin-bottom:8px;">
+        <svg width="48" height="48" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;">
+          <rect width="40" height="40" rx="10" fill="rgba(255,255,255,0.15)"/>
+          <rect x="7" y="10" width="26" height="18" rx="3" fill="white" fill-opacity="0.15"/>
+          <rect x="9" y="12" width="22" height="14" rx="2" fill="white" fill-opacity="0.9"/>
+          <polyline points="11,19 14,19 16,15 18,23 20,17 22,21 24,19 29,19"
+            stroke="#7c3aed" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M17 31 Q20 34 23 31" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none" fill-opacity="0.7"/>
+        </svg>
+      </div>
       <h1 style="margin:0;color:#fff;font-size:18px;font-weight:700;">EMR Device Inventory</h1>
       <p style="margin:4px 0 0;color:rgba(255,255,255,.8);font-size:12px;">Device Management System</p>
     </td>

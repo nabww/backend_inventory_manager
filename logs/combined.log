@@ -1128,3 +1128,42 @@
 {"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 11:23:35"}
 {"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 11:23:35"}
 {"level":"error","message":"SMTP connection failed: Invalid login: 535 5.7.3 Authentication unsuccessful [JN3P275CA0093.ZAFP275.PROD.OUTLOOK.COM 2026-03-11T08:23:49.976Z 08DE7EF58E355FFE]","timestamp":"2026-03-11 11:23:41"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 11:36:12"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 11:36:12"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 11:36:12"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-11 11:36:14"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 11:36:23"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 11:36:23"}
+{"level":"debug","message":"GET /api/users/escalation-targets","timestamp":"2026-03-11 11:36:25"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-11 11:36:29"}
+{"level":"debug","message":"POST /api/auth/register","timestamp":"2026-03-11 11:36:55"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-11 11:36:56"}
+{"level":"info","message":"Welcome email sent to nabel.wambulwa@lvcthealth.org","timestamp":"2026-03-11 11:36:59"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 11:37:02"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 11:37:02"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-11 11:37:02"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 11:37:04"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-11 11:37:04"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-11 11:37:04"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-11 11:37:04"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-11 11:37:04"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-11 11:37:04"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-03-11 11:37:10"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-03-11 11:37:10"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 11:37:11"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 11:37:11"}
+{"level":"debug","message":"GET /api/users/escalation-targets","timestamp":"2026-03-11 11:37:13"}
+{"level":"debug","message":"POST /api/devices/1/review-loss","timestamp":"2026-03-11 11:37:19"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 11:37:19"}
+{"level":"info","message":"Escalation alert sent for device 1","timestamp":"2026-03-11 11:37:22"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 11:40:35"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 11:40:35"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 11:40:35"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 11:40:36"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 11:40:36"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 11:40:36"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-11 11:40:37"}
+{"level":"debug","message":"GET /api/users/escalation-targets","timestamp":"2026-03-11 11:40:39"}
+{"level":"debug","message":"POST /api/devices/1/review-loss","timestamp":"2026-03-11 11:40:43"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 11:40:43"}
+{"level":"info","message":"Escalation alert sent for device 1","timestamp":"2026-03-11 11:40:46"}
