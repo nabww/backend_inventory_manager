@@ -9,6 +9,14 @@ const transporter = nodemailer.createTransport({
   tls: { ciphers: "SSLv3", rejectUnauthorized: false },
 });
 
+// Verify SMTP connection on startup
+if (process.env.MAIL_USER && process.env.MAIL_PASS) {
+  transporter.verify((err) => {
+    if (err) logger.error(`SMTP connection failed: ${err.message}`);
+    else logger.info(`SMTP ready — ${process.env.MAIL_USER}`);
+  });
+}
+
 const canSend = () => {
   if (!process.env.MAIL_USER || !process.env.MAIL_PASS) {
     logger.warn("Mail not configured — skipping email");

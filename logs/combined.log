@@ -1115,3 +1115,9 @@
 {"level":"debug","message":"POST /api/devices/1/review-loss","timestamp":"2026-03-11 11:01:38"}
 {"level":"warn","message":"Mail not configured — skipping email","timestamp":"2026-03-11 11:01:38"}
 {"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 11:01:38"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 11:07:51"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 11:07:51"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 11:20:59"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 11:20:59"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 11:20:59"}
+{"level":"error","message":"SMTP connection failed: Invalid login: 535 5.7.3 Authentication unsuccessful [JNAP275CA0070.ZAFP275.PROD.OUTLOOK.COM 2026-03-11T08:20:51.114Z 08DE7F0AF1ADCB5C]","timestamp":"2026-03-11 11:21:06"}
