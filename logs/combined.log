@@ -1241,3 +1241,17 @@
 {"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-11 16:17:51"}
 {"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 16:17:53"}
 {"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 16:17:53"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 16:18:12"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-11 16:18:12"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 16:18:12"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 16:18:12"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 16:26:25"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 16:26:25"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-03-11 16:26:29"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-03-11 16:26:29"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 16:26:32"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-11 16:26:32"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-11 16:26:52"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-11 16:26:52"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-11 16:26:52"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-11 16:26:54"}

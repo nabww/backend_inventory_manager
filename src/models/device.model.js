@@ -394,7 +394,8 @@ const getDashboardStats = async () => {
       WHERE YEAR(verified_at) = YEAR(CURDATE())
     )
     AND d.status = 'active'
-    ORDER BY d.created_at ASC`);
+    ORDER BY d.created_at ASC
+    LIMIT 5`);
 
   const [recentVerifications] = await db.query(`
     SELECT v.*, d.serial_number, d.model, f.name AS facility, u.full_name AS verified_by_name
@@ -407,6 +408,11 @@ const getDashboardStats = async () => {
   return {
     ...stats,
     verified_this_year: verifiedCount.verified_this_year,
+    unverified_count: Math.max(
+      0,
+      (parseInt(stats.active_devices) || 0) -
+        (parseInt(verifiedCount.verified_this_year) || 0),
+    ),
     unverified_this_year: unverified,
     recent_verifications: recentVerifications,
   };
