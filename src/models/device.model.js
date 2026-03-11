@@ -371,15 +371,19 @@ const getDashboardStats = async () => {
       SUM(d.cover_condition != 'good')        AS cover_issues,
       SUM(d.status = 'lost')                  AS lost_devices,
       SUM(d.status = 'under_repair')          AS under_repair,
-      (SELECT COUNT(DISTINCT device_id) FROM verifications
-       WHERE YEAR(verified_at) = YEAR(CURDATE()))
+      (SELECT COUNT(DISTINCT v.device_id) FROM verifications v
+       JOIN devices dv ON dv.id = v.device_id
+       WHERE YEAR(v.verified_at) = YEAR(CURDATE())
+       AND dv.status = 'active')
                                               AS verified_this_year
     FROM devices d`);
 
   const [[verifiedCount]] = await db.query(`
-    SELECT COUNT(DISTINCT device_id) AS verified_this_year
-    FROM verifications
-    WHERE YEAR(verified_at) = YEAR(CURDATE())`);
+    SELECT COUNT(DISTINCT v.device_id) AS verified_this_year
+    FROM verifications v
+    JOIN devices dv ON dv.id = v.device_id
+    WHERE YEAR(v.verified_at) = YEAR(CURDATE())
+    AND dv.status = 'active'`);
 
   const [unverified] = await db.query(`
     SELECT d.id, d.serial_number, d.model, f.name AS facility, f.mfl_code
