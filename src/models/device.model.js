@@ -127,7 +127,13 @@ const create = async (fields, createdBy) => {
 
     if (fields.hasSim && (fields.simSerial || fields.phoneNumber)) {
       const [sr] = await conn.query(
-        `INSERT INTO sim_cards (sim_serial, phone_number, pin, puk, network) VALUES (?, ?, ?, ?, ?)`,
+        `INSERT INTO sim_cards (sim_serial, phone_number, pin, puk, network)
+         VALUES (?, ?, ?, ?, ?)
+         ON DUPLICATE KEY UPDATE
+           phone_number = COALESCE(VALUES(phone_number), phone_number),
+           pin          = COALESCE(VALUES(pin),          pin),
+           puk          = COALESCE(VALUES(puk),          puk),
+           network      = COALESCE(VALUES(network),      network)`,
         [
           fields.simSerial || null,
           fields.phoneNumber || null,
@@ -136,7 +142,17 @@ const create = async (fields, createdBy) => {
           fields.network || null,
         ],
       );
-      simCardId = sr.insertId;
+      // insertId is 0 on duplicate key update — fetch the existing record's id
+      simCardId =
+        sr.insertId ||
+        (await (async () => {
+          const lookup = fields.simSerial
+            ? `SELECT id FROM sim_cards WHERE sim_serial = ? LIMIT 1`
+            : `SELECT id FROM sim_cards WHERE phone_number = ? LIMIT 1`;
+          const val = fields.simSerial || fields.phoneNumber;
+          const [[existing]] = await conn.query(lookup, [val]);
+          return existing?.id || null;
+        })());
     }
 
     const [dr] = await conn.query(
