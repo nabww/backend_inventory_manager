@@ -25,7 +25,7 @@ const canSend = () => {
   return true;
 };
 
-const appUrl = () => process.env.CORS_ORIGIN || "https://your-app.vercel.app";
+const appUrl = () => process.env.CORS_ORIGIN || "http://192.168.1.200:3000";
 
 const header = `
   <tr>
