@@ -106,6 +106,7 @@ router.get("/dashboard", C.dashboard);
 // ── Devices
 router.get("/devices", C.listDevices);
 router.get("/devices/export", C.exportDevices);
+router.get("/devices/unverified", C.listUnverified);
 router.get(
   "/devices/:id",
   param("id").isInt({ min: 1 }),
@@ -164,7 +165,6 @@ router.delete(
 
 // ── Verifications
 router.get("/verifications", C.listVerifications);
-router.get("/devices/unverified", C.listUnverified);
 router.post(
   "/devices/:id/verify",
   isOfficer,
