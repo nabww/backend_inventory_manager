@@ -680,7 +680,7 @@ const verifyDevice = async (req, res, next) => {
 const listVerifications = async (req, res, next) => {
   try {
     const { page = 1, limit = 20, year = "" } = req.query;
-    const result = await Verify.listAll({ page, limit, year });
+    const result = await Verify.listAll({ page, limit, year, user: req.user });
     return R.paginated(
       res,
       result.rows,
@@ -705,15 +705,15 @@ const listUnverified = async (req, res, next) => {
     const zoneParams = [];
     const user = req.user;
     if (user.role !== "admin" && user.zone_type !== "all") {
-      if (user.zone_type === "facility" && user.zone_facility_id) {
-        zoneConds.push("d.facility_id = ?");
-        zoneParams.push(user.zone_facility_id);
-      }
-      if (user.zone_type === "sub_county" && user.zone_sub_county_id) {
+      if (user.zone_type === "facility") {
+        zoneConds.push(
+          "d.facility_id IN (SELECT facility_id FROM user_facilities WHERE user_id = ?)",
+        );
+        zoneParams.push(user.id);
+      } else if (user.zone_type === "sub_county" && user.zone_sub_county_id) {
         zoneConds.push("f.sub_county_id = ?");
         zoneParams.push(user.zone_sub_county_id);
-      }
-      if (user.zone_type === "county" && user.zone_county_id) {
+      } else if (user.zone_type === "county" && user.zone_county_id) {
         zoneConds.push("f.county_id = ?");
         zoneParams.push(user.zone_county_id);
       }
