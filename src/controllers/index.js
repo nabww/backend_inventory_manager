@@ -61,7 +61,16 @@ const me = async (req, res, next) => {
 
 const register = async (req, res, next) => {
   try {
-    const { fullName, email, password, roleId } = req.body;
+    const {
+      fullName,
+      email,
+      password,
+      roleId,
+      zoneType,
+      zoneCountyId,
+      zoneSubCountyId,
+      facilityIds,
+    } = req.body;
     if (await User.findByEmail(email))
       return R.badRequest(res, "Email already registered");
     const passwordHash = await bcrypt.hash(password, 12);
@@ -70,16 +79,19 @@ const register = async (req, res, next) => {
       fullName,
       email,
       passwordHash,
+      zoneType,
+      zoneCountyId,
+      zoneSubCountyId,
+      facilityIds: facilityIds || [],
     });
     await Audit.write({
       userId: req.user.id,
       action: "CREATE",
       entityType: "user",
       entityId: id,
-      newValues: { fullName, email, roleId },
+      newValues: { fullName, email, roleId, zoneType },
       req,
     });
-    // Send welcome email — non-blocking, failure won't break account creation
     const roleMap = { 1: "viewer", 2: "field_officer", 3: "admin" };
     sendWelcomeEmail({ fullName, email, password, role: roleMap[roleId || 1] });
     return R.created(res, { id }, "User created");
@@ -215,7 +227,13 @@ const getFacility = async (req, res, next) => {
 const listFacilities = async (req, res, next) => {
   try {
     const { search = "", countyId = "", page = 1, limit = 50 } = req.query;
-    const result = await Ref.getFacilities({ search, countyId, page, limit });
+    const result = await Ref.getFacilities({
+      search,
+      countyId,
+      page,
+      limit,
+      user: req.user,
+    });
     return R.paginated(
       res,
       result.rows,
@@ -319,7 +337,7 @@ const importFacilities = async (req, res, next) => {
 // ================================================================
 const dashboard = async (req, res, next) => {
   try {
-    return R.ok(res, await Device.getDashboardStats());
+    return R.ok(res, await Device.getDashboardStats(req.user));
   } catch (e) {
     next(e);
   }
@@ -344,6 +362,7 @@ const listDevices = async (req, res, next) => {
       facilityId,
       affiliationId,
       countyId,
+      user: req.user,
     });
     return R.paginated(
       res,
@@ -674,6 +693,66 @@ const listVerifications = async (req, res, next) => {
   }
 };
 
+const listUnverified = async (req, res, next) => {
+  try {
+    const { page = 1, limit = 20 } = req.query;
+    const p = parseInt(page) || 1;
+    const lim = parseInt(limit) || 20;
+    const off = (p - 1) * lim;
+    const db = require("../config/db");
+
+    const zoneConds = ["d.status = 'active'"];
+    const zoneParams = [];
+    const user = req.user;
+    if (user.role !== "admin" && user.zone_type !== "all") {
+      if (user.zone_type === "facility" && user.zone_facility_id) {
+        zoneConds.push("d.facility_id = ?");
+        zoneParams.push(user.zone_facility_id);
+      }
+      if (user.zone_type === "sub_county" && user.zone_sub_county_id) {
+        zoneConds.push("f.sub_county_id = ?");
+        zoneParams.push(user.zone_sub_county_id);
+      }
+      if (user.zone_type === "county" && user.zone_county_id) {
+        zoneConds.push("f.county_id = ?");
+        zoneParams.push(user.zone_county_id);
+      }
+    }
+
+    const where = `WHERE ${zoneConds.join(" AND ")}
+      AND d.id NOT IN (
+        SELECT DISTINCT device_id FROM verifications WHERE YEAR(verified_at) = YEAR(CURDATE())
+      )`;
+
+    const [rows] = await db.query(
+      `
+      SELECT d.id, d.serial_number, d.model, d.status,
+             f.name AS facility, f.mfl_code,
+             sc.name AS sub_county, c.name AS county
+      FROM devices d
+      JOIN facilities f    ON f.id = d.facility_id
+      JOIN counties c      ON c.id = f.county_id
+      LEFT JOIN sub_counties sc ON sc.id = f.sub_county_id
+      ${where}
+      ORDER BY f.name ASC, d.serial_number ASC
+      LIMIT ${lim} OFFSET ${off}`,
+      zoneParams,
+    );
+
+    const [[{ total }]] = await db.query(
+      `
+      SELECT COUNT(*) AS total FROM devices d
+      JOIN facilities f ON f.id = d.facility_id
+      ${where}`,
+      zoneParams,
+    );
+
+    return R.paginated(res, rows, total, p, lim);
+  } catch (e) {
+    next(e);
+  }
+};
+
 const listAuditLogs = async (req, res, next) => {
   try {
     const { page = 1, limit = 20, search = "", action = "" } = req.query;
@@ -942,6 +1021,122 @@ const recoverDevice = async (req, res, next) => {
   }
 };
 
+// ================================================================
+// SIM CARDS
+// ================================================================
+const listSims = async (req, res, next) => {
+  try {
+    const { page = 1, limit = 20, search = "" } = req.query;
+    const result = await Device.listSims({
+      page,
+      limit,
+      search,
+      user: req.user,
+    });
+    return R.paginated(
+      res,
+      result.rows,
+      result.total,
+      parseInt(page) || 1,
+      parseInt(limit) || 20,
+    );
+  } catch (e) {
+    next(e);
+  }
+};
+
+const updateSim = async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.id);
+    await Device.updateSim(id, req.body);
+    await Audit.write({
+      userId: req.user.id,
+      action: "UPDATE",
+      entityType: "sim_card",
+      entityId: id,
+      newValues: req.body,
+      req,
+    });
+    return R.ok(res, null, "SIM updated");
+  } catch (e) {
+    next(e);
+  }
+};
+
+const linkSim = async (req, res, next) => {
+  try {
+    const simId = parseInt(req.params.id);
+    const deviceId = parseInt(req.body.deviceId);
+    if (!deviceId) return R.badRequest(res, "deviceId is required");
+    await Device.linkSim(simId, deviceId);
+    await Audit.write({
+      userId: req.user.id,
+      action: "UPDATE",
+      entityType: "sim_card",
+      entityId: simId,
+      newValues: { linkedTo: deviceId },
+      req,
+    });
+    return R.ok(res, null, "SIM linked to device");
+  } catch (e) {
+    next(e);
+  }
+};
+
+const unlinkSim = async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.id);
+    await Device.unlinkSim(id);
+    await Audit.write({
+      userId: req.user.id,
+      action: "UPDATE",
+      entityType: "sim_card",
+      entityId: id,
+      newValues: { unlinked: true },
+      req,
+    });
+    return R.ok(res, null, "SIM unlinked");
+  } catch (e) {
+    next(e);
+  }
+};
+
+const exportSims = async (req, res, next) => {
+  try {
+    const rows = await Device.exportSims(req.user);
+    const wb = xlsx.utils.book_new();
+    const data = rows.map((r) => ({
+      "SIM Serial": r.sim_serial || "",
+      "Phone Number": r.phone_number || "",
+      Network: r.network || "",
+      "Device Serial": r.device_serial || "Unlinked",
+      Model: r.model || "",
+      Facility: r.facility_name || "",
+      "MFL Code": r.mfl_code || "",
+      "Created At": r.created_at
+        ? new Date(r.created_at).toISOString().split("T")[0]
+        : "",
+    }));
+    xlsx.utils.book_append_sheet(
+      wb,
+      xlsx.utils.json_to_sheet(data),
+      "SIM Cards",
+    );
+    const buf = xlsx.write(wb, { type: "buffer", bookType: "xlsx" });
+    res.setHeader(
+      "Content-Disposition",
+      'attachment; filename="sim_cards.xlsx"',
+    );
+    res.setHeader(
+      "Content-Type",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    );
+    res.send(buf);
+  } catch (e) {
+    next(e);
+  }
+};
+
 module.exports = {
   login,
   me,
@@ -971,10 +1166,16 @@ module.exports = {
   importDevices,
   verifyDevice,
   listVerifications,
+  listUnverified,
   listAuditLogs,
   reportLost,
   reviewLossReport,
   recoverDevice,
   getEscalationUsers,
   getLossDocument,
+  listSims,
+  updateSim,
+  linkSim,
+  unlinkSim,
+  exportSims,
 };

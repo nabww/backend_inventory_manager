@@ -164,6 +164,7 @@ router.delete(
 
 // ── Verifications
 router.get("/verifications", C.listVerifications);
+router.get("/devices/unverified", C.listUnverified);
 router.post(
   "/devices/:id/verify",
   isOfficer,
@@ -224,5 +225,31 @@ router.post(
 
 // ── Audit log (admin only)
 router.get("/audit-logs", isAdmin, C.listAuditLogs);
+
+// ── SIM Cards
+router.get("/sims", isAdmin, C.listSims);
+router.get("/sims/export", isAdmin, C.exportSims);
+router.patch(
+  "/sims/:id",
+  isAdmin,
+  param("id").isInt({ min: 1 }),
+  validate,
+  C.updateSim,
+);
+router.post(
+  "/sims/:id/link",
+  isAdmin,
+  param("id").isInt({ min: 1 }),
+  body("deviceId").isInt({ min: 1 }),
+  validate,
+  C.linkSim,
+);
+router.post(
+  "/sims/:id/unlink",
+  isAdmin,
+  param("id").isInt({ min: 1 }),
+  validate,
+  C.unlinkSim,
+);
 
 module.exports = router;

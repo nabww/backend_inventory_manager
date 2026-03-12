@@ -29,15 +29,19 @@ const STATEMENTS = [
 
   /* ── users ───────────────────────────────────────────────────── */
   `CREATE TABLE IF NOT EXISTS \`users\` (
-    \`id\`            INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    \`role_id\`       TINYINT UNSIGNED NOT NULL DEFAULT 1,
-    \`full_name\`     VARCHAR(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-    \`email\`         VARCHAR(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-    \`password_hash\` VARCHAR(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-    \`is_active\`     TINYINT(1) NOT NULL DEFAULT 1,
-    \`last_login\`    DATETIME DEFAULT NULL,
-    \`created_at\`    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    \`updated_at\`    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    \`id\`                  INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    \`role_id\`             TINYINT UNSIGNED NOT NULL DEFAULT 1,
+    \`full_name\`           VARCHAR(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+    \`email\`               VARCHAR(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+    \`password_hash\`       VARCHAR(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+    \`is_active\`           TINYINT(1) NOT NULL DEFAULT 1,
+    \`last_login\`          DATETIME DEFAULT NULL,
+    \`zone_type\`           ENUM('all','county','sub_county','facility') NOT NULL DEFAULT 'all',
+    \`zone_county_id\`      SMALLINT UNSIGNED DEFAULT NULL,
+    \`zone_sub_county_id\`  INT UNSIGNED DEFAULT NULL,
+    \`zone_facility_id\`    INT UNSIGNED DEFAULT NULL,
+    \`created_at\`          DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    \`updated_at\`          DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (\`id\`),
     UNIQUE KEY \`uq_user_email\` (\`email\`),
     KEY \`idx_users_role\` (\`role_id\`),
@@ -124,7 +128,6 @@ const STATEMENTS = [
     \`created_at\`   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     \`updated_at\`   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (\`id\`),
-    UNIQUE KEY \`uq_sim_serial\` (\`sim_serial\`),
     UNIQUE KEY \`uq_sim_phone\`  (\`phone_number\`)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
 
@@ -410,6 +413,16 @@ const STATEMENTS = [
     CONSTRAINT \`fk_verification_device\` FOREIGN KEY (\`device_id\`)  REFERENCES \`devices\`  (\`id\`)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
 
+  /* ── user_facilities (many-to-many zone assignment) ─────────── */
+  `CREATE TABLE IF NOT EXISTS \`user_facilities\` (
+    \`user_id\`     INT UNSIGNED NOT NULL,
+    \`facility_id\` INT UNSIGNED NOT NULL,
+    \`created_at\`  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (\`user_id\`, \`facility_id\`),
+    CONSTRAINT \`fk_uf_user\`     FOREIGN KEY (\`user_id\`)     REFERENCES \`users\`      (\`id\`) ON DELETE CASCADE,
+    CONSTRAINT \`fk_uf_facility\` FOREIGN KEY (\`facility_id\`) REFERENCES \`facilities\` (\`id\`) ON DELETE CASCADE
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+
   /* ── audit_logs ──────────────────────────────────────────────── */
   `CREATE TABLE IF NOT EXISTS \`audit_logs\` (
     \`id\`          BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -507,6 +520,41 @@ const run = async () => {
       } catch (e) {
         if (e.code !== "ER_DUP_FIELDNAME") throw e;
       }
+    }
+
+    // Add user zone columns if upgrading existing DB
+    for (const col of [
+      `ALTER TABLE \`users\` ADD COLUMN \`zone_type\` ENUM('all','county','sub_county','facility') NOT NULL DEFAULT 'all'`,
+      `ALTER TABLE \`users\` ADD COLUMN \`zone_county_id\` SMALLINT UNSIGNED DEFAULT NULL`,
+      `ALTER TABLE \`users\` ADD COLUMN \`zone_sub_county_id\` INT UNSIGNED DEFAULT NULL`,
+      `ALTER TABLE \`users\` ADD COLUMN \`zone_facility_id\` INT UNSIGNED DEFAULT NULL`,
+    ]) {
+      try {
+        await conn.query(col);
+      } catch (e) {
+        if (e.code !== "ER_DUP_FIELDNAME") throw e;
+      }
+    }
+
+    // Create user_facilities junction table if not exists (for multi-facility zoning)
+    await conn.query(`
+      CREATE TABLE IF NOT EXISTS \`user_facilities\` (
+        \`user_id\`     INT UNSIGNED NOT NULL,
+        \`facility_id\` INT UNSIGNED NOT NULL,
+        \`created_at\`  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (\`user_id\`, \`facility_id\`),
+        CONSTRAINT \`fk_uf_user\`     FOREIGN KEY (\`user_id\`)     REFERENCES \`users\`      (\`id\`) ON DELETE CASCADE,
+        CONSTRAINT \`fk_uf_facility\` FOREIGN KEY (\`facility_id\`) REFERENCES \`facilities\` (\`id\`) ON DELETE CASCADE
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
+
+    // Drop unique key on sim_serial if it exists (SIM serials are not unique per device)
+    try {
+      await conn.query(
+        `ALTER TABLE \`sim_cards\` DROP INDEX \`uq_sim_serial\``,
+      );
+    } catch (e) {
+      if (e.code !== "ER_CANT_DROP_FIELD_OR_KEY") throw e;
     }
 
     logger.info("Schema bootstrap complete");

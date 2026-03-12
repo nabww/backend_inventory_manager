@@ -45,6 +45,23 @@ const decryptSim = (row) => {
   };
 };
 
+const applyZone = (user, conds, params) => {
+  if (!user || user.role === "admin" || user.zone_type === "all") return;
+  if (user.zone_type === "facility") {
+    // Multi-facility: IN subquery on user_facilities junction table
+    conds.push(
+      "d.facility_id IN (SELECT facility_id FROM user_facilities WHERE user_id = ?)",
+    );
+    params.push(parseInt(user.id));
+  } else if (user.zone_type === "sub_county" && user.zone_sub_county_id) {
+    conds.push("f.sub_county_id = ?");
+    params.push(parseInt(user.zone_sub_county_id));
+  } else if (user.zone_type === "county" && user.zone_county_id) {
+    conds.push("f.county_id = ?");
+    params.push(parseInt(user.zone_county_id));
+  }
+};
+
 const list = async ({
   page = 1,
   limit = 20,
@@ -53,12 +70,15 @@ const list = async ({
   facilityId = "",
   affiliationId = "",
   countyId = "",
+  user = null,
 }) => {
   const p = parseInt(page) || 1;
   const lim = parseInt(limit) || 20;
   const off = (p - 1) * lim;
   const conds = ["1=1"];
   const params = [];
+
+  applyZone(user, conds, params);
 
   if (search) {
     conds.push(
@@ -361,8 +381,15 @@ const getTransfers = async (deviceId) => {
   return rows;
 };
 
-const getDashboardStats = async () => {
-  const [[stats]] = await db.query(`
+const getDashboardStats = async (user = null) => {
+  // Build zone WHERE clause for facility-level filtering
+  const zoneConds = ["1=1"];
+  const zoneParams = [];
+  applyZone(user, zoneConds, zoneParams);
+  const zoneWhere = zoneConds.join(" AND ");
+
+  const [[stats]] = await db.query(
+    `
     SELECT
       COUNT(*)                                AS total_devices,
       SUM(d.status = 'active')                AS active_devices,
@@ -373,19 +400,30 @@ const getDashboardStats = async () => {
       SUM(d.status = 'under_repair')          AS under_repair,
       (SELECT COUNT(DISTINCT v.device_id) FROM verifications v
        JOIN devices dv ON dv.id = v.device_id
+       JOIN facilities fv ON fv.id = dv.facility_id
        WHERE YEAR(v.verified_at) = YEAR(CURDATE())
-       AND dv.status = 'active')
+       AND dv.status = 'active' AND ${zoneWhere.replace(/d\./g, "dv.").replace(/f\./g, "fv.")})
                                               AS verified_this_year
-    FROM devices d`);
+    FROM devices d
+    JOIN facilities f ON f.id = d.facility_id
+    WHERE ${zoneWhere}`,
+    [...zoneParams, ...zoneParams],
+  );
 
-  const [[verifiedCount]] = await db.query(`
+  const [[verifiedCount]] = await db.query(
+    `
     SELECT COUNT(DISTINCT v.device_id) AS verified_this_year
     FROM verifications v
     JOIN devices dv ON dv.id = v.device_id
+    JOIN facilities fv ON fv.id = dv.facility_id
     WHERE YEAR(v.verified_at) = YEAR(CURDATE())
-    AND dv.status = 'active'`);
+    AND dv.status = 'active'
+    AND ${zoneWhere.replace(/d\./g, "dv.").replace(/f\./g, "fv.")}`,
+    zoneParams,
+  );
 
-  const [unverified] = await db.query(`
+  const [unverified] = await db.query(
+    `
     SELECT d.id, d.serial_number, d.model, f.name AS facility, f.mfl_code
     FROM devices d
     JOIN facilities f ON f.id = d.facility_id
@@ -394,16 +432,23 @@ const getDashboardStats = async () => {
       WHERE YEAR(verified_at) = YEAR(CURDATE())
     )
     AND d.status = 'active'
+    AND ${zoneWhere}
     ORDER BY d.created_at ASC
-    LIMIT 5`);
+    LIMIT 5`,
+    zoneParams,
+  );
 
-  const [recentVerifications] = await db.query(`
+  const [recentVerifications] = await db.query(
+    `
     SELECT v.*, d.serial_number, d.model, f.name AS facility, u.full_name AS verified_by_name
     FROM verifications v
     JOIN devices d ON d.id = v.device_id
     JOIN facilities f ON f.id = d.facility_id
     JOIN users u ON u.id = v.verified_by
-    ORDER BY v.verified_at DESC LIMIT 5`);
+    WHERE ${zoneWhere}
+    ORDER BY v.verified_at DESC LIMIT 5`,
+    zoneParams,
+  );
 
   return {
     ...stats,
@@ -418,6 +463,138 @@ const getDashboardStats = async () => {
   };
 };
 
+// ── SIM Cards ─────────────────────────────────────────────────────────────────
+const listSims = async ({ page = 1, limit = 20, search = "", user = null }) => {
+  const p = parseInt(page) || 1;
+  const lim = parseInt(limit) || 20;
+  const off = (p - 1) * lim;
+
+  const zoneConds = ["1=1"];
+  const zoneParams = [];
+  applyZone(user, zoneConds, zoneParams);
+
+  const searchCond = search
+    ? `AND (s.sim_serial LIKE ? OR s.phone_number LIKE ? OR s.network LIKE ?)`
+    : "";
+  const searchParams = search
+    ? [`%${search}%`, `%${search}%`, `%${search}%`]
+    : [];
+
+  // Deduplicate: pick the sim with the lowest id per phone_number, exclude nulls
+  const [rows] = await db.query(
+    `
+    SELECT s.id, s.sim_serial, s.phone_number, s.network, s.created_at,
+           d.id AS device_id, d.serial_number AS device_serial, d.model,
+           f.id AS facility_id, f.name AS facility_name, f.mfl_code
+    FROM sim_cards s
+    LEFT JOIN devices d ON d.sim_card_id = s.id AND d.status != 'decommissioned'
+    LEFT JOIN facilities f ON f.id = d.facility_id
+    WHERE s.id IN (
+      SELECT MIN(id) FROM sim_cards
+      WHERE phone_number IS NOT NULL
+      GROUP BY phone_number
+      UNION
+      SELECT id FROM sim_cards WHERE phone_number IS NULL
+    )
+    ${searchCond}
+    AND (f.id IS NULL OR ${zoneConds.join(" AND ")})
+    ORDER BY s.created_at DESC
+    LIMIT ${lim} OFFSET ${off}`,
+    [...searchParams, ...zoneParams],
+  );
+
+  const [[{ total }]] = await db.query(
+    `
+    SELECT COUNT(*) AS total
+    FROM sim_cards s
+    LEFT JOIN devices d ON d.sim_card_id = s.id AND d.status != 'decommissioned'
+    LEFT JOIN facilities f ON f.id = d.facility_id
+    WHERE s.id IN (
+      SELECT MIN(id) FROM sim_cards
+      WHERE phone_number IS NOT NULL
+      GROUP BY phone_number
+      UNION
+      SELECT id FROM sim_cards WHERE phone_number IS NULL
+    )
+    ${searchCond}
+    AND (f.id IS NULL OR ${zoneConds.join(" AND ")})`,
+    [...searchParams, ...zoneParams],
+  );
+
+  return { rows, total };
+};
+
+const updateSim = async (id, { simSerial, phoneNumber, network, pin, puk }) => {
+  const sets = [],
+    vals = [];
+  if (simSerial !== undefined) {
+    sets.push("sim_serial = ?");
+    vals.push(simSerial);
+  }
+  if (phoneNumber !== undefined) {
+    sets.push("phone_number = ?");
+    vals.push(phoneNumber);
+  }
+  if (network !== undefined) {
+    sets.push("network = ?");
+    vals.push(network);
+  }
+  if (pin !== undefined) {
+    sets.push("pin = ?");
+    vals.push(encrypt(pin));
+  }
+  if (puk !== undefined) {
+    sets.push("puk = ?");
+    vals.push(encrypt(puk));
+  }
+  if (!sets.length) return;
+  vals.push(parseInt(id));
+  await db.query(`UPDATE sim_cards SET ${sets.join(", ")} WHERE id = ?`, vals);
+};
+
+const unlinkSim = async (simId) => {
+  await db.query(
+    `UPDATE devices SET sim_card_id = NULL, has_sim = 0 WHERE sim_card_id = ?`,
+    [parseInt(simId)],
+  );
+};
+
+const linkSim = async (simId, deviceId) => {
+  // Unlink from current device if any
+  await db.query(
+    `UPDATE devices SET sim_card_id = NULL, has_sim = 0 WHERE sim_card_id = ?`,
+    [parseInt(simId)],
+  );
+  await db.query(
+    `UPDATE devices SET sim_card_id = ?, has_sim = 1 WHERE id = ?`,
+    [parseInt(simId), parseInt(deviceId)],
+  );
+};
+
+const exportSims = async (user = null) => {
+  const zoneConds = ["1=1"];
+  const zoneParams = [];
+  applyZone(user, zoneConds, zoneParams);
+
+  const [rows] = await db.query(
+    `
+    SELECT s.sim_serial, s.phone_number, s.network, s.created_at,
+           d.serial_number AS device_serial, d.model,
+           f.name AS facility_name, f.mfl_code
+    FROM sim_cards s
+    LEFT JOIN devices d ON d.sim_card_id = s.id
+    LEFT JOIN facilities f ON f.id = d.facility_id
+    WHERE s.id IN (
+      SELECT MIN(id) FROM sim_cards WHERE phone_number IS NOT NULL GROUP BY phone_number
+      UNION SELECT id FROM sim_cards WHERE phone_number IS NULL
+    )
+    AND (f.id IS NULL OR ${zoneConds.join(" AND ")})
+    ORDER BY s.created_at DESC`,
+    zoneParams,
+  );
+  return rows;
+};
+
 module.exports = {
   list,
   getById,
@@ -428,4 +605,9 @@ module.exports = {
   remove,
   getTransfers,
   getDashboardStats,
+  listSims,
+  updateSim,
+  unlinkSim,
+  linkSim,
+  exportSims,
 };

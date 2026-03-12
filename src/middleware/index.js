@@ -1,14 +1,38 @@
 const { verifyToken, R } = require("../utils");
 const { validationResult } = require("express-validator");
 const logger = require("../config/logger");
+const db = require("../config/db");
 
-// ── JWT auth
-const authenticate = (req, res, next) => {
+// ── JWT auth + zone hydration
+const authenticate = async (req, res, next) => {
   try {
     const header = req.headers.authorization;
     if (!header?.startsWith("Bearer "))
       return R.unauth(res, "No token provided");
-    req.user = verifyToken(header.split(" ")[1]);
+    const payload = verifyToken(header.split(" ")[1]);
+
+    // Hydrate zone fields from DB so zone changes take effect immediately
+    const [[user]] = await db.query(
+      `SELECT u.id, u.email, u.zone_type, u.zone_county_id, u.zone_sub_county_id,
+              r.name AS role
+       FROM users u JOIN roles r ON r.id = u.role_id
+       WHERE u.id = ? AND u.is_active = 1 LIMIT 1`,
+      [payload.id],
+    );
+    if (!user) return R.unauth(res, "Account not found or deactivated");
+
+    // For facility-zoned users, attach their facility id list
+    if (user.zone_type === "facility") {
+      const [facs] = await db.query(
+        `SELECT facility_id FROM user_facilities WHERE user_id = ?`,
+        [user.id],
+      );
+      user.zone_facility_ids = facs.map((f) => f.facility_id);
+    } else {
+      user.zone_facility_ids = [];
+    }
+
+    req.user = user;
     next();
   } catch (e) {
     logger.warn("JWT failed", { err: e.message, ip: req.ip });
@@ -30,8 +54,8 @@ const requireRole =
   };
 
 const isAdmin = requireRole("admin");
-const isOfficer = requireRole("field_officer"); // officer + admin
-const isViewer = requireRole("viewer"); // any authenticated user
+const isOfficer = requireRole("field_officer");
+const isViewer = requireRole("viewer");
 
 // ── Validation error handler
 const validate = (req, res, next) => {
