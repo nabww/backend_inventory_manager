@@ -174,6 +174,44 @@ const deleteUser = async (req, res, next) => {
   }
 };
 
+const resendWelcome = async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.id);
+    const user = await User.findById(id);
+    if (!user) return R.notFound(res, "User not found");
+
+    // Generate a new random password
+    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789@#!";
+    const newPassword = Array.from(
+      { length: 10 },
+      () => chars[Math.floor(Math.random() * chars.length)],
+    ).join("");
+
+    const passwordHash = await bcrypt.hash(newPassword, 12);
+    await User.update(id, { passwordHash });
+
+    const roleMap = { 1: "viewer", 2: "field_officer", 3: "admin" };
+    await sendWelcomeEmail({
+      fullName: user.full_name,
+      email: user.email,
+      password: newPassword,
+      role: roleMap[user.role_id] || "viewer",
+    });
+
+    await Audit.write({
+      userId: req.user.id,
+      action: "UPDATE",
+      entityType: "user",
+      entityId: id,
+      newValues: { action: "resend_welcome" },
+      req,
+    });
+    return R.ok(res, null, "Welcome email resent with new password");
+  } catch (e) {
+    next(e);
+  }
+};
+
 // ================================================================
 // REFERENCE DATA
 // ================================================================
@@ -1145,6 +1183,7 @@ module.exports = {
   listUsers,
   updateUser,
   deleteUser,
+  resendWelcome,
   getCounties,
   getSubCounties,
   getAffiliations,

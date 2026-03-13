@@ -67,6 +67,7 @@ router.post(
 router.get("/users", isAdmin, C.listUsers);
 router.patch("/users/:id", isAdmin, C.updateUser);
 router.delete("/users/:id", isAdmin, C.deleteUser);
+router.post("/users/:id/resend-welcome", isAdmin, C.resendWelcome);
 
 // ── Reference data (all authenticated)
 router.get("/counties", C.getCounties);

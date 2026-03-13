@@ -1545,3 +1545,31 @@
 {"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-12 10:13:02"}
 {"level":"debug","message":"GET /api/devices/unverified?page=1&limit=20","timestamp":"2026-03-12 10:13:04"}
 {"level":"debug","message":"GET /api/devices/unverified?page=1&limit=20","timestamp":"2026-03-12 10:13:04"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-13 16:10:06"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-13 16:10:07"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-13 16:10:07"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-03-13 16:10:20"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-03-13 16:10:20"}
+{"level":"debug","message":"GET /api/devices/unverified?page=1&limit=20","timestamp":"2026-03-13 16:10:21"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-13 16:10:24"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-13 16:10:24"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-13 16:10:24"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-13 16:10:26"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-13 16:10:27"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-13 16:11:57"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-13 16:11:57"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-13 16:11:57"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-13 16:14:04"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-13 16:14:04"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-13 16:14:04"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-13 16:14:16"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-13 16:14:16"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-13 16:14:17"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-13 16:14:17"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-13 16:14:26"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-13 16:14:35"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-13 16:14:35"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=admin%40inventory.org","timestamp":"2026-03-13 16:14:35"}
+{"level":"debug","message":"POST /api/auth/register","timestamp":"2026-03-13 16:15:02"}
+{"level":"warn","message":"Mail not configured — skipping email","timestamp":"2026-03-13 16:15:03"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=admin%40inventory.org","timestamp":"2026-03-13 16:15:04"}
