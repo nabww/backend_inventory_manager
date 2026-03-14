@@ -937,24 +937,31 @@ const reviewLossReport = async (req, res, next) => {
     const report = await Loss.getByDevice(deviceId);
     if (!report) return R.notFound(res, "No loss report found for this device");
 
-    const { action, adminNotes, escalateToUserId } = req.body;
+    const { action, adminNotes, escalateToUserIds } = req.body;
     const validActions = ["acknowledge", "reject", "insure", "escalate"];
     if (!validActions.includes(action))
       return R.badRequest(res, "Invalid action");
 
     if (action === "escalate") {
-      if (!escalateToUserId)
-        return R.badRequest(res, "Escalation target user is required");
-      const escalateTo = await User.findById(escalateToUserId);
-      if (!escalateTo)
-        return R.notFound(res, "Escalation target user not found");
+      if (!escalateToUserIds || !escalateToUserIds.length)
+        return R.badRequest(res, "Select at least one user to escalate to");
+      const escalateToUsers = await Promise.all(
+        escalateToUserIds.map((id) => User.findById(id)),
+      );
+      const validTargets = escalateToUsers.filter(Boolean);
+      if (!validTargets.length)
+        return R.notFound(res, "No valid escalation targets found");
       const admins = await User.getByRole("admin");
       const escalatedBy = await User.findById(req.user.id);
+      // Send to each target (deduped against admins list)
+      const allRecipients = [
+        ...validTargets,
+        ...admins.filter((a) => !validTargets.find((t) => t.id === a.id)),
+      ];
       sendEscalationAlert({
         device,
         report,
-        escalateTo,
-        admins,
+        recipients: allRecipients,
         escalatedBy,
       }).catch(() => {});
       await Loss.review(report.id, {
@@ -967,7 +974,7 @@ const reviewLossReport = async (req, res, next) => {
         action: "UPDATE",
         entityType: "device",
         entityId: deviceId,
-        newValues: { lossAction: "escalated", escalateToUserId },
+        newValues: { lossAction: "escalated", escalateToUserIds },
         req,
       });
       return R.ok(res, null, "Report escalated");
