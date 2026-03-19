@@ -253,4 +253,91 @@ router.post(
   C.unlinkSim,
 );
 
+// ── Admin Contacts
+router.get("/admin-contacts", isAdmin, C.listAdminContacts);
+router.get("/admin-contacts/cadres", isAdmin, C.listCadres);
+router.post("/admin-contacts", isAdmin, C.createAdminContact);
+router.patch(
+  "/admin-contacts/:id",
+  isAdmin,
+  param("id").isInt({ min: 1 }),
+  validate,
+  C.updateAdminContact,
+);
+router.delete(
+  "/admin-contacts/:id",
+  isAdmin,
+  param("id").isInt({ min: 1 }),
+  validate,
+  C.deleteAdminContact,
+);
+
+// ── Return Requests
+router.post("/returns", isOfficer, C.createReturn);
+router.get("/returns", isAdmin, C.listReturns);
+router.get(
+  "/returns/:id",
+  authenticate,
+  param("id").isInt({ min: 1 }),
+  validate,
+  C.getReturn,
+);
+router.post(
+  "/returns/:id/review",
+  isAdmin,
+  param("id").isInt({ min: 1 }),
+  validate,
+  C.reviewReturn,
+);
+router.post(
+  "/returns/:id/reissue",
+  isAdmin,
+  param("id").isInt({ min: 1 }),
+  validate,
+  C.reissueReturn,
+);
+
+// ── Repair Requests
+router.post("/repairs", isOfficer, C.createRepair);
+router.get("/repairs", isAdmin, C.listRepairs);
+router.get(
+  "/repairs/:id",
+  authenticate,
+  param("id").isInt({ min: 1 }),
+  validate,
+  C.getRepair,
+);
+router.post(
+  "/repairs/:id/mark-returned",
+  isAdmin,
+  param("id").isInt({ min: 1 }),
+  validate,
+  C.markRepairReturned,
+);
+router.post(
+  "/repairs/:id/reissue",
+  isAdmin,
+  param("id").isInt({ min: 1 }),
+  validate,
+  C.reissueRepair,
+);
+
+// ── Transfer Requests (FO requests, admin reviews)
+router.post("/transfer-requests", isOfficer, C.createTransferRequest);
+router.get("/transfer-requests", isAdmin, C.listTransferRequests);
+router.get(
+  "/transfer-requests/:id",
+  authenticate,
+  param("id").isInt({ min: 1 }),
+  validate,
+  C.getTransferRequest,
+);
+router.post(
+  "/transfer-requests/:id/review",
+  isAdmin,
+  param("id").isInt({ min: 1 }),
+  validate,
+  C.reviewTransferRequest,
+);
+
 module.exports = router;

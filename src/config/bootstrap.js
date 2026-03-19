@@ -351,7 +351,7 @@ const STATEMENTS = [
     \`cover_notes\`     TEXT COLLATE utf8mb4_unicode_ci,
     \`date_issued\`     DATE DEFAULT NULL,
     \`assigned_to\`     VARCHAR(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    \`status\`          ENUM('active','under_repair','decommissioned','lost') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
+    \`status\`          ENUM('active','under_repair','repair_return_pending','returned','pending_transfer','decommissioned','lost') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
     \`notes\`           TEXT COLLATE utf8mb4_unicode_ci,
     \`created_by\`      INT UNSIGNED NOT NULL,
     \`updated_by\`      INT UNSIGNED DEFAULT NULL,
@@ -411,6 +411,98 @@ const STATEMENTS = [
     KEY \`fk_verification_by\`      (\`verified_by\`),
     CONSTRAINT \`fk_verification_by\`     FOREIGN KEY (\`verified_by\`) REFERENCES \`users\`   (\`id\`),
     CONSTRAINT \`fk_verification_device\` FOREIGN KEY (\`device_id\`)  REFERENCES \`devices\`  (\`id\`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+
+  /* ── admin_contacts ──────────────────────────────────────────── */
+  `CREATE TABLE IF NOT EXISTS \`admin_contacts\` (
+    \`id\`         INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    \`name\`       VARCHAR(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+    \`email\`      VARCHAR(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+    \`cadre\`      VARCHAR(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    \`is_active\`  TINYINT(1) NOT NULL DEFAULT 1,
+    \`created_by\` INT UNSIGNED NOT NULL,
+    \`created_at\` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    \`updated_at\` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (\`id\`),
+    UNIQUE KEY \`uq_admin_contact_email\` (\`email\`),
+    CONSTRAINT \`fk_ac_created_by\` FOREIGN KEY (\`created_by\`) REFERENCES \`users\` (\`id\`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+
+  /* ── return_requests ─────────────────────────────────────────── */
+  `CREATE TABLE IF NOT EXISTS \`return_requests\` (
+    \`id\`                   INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    \`device_id\`            INT UNSIGNED NOT NULL,
+    \`requested_by\`         INT UNSIGNED NOT NULL,
+    \`reason\`               TEXT COLLATE utf8mb4_unicode_ci NOT NULL,
+    \`status\`               ENUM('pending','approved','rejected','reissued') NOT NULL DEFAULT 'pending',
+    \`admin_notes\`          TEXT COLLATE utf8mb4_unicode_ci,
+    \`reviewed_by\`          INT UNSIGNED DEFAULT NULL,
+    \`reviewed_at\`          DATETIME DEFAULT NULL,
+    \`storage_location\`     VARCHAR(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    \`received_date\`        DATE DEFAULT NULL,
+    \`received_by\`          VARCHAR(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    \`reissued_date\`        DATE DEFAULT NULL,
+    \`reissued_by\`          INT UNSIGNED DEFAULT NULL,
+    \`reissued_to_facility\` INT UNSIGNED DEFAULT NULL,
+    \`created_at\`           DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    \`updated_at\`           DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (\`id\`),
+    KEY \`idx_return_device\` (\`device_id\`),
+    KEY \`idx_return_status\` (\`status\`),
+    CONSTRAINT \`fk_ret_device\`    FOREIGN KEY (\`device_id\`)            REFERENCES \`devices\`    (\`id\`),
+    CONSTRAINT \`fk_ret_requested\` FOREIGN KEY (\`requested_by\`)         REFERENCES \`users\`      (\`id\`),
+    CONSTRAINT \`fk_ret_reviewed\`  FOREIGN KEY (\`reviewed_by\`)          REFERENCES \`users\`      (\`id\`),
+    CONSTRAINT \`fk_ret_reissued\`  FOREIGN KEY (\`reissued_by\`)          REFERENCES \`users\`      (\`id\`),
+    CONSTRAINT \`fk_ret_facility\`  FOREIGN KEY (\`reissued_to_facility\`) REFERENCES \`facilities\` (\`id\`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+
+  /* ── repair_requests ─────────────────────────────────────────── */
+  `CREATE TABLE IF NOT EXISTS \`repair_requests\` (
+    \`id\`                   INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    \`device_id\`            INT UNSIGNED NOT NULL,
+    \`initiated_by\`         INT UNSIGNED NOT NULL,
+    \`failure_cause\`        TEXT COLLATE utf8mb4_unicode_ci NOT NULL,
+    \`sent_to\`              VARCHAR(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    \`sent_date\`            DATE DEFAULT NULL,
+    \`signed_off_by\`        VARCHAR(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    \`status\`               ENUM('pending','under_repair','repair_return_pending','reissued') NOT NULL DEFAULT 'pending',
+    \`admin_notes\`          TEXT COLLATE utf8mb4_unicode_ci,
+    \`returned_date\`        DATE DEFAULT NULL,
+    \`return_condition\`     VARCHAR(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    \`reissued_date\`        DATE DEFAULT NULL,
+    \`reissued_by\`          INT UNSIGNED DEFAULT NULL,
+    \`reissued_to_facility\` INT UNSIGNED DEFAULT NULL,
+    \`created_at\`           DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    \`updated_at\`           DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (\`id\`),
+    KEY \`idx_repair_device\` (\`device_id\`),
+    KEY \`idx_repair_status\` (\`status\`),
+    CONSTRAINT \`fk_rep_device\`    FOREIGN KEY (\`device_id\`)            REFERENCES \`devices\`    (\`id\`),
+    CONSTRAINT \`fk_rep_initiated\` FOREIGN KEY (\`initiated_by\`)         REFERENCES \`users\`      (\`id\`),
+    CONSTRAINT \`fk_rep_reissued\`  FOREIGN KEY (\`reissued_by\`)          REFERENCES \`users\`      (\`id\`),
+    CONSTRAINT \`fk_rep_facility\`  FOREIGN KEY (\`reissued_to_facility\`) REFERENCES \`facilities\` (\`id\`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+
+  /* ── transfer_requests ───────────────────────────────────────── */
+  `CREATE TABLE IF NOT EXISTS \`transfer_requests\` (
+    \`id\`                      INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    \`device_id\`               INT UNSIGNED NOT NULL,
+    \`requested_by\`            INT UNSIGNED NOT NULL,
+    \`destination_facility_id\` INT UNSIGNED NOT NULL,
+    \`reason\`                  TEXT COLLATE utf8mb4_unicode_ci,
+    \`status\`                  ENUM('pending','approved','rejected') NOT NULL DEFAULT 'pending',
+    \`admin_notes\`             TEXT COLLATE utf8mb4_unicode_ci,
+    \`reviewed_by\`             INT UNSIGNED DEFAULT NULL,
+    \`reviewed_at\`             DATETIME DEFAULT NULL,
+    \`created_at\`              DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    \`updated_at\`              DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (\`id\`),
+    KEY \`idx_treq_device\` (\`device_id\`),
+    KEY \`idx_treq_status\` (\`status\`),
+    CONSTRAINT \`fk_treq_device\`       FOREIGN KEY (\`device_id\`)               REFERENCES \`devices\`    (\`id\`),
+    CONSTRAINT \`fk_treq_requested\`    FOREIGN KEY (\`requested_by\`)            REFERENCES \`users\`      (\`id\`),
+    CONSTRAINT \`fk_treq_reviewed\`     FOREIGN KEY (\`reviewed_by\`)             REFERENCES \`users\`      (\`id\`),
+    CONSTRAINT \`fk_treq_destination\`  FOREIGN KEY (\`destination_facility_id\`) REFERENCES \`facilities\` (\`id\`)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
 
   /* ── user_facilities (many-to-many zone assignment) ─────────── */
@@ -555,6 +647,90 @@ const run = async () => {
       );
     } catch (e) {
       if (e.code !== "ER_CANT_DROP_FIELD_OR_KEY") throw e;
+    }
+
+    // Update device status ENUM to include new workflow statuses
+    try {
+      await conn.query(
+        `ALTER TABLE \`devices\` MODIFY COLUMN \`status\` ENUM('active','under_repair','repair_return_pending','returned','pending_transfer','decommissioned','lost') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active'`,
+      );
+    } catch (e) {
+      logger.warn("Device status ENUM update: " + e.message);
+    }
+
+    // Create new workflow tables
+    for (const sql of [
+      `CREATE TABLE IF NOT EXISTS \`admin_contacts\` (
+        \`id\` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+        \`name\` VARCHAR(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+        \`email\` VARCHAR(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+        \`cadre\` VARCHAR(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+        \`is_active\` TINYINT(1) NOT NULL DEFAULT 1,
+        \`created_by\` INT UNSIGNED NOT NULL,
+        \`created_at\` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        \`updated_at\` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        PRIMARY KEY (\`id\`), UNIQUE KEY \`uq_ac_email\` (\`email\`),
+        CONSTRAINT \`fk_ac_created_by\` FOREIGN KEY (\`created_by\`) REFERENCES \`users\` (\`id\`)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+      `CREATE TABLE IF NOT EXISTS \`return_requests\` (
+        \`id\` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+        \`device_id\` INT UNSIGNED NOT NULL, \`requested_by\` INT UNSIGNED NOT NULL,
+        \`reason\` TEXT COLLATE utf8mb4_unicode_ci NOT NULL,
+        \`status\` ENUM('pending','approved','rejected','reissued') NOT NULL DEFAULT 'pending',
+        \`admin_notes\` TEXT COLLATE utf8mb4_unicode_ci,
+        \`reviewed_by\` INT UNSIGNED DEFAULT NULL, \`reviewed_at\` DATETIME DEFAULT NULL,
+        \`storage_location\` VARCHAR(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+        \`received_date\` DATE DEFAULT NULL, \`received_by\` VARCHAR(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+        \`reissued_date\` DATE DEFAULT NULL, \`reissued_by\` INT UNSIGNED DEFAULT NULL,
+        \`reissued_to_facility\` INT UNSIGNED DEFAULT NULL,
+        \`created_at\` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        \`updated_at\` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        PRIMARY KEY (\`id\`), KEY \`idx_ret_device\` (\`device_id\`), KEY \`idx_ret_status\` (\`status\`),
+        CONSTRAINT \`fk_ret_device\` FOREIGN KEY (\`device_id\`) REFERENCES \`devices\` (\`id\`),
+        CONSTRAINT \`fk_ret_requested\` FOREIGN KEY (\`requested_by\`) REFERENCES \`users\` (\`id\`),
+        CONSTRAINT \`fk_ret_reviewed\` FOREIGN KEY (\`reviewed_by\`) REFERENCES \`users\` (\`id\`),
+        CONSTRAINT \`fk_ret_reissued\` FOREIGN KEY (\`reissued_by\`) REFERENCES \`users\` (\`id\`),
+        CONSTRAINT \`fk_ret_facility\` FOREIGN KEY (\`reissued_to_facility\`) REFERENCES \`facilities\` (\`id\`)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+      `CREATE TABLE IF NOT EXISTS \`repair_requests\` (
+        \`id\` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+        \`device_id\` INT UNSIGNED NOT NULL, \`initiated_by\` INT UNSIGNED NOT NULL,
+        \`failure_cause\` TEXT COLLATE utf8mb4_unicode_ci NOT NULL,
+        \`sent_to\` VARCHAR(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+        \`sent_date\` DATE DEFAULT NULL,
+        \`signed_off_by\` VARCHAR(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+        \`status\` ENUM('pending','under_repair','repair_return_pending','reissued') NOT NULL DEFAULT 'pending',
+        \`admin_notes\` TEXT COLLATE utf8mb4_unicode_ci,
+        \`returned_date\` DATE DEFAULT NULL,
+        \`return_condition\` VARCHAR(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+        \`reissued_date\` DATE DEFAULT NULL, \`reissued_by\` INT UNSIGNED DEFAULT NULL,
+        \`reissued_to_facility\` INT UNSIGNED DEFAULT NULL,
+        \`created_at\` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        \`updated_at\` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        PRIMARY KEY (\`id\`), KEY \`idx_rep_device\` (\`device_id\`), KEY \`idx_rep_status\` (\`status\`),
+        CONSTRAINT \`fk_rep_device\` FOREIGN KEY (\`device_id\`) REFERENCES \`devices\` (\`id\`),
+        CONSTRAINT \`fk_rep_initiated\` FOREIGN KEY (\`initiated_by\`) REFERENCES \`users\` (\`id\`),
+        CONSTRAINT \`fk_rep_reissued\` FOREIGN KEY (\`reissued_by\`) REFERENCES \`users\` (\`id\`),
+        CONSTRAINT \`fk_rep_facility\` FOREIGN KEY (\`reissued_to_facility\`) REFERENCES \`facilities\` (\`id\`)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+      `CREATE TABLE IF NOT EXISTS \`transfer_requests\` (
+        \`id\` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+        \`device_id\` INT UNSIGNED NOT NULL, \`requested_by\` INT UNSIGNED NOT NULL,
+        \`destination_facility_id\` INT UNSIGNED NOT NULL,
+        \`reason\` TEXT COLLATE utf8mb4_unicode_ci,
+        \`status\` ENUM('pending','approved','rejected') NOT NULL DEFAULT 'pending',
+        \`admin_notes\` TEXT COLLATE utf8mb4_unicode_ci,
+        \`reviewed_by\` INT UNSIGNED DEFAULT NULL, \`reviewed_at\` DATETIME DEFAULT NULL,
+        \`created_at\` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        \`updated_at\` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        PRIMARY KEY (\`id\`), KEY \`idx_treq_device\` (\`device_id\`), KEY \`idx_treq_status\` (\`status\`),
+        CONSTRAINT \`fk_treq_device\` FOREIGN KEY (\`device_id\`) REFERENCES \`devices\` (\`id\`),
+        CONSTRAINT \`fk_treq_requested\` FOREIGN KEY (\`requested_by\`) REFERENCES \`users\` (\`id\`),
+        CONSTRAINT \`fk_treq_reviewed\` FOREIGN KEY (\`reviewed_by\`) REFERENCES \`users\` (\`id\`),
+        CONSTRAINT \`fk_treq_destination\` FOREIGN KEY (\`destination_facility_id\`) REFERENCES \`facilities\` (\`id\`)
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+    ]) {
+      await conn.query(sql);
     }
 
     logger.info("Schema bootstrap complete");

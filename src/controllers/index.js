@@ -937,24 +937,31 @@ const reviewLossReport = async (req, res, next) => {
     const report = await Loss.getByDevice(deviceId);
     if (!report) return R.notFound(res, "No loss report found for this device");
 
-    const { action, adminNotes, escalateToUserId } = req.body;
+    const { action, adminNotes, escalateToUserIds } = req.body;
     const validActions = ["acknowledge", "reject", "insure", "escalate"];
     if (!validActions.includes(action))
       return R.badRequest(res, "Invalid action");
 
     if (action === "escalate") {
-      if (!escalateToUserId)
-        return R.badRequest(res, "Escalation target user is required");
-      const escalateTo = await User.findById(escalateToUserId);
-      if (!escalateTo)
-        return R.notFound(res, "Escalation target user not found");
+      if (!escalateToUserIds || !escalateToUserIds.length)
+        return R.badRequest(res, "Select at least one user to escalate to");
+      const escalateToUsers = await Promise.all(
+        escalateToUserIds.map((id) => User.findById(id)),
+      );
+      const validTargets = escalateToUsers.filter(Boolean);
+      if (!validTargets.length)
+        return R.notFound(res, "No valid escalation targets found");
       const admins = await User.getByRole("admin");
       const escalatedBy = await User.findById(req.user.id);
+      // Send to each target (deduped against admins list)
+      const allRecipients = [
+        ...validTargets,
+        ...admins.filter((a) => !validTargets.find((t) => t.id === a.id)),
+      ];
       sendEscalationAlert({
         device,
         report,
-        escalateTo,
-        admins,
+        recipients: allRecipients,
         escalatedBy,
       }).catch(() => {});
       await Loss.review(report.id, {
@@ -967,7 +974,7 @@ const reviewLossReport = async (req, res, next) => {
         action: "UPDATE",
         entityType: "device",
         entityId: deviceId,
-        newValues: { lossAction: "escalated", escalateToUserId },
+        newValues: { lossAction: "escalated", escalateToUserIds },
         req,
       });
       return R.ok(res, null, "Report escalated");
@@ -1175,6 +1182,521 @@ const exportSims = async (req, res, next) => {
   }
 };
 
+// ================================================================
+// ADMIN CONTACTS
+// ================================================================
+const AdminContact = require("../models/admin_contact.model");
+
+const listAdminContacts = async (req, res, next) => {
+  try {
+    const { search = "", includeInactive = false } = req.query;
+    const rows = await AdminContact.list({
+      search,
+      includeInactive: includeInactive === "true",
+    });
+    return R.ok(res, rows);
+  } catch (e) {
+    next(e);
+  }
+};
+
+const listCadres = async (req, res, next) => {
+  try {
+    const cadres = await AdminContact.getCadres();
+    return R.ok(res, cadres);
+  } catch (e) {
+    next(e);
+  }
+};
+
+const createAdminContact = async (req, res, next) => {
+  try {
+    const { name, email, cadre } = req.body;
+    if (!name || !email)
+      return R.badRequest(res, "Name and email are required");
+    const id = await AdminContact.create({
+      name,
+      email,
+      cadre,
+      createdBy: req.user.id,
+    });
+    await Audit.write({
+      userId: req.user.id,
+      action: "CREATE",
+      entityType: "admin_contact",
+      entityId: id,
+      newValues: { name, email, cadre },
+      req,
+    });
+    return R.created(res, { id }, "Admin contact created");
+  } catch (e) {
+    next(e);
+  }
+};
+
+const updateAdminContact = async (req, res, next) => {
+  try {
+    await AdminContact.update(parseInt(req.params.id), req.body);
+    return R.ok(res, null, "Admin contact updated");
+  } catch (e) {
+    next(e);
+  }
+};
+
+const deleteAdminContact = async (req, res, next) => {
+  try {
+    await AdminContact.remove(parseInt(req.params.id));
+    return R.ok(res, null, "Admin contact deleted");
+  } catch (e) {
+    next(e);
+  }
+};
+
+// ================================================================
+// RETURNS
+// ================================================================
+const Return = require("../models/return.model");
+const {
+  sendReturnRequestedEmail,
+  sendReturnReviewedEmail,
+  sendReissueEmail,
+} = require("../config/mailer");
+
+const createReturn = async (req, res, next) => {
+  try {
+    const { deviceId, reason, adminContactIds = [] } = req.body;
+    if (!deviceId || !reason)
+      return R.badRequest(res, "deviceId and reason are required");
+    const device = await Device.getById(deviceId);
+    if (!device) return R.notFound(res, "Device not found");
+    const id = await Return.create({
+      deviceId,
+      requestedBy: req.user.id,
+      reason,
+    });
+    const admins = await User.getByRole("admin");
+    const contacts = await AdminContact.getByIds(adminContactIds);
+    const requestedBy = await User.findById(req.user.id);
+    sendReturnRequestedEmail({
+      device,
+      reason,
+      requestedBy,
+      admins,
+      contacts,
+    }).catch(() => {});
+    await Audit.write({
+      userId: req.user.id,
+      action: "CREATE",
+      entityType: "return_request",
+      entityId: id,
+      newValues: { deviceId, reason },
+      req,
+    });
+    return R.created(res, { id }, "Return request submitted");
+  } catch (e) {
+    next(e);
+  }
+};
+
+const listReturns = async (req, res, next) => {
+  try {
+    const { page = 1, limit = 20, status = "" } = req.query;
+    const result = await Return.list({ page, limit, status });
+    return R.paginated(
+      res,
+      result.rows,
+      result.total,
+      parseInt(page),
+      parseInt(limit),
+    );
+  } catch (e) {
+    next(e);
+  }
+};
+
+const getReturn = async (req, res, next) => {
+  try {
+    const rr = await Return.getById(parseInt(req.params.id));
+    if (!rr) return R.notFound(res, "Return request not found");
+    return R.ok(res, rr);
+  } catch (e) {
+    next(e);
+  }
+};
+
+const reviewReturn = async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.id);
+    const { status, adminNotes, storageLocation, receivedDate, receivedBy } =
+      req.body;
+    if (!["approved", "rejected"].includes(status))
+      return R.badRequest(res, "Invalid status");
+    const rr = await Return.getById(id);
+    if (!rr) return R.notFound(res, "Return request not found");
+    await Return.review(id, {
+      status,
+      adminNotes,
+      reviewedBy: req.user.id,
+      storageLocation,
+      receivedDate,
+      receivedBy,
+    });
+    const requestedByUser = await User.findById(rr.requested_by);
+    sendReturnReviewedEmail({ rr, status, adminNotes, requestedByUser }).catch(
+      () => {},
+    );
+    await Audit.write({
+      userId: req.user.id,
+      action: "UPDATE",
+      entityType: "return_request",
+      entityId: id,
+      newValues: { status, adminNotes },
+      req,
+    });
+    return R.ok(res, null, `Return request ${status}`);
+  } catch (e) {
+    next(e);
+  }
+};
+
+const reissueReturn = async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.id);
+    const { reissuedDate, reissuedToFacility } = req.body;
+    if (!reissuedToFacility)
+      return R.badRequest(res, "Destination facility is required");
+    const rr = await Return.getById(id);
+    if (!rr) return R.notFound(res, "Return request not found");
+    const deviceId = await Return.reissue(id, {
+      reissuedBy: req.user.id,
+      reissuedDate,
+      reissuedToFacility,
+    });
+    const device = await Device.getById(deviceId);
+    const requestedByUser = await User.findById(rr.requested_by);
+    const reissuedByUser = await User.findById(req.user.id);
+    sendReissueEmail({
+      device,
+      requestedByUser,
+      reissuedByUser,
+      reissuedDate,
+      type: "return",
+    }).catch(() => {});
+    await Audit.write({
+      userId: req.user.id,
+      action: "UPDATE",
+      entityType: "return_request",
+      entityId: id,
+      newValues: { status: "reissued", reissuedToFacility },
+      req,
+    });
+    return R.ok(res, null, "Device reissued to facility");
+  } catch (e) {
+    next(e);
+  }
+};
+
+// ================================================================
+// REPAIRS
+// ================================================================
+const Repair = require("../models/repair.model");
+const {
+  sendRepairInitiatedEmail,
+  sendRepairReturnedEmail,
+} = require("../config/mailer");
+
+const createRepair = async (req, res, next) => {
+  try {
+    const {
+      deviceId,
+      failureCause,
+      sentTo,
+      sentDate,
+      signedOffBy,
+      adminContactIds = [],
+    } = req.body;
+    if (!deviceId || !failureCause)
+      return R.badRequest(res, "deviceId and failureCause are required");
+    const device = await Device.getById(deviceId);
+    if (!device) return R.notFound(res, "Device not found");
+    const id = await Repair.create({
+      deviceId,
+      initiatedBy: req.user.id,
+      failureCause,
+      sentTo,
+      sentDate,
+      signedOffBy,
+    });
+    const admins = await User.getByRole("admin");
+    const contacts = await AdminContact.getByIds(adminContactIds);
+    const initiatedBy = await User.findById(req.user.id);
+    sendRepairInitiatedEmail({
+      device,
+      failureCause,
+      sentTo,
+      sentDate,
+      signedOffBy,
+      initiatedBy,
+      admins,
+      contacts,
+    }).catch(() => {});
+    await Audit.write({
+      userId: req.user.id,
+      action: "CREATE",
+      entityType: "repair_request",
+      entityId: id,
+      newValues: { deviceId, failureCause },
+      req,
+    });
+    return R.created(res, { id }, "Repair request created");
+  } catch (e) {
+    next(e);
+  }
+};
+
+const listRepairs = async (req, res, next) => {
+  try {
+    const { page = 1, limit = 20, status = "" } = req.query;
+    const result = await Repair.list({ page, limit, status });
+    return R.paginated(
+      res,
+      result.rows,
+      result.total,
+      parseInt(page),
+      parseInt(limit),
+    );
+  } catch (e) {
+    next(e);
+  }
+};
+
+const getRepair = async (req, res, next) => {
+  try {
+    const rp = await Repair.getById(parseInt(req.params.id));
+    if (!rp) return R.notFound(res, "Repair request not found");
+    return R.ok(res, rp);
+  } catch (e) {
+    next(e);
+  }
+};
+
+const markRepairReturned = async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.id);
+    const {
+      returnedDate,
+      returnCondition,
+      adminNotes,
+      adminContactIds = [],
+    } = req.body;
+    const rp = await Repair.getById(id);
+    if (!rp) return R.notFound(res, "Repair request not found");
+    const deviceId = await Repair.markReturned(id, {
+      returnedDate,
+      returnCondition,
+      adminNotes,
+    });
+    const device = await Device.getById(deviceId);
+    const admins = await User.getByRole("admin");
+    const contacts = await AdminContact.getByIds(adminContactIds);
+    sendRepairReturnedEmail({
+      device,
+      rp,
+      returnedDate,
+      returnCondition,
+      admins,
+      contacts,
+    }).catch(() => {});
+    await Audit.write({
+      userId: req.user.id,
+      action: "UPDATE",
+      entityType: "repair_request",
+      entityId: id,
+      newValues: { status: "repair_return_pending", returnedDate },
+      req,
+    });
+    return R.ok(res, null, "Repair marked as returned from repair center");
+  } catch (e) {
+    next(e);
+  }
+};
+
+const reissueRepair = async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.id);
+    const { reissuedDate, reissuedToFacility } = req.body;
+    if (!reissuedToFacility)
+      return R.badRequest(res, "Destination facility is required");
+    const rp = await Repair.getById(id);
+    if (!rp) return R.notFound(res, "Repair request not found");
+    const deviceId = await Repair.reissue(id, {
+      reissuedBy: req.user.id,
+      reissuedDate,
+      reissuedToFacility,
+    });
+    const device = await Device.getById(deviceId);
+    const initiatedByUser = await User.findById(rp.initiated_by);
+    const reissuedByUser = await User.findById(req.user.id);
+    sendReissueEmail({
+      device,
+      requestedByUser: initiatedByUser,
+      reissuedByUser,
+      reissuedDate,
+      type: "repair",
+    }).catch(() => {});
+    await Audit.write({
+      userId: req.user.id,
+      action: "UPDATE",
+      entityType: "repair_request",
+      entityId: id,
+      newValues: { status: "reissued", reissuedToFacility },
+      req,
+    });
+    return R.ok(res, null, "Device reissued to facility after repair");
+  } catch (e) {
+    next(e);
+  }
+};
+
+// ================================================================
+// TRANSFER REQUESTS
+// ================================================================
+const TransferReq = require("../models/transfer_request.model");
+const {
+  sendTransferRequestedEmail,
+  sendTransferReviewedEmail,
+} = require("../config/mailer");
+
+const createTransferRequest = async (req, res, next) => {
+  try {
+    const {
+      deviceId,
+      destinationFacilityId,
+      reason,
+      adminContactIds = [],
+    } = req.body;
+    if (!deviceId || !destinationFacilityId)
+      return R.badRequest(
+        res,
+        "deviceId and destinationFacilityId are required",
+      );
+    const device = await Device.getById(deviceId);
+    if (!device) return R.notFound(res, "Device not found");
+
+    // Zone check — FO can only request transfers within their zone
+    if (req.user.role !== "admin") {
+      const destFac = await refApi_getFacility(destinationFacilityId);
+      if (req.user.zone_type === "facility") {
+        const [ufRows] = await db_ref.query(
+          `SELECT facility_id FROM user_facilities WHERE user_id = ?`,
+          [req.user.id],
+        );
+        const allowed = ufRows.map((r) => r.facility_id);
+        if (!allowed.includes(parseInt(destinationFacilityId)))
+          return R.forbidden(res, "Destination facility is outside your zone");
+      } else if (
+        req.user.zone_type === "sub_county" &&
+        destFac?.sub_county_id !== req.user.zone_sub_county_id
+      ) {
+        return R.forbidden(res, "Destination facility is outside your zone");
+      } else if (
+        req.user.zone_type === "county" &&
+        destFac?.county_id !== req.user.zone_county_id
+      ) {
+        return R.forbidden(res, "Destination facility is outside your zone");
+      }
+    }
+
+    const id = await TransferReq.create({
+      deviceId,
+      requestedBy: req.user.id,
+      destinationFacilityId,
+      reason,
+    });
+    const admins = await User.getByRole("admin");
+    const contacts = await AdminContact.getByIds(adminContactIds);
+    const requestedBy = await User.findById(req.user.id);
+    sendTransferRequestedEmail({
+      device,
+      reason,
+      requestedBy,
+      admins,
+      contacts,
+    }).catch(() => {});
+    await Audit.write({
+      userId: req.user.id,
+      action: "CREATE",
+      entityType: "transfer_request",
+      entityId: id,
+      newValues: { deviceId, destinationFacilityId },
+      req,
+    });
+    return R.created(res, { id }, "Transfer request submitted");
+  } catch (e) {
+    next(e);
+  }
+};
+
+const listTransferRequests = async (req, res, next) => {
+  try {
+    const { page = 1, limit = 20, status = "" } = req.query;
+    const result = await TransferReq.list({ page, limit, status });
+    return R.paginated(
+      res,
+      result.rows,
+      result.total,
+      parseInt(page),
+      parseInt(limit),
+    );
+  } catch (e) {
+    next(e);
+  }
+};
+
+const getTransferRequest = async (req, res, next) => {
+  try {
+    const tr = await TransferReq.getById(parseInt(req.params.id));
+    if (!tr) return R.notFound(res, "Transfer request not found");
+    return R.ok(res, tr);
+  } catch (e) {
+    next(e);
+  }
+};
+
+const reviewTransferRequest = async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.id);
+    const { status, adminNotes } = req.body;
+    if (!["approved", "rejected"].includes(status))
+      return R.badRequest(res, "Invalid status");
+    const tr = await TransferReq.getById(id);
+    if (!tr) return R.notFound(res, "Transfer request not found");
+    await TransferReq.review(id, {
+      status,
+      adminNotes,
+      reviewedBy: req.user.id,
+    });
+    const requestedByUser = await User.findById(tr.requested_by);
+    sendTransferReviewedEmail({
+      tr,
+      status,
+      adminNotes,
+      requestedByUser,
+    }).catch(() => {});
+    await Audit.write({
+      userId: req.user.id,
+      action: "UPDATE",
+      entityType: "transfer_request",
+      entityId: id,
+      newValues: { status, adminNotes },
+      req,
+    });
+    return R.ok(res, null, `Transfer request ${status}`);
+  } catch (e) {
+    next(e);
+  }
+};
+
 module.exports = {
   login,
   me,
@@ -1217,4 +1739,23 @@ module.exports = {
   linkSim,
   unlinkSim,
   exportSims,
+  listAdminContacts,
+  listCadres,
+  createAdminContact,
+  updateAdminContact,
+  deleteAdminContact,
+  createReturn,
+  listReturns,
+  getReturn,
+  reviewReturn,
+  reissueReturn,
+  createRepair,
+  listRepairs,
+  getRepair,
+  markRepairReturned,
+  reissueRepair,
+  createTransferRequest,
+  listTransferRequests,
+  getTransferRequest,
+  reviewTransferRequest,
 };

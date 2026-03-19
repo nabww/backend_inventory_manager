@@ -1573,3 +1573,60 @@
 {"level":"debug","message":"POST /api/auth/register","timestamp":"2026-03-13 16:15:02"}
 {"level":"warn","message":"Mail not configured — skipping email","timestamp":"2026-03-13 16:15:03"}
 {"level":"debug","message":"GET /api/users?page=1&limit=20&search=admin%40inventory.org","timestamp":"2026-03-13 16:15:04"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-13 16:25:11"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-13 16:25:11"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-13 16:25:11"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-13 16:25:13"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-13 16:26:11"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-13 16:26:11"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-13 16:26:11"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-18 05:02:09"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-18 05:02:09"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-18 05:02:09"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-18 05:02:10"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-18 05:04:10"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-03-18 05:04:10"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-03-18 05:04:10"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-18 05:04:10"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-03-18 05:04:10"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-03-18 05:04:11"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-18 05:04:14"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-18 05:04:15"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-18 05:04:15"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-03-18 05:06:28"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-03-18 05:06:28"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-18 05:06:28"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-18 05:06:28"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-03-18 05:06:28"}
+{"level":"debug","message":"GET /api/sims?page=1&limit=20&search=","timestamp":"2026-03-18 05:06:31"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-18 05:06:32"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-18 09:12:25"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-18 09:12:25"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-18 09:12:35"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-18 09:12:35"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-18 09:12:36"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-18 09:12:38"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-18 09:12:39"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-18 09:12:39"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-18 09:12:39"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-18 09:12:39"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-18 09:12:39"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-18 14:42:37"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-18 14:42:37"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-18 14:42:37"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-18 14:42:39"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-19 10:01:38"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-19 10:01:38"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-19 10:01:38"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-19 10:01:41"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-19 10:03:02"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-03-19 10:03:02"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-03-19 10:03:02"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-19 10:03:03"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-03-19 10:03:03"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-03-19 10:03:03"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-03-19 10:03:03"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-19 10:06:16"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-19 10:06:17"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-19 10:06:17"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-19 10:06:18"}

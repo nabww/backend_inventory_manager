@@ -2,11 +2,11 @@ const nodemailer = require("nodemailer");
 const logger = require("./logger");
 
 const transporter = nodemailer.createTransport({
-  host: process.env.MAIL_HOST || "smtp.office365.com",
-  port: parseInt(process.env.MAIL_PORT || "587"),
-  secure: false,
+  host: process.env.MAIL_HOST || "smtp.gmail.com",
+  port: parseInt(process.env.MAIL_PORT || "465"),
+  secure: parseInt(process.env.MAIL_PORT || "465") === 465,
   auth: { user: process.env.MAIL_USER, pass: process.env.MAIL_PASS },
-  tls: { ciphers: "SSLv3", rejectUnauthorized: false },
+  tls: { rejectUnauthorized: false },
 });
 
 // Verify SMTP connection on startup
@@ -25,7 +25,7 @@ const canSend = () => {
   return true;
 };
 
-const appUrl = () => process.env.CORS_ORIGIN || "http://192.168.1.200:3000";
+const appUrl = () => process.env.CORS_ORIGIN || "https://your-app.vercel.app";
 
 const header = `
   <tr>
@@ -84,7 +84,7 @@ const sendWelcomeEmail = async ({ fullName, email, password, role }) => {
     <tr><td style="padding:28px 36px;">
       <p style="margin:0 0 14px;font-size:15px;color:#374151;">Hi <strong>${fullName}</strong>,</p>
       <p style="margin:0 0 20px;font-size:14px;color:#6b7280;line-height:1.6;">
-        Your account has been created on the EMR Device Inventory system.
+        Your account has been created on the EMR Device Inventory system. Below are your login credentials.
       </p>
       <div style="background:#f5f3ff;border:1px solid #ede9fe;border-radius:10px;padding:18px 22px;margin-bottom:22px;">
         <table width="100%" cellpadding="0" cellspacing="0">
@@ -93,11 +93,26 @@ const sendWelcomeEmail = async ({ fullName, email, password, role }) => {
           ${row("Role", roleLabel)}
         </table>
       </div>
-      <div style="text-align:center;margin-bottom:20px;">
-        <a href="${appUrl()}/login" style="display:inline-block;background:#7c3aed;color:#fff;text-decoration:none;
-           padding:11px 28px;border-radius:8px;font-size:14px;font-weight:600;">Sign In →</a>
+
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:16px 20px;margin-bottom:16px;">
+        <p style="margin:0 0 8px;font-size:12px;font-weight:700;color:#166534;text-transform:uppercase;letter-spacing:.05em;">📱 Access on Tablet</p>
+        <p style="margin:0;font-size:13px;color:#374151;line-height:1.6;">
+          Open your browser and go to:<br/>
+          <a href="http://10.201.30.200:3000" style="color:#7c3aed;font-weight:700;font-family:monospace;">http://10.201.30.200:3000</a>
+        </p>
       </div>
-      <p style="margin:0;font-size:13px;color:#9ca3af;">Please change your password after first login.</p>
+
+      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:16px 20px;margin-bottom:22px;">
+        <p style="margin:0 0 8px;font-size:12px;font-weight:700;color:#1e40af;text-transform:uppercase;letter-spacing:.05em;">💻 Access on PC</p>
+        <p style="margin:0;font-size:13px;color:#374151;line-height:1.6;">
+          You must be connected to the <strong>Sophos VPN</strong> before accessing the platform on a PC.
+          Once connected, open your browser and go to:<br/>
+          <a href="http://192.168.1.200:3000" style="color:#1e40af;font-weight:700;font-family:monospace;">http://192.168.1.200:3000</a>
+        </p>
+      </div>
+
+      <p style="margin:0 0 6px;font-size:13px;color:#9ca3af;">Please change your password after your first login.</p>
+      <p style="margin:0;font-size:13px;color:#9ca3af;">If you have trouble logging in, contact your administrator to have your credentials reset.</p>
     </td></tr>`);
   try {
     await transporter.sendMail({
@@ -206,15 +221,11 @@ const sendLostDeviceAlert = async ({ device, report, admins }) => {
 const sendEscalationAlert = async ({
   device,
   report,
-  escalateTo,
-  admins,
+  recipients,
   escalatedBy,
 }) => {
   if (!canSend()) return;
-  const recipients = [
-    escalateTo,
-    ...admins.filter((a) => a.email !== escalateTo.email),
-  ];
+  const recipientNames = recipients.map((r) => r.full_name).join(", ");
   const html = wrap(`
     <tr><td style="padding:28px 36px;">
       <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;
@@ -253,13 +264,47 @@ const sendEscalationAlert = async ({
           View Device →
         </a>
       </div>
+      ${
+        report.incident_report_path || report.police_ob_path
+          ? `
+      <p style="margin:16px 0 0;font-size:13px;color:#374151;">
+        📎 Supporting documents are attached to this email.
+      </p>`
+          : ""
+      }
+      <p style="margin:16px 0 0;font-size:12px;color:#9ca3af;">
+        This escalation was also sent to: <strong>${recipientNames}</strong>
+      </p>
     </td></tr>`);
   try {
+    const path = require("path");
+    const fs = require("fs");
+    const DOCS_DIR = path.join(__dirname, "../../uploads/loss-docs");
+    const attachments = [];
+    if (report.incident_report_path) {
+      const fp = path.join(DOCS_DIR, report.incident_report_path);
+      if (fs.existsSync(fp))
+        attachments.push({
+          filename: "incident-report.pdf",
+          path: fp,
+          contentType: "application/pdf",
+        });
+    }
+    if (report.police_ob_path) {
+      const fp = path.join(DOCS_DIR, report.police_ob_path);
+      if (fs.existsSync(fp))
+        attachments.push({
+          filename: "police-ob.pdf",
+          path: fp,
+          contentType: "application/pdf",
+        });
+    }
     await transporter.sendMail({
       from: process.env.MAIL_FROM || process.env.MAIL_USER,
       to: recipients.map((r) => r.email).join(", "),
       subject: `⚠️ Escalated: Lost Device ${device.serial_number} — ${device.facility_name}`,
       html,
+      attachments,
     });
     logger.info(`Escalation alert sent for device ${device.id}`);
   } catch (e) {
@@ -268,3 +313,313 @@ const sendEscalationAlert = async ({
 };
 
 module.exports = { sendWelcomeEmail, sendLostDeviceAlert, sendEscalationAlert };
+
+// ── Helper: build recipient list (admins + selected contacts) ────
+const buildRecipients = (admins = [], contacts = []) => {
+  const all = [
+    ...admins.map((a) => ({ name: a.full_name, email: a.email })),
+    ...contacts.map((c) => ({ name: c.name, email: c.email })),
+  ];
+  // dedupe by email
+  return [...new Map(all.map((r) => [r.email, r])).values()];
+};
+
+// ── Return requested ─────────────────────────────────────────────
+const sendReturnRequestedEmail = async ({
+  device,
+  reason,
+  requestedBy,
+  admins,
+  contacts,
+}) => {
+  if (!canSend()) return;
+  const recipients = buildRecipients(admins, contacts);
+  if (!recipients.length) return;
+  const html = wrap(`
+    <tr><td style="padding:28px 36px;">
+      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:14px 18px;margin-bottom:22px;">
+        <p style="margin:0;font-size:14px;font-weight:700;color:#1e40af;">📦 Device Return Request</p>
+        <p style="margin:4px 0 0;font-size:12px;color:#3b82f6;">Submitted by ${requestedBy.full_name}</p>
+      </div>
+      <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:18px 22px;margin-bottom:22px;">
+        <p style="margin:0 0 10px;font-size:12px;font-weight:700;color:#7c3aed;text-transform:uppercase;">Device</p>
+        <table width="100%" cellpadding="0" cellspacing="0">
+          ${row("Serial No.", device.serial_number)}
+          ${row("Model", device.model)}
+          ${row("Facility", device.facility_name)}
+          ${row("Requested By", requestedBy.full_name)}
+        </table>
+      </div>
+      <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:18px 22px;margin-bottom:22px;">
+        <p style="margin:0 0 8px;font-size:12px;font-weight:700;color:#7c3aed;text-transform:uppercase;">Reason for Return</p>
+        <p style="margin:0;font-size:13px;color:#374151;">${reason}</p>
+      </div>
+      <div style="text-align:center;">
+        <a href="${appUrl()}/returns" style="display:inline-block;background:#7c3aed;color:#fff;text-decoration:none;padding:11px 28px;border-radius:8px;font-size:14px;font-weight:600;">Review Request →</a>
+      </div>
+      <p style="margin:16px 0 0;font-size:12px;color:#9ca3af;">This notification was also sent to: <strong>${recipients.map((r) => r.name).join(", ")}</strong></p>
+    </td></tr>`);
+  try {
+    await transporter.sendMail({
+      from: process.env.MAIL_FROM || process.env.MAIL_USER,
+      to: recipients.map((r) => r.email).join(", "),
+      subject: `📦 Return Request: ${device.serial_number} — ${device.facility_name}`,
+      html,
+    });
+    logger.info(`Return request email sent for device ${device.id}`);
+  } catch (e) {
+    logger.error(`Return request email failed: ${e.message}`);
+  }
+};
+
+// ── Return reviewed (approved/rejected) — sent to FO ─────────────
+const sendReturnReviewedEmail = async ({
+  rr,
+  status,
+  adminNotes,
+  requestedByUser,
+}) => {
+  if (!canSend()) return;
+  const approved = status === "approved";
+  const html = wrap(`
+    <tr><td style="padding:28px 36px;">
+      <div style="background:${approved ? "#f0fdf4" : "#fef2f2"};border:1px solid ${approved ? "#bbf7d0" : "#fecaca"};border-radius:10px;padding:14px 18px;margin-bottom:22px;">
+        <p style="margin:0;font-size:14px;font-weight:700;color:${approved ? "#166534" : "#991b1b"};">${approved ? "✅ Return Request Approved" : "❌ Return Request Rejected"}</p>
+      </div>
+      <p style="margin:0 0 18px;font-size:14px;color:#374151;">Hi <strong>${requestedByUser.full_name}</strong>, your return request for device <strong>${rr.serial_number}</strong> has been <strong>${status}</strong>.</p>
+      ${
+        adminNotes
+          ? `<div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:16px 20px;margin-bottom:18px;">
+        <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#7c3aed;text-transform:uppercase;">Admin Notes</p>
+        <p style="margin:0;font-size:13px;color:#374151;">${adminNotes}</p>
+      </div>`
+          : ""
+      }
+      <a href="${appUrl()}/devices/${rr.device_id}" style="display:inline-block;background:#7c3aed;color:#fff;text-decoration:none;padding:11px 28px;border-radius:8px;font-size:14px;font-weight:600;">View Device →</a>
+    </td></tr>`);
+  try {
+    await transporter.sendMail({
+      from: process.env.MAIL_FROM || process.env.MAIL_USER,
+      to: requestedByUser.email,
+      subject: `Return Request ${approved ? "Approved" : "Rejected"}: ${rr.serial_number}`,
+      html,
+    });
+  } catch (e) {
+    logger.error(`Return reviewed email failed: ${e.message}`);
+  }
+};
+
+// ── Reissue (return or repair) — sent to original requestor ──────
+const sendReissueEmail = async ({
+  device,
+  requestedByUser,
+  reissuedByUser,
+  reissuedDate,
+  type,
+}) => {
+  if (!canSend()) return;
+  const label = type === "repair" ? "repaired" : "returned";
+  const html = wrap(`
+    <tr><td style="padding:28px 36px;">
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:14px 18px;margin-bottom:22px;">
+        <p style="margin:0;font-size:14px;font-weight:700;color:#166534;">✅ Device Reissued to Field</p>
+      </div>
+      <p style="margin:0 0 18px;font-size:14px;color:#374151;">Hi <strong>${requestedByUser.full_name}</strong>, the ${label} device has been reissued back to the field.</p>
+      <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:18px 22px;margin-bottom:22px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          ${row("Serial No.", device.serial_number)}
+          ${row("Model", device.model)}
+          ${row("Reissued To", device.facility_name)}
+          ${row("Reissued By", reissuedByUser.full_name)}
+          ${row("Date", reissuedDate || "Today")}
+        </table>
+      </div>
+      <a href="${appUrl()}/devices/${device.id}" style="display:inline-block;background:#7c3aed;color:#fff;text-decoration:none;padding:11px 28px;border-radius:8px;font-size:14px;font-weight:600;">View Device →</a>
+    </td></tr>`);
+  try {
+    await transporter.sendMail({
+      from: process.env.MAIL_FROM || process.env.MAIL_USER,
+      to: requestedByUser.email,
+      subject: `Device Reissued: ${device.serial_number}`,
+      html,
+    });
+  } catch (e) {
+    logger.error(`Reissue email failed: ${e.message}`);
+  }
+};
+
+// ── Repair initiated ─────────────────────────────────────────────
+const sendRepairInitiatedEmail = async ({
+  device,
+  failureCause,
+  sentTo,
+  sentDate,
+  signedOffBy,
+  initiatedBy,
+  admins,
+  contacts,
+}) => {
+  if (!canSend()) return;
+  const recipients = buildRecipients(admins, contacts);
+  if (!recipients.length) return;
+  const html = wrap(`
+    <tr><td style="padding:28px 36px;">
+      <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:14px 18px;margin-bottom:22px;">
+        <p style="margin:0;font-size:14px;font-weight:700;color:#92400e;">🔧 Device Sent for Repair</p>
+        <p style="margin:4px 0 0;font-size:12px;color:#b45309;">Initiated by ${initiatedBy.full_name}</p>
+      </div>
+      <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:18px 22px;margin-bottom:22px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          ${row("Serial No.", device.serial_number)}
+          ${row("Model", device.model)}
+          ${row("Facility", device.facility_name)}
+          ${row("Failure Cause", failureCause)}
+          ${row("Sent To", sentTo || "—")}
+          ${row("Date Sent", sentDate || "—")}
+          ${row("Signed Off By", signedOffBy || "—")}
+          ${row("Initiated By", initiatedBy.full_name)}
+        </table>
+      </div>
+      <div style="text-align:center;">
+        <a href="${appUrl()}/repairs" style="display:inline-block;background:#7c3aed;color:#fff;text-decoration:none;padding:11px 28px;border-radius:8px;font-size:14px;font-weight:600;">View Repairs →</a>
+      </div>
+      <p style="margin:16px 0 0;font-size:12px;color:#9ca3af;">This notification was also sent to: <strong>${recipients.map((r) => r.name).join(", ")}</strong></p>
+    </td></tr>`);
+  try {
+    await transporter.sendMail({
+      from: process.env.MAIL_FROM || process.env.MAIL_USER,
+      to: recipients.map((r) => r.email).join(", "),
+      subject: `🔧 Repair Initiated: ${device.serial_number} — ${device.facility_name}`,
+      html,
+    });
+    logger.info(`Repair initiated email sent for device ${device.id}`);
+  } catch (e) {
+    logger.error(`Repair initiated email failed: ${e.message}`);
+  }
+};
+
+// ── Repair returned from center ──────────────────────────────────
+const sendRepairReturnedEmail = async ({
+  device,
+  rp,
+  returnedDate,
+  returnCondition,
+  admins,
+  contacts,
+}) => {
+  if (!canSend()) return;
+  const recipients = buildRecipients(admins, contacts);
+  if (!recipients.length) return;
+  const html = wrap(`
+    <tr><td style="padding:28px 36px;">
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:14px 18px;margin-bottom:22px;">
+        <p style="margin:0;font-size:14px;font-weight:700;color:#166534;">🔧 Device Returned from Repair</p>
+        <p style="margin:4px 0 0;font-size:12px;color:#059669;">Pending reissuance to facility</p>
+      </div>
+      <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:18px 22px;margin-bottom:22px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          ${row("Serial No.", device.serial_number)}
+          ${row("Model", device.model)}
+          ${row("Sent To", rp.sent_to || "—")}
+          ${row("Returned Date", returnedDate || "—")}
+          ${row("Return Condition", returnCondition || "—")}
+        </table>
+      </div>
+      <div style="text-align:center;">
+        <a href="${appUrl()}/repairs" style="display:inline-block;background:#7c3aed;color:#fff;text-decoration:none;padding:11px 28px;border-radius:8px;font-size:14px;font-weight:600;">Reissue Device →</a>
+      </div>
+      <p style="margin:16px 0 0;font-size:12px;color:#9ca3af;">This notification was also sent to: <strong>${recipients.map((r) => r.name).join(", ")}</strong></p>
+    </td></tr>`);
+  try {
+    await transporter.sendMail({
+      from: process.env.MAIL_FROM || process.env.MAIL_USER,
+      to: recipients.map((r) => r.email).join(", "),
+      subject: `Device Back from Repair: ${device.serial_number}`,
+      html,
+    });
+  } catch (e) {
+    logger.error(`Repair returned email failed: ${e.message}`);
+  }
+};
+
+// ── Transfer requested ───────────────────────────────────────────
+const sendTransferRequestedEmail = async ({
+  device,
+  reason,
+  requestedBy,
+  admins,
+  contacts,
+}) => {
+  if (!canSend()) return;
+  const recipients = buildRecipients(admins, contacts);
+  if (!recipients.length) return;
+  const html = wrap(`
+    <tr><td style="padding:28px 36px;">
+      <div style="background:#f5f3ff;border:1px solid #ddd6fe;border-radius:10px;padding:14px 18px;margin-bottom:22px;">
+        <p style="margin:0;font-size:14px;font-weight:700;color:#6d28d9;">🔄 Transfer Request</p>
+        <p style="margin:4px 0 0;font-size:12px;color:#7c3aed;">Submitted by ${requestedBy.full_name}</p>
+      </div>
+      <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:18px 22px;margin-bottom:22px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          ${row("Serial No.", device.serial_number)}
+          ${row("Model", device.model)}
+          ${row("Current Facility", device.facility_name)}
+          ${row("Requested By", requestedBy.full_name)}
+          ${reason ? row("Reason", reason) : ""}
+        </table>
+      </div>
+      <div style="text-align:center;">
+        <a href="${appUrl()}/transfer-requests" style="display:inline-block;background:#7c3aed;color:#fff;text-decoration:none;padding:11px 28px;border-radius:8px;font-size:14px;font-weight:600;">Review Request →</a>
+      </div>
+      <p style="margin:16px 0 0;font-size:12px;color:#9ca3af;">This notification was also sent to: <strong>${recipients.map((r) => r.name).join(", ")}</strong></p>
+    </td></tr>`);
+  try {
+    await transporter.sendMail({
+      from: process.env.MAIL_FROM || process.env.MAIL_USER,
+      to: recipients.map((r) => r.email).join(", "),
+      subject: `🔄 Transfer Request: ${device.serial_number} — ${device.facility_name}`,
+      html,
+    });
+    logger.info(`Transfer request email sent for device ${device.id}`);
+  } catch (e) {
+    logger.error(`Transfer request email failed: ${e.message}`);
+  }
+};
+
+// ── Transfer reviewed ─────────────────────────────────────────────
+const sendTransferReviewedEmail = async ({
+  tr,
+  status,
+  adminNotes,
+  requestedByUser,
+}) => {
+  if (!canSend()) return;
+  const approved = status === "approved";
+  const html = wrap(`
+    <tr><td style="padding:28px 36px;">
+      <div style="background:${approved ? "#f0fdf4" : "#fef2f2"};border:1px solid ${approved ? "#bbf7d0" : "#fecaca"};border-radius:10px;padding:14px 18px;margin-bottom:22px;">
+        <p style="margin:0;font-size:14px;font-weight:700;color:${approved ? "#166534" : "#991b1b"};">${approved ? "✅ Transfer Approved" : "❌ Transfer Rejected"}</p>
+      </div>
+      <p style="margin:0 0 18px;font-size:14px;color:#374151;">Hi <strong>${requestedByUser.full_name}</strong>, your transfer request for device <strong>${tr.serial_number}</strong> has been <strong>${status}</strong>.</p>
+      ${approved ? `<p style="margin:0 0 18px;font-size:13px;color:#6b7280;">The device has been transferred to <strong>${tr.destination_facility_name}</strong>.</p>` : ""}
+      ${
+        adminNotes
+          ? `<div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:16px 20px;margin-bottom:18px;">
+        <p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#7c3aed;text-transform:uppercase;">Admin Notes</p>
+        <p style="margin:0;font-size:13px;color:#374151;">${adminNotes}</p>
+      </div>`
+          : ""
+      }
+      <a href="${appUrl()}/devices/${tr.device_id}" style="display:inline-block;background:#7c3aed;color:#fff;text-decoration:none;padding:11px 28px;border-radius:8px;font-size:14px;font-weight:600;">View Device →</a>
+    </td></tr>`);
+  try {
+    await transporter.sendMail({
+      from: process.env.MAIL_FROM || process.env.MAIL_USER,
+      to: requestedByUser.email,
+      subject: `Transfer ${approved ? "Approved" : "Rejected"}: ${tr.serial_number}`,
+      html,
+    });
+  } catch (e) {
+    logger.error(`Transfer reviewed email failed: ${e.message}`);
+  }
+};
