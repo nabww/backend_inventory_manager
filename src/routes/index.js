@@ -308,6 +308,13 @@ router.get(
   C.getRepair,
 );
 router.post(
+  "/repairs/:id/review",
+  isAdmin,
+  param("id").isInt({ min: 1 }),
+  validate,
+  C.reviewRepair,
+);
+router.post(
   "/repairs/:id/mark-returned",
   isAdmin,
   param("id").isInt({ min: 1 }),

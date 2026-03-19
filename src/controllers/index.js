@@ -263,6 +263,32 @@ const getFacility = async (req, res, next) => {
   try {
     const fac = await Ref.getFacilityById(parseInt(req.params.id));
     if (!fac) return R.notFound(res, "Facility not found");
+
+    // Zone check for non-admins
+    const user = req.user;
+    if (user.role !== "admin" && user.zone_type !== "all") {
+      if (user.zone_type === "facility") {
+        const db = require("../config/db");
+        const [rows] = await db.query(
+          `SELECT facility_id FROM user_facilities WHERE user_id = ?`,
+          [user.id],
+        );
+        const allowed = rows.map((r) => r.facility_id);
+        if (!allowed.includes(fac.id))
+          return R.forbidden(res, "Access denied to this facility");
+      } else if (
+        user.zone_type === "sub_county" &&
+        fac.sub_county_id !== user.zone_sub_county_id
+      ) {
+        return R.forbidden(res, "Access denied to this facility");
+      } else if (
+        user.zone_type === "county" &&
+        fac.county_id !== user.zone_county_id
+      ) {
+        return R.forbidden(res, "Access denied to this facility");
+      }
+    }
+
     return R.ok(res, fac);
   } catch (e) {
     next(e);
@@ -1446,7 +1472,53 @@ const createRepair = async (req, res, next) => {
       newValues: { deviceId, failureCause },
       req,
     });
-    return R.created(res, { id }, "Repair request created");
+    return R.created(
+      res,
+      { id },
+      "Repair request submitted for admin approval",
+    );
+  } catch (e) {
+    next(e);
+  }
+};
+
+const reviewRepair = async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.id);
+    const { status, adminNotes, sentTo, sentDate, signedOffBy } = req.body;
+    if (!["under_repair", "rejected"].includes(status))
+      return R.badRequest(res, "Invalid status");
+    const rp = await Repair.getById(id);
+    if (!rp) return R.notFound(res, "Repair request not found");
+    await Repair.review(id, {
+      status,
+      adminNotes,
+      reviewedBy: req.user.id,
+      sentTo,
+      sentDate,
+      signedOffBy,
+    });
+    const initiatedByUser = await User.findById(rp.initiated_by);
+    // Notify FO of decision
+    sendReturnReviewedEmail({
+      rr: { ...rp, device_id: rp.device_id },
+      status: status === "under_repair" ? "approved" : "rejected",
+      adminNotes,
+      requestedByUser: initiatedByUser,
+    }).catch(() => {});
+    await Audit.write({
+      userId: req.user.id,
+      action: "UPDATE",
+      entityType: "repair_request",
+      entityId: id,
+      newValues: { status, adminNotes },
+      req,
+    });
+    return R.ok(
+      res,
+      null,
+      `Repair request ${status === "under_repair" ? "approved" : "rejected"}`,
+    );
   } catch (e) {
     next(e);
   }
@@ -1746,6 +1818,7 @@ module.exports = {
   createRepair,
   listRepairs,
   getRepair,
+  reviewRepair,
   markRepairReturned,
   reissueRepair,
   createTransferRequest,

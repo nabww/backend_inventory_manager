@@ -1,5 +1,6 @@
 const db = require("../config/db");
 
+// Create — stays pending until admin approves
 const create = async ({
   deviceId,
   initiatedBy,
@@ -10,7 +11,7 @@ const create = async ({
 }) => {
   const [r] = await db.query(
     `INSERT INTO repair_requests (device_id, initiated_by, failure_cause, sent_to, sent_date, signed_off_by, status)
-     VALUES (?, ?, ?, ?, ?, ?, 'under_repair')`,
+     VALUES (?, ?, ?, ?, ?, ?, 'pending')`,
     [
       deviceId,
       initiatedBy,
@@ -20,10 +21,38 @@ const create = async ({
       signedOffBy || null,
     ],
   );
-  await db.query(`UPDATE devices SET status = 'under_repair' WHERE id = ?`, [
-    deviceId,
-  ]);
   return r.insertId;
+};
+
+// Admin approves (sets under_repair) or rejects
+const review = async (
+  id,
+  { status, adminNotes, reviewedBy, sentTo, sentDate, signedOffBy },
+) => {
+  const [[rp]] = await db.query(
+    `SELECT device_id FROM repair_requests WHERE id = ?`,
+    [parseInt(id)],
+  );
+  await db.query(
+    `UPDATE repair_requests SET status = ?, admin_notes = ?,
+     sent_to = COALESCE(?, sent_to), sent_date = COALESCE(?, sent_date),
+     signed_off_by = COALESCE(?, signed_off_by)
+     WHERE id = ?`,
+    [
+      status,
+      adminNotes || null,
+      sentTo || null,
+      sentDate || null,
+      signedOffBy || null,
+      parseInt(id),
+    ],
+  );
+  if (status === "under_repair") {
+    await db.query(`UPDATE devices SET status = 'under_repair' WHERE id = ?`, [
+      rp.device_id,
+    ]);
+  }
+  // rejected — device stays active
 };
 
 const getByDevice = async (deviceId) => {
@@ -136,4 +165,12 @@ const getById = async (id) => {
   return row ?? null;
 };
 
-module.exports = { create, getByDevice, list, markReturned, reissue, getById };
+module.exports = {
+  create,
+  getByDevice,
+  list,
+  review,
+  markReturned,
+  reissue,
+  getById,
+};
