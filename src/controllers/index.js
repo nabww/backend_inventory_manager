@@ -10,6 +10,13 @@ const {
   sendWelcomeEmail,
   sendLostDeviceAlert,
   sendEscalationAlert,
+  sendReturnRequestedEmail,
+  sendReturnReviewedEmail,
+  sendReissueEmail,
+  sendRepairInitiatedEmail,
+  sendRepairReturnedEmail,
+  sendTransferRequestedEmail,
+  sendTransferReviewedEmail,
 } = require("../config/mailer");
 const Loss = require("../models/loss.model");
 
@@ -1256,11 +1263,6 @@ const deleteAdminContact = async (req, res, next) => {
 // RETURNS
 // ================================================================
 const Return = require("../models/return.model");
-const {
-  sendReturnRequestedEmail,
-  sendReturnReviewedEmail,
-  sendReissueEmail,
-} = require("../config/mailer");
 
 const createReturn = async (req, res, next) => {
   try {
@@ -1400,10 +1402,6 @@ const reissueReturn = async (req, res, next) => {
 // REPAIRS
 // ================================================================
 const Repair = require("../models/repair.model");
-const {
-  sendRepairInitiatedEmail,
-  sendRepairReturnedEmail,
-} = require("../config/mailer");
 
 const createRepair = async (req, res, next) => {
   try {
@@ -1562,10 +1560,6 @@ const reissueRepair = async (req, res, next) => {
 // TRANSFER REQUESTS
 // ================================================================
 const TransferReq = require("../models/transfer_request.model");
-const {
-  sendTransferRequestedEmail,
-  sendTransferReviewedEmail,
-} = require("../config/mailer");
 
 const createTransferRequest = async (req, res, next) => {
   try {

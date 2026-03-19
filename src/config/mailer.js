@@ -312,8 +312,6 @@ const sendEscalationAlert = async ({
   }
 };
 
-module.exports = { sendWelcomeEmail, sendLostDeviceAlert, sendEscalationAlert };
-
 // ── Helper: build recipient list (admins + selected contacts) ────
 const buildRecipients = (admins = [], contacts = []) => {
   const all = [
@@ -622,4 +620,17 @@ const sendTransferReviewedEmail = async ({
   } catch (e) {
     logger.error(`Transfer reviewed email failed: ${e.message}`);
   }
+};
+
+module.exports = {
+  sendWelcomeEmail,
+  sendLostDeviceAlert,
+  sendEscalationAlert,
+  sendReturnRequestedEmail,
+  sendReturnReviewedEmail,
+  sendReissueEmail,
+  sendRepairInitiatedEmail,
+  sendRepairReturnedEmail,
+  sendTransferRequestedEmail,
+  sendTransferReviewedEmail,
 };
