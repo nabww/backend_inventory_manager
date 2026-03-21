@@ -2280,3 +2280,60 @@
 {"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-21 12:22:13"}
 {"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-21 12:22:13"}
 {"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-21 12:22:14"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 12:38:08"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 12:38:08"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 12:38:25"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 12:38:25"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 12:38:25"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 12:38:25"}
+{"level":"debug","message":"GET /api/devices/2","timestamp":"2026-03-21 12:38:31"}
+{"level":"debug","message":"GET /api/devices/2","timestamp":"2026-03-21 12:38:31"}
+{"level":"debug","message":"POST /api/devices/2/verify","timestamp":"2026-03-21 12:38:36"}
+{"level":"debug","message":"GET /api/devices/2","timestamp":"2026-03-21 12:38:36"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 12:38:38"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 12:38:39"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-03-21 12:42:55"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-03-21 12:42:55"}
+{"level":"debug","message":"GET /api/devices/unverified?page=1&limit=20","timestamp":"2026-03-21 12:42:57"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-03-21 12:43:00"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-21 12:52:48"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-21 12:52:49"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-21 12:52:49"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-21 12:52:49"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-21 12:52:51"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 12:52:53"}
+{"level":"error","message":"Unhandled error Unknown column 'v.device_id' in 'field list'","stack":"Error: Unknown column 'v.device_id' in 'field list'\n    at PromisePool.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\node_modules\\mysql2\\lib\\promise\\pool.js:36:22)\n    at Object.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\config\\db.js:23:42)\n    at Object.getDashboardStats (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\models\\device.model.js:413:38)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async dashboard (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\controllers\\index.js:411:22)","timestamp":"2026-03-21 12:52:53","url":"/api/dashboard"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 12:52:53"}
+{"level":"error","message":"Unhandled error Unknown column 'v.device_id' in 'field list'","stack":"Error: Unknown column 'v.device_id' in 'field list'\n    at PromisePool.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\node_modules\\mysql2\\lib\\promise\\pool.js:36:22)\n    at Object.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\config\\db.js:23:42)\n    at Object.getDashboardStats (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\models\\device.model.js:413:38)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async dashboard (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\controllers\\index.js:411:22)","timestamp":"2026-03-21 12:52:53","url":"/api/dashboard"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 12:52:58"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 12:52:58"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 12:52:59"}
+{"level":"error","message":"Unhandled error Unknown column 'v.device_id' in 'field list'","stack":"Error: Unknown column 'v.device_id' in 'field list'\n    at PromisePool.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\node_modules\\mysql2\\lib\\promise\\pool.js:36:22)\n    at Object.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\config\\db.js:23:42)\n    at Object.getDashboardStats (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\models\\device.model.js:413:38)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async dashboard (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\controllers\\index.js:411:22)","timestamp":"2026-03-21 12:52:59","url":"/api/dashboard"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 12:52:59"}
+{"level":"error","message":"Unhandled error Unknown column 'v.device_id' in 'field list'","stack":"Error: Unknown column 'v.device_id' in 'field list'\n    at PromisePool.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\node_modules\\mysql2\\lib\\promise\\pool.js:36:22)\n    at Object.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\config\\db.js:23:42)\n    at Object.getDashboardStats (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\models\\device.model.js:413:38)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async dashboard (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\controllers\\index.js:411:22)","timestamp":"2026-03-21 12:52:59","url":"/api/dashboard"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 13:22:53"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 13:22:53"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 13:22:53"}
+{"level":"error","message":"Unhandled error Unknown column 'v.device_id' in 'field list'","stack":"Error: Unknown column 'v.device_id' in 'field list'\n    at PromisePool.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\node_modules\\mysql2\\lib\\promise\\pool.js:36:22)\n    at Object.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\config\\db.js:23:42)\n    at Object.getDashboardStats (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\models\\device.model.js:413:38)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async dashboard (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\controllers\\index.js:411:22)","timestamp":"2026-03-21 13:22:53","url":"/api/dashboard"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 13:22:54"}
+{"level":"error","message":"Unhandled error Unknown column 'v.device_id' in 'field list'","stack":"Error: Unknown column 'v.device_id' in 'field list'\n    at PromisePool.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\node_modules\\mysql2\\lib\\promise\\pool.js:36:22)\n    at Object.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\config\\db.js:23:42)\n    at Object.getDashboardStats (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\models\\device.model.js:413:38)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async dashboard (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\controllers\\index.js:411:22)","timestamp":"2026-03-21 13:22:54","url":"/api/dashboard"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-21 13:23:22"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-21 13:23:22"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-21 13:23:22"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-21 13:23:23"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-21 13:28:58"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-21 13:28:58"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-21 13:28:58"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-21 13:29:00"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-21 13:29:03"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-21 13:29:03"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-21 13:29:03"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-21 13:29:04"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-21 13:29:38"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-21 13:29:39"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-21 13:29:39"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-21 13:29:40"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-21 13:32:19"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-21 13:32:19"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-21 13:32:19"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-21 13:32:21"}

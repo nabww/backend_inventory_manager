@@ -412,13 +412,17 @@ const getDashboardStats = async (user = null) => {
 
   const [[verifiedCount]] = await db.query(
     `
-    SELECT COUNT(DISTINCT v.device_id) AS verified_this_year
-    FROM verifications v
-    JOIN devices dv ON dv.id = v.device_id
+    SELECT
+      COUNT(DISTINCT vd.device_id) AS verified_this_year,
+      SUM(CASE WHEN dv.status = 'active' THEN 1 ELSE 0 END) AS verified_and_active,
+      SUM(CASE WHEN dv.status != 'active' THEN 1 ELSE 0 END) AS verified_no_longer_active
+    FROM (
+      SELECT DISTINCT device_id FROM verifications
+      WHERE YEAR(verified_at) = YEAR(CURDATE())
+    ) vd
+    JOIN devices dv ON dv.id = vd.device_id
     JOIN facilities fv ON fv.id = dv.facility_id
-    WHERE YEAR(v.verified_at) = YEAR(CURDATE())
-    AND dv.status = 'active'
-    AND ${zoneWhere.replace(/d\./g, "dv.").replace(/f\./g, "fv.")}`,
+    WHERE ${zoneWhere.replace(/d\./g, "dv.").replace(/f\./g, "fv.")}`,
     zoneParams,
   );
 
@@ -453,10 +457,12 @@ const getDashboardStats = async (user = null) => {
   return {
     ...stats,
     verified_this_year: verifiedCount.verified_this_year,
+    verified_and_active: verifiedCount.verified_and_active,
+    verified_no_longer_active: verifiedCount.verified_no_longer_active,
     unverified_count: Math.max(
       0,
       (parseInt(stats.active_devices) || 0) -
-        (parseInt(verifiedCount.verified_this_year) || 0),
+        (parseInt(verifiedCount.verified_and_active) || 0),
     ),
     unverified_this_year: unverified,
     recent_verifications: recentVerifications,
