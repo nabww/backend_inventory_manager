@@ -470,14 +470,15 @@ const getDevice = async (req, res, next) => {
 const createDevice = async (req, res, next) => {
   try {
     const id = await Device.create(req.body, req.user.id);
-    // Auto-verify on enrolment — no need to re-verify a brand new device
+    const device = await Device.getById(id);
+    // Auto-verify on enrolment using actual device values
     await Verify.create({
       deviceId: id,
       verifiedBy: req.user.id,
       overallStatus: "pass",
       devicePresent: true,
-      simPaired: !!req.body.hasSim,
-      coverOk: true,
+      simPaired: !!device.has_sim,
+      coverOk: ["good", "replaced"].includes(device.cover_condition),
       powersOn: true,
       emrWorking: true,
       notes: "Auto-verified on enrolment",
@@ -490,7 +491,7 @@ const createDevice = async (req, res, next) => {
       newValues: req.body,
       req,
     });
-    return R.created(res, await Device.getById(id), "Device created");
+    return R.created(res, device, "Device created");
   } catch (e) {
     next(e);
   }
@@ -707,14 +708,15 @@ const importDevices = async (req, res, next) => {
           req.user.id,
         );
 
-        // Auto-verify on import
+        // Auto-verify on import using actual device values
+        const coverCondition = row["Cover Condition"] || "good";
         await Verify.create({
           deviceId: newId,
           verifiedBy: req.user.id,
           overallStatus: "pass",
           devicePresent: true,
           simPaired: hasSim,
-          coverOk: true,
+          coverOk: ["good", "replaced"].includes(coverCondition.toLowerCase()),
           powersOn: true,
           emrWorking: true,
           notes: "Auto-verified on import",
