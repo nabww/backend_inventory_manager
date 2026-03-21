@@ -470,6 +470,18 @@ const getDevice = async (req, res, next) => {
 const createDevice = async (req, res, next) => {
   try {
     const id = await Device.create(req.body, req.user.id);
+    // Auto-verify on enrolment — no need to re-verify a brand new device
+    await Verify.create({
+      deviceId: id,
+      verifiedBy: req.user.id,
+      overallStatus: "pass",
+      devicePresent: true,
+      simPaired: !!req.body.hasSim,
+      coverOk: true,
+      powersOn: true,
+      emrWorking: true,
+      notes: "Auto-verified on enrolment",
+    });
     await Audit.write({
       userId: req.user.id,
       action: "CREATE",
@@ -672,7 +684,7 @@ const importDevices = async (req, res, next) => {
 
         const hasSim = String(row["Has SIM"] || "").toLowerCase() === "yes";
 
-        await Device.create(
+        const newId = await Device.create(
           {
             serialNumber: serial,
             facilityId: facilityCache[mflCode],
@@ -694,6 +706,19 @@ const importDevices = async (req, res, next) => {
           },
           req.user.id,
         );
+
+        // Auto-verify on import
+        await Verify.create({
+          deviceId: newId,
+          verifiedBy: req.user.id,
+          overallStatus: "pass",
+          devicePresent: true,
+          simPaired: hasSim,
+          coverOk: true,
+          powersOn: true,
+          emrWorking: true,
+          notes: "Auto-verified on import",
+        });
 
         results.imported++;
       } catch (e) {

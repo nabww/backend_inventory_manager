@@ -254,7 +254,7 @@ router.post(
 );
 
 // ── Admin Contacts
-router.get("/admin-contacts", isAdmin, C.listAdminContacts);
+router.get("/admin-contacts", authenticate, C.listAdminContacts);
 router.get("/admin-contacts/cadres", isAdmin, C.listCadres);
 router.post("/admin-contacts", isAdmin, C.createAdminContact);
 router.patch(

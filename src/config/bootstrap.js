@@ -465,7 +465,7 @@ const STATEMENTS = [
     \`sent_to\`              VARCHAR(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
     \`sent_date\`            DATE DEFAULT NULL,
     \`signed_off_by\`        VARCHAR(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    \`status\`               ENUM('pending','under_repair','repair_return_pending','reissued') NOT NULL DEFAULT 'pending',
+    \`status\`               ENUM('pending','under_repair','repair_return_pending','reissued','rejected') NOT NULL DEFAULT 'pending',
     \`admin_notes\`          TEXT COLLATE utf8mb4_unicode_ci,
     \`returned_date\`        DATE DEFAULT NULL,
     \`return_condition\`     VARCHAR(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -640,6 +640,15 @@ const run = async () => {
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
     `);
 
+    // Add rejected to repair_requests status ENUM
+    try {
+      await conn.query(
+        `ALTER TABLE \`repair_requests\` MODIFY COLUMN \`status\` ENUM('pending','under_repair','repair_return_pending','reissued','rejected') NOT NULL DEFAULT 'pending'`,
+      );
+    } catch (e) {
+      logger.warn("repair_requests ENUM update: " + e.message);
+    }
+
     // Drop unique key on sim_serial if it exists (SIM serials are not unique per device)
     try {
       await conn.query(
@@ -699,7 +708,7 @@ const run = async () => {
         \`sent_to\` VARCHAR(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
         \`sent_date\` DATE DEFAULT NULL,
         \`signed_off_by\` VARCHAR(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-        \`status\` ENUM('pending','under_repair','repair_return_pending','reissued') NOT NULL DEFAULT 'pending',
+        \`status\` ENUM('pending','under_repair','repair_return_pending','reissued','rejected') NOT NULL DEFAULT 'pending',
         \`admin_notes\` TEXT COLLATE utf8mb4_unicode_ci,
         \`returned_date\` DATE DEFAULT NULL,
         \`return_condition\` VARCHAR(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,

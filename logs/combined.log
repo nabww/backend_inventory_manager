@@ -2074,3 +2074,157 @@
 {"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-19 14:50:30"}
 {"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-19 14:50:30"}
 {"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-19 14:50:32"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-19 14:52:47"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-19 14:52:48"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-19 14:52:48"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-19 14:52:48"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-03-19 14:52:49"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-19 14:52:52"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-19 14:52:53"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-19 14:52:54"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-19 14:52:55"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-19 14:52:55"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-03-19 14:52:55"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-19 14:53:03"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-19 14:53:04"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-19 14:53:05"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-19 14:53:07"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-19 14:53:10"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-19 14:53:11"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-03-19 14:53:13"}
+{"level":"debug","message":"PATCH /api/users/2","timestamp":"2026-03-19 14:53:14"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-19 14:53:14"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-19 14:53:20"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-19 14:53:22"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-19 14:53:22"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-19 14:53:23"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-19 14:53:24"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-03-19 14:53:24"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-21 10:09:00"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-21 10:09:00"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-21 10:09:00"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-21 10:09:02"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 10:10:06"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-03-21 10:10:06"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-03-21 10:10:06"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 10:10:06"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-03-21 10:10:06"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-03-21 10:10:07"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-03-21 10:10:07"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-21 10:56:50"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 10:56:52"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 10:56:53"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-21 10:56:55"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-21 10:56:55"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-03-21 10:56:57"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-03-21 10:56:57"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-03-21 10:57:05"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-03-21 10:57:05"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-21 10:57:16"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 10:57:17"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 10:57:17"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-21 10:57:19"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-21 10:57:20"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-21 10:57:28"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-21 10:57:32"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 10:57:33"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 10:57:33"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-21 10:57:35"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-21 10:57:35"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-03-21 10:57:37"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-03-21 10:57:37"}
+{"level":"debug","message":"POST /api/repairs","timestamp":"2026-03-21 10:57:41"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-21 10:57:41"}
+{"level":"info","message":"Repair initiated email sent for device 1","timestamp":"2026-03-21 10:57:44"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-21 10:57:51"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 10:57:53"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 10:57:53"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-21 10:57:55"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-21 10:57:55"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-21 11:01:45"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-21 11:01:45"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-21 11:01:45"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-21 11:01:47"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-21 11:04:10"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-21 11:04:11"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-21 11:04:11"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-21 11:04:12"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-21 11:04:54"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-21 11:04:54"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-21 11:04:54"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-21 11:04:56"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-21 11:05:04"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-21 11:05:05"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-21 11:05:07"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-21 11:05:08"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-21 11:05:08"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-21 11:05:10"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-21 11:05:11"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 11:06:11"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 11:06:11"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 11:06:12"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 11:06:12"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-21 11:07:56"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-21 11:07:57"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-21 11:07:57"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-21 11:07:58"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 11:16:17"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 11:16:17"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-21 11:16:18"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-21 11:16:18"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 11:19:37"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 11:19:37"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-21 11:19:38"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-21 11:19:38"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 11:19:39"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 11:19:39"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 11:19:39"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 11:19:39"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 11:19:45"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 11:19:45"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-21 11:19:45"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-21 11:19:46"}
+{"level":"debug","message":"POST /api/repairs/4/review","timestamp":"2026-03-21 11:19:51"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-21 11:19:51"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=reissued","timestamp":"2026-03-21 11:19:57"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=repair_return_pending","timestamp":"2026-03-21 11:20:00"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=under_repair","timestamp":"2026-03-21 11:20:01"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-21 11:20:02"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=","timestamp":"2026-03-21 11:20:03"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 11:23:32"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 11:23:32"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 11:23:32"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 11:23:32"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-21 11:23:51"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-21 11:23:51"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-03-21 11:23:52"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-21 11:24:03"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 11:24:04"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 11:24:04"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-21 11:24:08"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-21 11:24:08"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-21 11:24:09"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-21 11:24:12"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-21 11:24:13"}
+{"level":"debug","message":"POST /api/devices/1/verify","timestamp":"2026-03-21 11:24:25"}
+{"level":"debug","message":"POST /api/devices/1/report-lost","timestamp":"2026-03-21 11:24:37"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-21 11:24:37"}
+{"level":"info","message":"Lost device alert sent for device 1","timestamp":"2026-03-21 11:24:40"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-21 11:24:48"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 11:24:49"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 11:24:50"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-03-21 11:24:57"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-03-21 11:24:57"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=","timestamp":"2026-03-21 11:25:00"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-21 11:25:02"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-21 11:25:02"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-03-21 11:25:03"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-03-21 11:25:04"}
+{"level":"debug","message":"GET /api/sims?page=1&limit=20&search=","timestamp":"2026-03-21 11:25:05"}
+{"level":"debug","message":"GET /api/admin-contacts?search=&includeInactive=true","timestamp":"2026-03-21 11:25:08"}
+{"level":"debug","message":"GET /api/admin-contacts/cadres","timestamp":"2026-03-21 11:25:08"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-21 11:25:10"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-21 11:34:44"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-21 11:34:45"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-21 11:34:45"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-21 11:34:46"}
