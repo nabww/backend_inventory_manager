@@ -531,30 +531,38 @@ const listSims = async ({ page = 1, limit = 20, search = "", user = null }) => {
 };
 
 const updateSim = async (id, { simSerial, phoneNumber, network, pin, puk }) => {
-  const sets = [],
-    vals = [];
-  if (simSerial !== undefined) {
+  const sets = [];
+  const vals = [];
+
+  if (simSerial !== undefined && simSerial !== "") {
     sets.push("sim_serial = ?");
     vals.push(simSerial);
   }
-  if (phoneNumber !== undefined) {
+
+  if (phoneNumber !== undefined && phoneNumber !== "") {
     sets.push("phone_number = ?");
     vals.push(phoneNumber);
   }
-  if (network !== undefined) {
+
+  if (network !== undefined && network !== "") {
     sets.push("network = ?");
     vals.push(network);
   }
-  if (pin !== undefined) {
+
+  if (pin !== undefined && pin !== "") {
     sets.push("pin = ?");
-    vals.push(encrypt(pin));
+    vals.push(pin);
   }
-  if (puk !== undefined) {
+
+  if (puk !== undefined && puk !== "") {
     sets.push("puk = ?");
-    vals.push(encrypt(puk));
+    vals.push(puk);
   }
+
   if (!sets.length) return;
+
   vals.push(parseInt(id));
+
   await db.query(`UPDATE sim_cards SET ${sets.join(", ")} WHERE id = ?`, vals);
 };
 

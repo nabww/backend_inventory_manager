@@ -2337,3 +2337,64 @@
 {"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-21 13:32:19"}
 {"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-21 13:32:19"}
 {"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-21 13:32:21"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 13:32:50"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-21 13:32:50"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 13:32:50"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-21 13:32:50"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-26 07:46:42"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-26 07:46:42"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-26 07:46:42"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-26 07:46:43"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-26 07:47:02"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-03-26 07:47:02"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-03-26 07:47:02"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-26 07:47:02"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-03-26 07:47:02"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-03-26 07:47:03"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-26 07:47:06"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-26 07:47:07"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-26 07:47:07"}
+{"level":"debug","message":"GET /api/devices/2","timestamp":"2026-03-26 07:47:12"}
+{"level":"debug","message":"GET /api/devices/2","timestamp":"2026-03-26 07:47:12"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-26 07:47:15"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-26 07:47:15"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-26 07:47:15"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-26 07:47:15"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-26 07:47:15"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-26 07:47:15"}
+{"level":"debug","message":"PATCH /api/devices/2","timestamp":"2026-03-26 07:47:19"}
+{"level":"debug","message":"GET /api/devices/2","timestamp":"2026-03-26 07:47:19"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-26 07:48:27"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-26 07:48:27"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-26 07:48:27"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-26 07:48:29"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-26 07:48:29"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-26 07:48:29"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-26 07:48:29"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-26 07:48:29"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-26 07:48:29"}
+{"level":"debug","message":"PATCH /api/devices/2","timestamp":"2026-03-26 07:48:34"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-26 07:48:34"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-26 08:15:57"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-26 08:15:57"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-26 08:15:57"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-26 08:15:58"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-26 08:15:58"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-26 08:15:58"}
+{"level":"debug","message":"PATCH /api/devices/2","timestamp":"2026-03-26 08:16:03"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-26 08:16:03"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-26 08:16:08"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-26 08:16:08"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-26 08:16:08"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-26 08:16:08"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-26 08:16:09"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-26 08:16:09"}
+{"level":"debug","message":"PATCH /api/devices/2","timestamp":"2026-03-26 08:16:12"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-26 08:16:12"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-26 08:17:48"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-26 08:17:48"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-26 08:17:48"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-26 08:17:56"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-26 08:18:06"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-26 08:18:06"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-26 08:18:06"}
