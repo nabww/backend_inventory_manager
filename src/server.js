@@ -23,7 +23,7 @@ app.use(
 app.use(
   rateLimit({
     windowMs: 15 * 60 * 1000,
-    max: 200,
+    max: 1e9,
     handler: (req, res) => R.err(res, "Too many requests", 429),
   }),
 );
