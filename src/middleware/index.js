@@ -28,8 +28,17 @@ const authenticate = async (req, res, next) => {
         [user.id],
       );
       user.zone_facility_ids = facs.map((f) => f.facility_id);
+      user.zone_sub_county_ids = [];
+    } else if (user.zone_type === "sub_county") {
+      const [scs] = await db.query(
+        `SELECT sub_county_id FROM user_sub_counties WHERE user_id = ?`,
+        [user.id],
+      );
+      user.zone_sub_county_ids = scs.map((s) => s.sub_county_id);
+      user.zone_facility_ids = [];
     } else {
       user.zone_facility_ids = [];
+      user.zone_sub_county_ids = [];
     }
 
     req.user = user;

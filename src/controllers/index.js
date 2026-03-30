@@ -75,7 +75,7 @@ const register = async (req, res, next) => {
       roleId,
       zoneType,
       zoneCountyId,
-      zoneSubCountyId,
+      subCountyIds,
       facilityIds,
     } = req.body;
     if (await User.findByEmail(email))
@@ -88,7 +88,7 @@ const register = async (req, res, next) => {
       passwordHash,
       zoneType,
       zoneCountyId,
-      zoneSubCountyId,
+      subCountyIds: subCountyIds || [],
       facilityIds: facilityIds || [],
     });
     await Audit.write({

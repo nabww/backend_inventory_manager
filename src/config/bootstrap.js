@@ -505,6 +505,16 @@ const STATEMENTS = [
     CONSTRAINT \`fk_treq_destination\`  FOREIGN KEY (\`destination_facility_id\`) REFERENCES \`facilities\` (\`id\`)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
 
+  /* ── user_sub_counties (many-to-many zone assignment) ───────── */
+  `CREATE TABLE IF NOT EXISTS \`user_sub_counties\` (
+    \`user_id\`      INT UNSIGNED NOT NULL,
+    \`sub_county_id\` INT UNSIGNED NOT NULL,
+    \`created_at\`   DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (\`user_id\`, \`sub_county_id\`),
+    CONSTRAINT \`fk_usc_user\`       FOREIGN KEY (\`user_id\`)      REFERENCES \`users\`       (\`id\`) ON DELETE CASCADE,
+    CONSTRAINT \`fk_usc_sub_county\` FOREIGN KEY (\`sub_county_id\`) REFERENCES \`sub_counties\` (\`id\`) ON DELETE CASCADE
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+
   /* ── user_facilities (many-to-many zone assignment) ─────────── */
   `CREATE TABLE IF NOT EXISTS \`user_facilities\` (
     \`user_id\`     INT UNSIGNED NOT NULL,
@@ -627,6 +637,18 @@ const run = async () => {
         if (e.code !== "ER_DUP_FIELDNAME") throw e;
       }
     }
+
+    // Create user_sub_counties junction table if not exists
+    await conn.query(`
+      CREATE TABLE IF NOT EXISTS \`user_sub_counties\` (
+        \`user_id\`       INT UNSIGNED NOT NULL,
+        \`sub_county_id\` INT UNSIGNED NOT NULL,
+        \`created_at\`    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (\`user_id\`, \`sub_county_id\`),
+        CONSTRAINT \`fk_usc_user\`       FOREIGN KEY (\`user_id\`)      REFERENCES \`users\`       (\`id\`) ON DELETE CASCADE,
+        CONSTRAINT \`fk_usc_sub_county\` FOREIGN KEY (\`sub_county_id\`) REFERENCES \`sub_counties\` (\`id\`) ON DELETE CASCADE
+      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+    `);
 
     // Create user_facilities junction table if not exists (for multi-facility zoning)
     await conn.query(`

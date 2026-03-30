@@ -2531,3 +2531,134 @@
 {"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=under_repair","timestamp":"2026-03-26 09:33:17"}
 {"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-26 10:19:27"}
 {"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-26 10:19:27"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-30 08:05:35"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-30 08:05:36"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-30 08:05:36"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-30 08:05:37"}
+{"level":"debug","message":"GET /main.485c02cfb049ee7eaea9.hot-update.json","timestamp":"2026-03-30 08:05:58"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-30 08:05:58"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-30 08:05:58"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:05:58"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:05:58"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-30 08:05:58"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-30 08:05:58"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:05:58"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:05:58"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-30 08:18:57"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-30 08:18:58"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-30 08:18:58"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-30 08:18:59"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-30 08:21:32"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-30 08:21:32"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:21:32"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:21:32"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-30 08:22:19"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-30 08:22:20"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-30 08:22:20"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-30 08:22:21"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-30 08:22:28"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-30 08:22:28"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-30 08:22:28"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-30 08:22:29"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-30 08:22:48"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-30 08:22:48"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-30 08:22:48"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-30 08:22:49"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-30 08:23:05"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-30 08:23:05"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-30 08:23:05"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-30 08:23:05"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-30 08:23:06"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-30 08:23:06"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-30 08:23:07"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-30 08:23:19"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-30 08:23:19"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-30 08:23:19"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-30 08:23:21"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-30 08:23:34"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-30 08:23:34"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-30 08:23:34"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-30 08:23:35"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-30 08:23:47"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-30 08:23:47"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-30 08:23:47"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-30 08:23:48"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-30 08:23:56"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-30 08:23:56"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:23:56"}
+{"level":"error","message":"Unhandled error Unknown column 'v.device_id' in 'field list'","stack":"Error: Unknown column 'v.device_id' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.getDashboardStats (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:430:38)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async dashboard (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:411:22)","timestamp":"2026-03-30 08:23:56","url":"/api/dashboard"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:23:56"}
+{"level":"error","message":"Unhandled error Unknown column 'v.device_id' in 'field list'","stack":"Error: Unknown column 'v.device_id' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.getDashboardStats (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:430:38)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async dashboard (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:411:22)","timestamp":"2026-03-30 08:23:56","url":"/api/dashboard"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-30 08:25:04"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-30 08:25:04"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-30 08:25:04"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-30 08:25:05"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-30 08:25:05"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-30 08:25:05"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-30 08:25:06"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-30 08:25:09"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-30 08:25:09"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:25:09"}
+{"level":"error","message":"Unhandled error Unknown column 'vd.device_id' in 'field list'","stack":"Error: Unknown column 'vd.device_id' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.getDashboardStats (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:408:30)\n    at dashboard (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:411:35)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:346:12)","timestamp":"2026-03-30 08:25:09","url":"/api/dashboard"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:25:09"}
+{"level":"error","message":"Unhandled error Unknown column 'vd.device_id' in 'field list'","stack":"Error: Unknown column 'vd.device_id' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.getDashboardStats (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:408:30)\n    at dashboard (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:411:35)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:346:12)","timestamp":"2026-03-30 08:25:09","url":"/api/dashboard"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-30 08:29:00"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-30 08:29:00"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-30 08:29:00"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-30 08:29:01"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-30 08:29:08"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-03-30 08:29:08"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:29:08"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:29:08"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:29:12"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:29:12"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-30 08:29:12"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-30 08:29:13"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:29:17"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:29:17"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:32:00"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-30 08:32:00"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:32:01"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-30 08:32:02"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:32:55"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-30 08:32:56"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:32:59"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-30 08:33:00"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:33:00"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-30 08:33:01"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:33:01"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-30 08:33:02"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-30 08:34:13"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:34:16"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:34:16"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:34:20"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:34:20"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:34:31"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:34:31"}
+{"level":"debug","message":"GET /api/facilities?limit=200","timestamp":"2026-03-30 08:34:34"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:41:49"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-30 08:41:50"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-03-30 08:41:57"}
+{"level":"debug","message":"PATCH /api/users/2","timestamp":"2026-03-30 08:42:10"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-30 08:42:10"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-30 08:42:19"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:42:19"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:42:19"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:42:25"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:42:25"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-03-30 08:42:26"}
+{"level":"debug","message":"GET /api/facilities?page=2&limit=20&search=","timestamp":"2026-03-30 08:42:29"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-03-30 08:42:44"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:42:46"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:42:46"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-30 08:46:36"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:46:36"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:46:36"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-30 08:46:41"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:46:41"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 08:46:41"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-30 08:46:45"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:46:48"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-03-30 08:46:48"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:46:48"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-03-30 08:46:48"}

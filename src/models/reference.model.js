@@ -8,9 +8,11 @@ const applyZone = (user, conds, params) => {
       "f.id IN (SELECT facility_id FROM user_facilities WHERE user_id = ?)",
     );
     params.push(parseInt(user.id));
-  } else if (user.zone_type === "sub_county" && user.zone_sub_county_id) {
-    conds.push("f.sub_county_id = ?");
-    params.push(parseInt(user.zone_sub_county_id));
+  } else if (user.zone_type === "sub_county") {
+    conds.push(
+      "f.sub_county_id IN (SELECT sub_county_id FROM user_sub_counties WHERE user_id = ?)",
+    );
+    params.push(parseInt(user.id));
   } else if (user.zone_type === "county" && user.zone_county_id) {
     conds.push("f.county_id = ?");
     params.push(parseInt(user.zone_county_id));

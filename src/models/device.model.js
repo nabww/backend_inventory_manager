@@ -48,14 +48,15 @@ const decryptSim = (row) => {
 const applyZone = (user, conds, params) => {
   if (!user || user.role === "admin" || user.zone_type === "all") return;
   if (user.zone_type === "facility") {
-    // Multi-facility: IN subquery on user_facilities junction table
     conds.push(
       "d.facility_id IN (SELECT facility_id FROM user_facilities WHERE user_id = ?)",
     );
     params.push(parseInt(user.id));
-  } else if (user.zone_type === "sub_county" && user.zone_sub_county_id) {
-    conds.push("f.sub_county_id = ?");
-    params.push(parseInt(user.zone_sub_county_id));
+  } else if (user.zone_type === "sub_county") {
+    conds.push(
+      "f.sub_county_id IN (SELECT sub_county_id FROM user_sub_counties WHERE user_id = ?)",
+    );
+    params.push(parseInt(user.id));
   } else if (user.zone_type === "county" && user.zone_county_id) {
     conds.push("f.county_id = ?");
     params.push(parseInt(user.zone_county_id));
@@ -135,16 +136,12 @@ const getBySerial = async (serial) => {
   return decryptSim(row ?? null);
 };
 
-/**
- * Create device — optionally creates SIM record in same transaction
- */
 const create = async (fields, createdBy) => {
   const conn = await db.getConnection();
   try {
     await conn.beginTransaction();
 
     let simCardId = null;
-
     if (fields.hasSim && (fields.simSerial || fields.phoneNumber)) {
       const [sr] = await conn.query(
         `INSERT INTO sim_cards (sim_serial, phone_number, pin, puk, network)
@@ -152,9 +149,9 @@ const create = async (fields, createdBy) => {
          ON DUPLICATE KEY UPDATE
            sim_serial   = sim_serial,
            phone_number = COALESCE(VALUES(phone_number), phone_number),
-           pin          = COALESCE(VALUES(pin),          pin),
-           puk          = COALESCE(VALUES(puk),          puk),
-           network      = COALESCE(VALUES(network),      network)`,
+           pin          = COALESCE(VALUES(pin), pin),
+           puk          = COALESCE(VALUES(puk), puk),
+           network      = COALESCE(VALUES(network), network)`,
         [
           fields.simSerial || null,
           fields.phoneNumber || null,
@@ -210,24 +207,18 @@ const create = async (fields, createdBy) => {
   }
 };
 
-/**
- * Update device — updates or creates SIM in same transaction
- */
 const update = async (id, fields, updatedBy) => {
   const conn = await db.getConnection();
   try {
     await conn.beginTransaction();
 
-    // Get current device
     const [[current]] = await conn.query(
       `SELECT sim_card_id, has_sim FROM devices WHERE id = ?`,
       [parseInt(id)],
     );
 
-    // ── SIM handling
     if (fields.hasSim) {
       if (current.sim_card_id) {
-        // Update existing SIM
         const simSets = [],
           simVals = [];
         const simMap = {
@@ -257,9 +248,14 @@ const update = async (id, fields, updatedBy) => {
           );
         }
       } else if (fields.simSerial || fields.phoneNumber) {
-        // Create new SIM
         const [sr] = await conn.query(
-          `INSERT INTO sim_cards (sim_serial, phone_number, pin, puk, network) VALUES (?, ?, ?, ?, ?)`,
+          `INSERT INTO sim_cards (sim_serial, phone_number, pin, puk, network)
+           VALUES (?, ?, ?, ?, ?)
+           ON DUPLICATE KEY UPDATE
+             sim_serial = VALUES(sim_serial),
+             pin        = COALESCE(VALUES(pin), pin),
+             puk        = COALESCE(VALUES(puk), puk),
+             network    = COALESCE(VALUES(network), network)`,
           [
             fields.simSerial || null,
             fields.phoneNumber || null,
@@ -268,19 +264,26 @@ const update = async (id, fields, updatedBy) => {
             fields.network || null,
           ],
         );
-        await conn.query(`UPDATE devices SET sim_card_id = ? WHERE id = ?`, [
-          sr.insertId,
-          parseInt(id),
-        ]);
+        const simId = sr.insertId
+          ? sr.insertId
+          : (
+              await conn.query(
+                `SELECT id FROM sim_cards WHERE phone_number = ? LIMIT 1`,
+                [fields.phoneNumber],
+              )
+            )[0][0]?.id;
+        if (simId)
+          await conn.query(`UPDATE devices SET sim_card_id = ? WHERE id = ?`, [
+            simId,
+            parseInt(id),
+          ]);
       }
     } else if (!fields.hasSim && current.sim_card_id) {
-      // Toggle SIM off — unlink (keep SIM record for audit)
       await conn.query(`UPDATE devices SET sim_card_id = NULL WHERE id = ?`, [
         parseInt(id),
       ]);
     }
 
-    // ── Device fields
     const devSets = [],
       devVals = [];
     const devMap = {
@@ -301,7 +304,6 @@ const update = async (id, fields, updatedBy) => {
     };
     for (const [k, col] of Object.entries(devMap)) {
       if (fields[k] !== undefined) {
-        // locked is boolean — must not coerce false to null
         const val = k === "locked" ? (fields[k] ? 1 : 0) : fields[k] || null;
         devSets.push(`${col} = ?`);
         devVals.push(val);
@@ -327,9 +329,6 @@ const update = async (id, fields, updatedBy) => {
   }
 };
 
-/**
- * Transfer device to another facility — updates + logs
- */
 const transfer = async (id, toFacilityId, reason, userId) => {
   const conn = await db.getConnection();
   try {
@@ -343,8 +342,7 @@ const transfer = async (id, toFacilityId, reason, userId) => {
       [parseInt(toFacilityId), userId, parseInt(id)],
     );
     await conn.query(
-      `INSERT INTO facility_transfers (device_id, from_facility_id, to_facility_id, transferred_by, reason)
-       VALUES (?, ?, ?, ?, ?)`,
+      `INSERT INTO facility_transfers (device_id, from_facility_id, to_facility_id, transferred_by, reason) VALUES (?, ?, ?, ?, ?)`,
       [
         parseInt(id),
         dev.facility_id,
@@ -382,7 +380,6 @@ const getTransfers = async (deviceId) => {
 };
 
 const getDashboardStats = async (user = null) => {
-  // Build zone WHERE clause for facility-level filtering
   const zoneConds = ["1=1"];
   const zoneParams = [];
   applyZone(user, zoneConds, zoneParams);
@@ -398,12 +395,13 @@ const getDashboardStats = async (user = null) => {
       SUM(d.cover_condition != 'good')        AS cover_issues,
       SUM(d.status = 'lost')                  AS lost_devices,
       SUM(d.status = 'under_repair')          AS under_repair,
-      (SELECT COUNT(DISTINCT v.device_id) FROM verifications v
+      (SELECT COUNT(DISTINCT v.device_id)
+       FROM verifications v
        JOIN devices dv ON dv.id = v.device_id
        JOIN facilities fv ON fv.id = dv.facility_id
        WHERE YEAR(v.verified_at) = YEAR(CURDATE())
-       AND dv.status = 'active' AND ${zoneWhere.replace(/d\./g, "dv.").replace(/f\./g, "fv.")})
-                                              AS verified_this_year
+       AND dv.status = 'active'
+       AND ${zoneWhere.replace(/d\./g, "dv.").replace(/f\./g, "fv.")}) AS verified_this_year
     FROM devices d
     JOIN facilities f ON f.id = d.facility_id
     WHERE ${zoneWhere}`,
@@ -413,15 +411,15 @@ const getDashboardStats = async (user = null) => {
   const [[verifiedCount]] = await db.query(
     `
     SELECT
-      COUNT(DISTINCT vd.device_id) AS verified_this_year,
-      SUM(CASE WHEN dv.status = 'active' THEN 1 ELSE 0 END) AS verified_and_active,
-      SUM(CASE WHEN dv.status != 'active' THEN 1 ELSE 0 END) AS verified_no_longer_active
+      COUNT(DISTINCT vd.device_id)                                          AS verified_this_year,
+      SUM(CASE WHEN dv.status = 'active'   THEN 1 ELSE 0 END)              AS verified_and_active,
+      SUM(CASE WHEN dv.status != 'active'  THEN 1 ELSE 0 END)              AS verified_no_longer_active
     FROM (
       SELECT DISTINCT device_id FROM verifications
       WHERE YEAR(verified_at) = YEAR(CURDATE())
     ) vd
-    JOIN devices dv ON dv.id = vd.device_id
-    JOIN facilities fv ON fv.id = dv.facility_id
+    JOIN devices dv    ON dv.id  = vd.device_id
+    JOIN facilities fv ON fv.id  = dv.facility_id
     WHERE ${zoneWhere.replace(/d\./g, "dv.").replace(/f\./g, "fv.")}`,
     zoneParams,
   );
@@ -469,12 +467,10 @@ const getDashboardStats = async (user = null) => {
   };
 };
 
-// ── SIM Cards ─────────────────────────────────────────────────────────────────
 const listSims = async ({ page = 1, limit = 20, search = "", user = null }) => {
   const p = parseInt(page) || 1;
   const lim = parseInt(limit) || 20;
   const off = (p - 1) * lim;
-
   const zoneConds = ["1=1"];
   const zoneParams = [];
   applyZone(user, zoneConds, zoneParams);
@@ -486,7 +482,6 @@ const listSims = async ({ page = 1, limit = 20, search = "", user = null }) => {
     ? [`%${search}%`, `%${search}%`, `%${search}%`]
     : [];
 
-  // Deduplicate: pick the sim with the lowest id per phone_number, exclude nulls
   const [rows] = await db.query(
     `
     SELECT s.id, s.sim_serial, s.phone_number, s.network, s.created_at,
@@ -496,11 +491,8 @@ const listSims = async ({ page = 1, limit = 20, search = "", user = null }) => {
     LEFT JOIN devices d ON d.sim_card_id = s.id AND d.status != 'decommissioned'
     LEFT JOIN facilities f ON f.id = d.facility_id
     WHERE s.id IN (
-      SELECT MIN(id) FROM sim_cards
-      WHERE phone_number IS NOT NULL
-      GROUP BY phone_number
-      UNION
-      SELECT id FROM sim_cards WHERE phone_number IS NULL
+      SELECT MIN(id) FROM sim_cards WHERE phone_number IS NOT NULL GROUP BY phone_number
+      UNION SELECT id FROM sim_cards WHERE phone_number IS NULL
     )
     ${searchCond}
     AND (f.id IS NULL OR ${zoneConds.join(" AND ")})
@@ -516,11 +508,8 @@ const listSims = async ({ page = 1, limit = 20, search = "", user = null }) => {
     LEFT JOIN devices d ON d.sim_card_id = s.id AND d.status != 'decommissioned'
     LEFT JOIN facilities f ON f.id = d.facility_id
     WHERE s.id IN (
-      SELECT MIN(id) FROM sim_cards
-      WHERE phone_number IS NOT NULL
-      GROUP BY phone_number
-      UNION
-      SELECT id FROM sim_cards WHERE phone_number IS NULL
+      SELECT MIN(id) FROM sim_cards WHERE phone_number IS NOT NULL GROUP BY phone_number
+      UNION SELECT id FROM sim_cards WHERE phone_number IS NULL
     )
     ${searchCond}
     AND (f.id IS NULL OR ${zoneConds.join(" AND ")})`,
@@ -531,38 +520,30 @@ const listSims = async ({ page = 1, limit = 20, search = "", user = null }) => {
 };
 
 const updateSim = async (id, { simSerial, phoneNumber, network, pin, puk }) => {
-  const sets = [];
-  const vals = [];
-
-  if (simSerial !== undefined && simSerial !== "") {
+  const sets = [],
+    vals = [];
+  if (simSerial !== undefined) {
     sets.push("sim_serial = ?");
     vals.push(simSerial);
   }
-
-  if (phoneNumber !== undefined && phoneNumber !== "") {
+  if (phoneNumber !== undefined) {
     sets.push("phone_number = ?");
     vals.push(phoneNumber);
   }
-
-  if (network !== undefined && network !== "") {
+  if (network !== undefined) {
     sets.push("network = ?");
     vals.push(network);
   }
-
-  if (pin !== undefined && pin !== "") {
+  if (pin !== undefined) {
     sets.push("pin = ?");
-    vals.push(pin);
+    vals.push(encrypt(pin));
   }
-
-  if (puk !== undefined && puk !== "") {
+  if (puk !== undefined) {
     sets.push("puk = ?");
-    vals.push(puk);
+    vals.push(encrypt(puk));
   }
-
   if (!sets.length) return;
-
   vals.push(parseInt(id));
-
   await db.query(`UPDATE sim_cards SET ${sets.join(", ")} WHERE id = ?`, vals);
 };
 
@@ -574,7 +555,6 @@ const unlinkSim = async (simId) => {
 };
 
 const linkSim = async (simId, deviceId) => {
-  // Unlink from current device if any
   await db.query(
     `UPDATE devices SET sim_card_id = NULL, has_sim = 0 WHERE sim_card_id = ?`,
     [parseInt(simId)],
@@ -589,7 +569,6 @@ const exportSims = async (user = null) => {
   const zoneConds = ["1=1"];
   const zoneParams = [];
   applyZone(user, zoneConds, zoneParams);
-
   const [rows] = await db.query(
     `
     SELECT s.sim_serial, s.phone_number, s.network, s.created_at,
@@ -609,6 +588,41 @@ const exportSims = async (user = null) => {
   return rows;
 };
 
+const listUnverified = async ({ page = 1, limit = 20, user = null } = {}) => {
+  const p = parseInt(page) || 1;
+  const lim = parseInt(limit) || 20;
+  const off = (p - 1) * lim;
+  const zoneConds = ["d.status = 'active'"];
+  const zoneParams = [];
+  applyZone(user, zoneConds, zoneParams);
+  const where = `WHERE ${zoneConds.join(" AND ")}
+    AND d.id NOT IN (
+      SELECT DISTINCT device_id FROM verifications WHERE YEAR(verified_at) = YEAR(CURDATE())
+    )`;
+  const [rows] = await db.query(
+    `
+    SELECT d.id, d.serial_number, d.model, d.status,
+           f.name AS facility, f.mfl_code,
+           sc.name AS sub_county, c.name AS county
+    FROM devices d
+    JOIN facilities f    ON f.id = d.facility_id
+    JOIN counties c      ON c.id = f.county_id
+    LEFT JOIN sub_counties sc ON sc.id = f.sub_county_id
+    ${where}
+    ORDER BY f.name ASC, d.serial_number ASC
+    LIMIT ${lim} OFFSET ${off}`,
+    zoneParams,
+  );
+  const [[{ total }]] = await db.query(
+    `
+    SELECT COUNT(*) AS total FROM devices d
+    JOIN facilities f ON f.id = d.facility_id
+    ${where}`,
+    zoneParams,
+  );
+  return { rows, total };
+};
+
 module.exports = {
   list,
   getById,
@@ -624,4 +638,5 @@ module.exports = {
   unlinkSim,
   linkSim,
   exportSims,
+  listUnverified,
 };
