@@ -13,7 +13,7 @@ const authenticate = async (req, res, next) => {
 
     // Hydrate zone fields from DB so zone changes take effect immediately
     const [[user]] = await db.query(
-      `SELECT u.id, u.email, u.zone_type, u.zone_county_id, u.zone_sub_county_id,
+      `SELECT u.id, u.email, u.zone_type, u.zone_county_id,
               r.name AS role
        FROM users u JOIN roles r ON r.id = u.role_id
        WHERE u.id = ? AND u.is_active = 1 LIMIT 1`,

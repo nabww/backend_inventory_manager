@@ -3,42 +3,36 @@ const db = require("../config/db");
 const create = async ({
   deviceId,
   initiatedBy,
-  failureCause,
-  sentTo,
-  sentDate,
-  signedOffBy,
+  destinationFacilityId,
+  reason,
 }) => {
   const [r] = await db.query(
-    `INSERT INTO repair_requests (device_id, initiated_by, failure_cause, sent_to, sent_date, signed_off_by, status)
-     VALUES (?, ?, ?, ?, ?, ?, 'under_repair')`,
-    [
-      deviceId,
-      initiatedBy,
-      failureCause,
-      sentTo || null,
-      sentDate || null,
-      signedOffBy || null,
-    ],
+    `INSERT INTO transfer_requests (device_id, requested_by, destination_facility_id, reason)
+     VALUES (?, ?, ?, ?)`,
+    [deviceId, initiatedBy, destinationFacilityId, reason || null],
   );
-  await db.query(`UPDATE devices SET status = 'under_repair' WHERE id = ?`, [
-    deviceId,
-  ]);
+
+  await db.query(
+    `UPDATE devices SET status = 'pending_transfer' WHERE id = ?`,
+    [deviceId],
+  );
+
   return r.insertId;
 };
 
 const getByDevice = async (deviceId) => {
   const [rows] = await db.query(
     `
-    SELECT rp.*,
+    SELECT tr.*,
            u1.full_name AS initiated_by_name,
-           u2.full_name AS reissued_by_name,
-           f.name AS reissued_to_facility_name, f.mfl_code
-    FROM repair_requests rp
-    JOIN users u1 ON u1.id = rp.initiated_by
-    LEFT JOIN users u2 ON u2.id = rp.reissued_by
-    LEFT JOIN facilities f ON f.id = rp.reissued_to_facility
-    WHERE rp.device_id = ?
-    ORDER BY rp.created_at DESC`,
+           u2.full_name AS reviewed_by_name,
+           f.name AS destination_facility_name, f.mfl_code
+    FROM transfer_requests tr
+    JOIN users u1 ON u1.id = tr.requested_by
+    LEFT JOIN users u2 ON u2.id = tr.reviewed_by
+    JOIN facilities f ON f.id = tr.destination_facility_id
+    WHERE tr.device_id = ?
+    ORDER BY tr.created_at DESC`,
     [deviceId],
   );
   return rows;
@@ -48,92 +42,90 @@ const list = async ({ page = 1, limit = 20, status = "" } = {}) => {
   const p = parseInt(page) || 1;
   const lim = parseInt(limit) || 20;
   const off = (p - 1) * lim;
-  const conds = status ? ["rp.status = ?"] : [];
+  const conds = status ? ["tr.status = ?"] : [];
   const params = status ? [status] : [];
   const where = conds.length ? `WHERE ${conds.join(" AND ")}` : "";
   const [rows] = await db.query(
     `
-    SELECT rp.*, d.serial_number, d.model,
-           f.name AS facility_name, f.mfl_code,
-           u1.full_name AS initiated_by_name
-    FROM repair_requests rp
-    JOIN devices d ON d.id = rp.device_id
-    JOIN facilities f ON f.id = d.facility_id
-    JOIN users u1 ON u1.id = rp.initiated_by
+    SELECT tr.*, d.serial_number, d.model,
+           f1.name AS current_facility_name, f1.mfl_code AS current_mfl,
+           f2.name AS destination_facility_name, f2.mfl_code AS destination_mfl,
+           u1.full_name AS initiated_by_name,
+           u2.full_name AS reviewed_by_name
+    FROM transfer_requests tr
+    JOIN devices d ON d.id = tr.device_id
+    JOIN facilities f1 ON f1.id = d.facility_id
+    JOIN facilities f2 ON f2.id = tr.destination_facility_id
+    JOIN users u1 ON u1.id = tr.requested_by
+    LEFT JOIN users u2 ON u2.id = tr.reviewed_by
     ${where}
-    ORDER BY rp.created_at DESC
+    ORDER BY tr.created_at DESC
     LIMIT ${lim} OFFSET ${off}`,
     params,
   );
   const [[{ total }]] = await db.query(
-    `SELECT COUNT(*) AS total FROM repair_requests rp ${where}`,
+    `SELECT COUNT(*) AS total FROM transfer_requests tr ${where}`,
     params,
   );
   return { rows, total };
 };
 
-const markReturned = async (
-  id,
-  { returnedDate, returnCondition, adminNotes },
-) => {
-  const [[rp]] = await db.query(
-    `SELECT device_id FROM repair_requests WHERE id = ?`,
+const review = async (id, { status, adminNotes, reviewedBy }) => {
+  const [[tr]] = await db.query(
+    `SELECT device_id, destination_facility_id FROM transfer_requests WHERE id = ?`,
     [parseInt(id)],
   );
   await db.query(
-    `UPDATE repair_requests SET status = 'repair_return_pending', returned_date = ?, return_condition = ?, admin_notes = ? WHERE id = ?`,
-    [
-      returnedDate || new Date().toISOString().split("T")[0],
-      returnCondition || null,
-      adminNotes || null,
-      parseInt(id),
-    ],
+    `UPDATE transfer_requests SET status = ?, admin_notes = ?, reviewed_by = ?, reviewed_at = NOW() WHERE id = ?`,
+    [status, adminNotes || null, reviewedBy, parseInt(id)],
   );
-  await db.query(
-    `UPDATE devices SET status = 'repair_return_pending' WHERE id = ?`,
-    [rp.device_id],
-  );
-  return rp.device_id;
-};
-
-const reissue = async (
-  id,
-  { reissuedBy, reissuedDate, reissuedToFacility },
-) => {
-  const [[rp]] = await db.query(
-    `SELECT device_id FROM repair_requests WHERE id = ?`,
-    [parseInt(id)],
-  );
-  await db.query(
-    `UPDATE repair_requests SET status = 'reissued', reissued_by = ?, reissued_date = ?, reissued_to_facility = ? WHERE id = ?`,
-    [reissuedBy, reissuedDate, reissuedToFacility, parseInt(id)],
-  );
-  await db.query(
-    `UPDATE devices SET status = 'active', facility_id = ? WHERE id = ?`,
-    [reissuedToFacility, rp.device_id],
-  );
-  return rp.device_id;
+  if (status === "approved") {
+    // Record in facility_transfers and update device facility
+    const [[device]] = await db.query(
+      `SELECT facility_id FROM devices WHERE id = ?`,
+      [tr.device_id],
+    );
+    await db.query(
+      `INSERT INTO facility_transfers (device_id, from_facility_id, to_facility_id, transferred_by, reason)
+VALUES (?, ?, ?, ?,?)`,
+      [
+        tr.device_id,
+        device.facility_id,
+        tr.destination_facility_id,
+        reviewedBy,
+        adminNotes,
+      ],
+    );
+    await db.query(
+      `UPDATE devices SET status = 'active', facility_id = ? WHERE id = ?`,
+      [tr.destination_facility_id, tr.device_id],
+    );
+  } else if (status === "rejected") {
+    await db.query(`UPDATE devices SET status = 'active' WHERE id = ?`, [
+      tr.device_id,
+    ]);
+  }
 };
 
 const getById = async (id) => {
   const [[row]] = await db.query(
     `
-    SELECT rp.*,
+    SELECT tr.*,
            d.serial_number, d.model,
-           f.name AS facility_name, f.mfl_code,
-           u1.full_name AS initiated_by_name, u1.email AS initiated_by_email,
-           u2.full_name AS reissued_by_name,
-           f2.name AS reissued_to_facility_name
-    FROM repair_requests rp
-    JOIN devices d ON d.id = rp.device_id
-    JOIN facilities f ON f.id = d.facility_id
-    JOIN users u1 ON u1.id = rp.initiated_by
-    LEFT JOIN users u2 ON u2.id = rp.reissued_by
-    LEFT JOIN facilities f2 ON f2.id = rp.reissued_to_facility
-    WHERE rp.id = ? LIMIT 1`,
+           f1.name AS current_facility_name, f1.mfl_code AS current_mfl,
+           f2.name AS destination_facility_name, f2.mfl_code AS destination_mfl,
+           u1.full_name AS requested_by_name, u1.email AS requested_by_email,
+           u2.full_name AS reviewed_by_name
+    FROM transfer_requests tr
+    JOIN devices d ON d.id = tr.device_id
+    JOIN facilities f1 ON f1.id = d.facility_id
+    JOIN facilities f2 ON f2.id = tr.destination_facility_id
+    JOIN users u1 ON u1.id = tr.requested_by
+    LEFT JOIN users u2 ON u2.id = tr.reviewed_by
+    WHERE tr.id = ? LIMIT 1`,
     [parseInt(id)],
   );
   return row ?? null;
 };
 
-module.exports = { create, getByDevice, list, markReturned, reissue, getById };
+module.exports = { create, getByDevice, list, review, getById };

@@ -2662,3 +2662,333 @@
 {"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-03-30 08:46:48"}
 {"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:46:48"}
 {"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-03-30 08:46:48"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-30 08:51:25"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:51:32"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-03-30 08:51:32"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 08:51:32"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-03-30 08:51:32"}
+{"level":"debug","message":"GET /api/facilities?limit=200","timestamp":"2026-03-30 08:51:36"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-03-30 08:51:38"}
+{"level":"debug","message":"GET /api/facilities?countyId=43&limit=200","timestamp":"2026-03-30 08:51:38"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 09:36:00"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 09:36:00"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 09:40:30"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 09:40:30"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-30 09:40:30"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-03-30 09:40:31"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-03-30 09:40:31"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 09:40:32"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-30 09:40:32"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-30 09:40:32"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-03-30 09:40:33"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-03-30 09:40:33"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 09:40:36"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-30 09:40:36"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 12:15:31"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 12:15:32"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 12:15:32"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 12:15:33"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-31 12:15:34"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-03-31 12:15:34"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-31 12:15:34"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-31 12:15:34"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 12:15:36"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 12:15:36"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-31 12:15:39"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-31 12:15:39"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-31 12:15:39"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-31 12:15:39"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-31 12:15:39"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-31 12:15:39"}
+{"level":"debug","message":"PATCH /api/devices/1","timestamp":"2026-03-31 12:15:48"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 12:15:48"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-31 12:15:49"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-31 12:15:49"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-03-31 12:15:55"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-03-31 12:15:55"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-31 12:15:56"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-31 12:15:56"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-03-31 12:15:57"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-03-31 12:15:57"}
+{"level":"debug","message":"GET /api/sims?page=1&limit=20&search=","timestamp":"2026-03-31 12:15:58"}
+{"level":"debug","message":"GET /api/admin-contacts?search=&includeInactive=true","timestamp":"2026-03-31 12:15:59"}
+{"level":"debug","message":"GET /api/admin-contacts/cadres","timestamp":"2026-03-31 12:15:59"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-31 12:15:59"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-31 12:15:59"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-31 12:16:00"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-31 12:16:03"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-31 12:16:03"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-31 12:16:03"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-31 12:16:03"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-03-31 12:16:03"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-31 12:16:03"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-31 12:16:13"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-03-31 12:16:13"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=","timestamp":"2026-03-31 12:16:15"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-03-31 12:16:16"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-03-31 12:16:16"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=","timestamp":"2026-03-31 12:16:17"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-03-31 12:16:18"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-03-31 12:16:18"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=","timestamp":"2026-03-31 12:16:19"}
+{"level":"debug","message":"GET /api/admin-contacts?search=&includeInactive=true","timestamp":"2026-03-31 12:16:21"}
+{"level":"debug","message":"GET /api/admin-contacts/cadres","timestamp":"2026-03-31 12:16:21"}
+{"level":"debug","message":"GET /api/sims?page=1&limit=20&search=","timestamp":"2026-03-31 12:16:22"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-03-31 12:16:22"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-03-31 12:16:24"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-31 12:16:25"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-31 12:16:25"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-31 12:16:25"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-31 12:16:29"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-31 12:16:29"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 12:16:31"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 12:16:31"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-03-31 12:16:34"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-03-31 12:16:34"}
+{"level":"debug","message":"POST /api/returns","timestamp":"2026-03-31 12:16:37"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 12:16:38"}
+{"level":"info","message":"Return request email sent for device 1","timestamp":"2026-03-31 12:16:41"}
+{"level":"debug","message":"POST /api/devices/1/review-loss","timestamp":"2026-03-31 12:16:49"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 12:16:49"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-31 12:16:58"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-31 12:16:58"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-31 12:16:58"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-31 12:17:01"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-31 12:17:01"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-03-31 12:17:02"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 12:17:04"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 12:17:04"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-03-31 12:17:05"}
+{"level":"debug","message":"GET /api/facilities?limit=200","timestamp":"2026-03-31 12:17:05"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-03-31 12:17:05"}
+{"level":"debug","message":"GET /api/facilities?limit=200","timestamp":"2026-03-31 12:17:05"}
+{"level":"debug","message":"POST /api/transfer-requests","timestamp":"2026-03-31 12:17:10"}
+{"level":"error","message":"Unhandled error Column 'initiated_by' cannot be null","stack":"Error: Column 'initiated_by' cannot be null\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.create (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/transfer_request.model.js:11:24)\n    at createTransferRequest (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1708:34)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-03-31 12:17:10","url":"/api/transfer-requests"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 14:44:26"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 14:44:26"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 14:44:26"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 14:44:27"}
+{"level":"debug","message":"POST /api/transfer-requests","timestamp":"2026-03-31 14:44:32"}
+{"level":"error","message":"Unhandled error Column 'initiated_by' cannot be null","stack":"Error: Column 'initiated_by' cannot be null\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.create (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/transfer_request.model.js:11:24)\n    at createTransferRequest (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1708:34)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-03-31 14:44:32","url":"/api/transfer-requests"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-03-31 14:44:37"}
+{"level":"debug","message":"GET /api/facilities?limit=200","timestamp":"2026-03-31 14:44:37"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-03-31 14:44:37"}
+{"level":"debug","message":"GET /api/facilities?limit=200","timestamp":"2026-03-31 14:44:37"}
+{"level":"debug","message":"POST /api/transfer-requests","timestamp":"2026-03-31 14:44:42"}
+{"level":"error","message":"Unhandled error Column 'initiated_by' cannot be null","stack":"Error: Column 'initiated_by' cannot be null\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.create (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/transfer_request.model.js:11:24)\n    at createTransferRequest (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1708:34)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-03-31 14:44:42","url":"/api/transfer-requests"}
+{"level":"debug","message":"POST /api/transfer-requests","timestamp":"2026-03-31 14:44:44"}
+{"level":"error","message":"Unhandled error Column 'initiated_by' cannot be null","stack":"Error: Column 'initiated_by' cannot be null\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.create (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/transfer_request.model.js:11:24)\n    at createTransferRequest (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1708:34)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-03-31 14:44:44","url":"/api/transfer-requests"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 14:55:52"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 14:55:52"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 14:55:52"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 14:55:53"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-31 14:55:54"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-31 14:55:54"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-31 14:55:54"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 14:55:56"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 14:55:56"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-03-31 14:55:58"}
+{"level":"debug","message":"GET /api/facilities?limit=200","timestamp":"2026-03-31 14:55:58"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-03-31 14:55:58"}
+{"level":"debug","message":"GET /api/facilities?limit=200","timestamp":"2026-03-31 14:55:58"}
+{"level":"debug","message":"POST /api/transfer-requests","timestamp":"2026-03-31 14:56:03"}
+{"level":"error","message":"Unhandled error Unknown column 'initiated_by' in 'field list'","stack":"Error: Unknown column 'initiated_by' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.create (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/transfer_request.model.js:9:24)\n    at createTransferRequest (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1708:34)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-03-31 14:56:04","url":"/api/transfer-requests"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 14:56:46"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 14:56:46"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 14:56:46"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 14:56:47"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 14:56:47"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 14:56:47"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 14:56:49"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 14:56:52"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 14:56:53"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 14:56:53"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 14:56:54"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 14:57:06"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 14:57:06"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 14:57:06"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 14:57:08"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 14:57:10"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 14:57:10"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 14:57:10"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 14:57:11"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 14:57:24"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 14:57:24"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 14:57:24"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 14:57:26"}
+{"level":"debug","message":"POST /api/transfer-requests","timestamp":"2026-03-31 14:57:29"}
+{"level":"error","message":"Unhandled error Unknown column 'initiated_by' in 'field list'","stack":"Error: Unknown column 'initiated_by' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.create (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/transfer_request.model.js:9:24)\n    at createTransferRequest (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1708:34)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-03-31 14:57:29","url":"/api/transfer-requests"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 14:57:49"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 14:57:49"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 14:57:49"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 14:57:50"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 14:57:52"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 14:57:52"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 14:57:52"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 14:57:53"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 14:57:54"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 14:57:55"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 14:57:55"}
+{"level":"debug","message":"POST /api/transfer-requests","timestamp":"2026-03-31 14:57:57"}
+{"level":"error","message":"Unhandled error Unknown column 'initiated_by' in 'field list'","stack":"Error: Unknown column 'initiated_by' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.create (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/transfer_request.model.js:9:24)\n    at createTransferRequest (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1708:34)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-03-31 14:57:57","url":"/api/transfer-requests"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 14:57:58"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 14:58:46"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 14:58:46"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 14:58:46"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 14:58:47"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 14:58:48"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 14:58:48"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 14:58:49"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 14:59:03"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 14:59:03"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 14:59:03"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 14:59:05"}
+{"level":"debug","message":"POST /api/transfer-requests","timestamp":"2026-03-31 14:59:14"}
+{"level":"error","message":"Unhandled error Unknown column 'initiated_by' in 'field list'","stack":"Error: Unknown column 'initiated_by' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.create (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/transfer_request.model.js:9:24)\n    at createTransferRequest (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1708:34)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-03-31 14:59:14","url":"/api/transfer-requests"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:03:45"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:03:46"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:03:46"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:03:47"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:04:38"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:04:38"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:04:38"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:04:39"}
+{"level":"debug","message":"POST /api/transfer-requests","timestamp":"2026-03-31 15:04:44"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 15:04:44"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-31 15:04:53"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-31 15:04:53"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-31 15:04:53"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-03-31 15:04:56"}
+{"level":"error","message":"Unhandled error Unknown column 'tr.initiated_by' in 'on clause'","stack":"Error: Unknown column 'tr.initiated_by' in 'on clause'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/transfer_request.model.js:48:27)\n    at listTransferRequests (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1741:38)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:62:34\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)","timestamp":"2026-03-31 15:04:56","url":"/api/transfer-requests?page=1&limit=20&status=pending"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-03-31 15:04:56"}
+{"level":"error","message":"Unhandled error Unknown column 'tr.initiated_by' in 'on clause'","stack":"Error: Unknown column 'tr.initiated_by' in 'on clause'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/transfer_request.model.js:48:27)\n    at listTransferRequests (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1741:38)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:62:34\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)","timestamp":"2026-03-31 15:04:56","url":"/api/transfer-requests?page=1&limit=20&status=pending"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=approved","timestamp":"2026-03-31 15:05:02"}
+{"level":"error","message":"Unhandled error Unknown column 'tr.initiated_by' in 'on clause'","stack":"Error: Unknown column 'tr.initiated_by' in 'on clause'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/transfer_request.model.js:48:27)\n    at listTransferRequests (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1741:38)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:62:34\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)","timestamp":"2026-03-31 15:05:02","url":"/api/transfer-requests?page=1&limit=20&status=approved"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-03-31 15:05:04"}
+{"level":"error","message":"Unhandled error Unknown column 'tr.initiated_by' in 'on clause'","stack":"Error: Unknown column 'tr.initiated_by' in 'on clause'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/transfer_request.model.js:48:27)\n    at listTransferRequests (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1741:38)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:62:34\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)","timestamp":"2026-03-31 15:05:04","url":"/api/transfer-requests?page=1&limit=20&status=pending"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:05:21"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:05:21"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:05:21"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:05:22"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:05:22"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:05:22"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:05:24"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:05:25"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:05:25"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:05:25"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:05:26"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=","timestamp":"2026-03-31 15:05:30"}
+{"level":"error","message":"Unhandled error Unknown column 'tr.initiated_by' in 'on clause'","stack":"Error: Unknown column 'tr.initiated_by' in 'on clause'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/transfer_request.model.js:48:27)\n    at listTransferRequests (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1741:38)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:62:34\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)","timestamp":"2026-03-31 15:05:30","url":"/api/transfer-requests?page=1&limit=20&status="}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-03-31 15:05:32"}
+{"level":"error","message":"Unhandled error Unknown column 'tr.initiated_by' in 'on clause'","stack":"Error: Unknown column 'tr.initiated_by' in 'on clause'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/transfer_request.model.js:48:27)\n    at listTransferRequests (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1741:38)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:62:34\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)","timestamp":"2026-03-31 15:05:32","url":"/api/transfer-requests?page=1&limit=20&status=pending"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:05:47"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:05:47"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:05:47"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:05:48"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:05:48"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:05:48"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:05:50"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:05:51"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:05:51"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:05:51"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:05:53"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=approved","timestamp":"2026-03-31 15:05:53"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-03-31 15:05:54"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=","timestamp":"2026-03-31 15:05:55"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-03-31 15:05:57"}
+{"level":"debug","message":"POST /api/transfer-requests/1/review","timestamp":"2026-03-31 15:06:08"}
+{"level":"error","message":"Unhandled error Unknown column 'notes' in 'field list'","stack":"Error: Unknown column 'notes' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.review (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/transfer_request.model.js:88:14)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async reviewTransferRequest (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1772:5)","timestamp":"2026-03-31 15:06:08","url":"/api/transfer-requests/1/review"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:06:26"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:06:26"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:06:26"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:06:27"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:08:05"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:08:05"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:08:05"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:08:06"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:08:06"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:08:06"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:08:08"}
+{"level":"debug","message":"POST /api/transfer-requests/1/review","timestamp":"2026-03-31 15:08:20"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-03-31 15:08:20"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=approved","timestamp":"2026-03-31 15:08:25"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 15:08:26"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 15:08:26"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-31 15:08:40"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-31 15:08:40"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-03-31 15:08:40"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-03-31 15:08:40"}
+{"level":"debug","message":"POST /api/devices/1/transfer","timestamp":"2026-03-31 15:08:46"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 15:08:46"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:09:15"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:09:15"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:09:15"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:09:16"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:09:18"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:09:18"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:09:18"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:09:20"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:09:20"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:09:20"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:09:21"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:09:24"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:09:24"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:09:24"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:09:26"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:09:31"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:09:31"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:09:31"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:09:32"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:09:33"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:09:33"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:09:33"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:09:34"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:09:34"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:09:34"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:09:36"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:09:36"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:09:36"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:09:36"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:09:37"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:09:40"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:09:40"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:09:40"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:09:41"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-31 15:09:46"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-31 15:09:47"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-31 15:09:47"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 15:09:48"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 15:09:48"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-03-31 15:09:51"}
+{"level":"debug","message":"GET /api/facilities?limit=200","timestamp":"2026-03-31 15:09:51"}
+{"level":"debug","message":"GET /api/facilities?limit=200","timestamp":"2026-03-31 15:09:51"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-03-31 15:09:51"}
+{"level":"debug","message":"POST /api/transfer-requests","timestamp":"2026-03-31 15:09:55"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 15:09:55"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-03-31 15:10:02"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-31 15:10:02"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-03-31 15:10:02"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-03-31 15:10:05"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-03-31 15:10:05"}
+{"level":"debug","message":"POST /api/transfer-requests/2/review","timestamp":"2026-03-31 15:10:11"}
+{"level":"error","message":"Unhandled error reason is not defined","stack":"ReferenceError: reason is not defined\n    at Object.review (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/transfer_request.model.js:95:9)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async reviewTransferRequest (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1772:5)","timestamp":"2026-03-31 15:10:11","url":"/api/transfer-requests/2/review"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:10:41"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:10:41"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:10:41"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:10:43"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:10:43"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:10:43"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:10:43"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:10:45"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:10:48"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:10:48"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:10:48"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-03-31 15:10:49"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-03-31 15:10:49"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-03-31 15:10:49"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-03-31 15:10:50"}
+{"level":"debug","message":"POST /api/transfer-requests/2/review","timestamp":"2026-03-31 15:10:52"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-03-31 15:10:52"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=","timestamp":"2026-03-31 15:10:54"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 15:10:56"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 15:10:56"}

@@ -1326,7 +1326,7 @@ const createReturn = async (req, res, next) => {
     if (!device) return R.notFound(res, "Device not found");
     const id = await Return.create({
       deviceId,
-      requestedBy: req.user.id,
+      initiatedBy: req.user.id,
       reason,
     });
     const admins = await User.getByRole("admin");
@@ -1678,20 +1678,25 @@ const createTransferRequest = async (req, res, next) => {
 
     // Zone check — FO can only request transfers within their zone
     if (req.user.role !== "admin") {
-      const destFac = await refApi_getFacility(destinationFacilityId);
+      const destFac = await Ref.getFacilityById(destinationFacilityId);
       if (req.user.zone_type === "facility") {
-        const [ufRows] = await db_ref.query(
+        const db = require("../config/db");
+        const [ufRows] = await db.query(
           `SELECT facility_id FROM user_facilities WHERE user_id = ?`,
           [req.user.id],
         );
         const allowed = ufRows.map((r) => r.facility_id);
         if (!allowed.includes(parseInt(destinationFacilityId)))
           return R.forbidden(res, "Destination facility is outside your zone");
-      } else if (
-        req.user.zone_type === "sub_county" &&
-        destFac?.sub_county_id !== req.user.zone_sub_county_id
-      ) {
-        return R.forbidden(res, "Destination facility is outside your zone");
+      } else if (req.user.zone_type === "sub_county") {
+        const db = require("../config/db");
+        const [scRows] = await db.query(
+          `SELECT sub_county_id FROM user_sub_counties WHERE user_id = ?`,
+          [req.user.id],
+        );
+        const allowedScs = scRows.map((r) => r.sub_county_id);
+        if (!allowedScs.includes(destFac?.sub_county_id))
+          return R.forbidden(res, "Destination facility is outside your zone");
       } else if (
         req.user.zone_type === "county" &&
         destFac?.county_id !== req.user.zone_county_id
@@ -1700,19 +1705,19 @@ const createTransferRequest = async (req, res, next) => {
       }
     }
 
-    const id = await TransferReq.create({
-      deviceId,
-      requestedBy: req.user.id,
-      destinationFacilityId,
-      reason,
-    });
+  const id = await TransferReq.create({
+    deviceId,
+    initiatedBy: req.user.id,
+    destinationFacilityId,
+    reason,
+  });
     const admins = await User.getByRole("admin");
     const contacts = await AdminContact.getByIds(adminContactIds);
     const requestedBy = await User.findById(req.user.id);
     sendTransferRequestedEmail({
       device,
       reason,
-      requestedBy,
+      initiatedBy: requestedBy,
       admins,
       contacts,
     }).catch(() => {});
