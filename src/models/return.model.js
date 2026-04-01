@@ -1,9 +1,9 @@
 const db = require("../config/db");
 
-const create = async ({ deviceId, requestedBy, reason }) => {
+const create = async ({ deviceId, initiatedBy, reason }) => {
   const [r] = await db.query(
     `INSERT INTO return_requests (device_id, requested_by, reason) VALUES (?, ?, ?)`,
-    [deviceId, requestedBy, reason],
+    [deviceId, initiatedBy, reason],
   );
   await db.query(`UPDATE devices SET status = 'returned' WHERE id = ?`, [
     deviceId,

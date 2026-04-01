@@ -1335,7 +1335,7 @@ const createReturn = async (req, res, next) => {
     sendReturnRequestedEmail({
       device,
       reason,
-      requestedBy,
+      initiatedBy: requestedBy,
       admins,
       contacts,
     }).catch(() => {});
@@ -1705,12 +1705,12 @@ const createTransferRequest = async (req, res, next) => {
       }
     }
 
-  const id = await TransferReq.create({
-    deviceId,
-    initiatedBy: req.user.id,
-    destinationFacilityId,
-    reason,
-  });
+    const id = await TransferReq.create({
+      deviceId,
+      initiatedBy: req.user.id,
+      destinationFacilityId,
+      reason,
+    });
     const admins = await User.getByRole("admin");
     const contacts = await AdminContact.getByIds(adminContactIds);
     const requestedBy = await User.findById(req.user.id);

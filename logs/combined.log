@@ -2992,3 +2992,70 @@
 {"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=","timestamp":"2026-03-31 15:10:54"}
 {"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 15:10:56"}
 {"level":"debug","message":"GET /api/devices/1","timestamp":"2026-03-31 15:10:56"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-04-01 11:38:23"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-04-01 11:38:23"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-04-01 11:38:23"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-04-01 11:38:25"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-04-01 11:38:34"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-04-01 11:38:34"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-04-01 11:38:34"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-04-01 11:38:34"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-04-01 11:38:34"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-04-01 11:38:34"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-04-01 11:38:34"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-04-01 11:38:35"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-01 11:38:36"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-01 11:38:36"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-04-01 11:38:37"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-04-01 11:38:37"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-04-01 11:38:40"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-04-01 11:38:40"}
+{"level":"debug","message":"POST /api/returns","timestamp":"2026-04-01 11:38:43"}
+{"level":"error","message":"Unhandled error Column 'requested_by' cannot be null","stack":"Error: Column 'requested_by' cannot be null\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.create (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/return.model.js:4:24)\n    at createReturn (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1327:29)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-04-01 11:38:43","url":"/api/returns"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-04-01 11:39:35"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-04-01 11:39:35"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-04-01 11:39:35"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-04-01 11:39:36"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-04-01 11:39:37"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-04-01 11:39:37"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-04-01 11:39:37"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-04-01 11:39:38"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-04-01 11:39:40"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-04-01 11:39:40"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-04-01 11:39:40"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-04-01 11:39:41"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-04-01 11:39:46"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-04-01 11:39:46"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-04-01 11:39:46"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-04-01 11:39:47"}
+{"level":"debug","message":"POST /api/returns","timestamp":"2026-04-01 11:39:48"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-04-01 11:39:48"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-04-01 11:39:52"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-04-01 11:39:52"}
+{"level":"debug","message":"POST /api/returns/2/review","timestamp":"2026-04-01 11:40:06"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-04-01 11:40:06"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=","timestamp":"2026-04-01 11:40:10"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-04-01 11:40:11"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-04-01 11:40:11"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-04-01 11:40:23"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-04-01 11:40:23"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-04-01 11:40:34"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-04-01 11:40:34"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-01 11:40:36"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-01 11:40:36"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-04-01 11:40:37"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-04-01 11:40:37"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-04-01 11:40:43"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-04-01 11:40:43"}
+{"level":"debug","message":"POST /api/returns/1/review","timestamp":"2026-04-01 11:40:51"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-04-01 11:40:51"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-01 11:40:53"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-01 11:40:53"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-04-01 11:40:53"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-04-01 11:40:55"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-04-01 11:40:55"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-04-01 11:40:56"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-04-01 11:40:56"}
+{"level":"debug","message":"POST /api/repairs","timestamp":"2026-04-01 11:40:58"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-04-01 11:40:58"}
+{"level":"info","message":"Repair initiated email sent for device 1","timestamp":"2026-04-01 11:41:01"}
