@@ -267,8 +267,8 @@ const getFacility = async (req, res, next) => {
     // Zone check for non-admins
     const user = req.user;
     if (user.role !== "admin" && user.zone_type !== "all") {
+      const db = require("../config/db");
       if (user.zone_type === "facility") {
-        const db = require("../config/db");
         const [rows] = await db.query(
           `SELECT facility_id FROM user_facilities WHERE user_id = ?`,
           [user.id],
@@ -276,11 +276,14 @@ const getFacility = async (req, res, next) => {
         const allowed = rows.map((r) => r.facility_id);
         if (!allowed.includes(fac.id))
           return R.forbidden(res, "Access denied to this facility");
-      } else if (
-        user.zone_type === "sub_county" &&
-        fac.sub_county_id !== user.zone_sub_county_id
-      ) {
-        return R.forbidden(res, "Access denied to this facility");
+      } else if (user.zone_type === "sub_county") {
+        const [rows] = await db.query(
+          `SELECT sub_county_id FROM user_sub_counties WHERE user_id = ?`,
+          [user.id],
+        );
+        const allowed = rows.map((r) => r.sub_county_id);
+        if (!allowed.includes(fac.sub_county_id))
+          return R.forbidden(res, "Access denied to this facility");
       } else if (
         user.zone_type === "county" &&
         fac.county_id !== user.zone_county_id
@@ -1326,7 +1329,7 @@ const createReturn = async (req, res, next) => {
     if (!device) return R.notFound(res, "Device not found");
     const id = await Return.create({
       deviceId,
-      initiatedBy: req.user.id,
+      requestedBy: req.user.id,
       reason,
     });
     const admins = await User.getByRole("admin");
@@ -1335,7 +1338,7 @@ const createReturn = async (req, res, next) => {
     sendReturnRequestedEmail({
       device,
       reason,
-      initiatedBy: requestedBy,
+      requestedBy,
       admins,
       contacts,
     }).catch(() => {});
@@ -1707,7 +1710,7 @@ const createTransferRequest = async (req, res, next) => {
 
     const id = await TransferReq.create({
       deviceId,
-      initiatedBy: req.user.id,
+      requestedBy: req.user.id,
       destinationFacilityId,
       reason,
     });
@@ -1717,7 +1720,7 @@ const createTransferRequest = async (req, res, next) => {
     sendTransferRequestedEmail({
       device,
       reason,
-      initiatedBy: requestedBy,
+      requestedBy,
       admins,
       contacts,
     }).catch(() => {});
