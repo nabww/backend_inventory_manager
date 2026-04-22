@@ -3264,3 +3264,43 @@
 {"level":"debug","message":"GET /api/counties","timestamp":"2026-04-01 14:27:35"}
 {"level":"debug","message":"GET /api/counties","timestamp":"2026-04-01 14:27:35"}
 {"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=","timestamp":"2026-04-01 14:27:35"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-04-22 08:14:18"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-04-22 08:14:19"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-04-22 08:14:19"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-04-22 08:14:20"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-04-22 08:15:13"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-04-22 08:15:13"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-04-22 08:15:13"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-04-22 08:15:13"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-04-22 08:15:13"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-04-22 08:15:13"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-04-22 08:15:14"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-04-22 08:15:16"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-22 08:15:17"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-22 08:15:17"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-04-22 08:15:20"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-04-22 08:15:28"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-04-22 08:15:31"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-22 08:15:31"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-22 08:15:31"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-22 08:15:33"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-22 08:15:33"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-04-22 08:15:33"}
+{"level":"debug","message":"GET /api/facilities/87","timestamp":"2026-04-22 08:15:34"}
+{"level":"debug","message":"GET /api/devices?facilityId=87&page=1&limit=20","timestamp":"2026-04-22 08:15:34"}
+{"level":"debug","message":"GET /api/facilities/87","timestamp":"2026-04-22 08:15:34"}
+{"level":"debug","message":"GET /api/devices?facilityId=87&page=1&limit=20","timestamp":"2026-04-22 08:15:35"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-22 08:15:36"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-22 08:15:37"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-04-22 08:15:37"}
+{"level":"debug","message":"GET /api/facilities/88","timestamp":"2026-04-22 08:24:50"}
+{"level":"debug","message":"GET /api/devices?facilityId=88&page=1&limit=20","timestamp":"2026-04-22 08:24:50"}
+{"level":"debug","message":"GET /api/facilities/88","timestamp":"2026-04-22 08:24:50"}
+{"level":"debug","message":"GET /api/devices?facilityId=88&page=1&limit=20","timestamp":"2026-04-22 08:24:50"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-22 08:24:54"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-22 08:24:54"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-04-22 08:24:54"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-04-22 13:09:16"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-04-22 13:09:16"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-04-22 13:09:16"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-04-22 13:09:18"}

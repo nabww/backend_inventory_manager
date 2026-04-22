@@ -71,6 +71,8 @@ const list = async ({
   facilityId = "",
   affiliationId = "",
   countyId = "",
+  hasSim = "",
+  coverCondition = "",
   user = null,
 }) => {
   const p = parseInt(page) || 1;
@@ -103,6 +105,14 @@ const list = async ({
   if (countyId) {
     conds.push("f.county_id = ?");
     params.push(parseInt(countyId));
+  }
+  if (hasSim !== "") {
+    conds.push("d.has_sim = ?");
+    params.push(parseInt(hasSim));
+  }
+  if (coverCondition) {
+    conds.push("d.cover_condition = ?");
+    params.push(coverCondition);
   }
 
   const where = `WHERE ${conds.join(" AND ")}`;
