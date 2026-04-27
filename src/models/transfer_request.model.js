@@ -2,14 +2,14 @@ const db = require("../config/db");
 
 const create = async ({
   deviceId,
-  initiatedBy,
+  requestedBy,
   destinationFacilityId,
   reason,
 }) => {
   const [r] = await db.query(
     `INSERT INTO transfer_requests (device_id, requested_by, destination_facility_id, reason)
      VALUES (?, ?, ?, ?)`,
-    [deviceId, initiatedBy, destinationFacilityId, reason || null],
+    [deviceId, requestedBy, destinationFacilityId, reason || null],
   );
 
   await db.query(
