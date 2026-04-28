@@ -3359,3 +3359,187 @@
 {"level":"debug","message":"POST /api/auth/login","timestamp":"2026-04-22 15:33:54"}
 {"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-22 15:33:54"}
 {"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-22 15:33:54"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-04-27 08:27:51"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-04-27 08:27:51"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-04-27 08:27:52"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-04-27 08:27:52"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-04-27 08:29:00"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-04-27 08:29:00"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-04-27 08:29:00"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-04-27 08:29:00"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-04-27 08:29:00"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-04-27 08:29:01"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-04-27 08:29:01"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-04-27 08:29:02"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-27 08:29:03"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-27 08:29:04"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-27 08:29:10"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-04-27 08:29:10"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-27 08:29:10"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-04-27 08:29:10"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-04-27 08:29:10"}
+{"level":"debug","message":"POST /api/devices/import","timestamp":"2026-04-27 08:29:17"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-04-27 08:29:19"}
+{"level":"debug","message":"POST /api/devices/import","timestamp":"2026-04-27 08:30:19"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-04-27 08:30:20"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-04-27 08:30:24"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-27 08:30:24"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-04-27 08:30:24"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-04-27 08:30:24"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-27 08:30:24"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-04-27 08:30:24"}
+{"level":"debug","message":"POST /api/devices","timestamp":"2026-04-27 08:30:47"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-04-27 08:30:48"}
+{"level":"debug","message":"GET /api/devices/703","timestamp":"2026-04-27 08:30:49"}
+{"level":"debug","message":"GET /api/devices/703","timestamp":"2026-04-27 08:30:50"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-04-27 08:30:51"}
+{"level":"debug","message":"GET /api/facilities?limit=200","timestamp":"2026-04-27 08:30:51"}
+{"level":"debug","message":"GET /api/facilities?limit=200","timestamp":"2026-04-27 08:30:51"}
+{"level":"debug","message":"GET /api/admin-contacts","timestamp":"2026-04-27 08:30:51"}
+{"level":"debug","message":"POST /api/transfer-requests","timestamp":"2026-04-27 08:31:07"}
+{"level":"debug","message":"GET /api/devices/703","timestamp":"2026-04-27 08:31:08"}
+{"level":"info","message":"Transfer request email sent for device 703","timestamp":"2026-04-27 08:31:10"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-04-27 08:31:14"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-27 08:31:15"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-27 08:31:15"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-04-27 08:31:17"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-04-27 08:31:17"}
+{"level":"debug","message":"GET /api/devices/703","timestamp":"2026-04-27 08:31:19"}
+{"level":"debug","message":"GET /api/devices/703","timestamp":"2026-04-27 08:31:19"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-04-27 08:31:21"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-04-27 08:31:21"}
+{"level":"debug","message":"POST /api/transfer-requests/1/review","timestamp":"2026-04-27 08:38:53"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-04-27 08:38:53"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-27 08:38:57"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-27 08:38:58"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-04-27 08:39:04"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-04-27 08:39:04"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-27 08:39:04"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-27 08:39:04"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-27 08:39:46"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-04-27 08:39:46"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-27 08:39:46"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-04-27 08:39:47"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-04-27 08:39:47"}
+{"level":"debug","message":"DELETE /api/devices/703","timestamp":"2026-04-27 08:39:51"}
+{"level":"error","message":"Unhandled error Cannot delete or update a parent row: a foreign key constraint fails (`inventory`.`facility_transfers`, CONSTRAINT `fk_transfer_device` FOREIGN KEY (`device_id`) REFERENCES `devices` (`id`))","stack":"Error: Cannot delete or update a parent row: a foreign key constraint fails (`inventory`.`facility_transfers`, CONSTRAINT `fk_transfer_device` FOREIGN KEY (`device_id`) REFERENCES `devices` (`id`))\n    at PromisePool.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\node_modules\\mysql2\\lib\\promise\\pool.js:36:22)\n    at Object.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\config\\db.js:23:42)\n    at Object.remove (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\models\\device.model.js:375:6)\n    at deleteDevice (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\controllers\\index.js:568:18)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2026-04-27 08:39:51","url":"/api/devices/703"}
+{"level":"debug","message":"DELETE /api/devices/699","timestamp":"2026-04-27 08:40:04"}
+{"level":"error","message":"Unhandled error Cannot delete or update a parent row: a foreign key constraint fails (`inventory`.`verifications`, CONSTRAINT `fk_verification_device` FOREIGN KEY (`device_id`) REFERENCES `devices` (`id`))","stack":"Error: Cannot delete or update a parent row: a foreign key constraint fails (`inventory`.`verifications`, CONSTRAINT `fk_verification_device` FOREIGN KEY (`device_id`) REFERENCES `devices` (`id`))\n    at PromisePool.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\node_modules\\mysql2\\lib\\promise\\pool.js:36:22)\n    at Object.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\config\\db.js:23:42)\n    at Object.remove (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\models\\device.model.js:375:6)\n    at deleteDevice (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\controllers\\index.js:568:18)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2026-04-27 08:40:04","url":"/api/devices/699"}
+{"level":"debug","message":"DELETE /api/devices/698","timestamp":"2026-04-27 08:40:15"}
+{"level":"error","message":"Unhandled error Cannot delete or update a parent row: a foreign key constraint fails (`inventory`.`verifications`, CONSTRAINT `fk_verification_device` FOREIGN KEY (`device_id`) REFERENCES `devices` (`id`))","stack":"Error: Cannot delete or update a parent row: a foreign key constraint fails (`inventory`.`verifications`, CONSTRAINT `fk_verification_device` FOREIGN KEY (`device_id`) REFERENCES `devices` (`id`))\n    at PromisePool.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\node_modules\\mysql2\\lib\\promise\\pool.js:36:22)\n    at Object.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\config\\db.js:23:42)\n    at Object.remove (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\models\\device.model.js:375:6)\n    at deleteDevice (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\controllers\\index.js:568:18)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2026-04-27 08:40:15","url":"/api/devices/698"}
+{"level":"debug","message":"DELETE /api/devices/698","timestamp":"2026-04-27 08:40:23"}
+{"level":"error","message":"Unhandled error Cannot delete or update a parent row: a foreign key constraint fails (`inventory`.`verifications`, CONSTRAINT `fk_verification_device` FOREIGN KEY (`device_id`) REFERENCES `devices` (`id`))","stack":"Error: Cannot delete or update a parent row: a foreign key constraint fails (`inventory`.`verifications`, CONSTRAINT `fk_verification_device` FOREIGN KEY (`device_id`) REFERENCES `devices` (`id`))\n    at PromisePool.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\node_modules\\mysql2\\lib\\promise\\pool.js:36:22)\n    at Object.query (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\config\\db.js:23:42)\n    at Object.remove (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\models\\device.model.js:375:6)\n    at deleteDevice (C:\\Users\\nwambulwa\\OneDrive\\Projects\\Tabtrack\\backend_inventory_manager\\src\\controllers\\index.js:568:18)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","timestamp":"2026-04-27 08:40:23","url":"/api/devices/698"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-04-27 08:42:57"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-04-27 08:42:57"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-04-27 08:42:57"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-04-27 08:42:59"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-04-27 08:43:05"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-04-27 08:43:05"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-27 08:43:05"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-04-27 08:43:05"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-27 08:43:05"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-04-27 08:43:06"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-04-27 08:43:06"}
+{"level":"debug","message":"DELETE /api/devices/703","timestamp":"2026-04-27 08:43:10"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-04-27 08:43:10"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-27 08:44:51"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-27 08:44:52"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-27 09:05:07"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-04-27 09:05:07"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-04-27 09:05:07"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-27 09:05:07"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-04-27 09:05:07"}
+{"level":"debug","message":"POST /api/devices/import","timestamp":"2026-04-27 09:05:11"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-04-27 09:05:12"}
+{"level":"debug","message":"GET /api/devices/704","timestamp":"2026-04-27 09:05:21"}
+{"level":"debug","message":"GET /api/devices/704","timestamp":"2026-04-27 09:05:22"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-27 09:05:37"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-04-27 09:05:37"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-04-27 09:05:38"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-27 09:05:38"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-04-27 09:05:38"}
+{"level":"debug","message":"DELETE /api/devices/704","timestamp":"2026-04-27 09:05:40"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-04-27 09:05:40"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-27 10:38:49"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-27 10:38:49"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-04-27 10:38:52"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-04-27 10:38:52"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-27 10:38:52"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-27 10:38:52"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-04-28 07:56:47"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-04-28 07:56:47"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-04-28 07:56:47"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-04-28 07:56:49"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-04-28 07:57:15"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-04-28 07:57:15"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-04-28 07:57:15"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-04-28 07:57:15"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-04-28 07:57:16"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-04-28 07:57:16"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-04-28 07:57:16"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-04-28 07:57:21"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-04-28 07:57:21"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-04-28 07:57:21"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-04-28 07:57:22"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-04-28 07:57:26"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-04-28 07:57:26"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-04-28 07:57:26"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-04-28 07:57:27"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-04-28 07:57:29"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-04-28 07:57:29"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-04-28 07:57:29"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-04-28 07:57:31"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-04-28 07:57:41"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-04-28 07:57:41"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-04-28 07:57:41"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-04-28 07:57:43"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-04-28 07:57:53"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-04-28 07:57:53"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-04-28 07:57:53"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-04-28 07:57:54"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-04-28 07:58:06"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-04-28 07:58:06"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-04-28 07:58:06"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-04-28 07:58:08"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-04-28 07:58:13"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-28 07:58:16"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-28 07:58:16"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-04-28 07:58:17"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-04-28 07:58:20"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-28 07:58:20"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-04-28 07:58:21"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-28 07:58:21"}
+{"level":"debug","message":"PATCH /api/users/2","timestamp":"2026-04-28 07:58:30"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-04-28 07:58:31"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-04-28 07:58:38"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-28 07:58:38"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-28 07:58:39"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-04-28 07:58:42"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-04-28 07:58:42"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-04-28 07:58:43"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-04-28 07:58:44"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-04-28 07:58:44"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-04-28 07:58:44"}
+{"level":"debug","message":"GET /api/sims?page=1&limit=20&search=","timestamp":"2026-04-28 07:58:45"}
+{"level":"debug","message":"GET /api/admin-contacts?search=&includeInactive=true","timestamp":"2026-04-28 07:58:49"}
+{"level":"debug","message":"GET /api/admin-contacts/cadres","timestamp":"2026-04-28 07:58:49"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-04-28 07:58:50"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-04-28 07:58:52"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-28 07:58:58"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-04-28 07:58:58"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-28 07:58:58"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-04-28 07:58:58"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-04-28 07:58:58"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-28 07:59:00"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-28 07:59:00"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-04-28 07:59:05"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-28 07:59:08"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-04-28 07:59:08"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-04-28 07:59:08"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-04-28 07:59:08"}
+{"level":"debug","message":"GET /api/counties/45/sub-counties","timestamp":"2026-04-28 07:59:10"}
+{"level":"debug","message":"PATCH /api/users/2","timestamp":"2026-04-28 07:59:11"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-04-28 07:59:11"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-04-28 07:59:15"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-28 07:59:15"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-28 07:59:16"}

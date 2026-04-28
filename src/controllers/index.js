@@ -80,23 +80,36 @@ const register = async (req, res, next) => {
     } = req.body;
     if (await User.findByEmail(email))
       return R.badRequest(res, "Email already registered");
+
+    // Only super admin (id=1) can create admins or assign zones
+    const isSuperAdmin = req.user.id === 1;
+    if (!isSuperAdmin && parseInt(roleId) === 3)
+      return R.forbidden(
+        res,
+        "Only the super admin can create administrator accounts",
+      );
+    const effectiveZoneType = isSuperAdmin ? zoneType : zoneType || "all";
+    const effectiveZoneCountyId = isSuperAdmin ? zoneCountyId : null;
+    const effectiveSubCountyIds = isSuperAdmin ? subCountyIds || [] : [];
+    const effectiveFacilityIds = isSuperAdmin ? facilityIds || [] : [];
+
     const passwordHash = await bcrypt.hash(password, 12);
     const id = await User.create({
       roleId: roleId || 1,
       fullName,
       email,
       passwordHash,
-      zoneType,
-      zoneCountyId,
-      subCountyIds: subCountyIds || [],
-      facilityIds: facilityIds || [],
+      zoneType: effectiveZoneType,
+      zoneCountyId: effectiveZoneCountyId,
+      subCountyIds: effectiveSubCountyIds,
+      facilityIds: effectiveFacilityIds,
     });
     await Audit.write({
       userId: req.user.id,
       action: "CREATE",
       entityType: "user",
       entityId: id,
-      newValues: { fullName, email, roleId, zoneType },
+      newValues: { fullName, email, roleId, zoneType: effectiveZoneType },
       req,
     });
     const roleMap = { 1: "viewer", 2: "field_officer", 3: "admin" };
@@ -144,8 +157,33 @@ const listUsers = async (req, res, next) => {
 const updateUser = async (req, res, next) => {
   try {
     const id = parseInt(req.params.id);
+    const isSuperAdmin = req.user.id === 1;
     const user = await User.findById(id);
     if (!user) return R.notFound(res, "User not found");
+
+    // Non-super-admins cannot edit their own zone/role
+    if (
+      !isSuperAdmin &&
+      id === req.user.id &&
+      (req.body.zoneType || req.body.roleId)
+    ) {
+      return R.forbidden(res, "You cannot change your own zone or role");
+    }
+    // Non-super-admins cannot assign admin role
+    if (!isSuperAdmin && parseInt(req.body.roleId) === 3) {
+      return R.forbidden(
+        res,
+        "Only the super admin can assign the administrator role",
+      );
+    }
+    // Non-super-admins cannot change zone assignments
+    if (!isSuperAdmin) {
+      delete req.body.zoneType;
+      delete req.body.zoneCountyId;
+      delete req.body.subCountyIds;
+      delete req.body.facilityIds;
+    }
+
     await User.update(id, req.body);
     await Audit.write({
       userId: req.user.id,
@@ -167,6 +205,8 @@ const deleteUser = async (req, res, next) => {
     const id = parseInt(req.params.id);
     if (id === req.user.id)
       return R.badRequest(res, "Cannot deactivate your own account");
+    if (id === 1)
+      return R.forbidden(res, "Cannot deactivate the super admin account");
     await User.deactivate(id);
     await Audit.write({
       userId: req.user.id,
@@ -266,7 +306,7 @@ const getFacility = async (req, res, next) => {
 
     // Zone check for non-admins
     const user = req.user;
-    if (user.role !== "admin" && user.zone_type !== "all") {
+    if (user.id !== 1 && user.zone_type !== "all") {
       const db = require("../config/db");
       if (user.zone_type === "facility") {
         const [rows] = await db.query(
@@ -805,7 +845,7 @@ const listUnverified = async (req, res, next) => {
     const zoneConds = ["d.status = 'active'"];
     const zoneParams = [];
     const user = req.user;
-    if (user.role !== "admin" && user.zone_type !== "all") {
+    if (user.id !== 1 && user.zone_type !== "all") {
       if (user.zone_type === "facility") {
         zoneConds.push(
           "d.facility_id IN (SELECT facility_id FROM user_facilities WHERE user_id = ?)",
@@ -1680,7 +1720,7 @@ const createTransferRequest = async (req, res, next) => {
     if (!device) return R.notFound(res, "Device not found");
 
     // Zone check — FO can only request transfers within their zone
-    if (req.user.role !== "admin") {
+    if (req.user.id !== 1 && req.user.role !== "viewer") {
       const destFac = await Ref.getFacilityById(destinationFacilityId);
       if (req.user.zone_type === "facility") {
         const db = require("../config/db");

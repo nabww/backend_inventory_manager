@@ -2,7 +2,7 @@ const db = require("../config/db");
 
 // Shared zone filter builder (mirrors device_model applyZone)
 const applyZone = (user, conds, params) => {
-  if (!user || user.role === "admin" || user.zone_type === "all") return;
+  if (!user || user.id === 1 || user.zone_type === "all") return;
   if (user.zone_type === "facility") {
     conds.push(
       "d.facility_id IN (SELECT facility_id FROM user_facilities WHERE user_id = ?)",

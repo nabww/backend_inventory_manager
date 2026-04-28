@@ -46,7 +46,7 @@ const decryptSim = (row) => {
 };
 
 const applyZone = (user, conds, params) => {
-  if (!user || user.role === "admin" || user.zone_type === "all") return;
+  if (!user || user.id === 1 || user.zone_type === "all") return;
   if (user.zone_type === "facility") {
     conds.push(
       "d.facility_id IN (SELECT facility_id FROM user_facilities WHERE user_id = ?)",
@@ -371,8 +371,41 @@ const transfer = async (id, toFacilityId, reason, userId) => {
   }
 };
 
-const remove = (id) =>
-  db.query(`DELETE FROM devices WHERE id = ?`, [parseInt(id)]);
+const remove = async (id) => {
+  const conn = await db.getConnection();
+  try {
+    await conn.beginTransaction();
+    const deviceId = parseInt(id);
+    // Delete all related records first
+    await conn.query(`DELETE FROM verifications        WHERE device_id = ?`, [
+      deviceId,
+    ]);
+    await conn.query(`DELETE FROM device_loss_reports  WHERE device_id = ?`, [
+      deviceId,
+    ]);
+    await conn.query(`DELETE FROM facility_transfers   WHERE device_id = ?`, [
+      deviceId,
+    ]);
+    await conn.query(`DELETE FROM return_requests      WHERE device_id = ?`, [
+      deviceId,
+    ]);
+    await conn.query(`DELETE FROM repair_requests      WHERE device_id = ?`, [
+      deviceId,
+    ]);
+    await conn.query(`DELETE FROM transfer_requests    WHERE device_id = ?`, [
+      deviceId,
+    ]);
+    await conn.query(`DELETE FROM devices              WHERE id = ?`, [
+      deviceId,
+    ]);
+    await conn.commit();
+  } catch (e) {
+    await conn.rollback();
+    throw e;
+  } finally {
+    conn.release();
+  }
+};
 
 const getTransfers = async (deviceId) => {
   const [rows] = await db.query(
