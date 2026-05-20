@@ -3543,3 +3543,26 @@
 {"level":"debug","message":"POST /api/auth/login","timestamp":"2026-04-28 07:59:15"}
 {"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-28 07:59:15"}
 {"level":"debug","message":"GET /api/dashboard","timestamp":"2026-04-28 07:59:16"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-20 09:56:28"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-20 09:56:29"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-20 09:56:29"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-20 09:56:30"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-20 09:56:31"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-05-20 09:56:31"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-20 09:56:32"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-05-20 09:56:32"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-20 09:56:35"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-05-20 09:56:35"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-20 09:56:38"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-20 09:56:38"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-20 09:56:38"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-20 09:56:44"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-20 09:56:44"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-20 09:56:44"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-20 09:56:44"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-20 09:56:44"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-20 09:56:49"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-20 09:56:49"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-05-20 09:56:51"}
+{"level":"debug","message":"GET /api/admin-contacts/cadres","timestamp":"2026-05-20 09:56:52"}
+{"level":"debug","message":"GET /api/admin-contacts?search=&includeInactive=true","timestamp":"2026-05-20 09:56:52"}

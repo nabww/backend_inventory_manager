@@ -467,6 +467,8 @@ const listDevices = async (req, res, next) => {
       facilityId = "",
       affiliationId = "",
       countyId = "",
+      hasSim = "",
+      coverCondition = "",
     } = req.query;
     const result = await Device.list({
       page,
@@ -476,6 +478,8 @@ const listDevices = async (req, res, next) => {
       facilityId,
       affiliationId,
       countyId,
+      hasSim,
+      coverCondition,
       user: req.user,
     });
     return R.paginated(
@@ -614,7 +618,12 @@ const deleteDevice = async (req, res, next) => {
 
 const exportDevices = async (req, res, next) => {
   try {
-    const { rows } = await Device.list({ page: 1, limit: 10000, ...req.query });
+    const { rows } = await Device.list({
+      page: 1,
+      limit: 10000,
+      ...req.query,
+      user: req.user,
+    });
     const data = rows.map((d) => ({
       "Serial Number": d.serial_number,
       IMEI: d.imei ?? "",
