@@ -263,7 +263,7 @@ const update = async (id, fields, updatedBy) => {
         }
       } else if (fields.simSerial || fields.phoneNumber) {
         const [sr] = await conn.query(
-          `INSERT INTO sim_cards (sim_serial, phone_number, pin, puk, network)
+          `INSERT INTO sim_cards (sim_serial, phone_number, pin, puk, network, has_charger)
            VALUES (?, ?, ?, ?, ?)
            ON DUPLICATE KEY UPDATE
              sim_serial = VALUES(sim_serial),
@@ -276,6 +276,7 @@ const update = async (id, fields, updatedBy) => {
             fields.pin ? encrypt(fields.pin) : null,
             fields.puk ? encrypt(fields.puk) : null,
             fields.network || null,
+            fields.hasCharger ? 1 : 0,
           ],
         );
         const simId = sr.insertId
@@ -316,10 +317,14 @@ const update = async (id, fields, updatedBy) => {
       notes: "notes",
       locked: "locked",
       sdpId: "sdp_id",
+      hasCharger: "has_charger",
     };
     for (const [k, col] of Object.entries(devMap)) {
       if (fields[k] !== undefined) {
-        const val = k === "locked" ? (fields[k] ? 1 : 0) : fields[k] || null;
+        let val = fields[k];
+        // Convert boolean to 0/1 for has_charger
+        if (k === "hasCharger") val = val ? 1 : 0;
+        if (k === "dateIssued" && val === "") val = null;
         devSets.push(`${col} = ?`);
         devVals.push(val);
       }
