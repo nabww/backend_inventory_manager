@@ -18,13 +18,17 @@ const BASE = `
     cu.full_name AS created_by_name,
     -- last verification
     lv.verified_at AS last_verified_at, lv.overall_status AS last_verification_status,
-    lv_u.full_name AS last_verified_by
+    lv_u.full_name AS last_verified_by,               -- ← comma added here
+    -- service delivery point
+    sdp.id AS sdp_id, sdp.name AS sdp_name,
+    d.has_charger as has_charger
   FROM devices d
   JOIN facilities f   ON f.id = d.facility_id
   JOIN counties c     ON c.id = f.county_id
   LEFT JOIN sub_counties sc ON sc.id = f.sub_county_id
   JOIN affiliations a  ON a.id = d.affiliation_id
   LEFT JOIN sim_cards s ON s.id = d.sim_card_id
+  LEFT JOIN service_delivery_points sdp ON sdp.id = d.sdp_id   -- ← add this JOIN
   LEFT JOIN users cu   ON cu.id = d.created_by
   LEFT JOIN (
     SELECT device_id, verified_at, overall_status, verified_by,
@@ -311,6 +315,7 @@ const update = async (id, fields, updatedBy) => {
       status: "status",
       notes: "notes",
       locked: "locked",
+      sdpId: "sdp_id",
     };
     for (const [k, col] of Object.entries(devMap)) {
       if (fields[k] !== undefined) {
@@ -666,6 +671,109 @@ const listUnverified = async ({ page = 1, limit = 20, user = null } = {}) => {
   return { rows, total };
 };
 
+//get sdp list
+const getSDPList = async () => {
+  const [rows] = await db.query(
+    `SELECT id, name FROM service_delivery_points ORDER BY display_order, name`,
+  );
+  return rows;
+};
+
+// Get device count per SDP for a given facility
+const getDeviceCountBySDP = async (facilityId) => {
+  const [rows] = await db.query(
+    `SELECT 
+        sdp.id, sdp.name,
+        COUNT(d.id) AS device_count
+     FROM service_delivery_points sdp
+     LEFT JOIN devices d ON d.sdp_id = sdp.id AND d.facility_id = ?
+     GROUP BY sdp.id, sdp.name
+     ORDER BY sdp.display_order, sdp.name`,
+    [parseInt(facilityId)],
+  );
+  return rows;
+};
+
+// Get only active SDPs for a facility
+const getFacilitySDPs = async (facilityId) => {
+  const [rows] = await db.query(
+    `SELECT fs.id, fs.sdp_id, sdp.name, fs.provider_count, fs.is_active
+     FROM facility_sdps fs
+     JOIN service_delivery_points sdp ON sdp.id = fs.sdp_id
+     WHERE fs.facility_id = ? AND fs.is_active = 1
+     ORDER BY sdp.display_order, sdp.name`,
+    [parseInt(facilityId)],
+  );
+  return rows;
+};
+
+// Get all SDPs (including inactive) for editing
+const getAllFacilitySDPs = async (facilityId) => {
+  const [rows] = await db.query(
+    `SELECT fs.id, fs.sdp_id, sdp.name, fs.provider_count, fs.is_active
+     FROM facility_sdps fs
+     JOIN service_delivery_points sdp ON sdp.id = fs.sdp_id
+     WHERE fs.facility_id = ?
+     ORDER BY sdp.display_order, sdp.name`,
+    [parseInt(facilityId)],
+  );
+  return rows;
+};
+
+// Batch upsert facility SDPs
+const updateFacilitySDPs = async (facilityId, sdpData, userId) => {
+  const conn = await db.getConnection();
+  try {
+    await conn.beginTransaction();
+    for (const item of sdpData) {
+      await conn.query(
+        `INSERT INTO facility_sdps (facility_id, sdp_id, provider_count, is_active)
+         VALUES (?, ?, ?, ?)
+         ON DUPLICATE KEY UPDATE
+           provider_count = VALUES(provider_count),
+           is_active = VALUES(is_active)`,
+        [
+          facilityId,
+          item.sdpId,
+          item.providerCount || 0,
+          item.isActive ? 1 : 0,
+        ],
+      );
+    }
+    await conn.commit();
+  } catch (e) {
+    await conn.rollback();
+    throw e;
+  } finally {
+    conn.release();
+  }
+};
+
+// Get stats with device counts and provider counts
+const getFacilitySDPStats = async (facilityId) => {
+  const [rows] = await db.query(
+    `SELECT 
+        sdp.id, sdp.name,
+        COALESCE(fs.provider_count, 0) AS provider_count,
+        COUNT(d.id) AS device_count
+     FROM service_delivery_points sdp
+     LEFT JOIN facility_sdps fs ON fs.sdp_id = sdp.id AND fs.facility_id = ?
+     LEFT JOIN devices d ON d.sdp_id = sdp.id AND d.facility_id = ? AND d.status != 'decommissioned'
+     WHERE fs.is_active = 1 OR d.id IS NOT NULL
+     GROUP BY sdp.id, sdp.name, fs.provider_count
+     ORDER BY sdp.display_order, sdp.name`,
+    [parseInt(facilityId), parseInt(facilityId)],
+  );
+  return rows;
+};
+
+const getChargerTypeFromSerial = (serial) => {
+  if (!serial) return null;
+  const prefix = serial.substring(0, 4).toUpperCase();
+  const typeCPrefixes = ["R8Y", "R9PT", "BY9", "HA2"];
+  return typeCPrefixes.some((p) => prefix.startsWith(p)) ? "Type C" : "Type A";
+};
+
 module.exports = {
   list,
   getById,
@@ -682,4 +790,10 @@ module.exports = {
   linkSim,
   exportSims,
   listUnverified,
+  getSDPList,
+  getDeviceCountBySDP,
+  getFacilitySDPs,
+  getAllFacilitySDPs,
+  updateFacilitySDPs,
+  getFacilitySDPStats,
 };

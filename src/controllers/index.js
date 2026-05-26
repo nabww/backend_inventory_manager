@@ -19,6 +19,10 @@ const {
   sendTransferReviewedEmail,
 } = require("../config/mailer");
 const Loss = require("../models/loss.model");
+const logger = require("../config/logger");
+const deviceModel = require("../models/device.model");
+const db = require("../config/db");
+const chargerModel = require("../models/charger.model");
 
 // ================================================================
 // AUTH
@@ -523,6 +527,7 @@ const createDevice = async (req, res, next) => {
       deviceId: id,
       verifiedBy: req.user.id,
       overallStatus: "pass",
+      sdpId: req.body.sdpId,
       devicePresent: true,
       simPaired: !!device.has_sim,
       coverOk: ["good", "replaced"].includes(device.cover_condition),
@@ -558,6 +563,7 @@ const updateDevice = async (req, res, next) => {
       userId: req.user.id,
       action: "UPDATE",
       entityType: "device",
+      sdpId: req.body.sdpId,
       entityId: id,
       oldValues: existing,
       newValues: req.body,
@@ -1847,6 +1853,285 @@ const reviewTransferRequest = async (req, res, next) => {
   }
 };
 
+// GET /sdp
+const getSDPs = async (req, res) => {
+  try {
+    const list = await deviceModel.getSDPList();
+    return R.ok(res, list);
+  } catch (err) {
+    logger.error("getSDPs error", err);
+    return R.err(res, "Failed to fetch service delivery points");
+  }
+};
+
+// GET /facilities/:id/sdps – returns only active SDPs for a facility
+const getFacilitySDPs = async (req, res) => {
+  try {
+    const facilityId = req.params.id;
+    const sdps = await deviceModel.getFacilitySDPs(facilityId);
+    return R.ok(res, sdps);
+  } catch (err) {
+    logger.error("getFacilitySDPs error", err);
+    return R.err(res, "Failed to fetch facility SDPs");
+  }
+};
+
+// GET /facilities/:id/all-sdps – returns all SDPs (active + inactive) for editing
+const getAllFacilitySDPs = async (req, res) => {
+  try {
+    const facilityId = req.params.id;
+    const sdps = await deviceModel.getAllFacilitySDPs(facilityId);
+    return R.ok(res, sdps);
+  } catch (err) {
+    logger.error("getAllFacilitySDPs error", err);
+    return R.err(res, "Failed to fetch facility SDPs");
+  }
+};
+
+// PUT /facilities/:id/sdps – batch update SDPs for a facility
+const updateFacilitySDPs = async (req, res) => {
+  try {
+    const facilityId = req.params.id;
+    const { sdps } = req.body;
+    if (!Array.isArray(sdps)) {
+      return R.err(res, "sdps must be an array", 400);
+    }
+    await deviceModel.updateFacilitySDPs(facilityId, sdps, req.user.id);
+    return R.ok(res, { message: "Facility SDPs updated" });
+  } catch (err) {
+    logger.error("updateFacilitySDPs error", err);
+    return R.err(res, "Failed to update facility SDPs");
+  }
+};
+
+// GET /facilities/:id/sdp-stats – aggregated device counts + provider counts
+const getFacilitySDPStats = async (req, res) => {
+  try {
+    const facilityId = req.params.id;
+    const stats = await deviceModel.getFacilitySDPStats(facilityId);
+    return R.ok(res, stats);
+  } catch (err) {
+    logger.error("getFacilitySDPStats error", err);
+    return R.err(res, "Failed to fetch SDP stats");
+  }
+};
+
+const getFacilitySDPGaps = async (req, res) => {
+  try {
+    const query = `
+      SELECT 
+        f.id AS facility_id,
+        f.mfl_code,
+        f.name AS facility_name,
+        c.name AS county,
+        sc.name AS sub_county,
+        sdp.id AS sdp_id,
+        sdp.name AS sdp_name,
+        COALESCE(fs.provider_count, 0) AS provider_count,
+        COUNT(d.id) AS device_count,
+        CASE
+          WHEN COALESCE(fs.provider_count, 0) > 0 AND COUNT(d.id) > 0 THEN 'ok'
+          WHEN COALESCE(fs.provider_count, 0) > 0 AND COUNT(d.id) = 0 THEN 'no_devices'
+          WHEN COALESCE(fs.provider_count, 0) = 0 AND COUNT(d.id) > 0 THEN 'no_providers'
+          ELSE 'inactive'
+        END AS gap_status
+      FROM facilities f
+      JOIN counties c ON c.id = f.county_id
+      LEFT JOIN sub_counties sc ON sc.id = f.sub_county_id
+      CROSS JOIN service_delivery_points sdp
+      LEFT JOIN facility_sdps fs ON fs.facility_id = f.id AND fs.sdp_id = sdp.id
+      LEFT JOIN devices d ON d.facility_id = f.id AND d.sdp_id = sdp.id AND d.status NOT IN ('decommissioned', 'lost')
+      WHERE fs.is_active = 1 OR d.id IS NOT NULL
+      GROUP BY f.id, sdp.id
+      ORDER BY f.name, sdp.display_order
+    `;
+    const [rows] = await db.query(query);
+    return R.ok(res, rows);
+  } catch (err) {
+    logger.error("getFacilitySDPGaps error", err);
+    return R.err(res, "Failed to generate report");
+  }
+};
+
+const getFacilitySDPMatrix = async (req, res) => {
+  try {
+    // Get all SDPs
+    const [sdps] = await db.query(
+      "SELECT id, name FROM service_delivery_points ORDER BY display_order, name",
+    );
+    // Get device counts and provider counts per facility & SDP
+    const [rows] = await db.query(`
+      SELECT 
+        f.id AS facility_id,
+        f.mfl_code,
+        f.name AS facility_name,
+        c.name AS county,
+        sc.name AS sub_county,
+        sdp.id AS sdp_id,
+        COUNT(d.id) AS device_count,
+        COALESCE(fs.provider_count, 0) AS provider_count
+      FROM facilities f
+      JOIN counties c ON c.id = f.county_id
+      LEFT JOIN sub_counties sc ON sc.id = f.sub_county_id
+      CROSS JOIN service_delivery_points sdp
+      LEFT JOIN facility_sdps fs ON fs.facility_id = f.id AND fs.sdp_id = sdp.id
+      LEFT JOIN devices d ON d.facility_id = f.id AND d.sdp_id = sdp.id 
+        AND d.status NOT IN ('decommissioned', 'lost')
+      WHERE fs.is_active = 1 OR d.id IS NOT NULL
+      GROUP BY f.id, sdp.id, fs.provider_count
+      ORDER BY f.name, sdp.display_order
+    `);
+    // Build pivot structure
+    const facilitiesMap = new Map();
+    for (const row of rows) {
+      const key = row.facility_id;
+      if (!facilitiesMap.has(key)) {
+        facilitiesMap.set(key, {
+          facility_id: row.facility_id,
+          mfl_code: row.mfl_code,
+          facility_name: row.facility_name,
+          county: row.county,
+          sub_county: row.sub_county,
+          devices: {},
+          providers: {},
+        });
+      }
+      facilitiesMap.get(key).devices[row.sdp_id] = row.device_count;
+      facilitiesMap.get(key).providers[row.sdp_id] = row.provider_count;
+    }
+    // Fill missing SDPs with 0
+    for (const facility of facilitiesMap.values()) {
+      for (const sdp of sdps) {
+        if (facility.devices[sdp.id] === undefined)
+          facility.devices[sdp.id] = 0;
+        if (facility.providers[sdp.id] === undefined)
+          facility.providers[sdp.id] = 0;
+      }
+    }
+    return R.ok(res, {
+      sdps: sdps.map((s) => ({ id: s.id, name: s.name })),
+      facilities: Array.from(facilitiesMap.values()),
+    });
+  } catch (err) {
+    logger.error("getFacilitySDPMatrix error", err);
+    return R.err(res, "Failed to generate matrix report");
+  }
+};
+
+// GET /charger-types
+const getChargerTypes = async (req, res) => {
+  try {
+    const types = await chargerModel.getTypes();
+    return R.ok(res, types);
+  } catch (err) {
+    logger.error("getChargerTypes error", err);
+    return R.err(res, "Failed to fetch charger types");
+  }
+};
+
+// GET /facilities/:id/chargers
+const getFacilityChargers = async (req, res) => {
+  try {
+    const facilityId = req.params.id;
+    const chargers = await chargerModel.getFacilityChargers(facilityId);
+    return R.ok(res, chargers);
+  } catch (err) {
+    logger.error("getFacilityChargers error", err);
+    return R.err(res, "Failed to fetch charger data");
+  }
+};
+
+
+//put facilities
+const updateFacilityChargers = async (req, res) => {
+  try {
+    const facilityId = parseInt(req.params.id);
+    const { counts } = req.body;
+    const user = req.user;
+
+    if (!counts || typeof counts !== "object") {
+      return R.err(res, "Invalid counts format", 400);
+    }
+
+    // Zone enforcement for admins (same logic as facility update)
+    const isGlobalAdmin = user.role === "admin" && user.zone_type === "all";
+    if (!isGlobalAdmin) {
+      // Check if admin has access to this facility
+      let hasAccess = false;
+      if (user.zone_type === "county") {
+        const [[facility]] = await db.query(
+          "SELECT county_id FROM facilities WHERE id = ?",
+          [facilityId],
+        );
+        if (facility && facility.county_id === user.zone_county_id)
+          hasAccess = true;
+      } else if (user.zone_type === "sub_county") {
+        const [[facility]] = await db.query(
+          "SELECT sub_county_id FROM facilities WHERE id = ?",
+          [facilityId],
+        );
+        if (facility && facility.sub_county_id === user.zone_sub_county_id)
+          hasAccess = true;
+      } else if (user.zone_type === "facility") {
+        if (user.zone_facility_id === facilityId) hasAccess = true;
+      }
+      if (!hasAccess) {
+        return R.err(
+          res,
+          "You do not have permission to update chargers for this facility",
+          403,
+        );
+      }
+    }
+
+    await chargerModel.updateFacilityChargers(facilityId, counts, user.id);
+    return R.ok(res, { message: "Charger counts updated" });
+  } catch (err) {
+    logger.error("updateFacilityChargers error", err);
+    return R.err(res, "Failed to update charger counts");
+  }
+};
+
+const getChargerGapsReport = async (req, res) => {
+  try {
+    const query = `
+      SELECT 
+        f.id AS facility_id,
+        f.mfl_code,
+        f.name AS facility_name,
+        c.name AS county,
+        sc.name AS sub_county,
+        COALESCE(fc_typeA.count, 0) AS typeA_chargers_manual,
+        COALESCE(fc_typeC.count, 0) AS typeC_chargers_manual,
+        COUNT(CASE WHEN d.status NOT IN ('decommissioned','lost') AND d.has_charger = 1 
+                   AND (d.serial_number NOT REGEXP '^(R8Y|R9PT|BY9|HA2)') THEN 1 END) AS typeA_attached,
+        COUNT(CASE WHEN d.status NOT IN ('decommissioned','lost') AND d.has_charger = 1 
+                   AND (d.serial_number REGEXP '^(R8Y|R9PT|BY9|HA2)') THEN 1 END) AS typeC_attached,
+        COUNT(CASE WHEN d.status NOT IN ('decommissioned','lost') 
+                   AND (d.serial_number NOT REGEXP '^(R8Y|R9PT|BY9|HA2)') THEN 1 END) AS typeA_devices_total,
+        COUNT(CASE WHEN d.status NOT IN ('decommissioned','lost') 
+                   AND (d.serial_number REGEXP '^(R8Y|R9PT|BY9|HA2)') THEN 1 END) AS typeC_devices_total
+      FROM facilities f
+      JOIN counties c ON c.id = f.county_id
+      LEFT JOIN sub_counties sc ON sc.id = f.sub_county_id
+      LEFT JOIN (
+        SELECT facility_id, SUM(count) AS count FROM facility_chargers WHERE charger_type_id = 1 GROUP BY facility_id
+      ) fc_typeA ON fc_typeA.facility_id = f.id
+      LEFT JOIN (
+        SELECT facility_id, SUM(count) AS count FROM facility_chargers WHERE charger_type_id = 2 GROUP BY facility_id
+      ) fc_typeC ON fc_typeC.facility_id = f.id
+      LEFT JOIN devices d ON d.facility_id = f.id
+      GROUP BY f.id
+      ORDER BY f.name
+    `;
+    const [rows] = await db.query(query);
+    return R.ok(res, rows);
+  } catch (err) {
+    logger.error("getChargerGapsReport error", err);
+    return R.err(res, "Failed to generate charger gaps report");
+  }
+};
+
 module.exports = {
   login,
   me,
@@ -1909,4 +2194,15 @@ module.exports = {
   listTransferRequests,
   getTransferRequest,
   reviewTransferRequest,
+  getSDPs,
+  getFacilitySDPs,
+  getAllFacilitySDPs,
+  updateFacilitySDPs,
+  getFacilitySDPStats,
+  getFacilitySDPGaps,
+  getFacilitySDPMatrix,
+  getChargerTypes,
+  getFacilityChargers,
+  updateFacilityChargers,
+  getChargerGapsReport,
 };

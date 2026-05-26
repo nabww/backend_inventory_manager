@@ -96,6 +96,67 @@ const STATEMENTS = [
     CONSTRAINT \`fk_subcounty_county\` FOREIGN KEY (\`county_id\`) REFERENCES \`counties\` (\`id\`)
   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
 
+  /* ── service_delivery_points ───────────────────────────────────── */
+  `CREATE TABLE IF NOT EXISTS \`service_delivery_points\` (
+  \`id\`            INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  \`name\`          VARCHAR(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  \`display_order\` INT NOT NULL DEFAULT 0,
+  \`created_at\`    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (\`id\`),
+  UNIQUE KEY \`uq_sdp_name\` (\`name\`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+
+  `INSERT IGNORE INTO \`service_delivery_points\` (name, display_order) VALUES
+  ('OPD', 1),
+  ('IPD', 2),
+  ('Laboratory', 3),
+  ('Triage', 4),
+  ('HTS', 5),
+  ('MCH/MNCH', 6),
+  ('Adherence', 7),
+  ('Administration', 8),
+  ('Pharmacy', 9)`,
+
+  /* ── facility_sdps (links facilities to SDPs with provider counts) ── */
+  `CREATE TABLE IF NOT EXISTS \`facility_sdps\` (
+  \`id\`             INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  \`facility_id\`    INT UNSIGNED NOT NULL,
+  \`sdp_id\`         INT UNSIGNED NOT NULL,
+  \`provider_count\` INT UNSIGNED NOT NULL DEFAULT 0,
+  \`is_active\`      TINYINT(1) NOT NULL DEFAULT 1,
+  \`created_at\`     DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  \`updated_at\`     DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (\`id\`),
+  UNIQUE KEY \`uq_facility_sdp\` (\`facility_id\`, \`sdp_id\`),
+  CONSTRAINT \`fk_fs_facility\` FOREIGN KEY (\`facility_id\`) REFERENCES \`facilities\` (\`id\`) ON DELETE CASCADE,
+  CONSTRAINT \`fk_fs_sdp\`      FOREIGN KEY (\`sdp_id\`)      REFERENCES \`service_delivery_points\` (\`id\`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+
+  /* ── charger_types ──────────────────────────────────────────────── */
+  `CREATE TABLE IF NOT EXISTS \`charger_types\` (
+  \`id\`   INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  \`name\` VARCHAR(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (\`id\`),
+  UNIQUE KEY \`uq_charger_type\` (\`name\`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+
+  `INSERT IGNORE INTO \`charger_types\` (id, name) VALUES (1, 'Type A'), (2, 'Type C')`,
+
+  /* ── facility_chargers ──────────────────────────────────────────── */
+  `CREATE TABLE IF NOT EXISTS \`facility_chargers\` (
+  \`id\`              INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  \`facility_id\`     INT UNSIGNED NOT NULL,
+  \`charger_type_id\` INT UNSIGNED NOT NULL,
+  \`count\`           INT UNSIGNED NOT NULL DEFAULT 0,
+  \`updated_by\`      INT UNSIGNED NOT NULL,
+  \`updated_at\`      DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (\`id\`),
+  UNIQUE KEY \`uq_facility_charger_type\` (\`facility_id\`, \`charger_type_id\`),
+  CONSTRAINT \`fk_fc_facility\` FOREIGN KEY (\`facility_id\`) REFERENCES \`facilities\` (\`id\`) ON DELETE CASCADE,
+  CONSTRAINT \`fk_fc_type\` FOREIGN KEY (\`charger_type_id\`) REFERENCES \`charger_types\` (\`id\`),
+  CONSTRAINT \`fk_fc_updated_by\` FOREIGN KEY (\`updated_by\`) REFERENCES \`users\` (\`id\`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+
   /* IDs match live dump exactly */
   `INSERT IGNORE INTO \`sub_counties\` (id, county_id, name) VALUES
     (1, 43,'Homa Bay Town'),
@@ -335,42 +396,46 @@ const STATEMENTS = [
     ('14169','Wakula Health Centre',43,5),
     ('14176','Yokia Dispensary',43,5)`,
 
-  /* ── devices ─────────────────────────────────────────────────── */
+  /*devices*/
   `CREATE TABLE IF NOT EXISTS \`devices\` (
-    \`id\`              INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    \`facility_id\`     INT UNSIGNED NOT NULL,
-    \`affiliation_id\`  INT UNSIGNED NOT NULL,
-    \`sim_card_id\`     INT UNSIGNED DEFAULT NULL,
-    \`has_sim\`         TINYINT(1) NOT NULL DEFAULT 0,
-    \`serial_number\`   VARCHAR(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-    \`imei\`            VARCHAR(20)  COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    \`model\`           VARCHAR(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    \`asset_tag\`       VARCHAR(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    \`ip_address\`      VARCHAR(45)  COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    \`cover_condition\` ENUM('good','damaged','missing','replaced') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'good',
-    \`cover_notes\`     TEXT COLLATE utf8mb4_unicode_ci,
-    \`date_issued\`     DATE DEFAULT NULL,
-    \`assigned_to\`     VARCHAR(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-    \`status\`          ENUM('active','under_repair','repair_return_pending','returned','pending_transfer','decommissioned','lost') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
-    \`notes\`           TEXT COLLATE utf8mb4_unicode_ci,
-    \`created_by\`      INT UNSIGNED NOT NULL,
-    \`updated_by\`      INT UNSIGNED DEFAULT NULL,
-    \`created_at\`      DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    \`updated_at\`      DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    PRIMARY KEY (\`id\`),
-    UNIQUE KEY \`uq_device_serial\` (\`serial_number\`),
-    UNIQUE KEY \`uq_device_sim\`    (\`sim_card_id\`),
-    KEY \`idx_device_facility\`     (\`facility_id\`),
-    KEY \`idx_device_affiliation\`  (\`affiliation_id\`),
-    KEY \`idx_device_status\`       (\`status\`),
-    KEY \`fk_device_created_by\`    (\`created_by\`),
-    KEY \`fk_device_updated_by\`    (\`updated_by\`),
-    CONSTRAINT \`fk_device_affiliation\` FOREIGN KEY (\`affiliation_id\`) REFERENCES \`affiliations\` (\`id\`),
-    CONSTRAINT \`fk_device_created_by\`  FOREIGN KEY (\`created_by\`)     REFERENCES \`users\`        (\`id\`),
-    CONSTRAINT \`fk_device_facility\`    FOREIGN KEY (\`facility_id\`)    REFERENCES \`facilities\`   (\`id\`),
-    CONSTRAINT \`fk_device_sim\`         FOREIGN KEY (\`sim_card_id\`)    REFERENCES \`sim_cards\`    (\`id\`) ON DELETE SET NULL,
-    CONSTRAINT \`fk_device_updated_by\`  FOREIGN KEY (\`updated_by\`)     REFERENCES \`users\`        (\`id\`)
-  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
+  \`id\`              INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  \`facility_id\`     INT UNSIGNED NOT NULL,
+  \`affiliation_id\`  INT UNSIGNED NOT NULL,
+  \`sim_card_id\`     INT UNSIGNED DEFAULT NULL,
+  \`has_sim\`         TINYINT(1) NOT NULL DEFAULT 0,
+  \`serial_number\`   VARCHAR(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  \`imei\`            VARCHAR(20)  COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  \`model\`           VARCHAR(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  \`asset_tag\`       VARCHAR(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  \`ip_address\`      VARCHAR(45)  COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  \`cover_condition\` ENUM('good','damaged','missing','replaced') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'good',
+  \`cover_notes\`     TEXT COLLATE utf8mb4_unicode_ci,
+  \`date_issued\`     DATE DEFAULT NULL,
+  \`assigned_to\`     VARCHAR(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  \`status\`          ENUM('active','under_repair','repair_return_pending','returned','pending_transfer','decommissioned','lost') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
+  \`sdp_id\`          INT UNSIGNED DEFAULT NULL,
+  \`notes\`           TEXT COLLATE utf8mb4_unicode_ci,
+  \`has_charger\` TINYINT(1) NOT NULL DEFAULT 0,
+  \`created_by\`      INT UNSIGNED NOT NULL,
+  \`updated_by\`      INT UNSIGNED DEFAULT NULL,
+  \`created_at\`      DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  \`updated_at\`      DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (\`id\`),
+  UNIQUE KEY \`uq_device_serial\` (\`serial_number\`),
+  UNIQUE KEY \`uq_device_sim\`    (\`sim_card_id\`),
+  KEY \`idx_device_facility\`     (\`facility_id\`),
+  KEY \`idx_device_sdp\`          (\`sdp_id\`),
+  KEY \`idx_device_affiliation\`  (\`affiliation_id\`),
+  KEY \`idx_device_status\`       (\`status\`),
+  KEY \`fk_device_created_by\`    (\`created_by\`),
+  KEY \`fk_device_updated_by\`    (\`updated_by\`),
+  CONSTRAINT \`fk_device_affiliation\` FOREIGN KEY (\`affiliation_id\`) REFERENCES \`affiliations\` (\`id\`),
+  CONSTRAINT \`fk_device_created_by\`  FOREIGN KEY (\`created_by\`)     REFERENCES \`users\`        (\`id\`),
+  CONSTRAINT \`fk_device_facility\`    FOREIGN KEY (\`facility_id\`)    REFERENCES \`facilities\`   (\`id\`),
+  CONSTRAINT \`fk_device_sim\`         FOREIGN KEY (\`sim_card_id\`)    REFERENCES \`sim_cards\`    (\`id\`) ON DELETE SET NULL,
+  CONSTRAINT \`fk_device_updated_by\`  FOREIGN KEY (\`updated_by\`)     REFERENCES \`users\`        (\`id\`),
+  CONSTRAINT \`fk_device_sdp\`         FOREIGN KEY (\`sdp_id\`)         REFERENCES \`service_delivery_points\` (\`id\`) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
 
   /* ── facility_transfers ──────────────────────────────────────── */
   `CREATE TABLE IF NOT EXISTS \`facility_transfers\` (
@@ -603,6 +668,14 @@ const run = async () => {
       if (e.code !== "ER_DUP_FIELDNAME") throw e; // ignore "column already exists"
     }
 
+     try {
+       await conn.query(
+         `ALTER TABLE \`devices\` ADD COLUMN \`has_charger\` TINYINT(1) NOT NULL DEFAULT 0`,
+       );
+     } catch (e) {
+       if (e.code !== "ER_DUP_FIELDNAME") throw e; // ignore "column already exists"
+     }
+
     // Add lost to verifications overall_status ENUM if upgrading
     try {
       await conn.query(
@@ -687,6 +760,16 @@ const run = async () => {
       );
     } catch (e) {
       logger.warn("Device status ENUM update: " + e.message);
+    }
+
+    // Add sdp_id column if not exists
+    try {
+      await conn.query(
+        `ALTER TABLE \`devices\` ADD COLUMN \`sdp_id\` INT UNSIGNED DEFAULT NULL,
+     ADD CONSTRAINT \`fk_device_sdp\` FOREIGN KEY (\`sdp_id\`) REFERENCES \`service_delivery_points\` (\`id\`) ON DELETE SET NULL`,
+      );
+    } catch (e) {
+      if (e.code !== "ER_DUP_FIELDNAME") throw e;
     }
 
     // Create new workflow tables

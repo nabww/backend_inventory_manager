@@ -5,6 +5,7 @@ const path = require("path");
 const fs = require("fs");
 const C = require("../controllers");
 const { authenticate, isAdmin, isOfficer, validate } = require("../middleware");
+const facilityController = require("../controllers/index");
 
 const upload = multer({
   storage: multer.memoryStorage(),
@@ -346,5 +347,37 @@ router.post(
   validate,
   C.reviewTransferRequest,
 );
+
+router.get("/sdp", authenticate, C.getSDPs);
+router.get("/facilities/:id/sdps", authenticate, C.getFacilitySDPs);
+router.get("/facilities/:id/all-sdps", authenticate, C.getAllFacilitySDPs);
+router.put(
+  "/facilities/:id/sdps",
+  authenticate,
+  isOfficer,
+  C.updateFacilitySDPs,
+);
+router.get("/facilities/:id/sdp-stats", authenticate, C.getFacilitySDPStats);
+router.get("/reports/facility-sdp-gaps", authenticate, C.getFacilitySDPGaps);
+router.get(
+  "/reports/facility-sdp-matrix",
+  authenticate,
+  C.getFacilitySDPMatrix,
+);
+
+router.get("/charger-types", authenticate, C.getChargerTypes);
+router.get(
+  "/facilities/:id/chargers",
+  authenticate,
+  isAdmin,
+  C.getFacilityChargers,
+);
+router.put(
+  "/facilities/:id/chargers",
+  authenticate,
+  isOfficer,
+  C.updateFacilityChargers,
+);
+router.get("/reports/charger-gaps", authenticate, C.getChargerGapsReport);
 
 module.exports = router;

@@ -3566,3 +3566,1469 @@
 {"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-05-20 09:56:51"}
 {"level":"debug","message":"GET /api/admin-contacts/cadres","timestamp":"2026-05-20 09:56:52"}
 {"level":"debug","message":"GET /api/admin-contacts?search=&includeInactive=true","timestamp":"2026-05-20 09:56:52"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 10:55:47"}
+{"level":"error","message":"Bootstrap failed: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CONSTRAINT `fk_device_sdp` FOREIGN KEY (`sdp_id`) REFERENCES `service_delivery_p' at line 36","timestamp":"2026-05-26 10:55:47"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 10:57:28"}
+{"level":"error","message":"Bootstrap failed: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CONSTRAINT `fk_device_sdp` FOREIGN KEY (`sdp_id`) REFERENCES `service_delivery_p' at line 37","timestamp":"2026-05-26 10:57:28"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 10:58:42"}
+{"level":"error","message":"Bootstrap failed: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci' at line 38","timestamp":"2026-05-26 10:58:42"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 10:59:55"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 10:59:55"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 10:59:55"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 10:59:57"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:09:54"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-05-26 11:09:54"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-05-26 11:09:54"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:09:54"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-05-26 11:09:54"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-05-26 11:09:55"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-05-26 11:09:55"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-26 11:09:58"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 11:09:58"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 11:09:58"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:10:00"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:10:00"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:10:00"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:10:00"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 11:10:00"}
+{"level":"error","message":"Unhandled error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sdp.id AS sdp_id, sdp.name AS sdp_name\n  FROM devices d\n  JOIN facilities f   ON' at line 19","stack":"Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sdp.id AS sdp_id, sdp.name AS sdp_name\n  FROM devices d\n  JOIN facilities f   ON' at line 19\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:123:27)\n    at listDevices (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:473:33)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:346:12)","timestamp":"2026-05-26 11:10:00","url":"/api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition="}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:13:44"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:13:44"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 11:13:44"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 11:13:44"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:15:13"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:15:13"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:15:13"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:15:13"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 11:15:14"}
+{"level":"error","message":"Unhandled error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sdp.id AS sdp_id, sdp.name AS sdp_name\n  FROM devices d\n  JOIN facilities f   ON' at line 19","stack":"Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sdp.id AS sdp_id, sdp.name AS sdp_name\n  FROM devices d\n  JOIN facilities f   ON' at line 19\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:123:27)\n    at listDevices (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:473:33)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:346:12)","timestamp":"2026-05-26 11:15:14","url":"/api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition="}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:15:17"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:15:17"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:15:17"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:15:17"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:15:17"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:15:17"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 11:15:17"}
+{"level":"error","message":"Unhandled error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sdp.id AS sdp_id, sdp.name AS sdp_name\n  FROM devices d\n  JOIN facilities f   ON' at line 19","stack":"Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sdp.id AS sdp_id, sdp.name AS sdp_name\n  FROM devices d\n  JOIN facilities f   ON' at line 19\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:123:27)\n    at listDevices (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:473:33)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:346:12)","timestamp":"2026-05-26 11:15:17","url":"/api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition="}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:15:21"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:15:21"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:15:21"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:15:21"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 11:16:30"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 11:16:30"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 11:16:30"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 11:16:32"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:16:35"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:16:35"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:16:35"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:16:35"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:16:35"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:16:35"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 11:16:36"}
+{"level":"error","message":"Unhandled error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sdp.id AS sdp_id, sdp.name AS sdp_name\n  FROM devices d\n  JOIN facilities f   ON' at line 19","stack":"Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sdp.id AS sdp_id, sdp.name AS sdp_name\n  FROM devices d\n  JOIN facilities f   ON' at line 19\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:123:27)\n    at listDevices (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:473:33)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:346:12)","timestamp":"2026-05-26 11:16:36","url":"/api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition="}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:18:40"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:18:40"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:18:40"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 11:18:45"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 11:18:45"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 11:18:45"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 11:18:46"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:18:48"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:18:48"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:18:48"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:18:48"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:18:48"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:18:48"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 11:18:48"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 11:18:53"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 11:18:53"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:18:58"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:18:58"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:18:58"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:18:58"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 11:18:58"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:19:00"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:19:00"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:19:00"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:19:00"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 11:20:19"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 11:20:19"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 11:20:19"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 11:20:20"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:20:24"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:20:24"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:20:24"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:20:24"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:20:24"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:20:24"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 11:20:24"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:20:26"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:20:26"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:20:26"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:20:26"}
+{"level":"error","message":"getSDPs error deviceModel is not defined","stack":"ReferenceError: deviceModel is not defined\n    at getSDPs (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1856:18)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-26 11:20:26"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:20:26"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:20:26"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:20:26"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:20:26"}
+{"level":"error","message":"getSDPs error deviceModel is not defined","stack":"ReferenceError: deviceModel is not defined\n    at getSDPs (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1856:18)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-26 11:20:26"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 11:22:02"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 11:22:02"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 11:22:02"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 11:22:03"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:22:06"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:22:06"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:22:06"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:22:06"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:22:06"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:22:06"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 11:22:06"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:22:08"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:22:08"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:22:08"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:22:08"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:22:08"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:22:08"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:22:08"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:22:08"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:22:26"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:22:26"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:22:26"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:22:26"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:23:43"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:23:43"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:23:43"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:23:43"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:24:18"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:24:18"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:24:18"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:24:18"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:24:51"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:24:51"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:24:51"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:24:51"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:24:51"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:24:51"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 11:24:51"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:24:53"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:24:53"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:24:53"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:24:53"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:24:53"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:24:53"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:24:53"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:24:53"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:25:40"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:25:40"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:25:40"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:25:40"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:26:02"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:26:02"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:26:02"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:26:02"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:26:05"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:26:05"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:26:05"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:26:05"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:26:25"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:26:25"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:26:25"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:26:25"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:26:25"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:26:25"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:26:25"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:26:25"}
+{"level":"debug","message":"PATCH /api/devices/1","timestamp":"2026-05-26 11:26:31"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 11:26:31"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 11:26:33"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 11:26:33"}
+{"level":"debug","message":"POST /api/devices/1/verify","timestamp":"2026-05-26 11:26:46"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 11:26:46"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 11:26:53"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 11:26:53"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:26:54"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:26:54"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:26:54"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:26:54"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 11:26:54"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 11:26:56"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 11:26:56"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:26:58"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:26:58"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:26:58"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:26:58"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:26:58"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:26:58"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:26:58"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:26:58"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:29:08"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:29:08"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 11:29:09"}
+{"level":"debug","message":"GET /api/facilities/43","timestamp":"2026-05-26 11:29:10"}
+{"level":"debug","message":"GET /api/devices?facilityId=43&page=1&limit=20","timestamp":"2026-05-26 11:29:10"}
+{"level":"debug","message":"GET /api/facilities/43","timestamp":"2026-05-26 11:29:10"}
+{"level":"debug","message":"GET /api/devices?facilityId=43&page=1&limit=20","timestamp":"2026-05-26 11:29:10"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:29:51"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:29:51"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 11:29:51"}
+{"level":"debug","message":"GET /api/facilities/43","timestamp":"2026-05-26 11:29:53"}
+{"level":"debug","message":"GET /api/devices?facilityId=43&page=1&limit=20","timestamp":"2026-05-26 11:29:53"}
+{"level":"debug","message":"GET /api/facilities/43","timestamp":"2026-05-26 11:29:53"}
+{"level":"debug","message":"GET /api/devices?facilityId=43&page=1&limit=20","timestamp":"2026-05-26 11:29:53"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:29:58"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:29:58"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 11:29:58"}
+{"level":"debug","message":"GET /api/facilities/43","timestamp":"2026-05-26 11:30:01"}
+{"level":"debug","message":"GET /api/devices?facilityId=43&page=1&limit=20","timestamp":"2026-05-26 11:30:01"}
+{"level":"debug","message":"GET /api/facilities/43","timestamp":"2026-05-26 11:30:01"}
+{"level":"debug","message":"GET /api/devices?facilityId=43&page=1&limit=20","timestamp":"2026-05-26 11:30:02"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:42:26"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:42:26"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:42:26"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:42:26"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 11:42:27"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:42:28"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:42:28"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:42:28"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:42:28"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:42:28"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:42:28"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:42:28"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:42:28"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 11:43:33"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 11:43:33"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 11:43:33"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 11:43:34"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:43:41"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 11:43:41"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:43:41"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:43:41"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:43:41"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:43:41"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 11:43:41"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:43:43"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:43:43"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:43:43"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:43:43"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 11:43:43"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 11:43:43"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 11:43:43"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 11:43:43"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:03:45"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:03:45"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 12:03:46"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:03:46"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 12:03:46"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:03:46"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 12:03:46"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 12:03:47"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:03:48"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:03:48"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 12:03:49"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sokl","timestamp":"2026-05-26 12:03:51"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:03:51"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:03:51"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:04:46"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:04:46"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:04:46"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:04:46"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:04:47"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:04:47"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:04:47"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:04:47"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:04:47"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:04:47"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:04:47"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:04:47"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:04:52"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:04:52"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:04:52"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:04:52"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:04:52"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:04:52"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:04:52"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:04:52"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:05:01"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:05:01"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:05:01"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:05:01"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:05:01"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:05:01"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:05:02"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:05:02"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:05:27"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:05:27"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 12:05:27"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sokl","timestamp":"2026-05-26 12:05:32"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:05:33"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:05:33"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:05:33"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:05:33"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:05:33"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:05:33"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:05:35"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:05:35"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:05:35"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:05:35"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:05:35"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:05:35"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:05:35"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:05:35"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:06:35"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:06:35"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 12:06:35"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sokl","timestamp":"2026-05-26 12:08:54"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:08:55"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:08:55"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:08:55"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:08:55"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:08:55"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:08:55"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:08:57"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:08:57"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:08:57"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:08:57"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:08:57"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:08:57"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:08:57"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:08:57"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 12:17:53"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 12:17:53"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 12:17:53"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 12:17:55"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:17:58"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:17:58"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:17:58"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:17:58"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:17:58"}
+{"level":"error","message":"getFacilitySDPStats error deviceModel.getFacilitySDPStats is not a function","stack":"TypeError: deviceModel.getFacilitySDPStats is not a function\n    at getFacilitySDPStats (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1909:37)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-26 12:17:58"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:17:58"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:17:58"}
+{"level":"error","message":"getFacilitySDPStats error deviceModel.getFacilitySDPStats is not a function","stack":"TypeError: deviceModel.getFacilitySDPStats is not a function\n    at getFacilitySDPStats (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1909:37)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-26 12:17:58"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:17:58"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:18:03"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:18:03"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 12:18:04"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sok","timestamp":"2026-05-26 12:18:06"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:18:07"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:18:07"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:18:07"}
+{"level":"error","message":"getFacilitySDPStats error deviceModel.getFacilitySDPStats is not a function","stack":"TypeError: deviceModel.getFacilitySDPStats is not a function\n    at getFacilitySDPStats (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1909:37)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-26 12:18:07"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:18:07"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:18:07"}
+{"level":"error","message":"getFacilitySDPStats error deviceModel.getFacilitySDPStats is not a function","stack":"TypeError: deviceModel.getFacilitySDPStats is not a function\n    at getFacilitySDPStats (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1909:37)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-26 12:18:07"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:18:07"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:18:18"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:18:18"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:18:18"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:18:18"}
+{"level":"error","message":"getAllFacilitySDPs error deviceModel.getAllFacilitySDPs is not a function","stack":"TypeError: deviceModel.getAllFacilitySDPs is not a function\n    at getAllFacilitySDPs (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1881:36)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-26 12:18:18"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:18:18"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:18:18"}
+{"level":"error","message":"getAllFacilitySDPs error deviceModel.getAllFacilitySDPs is not a function","stack":"TypeError: deviceModel.getAllFacilitySDPs is not a function\n    at getAllFacilitySDPs (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1881:36)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-26 12:18:18"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:18:18"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:18:18"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 12:21:49"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 12:21:49"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 12:21:49"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 12:21:51"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:21:55"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:21:55"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:21:55"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:21:55"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:21:55"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:21:55"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:21:55"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:21:55"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:22:00"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:22:00"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:22:00"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:22:00"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:22:00"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:22:00"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:22:00"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:22:00"}
+{"level":"debug","message":"PUT /api/facilities/153","timestamp":"2026-05-26 12:22:24"}
+{"level":"debug","message":"PUT /api/facilities/153","timestamp":"2026-05-26 12:22:25"}
+{"level":"debug","message":"PUT /api/facilities/153","timestamp":"2026-05-26 12:22:28"}
+{"level":"debug","message":"PUT /api/facilities/153","timestamp":"2026-05-26 12:22:28"}
+{"level":"debug","message":"PUT /api/facilities/153","timestamp":"2026-05-26 12:22:32"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:26:31"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:26:31"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:26:31"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:26:31"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:26:33"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:26:33"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:26:33"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:26:33"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:27:10"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:27:10"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:27:10"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:27:10"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:27:10"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:27:10"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:27:10"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:27:10"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:27:16"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:27:16"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:27:16"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:27:16"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:27:16"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:27:16"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:27:16"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:27:16"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:27:28"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:27:28"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:27:28"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:27:28"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:27:28"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:27:28"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:27:28"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:27:28"}
+{"level":"debug","message":"PATCH /api/facilities/153","timestamp":"2026-05-26 12:27:41"}
+{"level":"debug","message":"PUT /api/facilities/153/sdps","timestamp":"2026-05-26 12:27:41"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:27:41"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:27:41"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:28:54"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:28:54"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:28:54"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:28:54"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:28:54"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:28:54"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:28:54"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:28:54"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:29:38"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 12:29:38"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:29:38"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 12:29:38"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 12:29:38"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:29:40"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 12:29:40"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 12:29:40"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:29:40"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:29:40"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 12:29:40"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:29:40"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 12:29:40"}
+{"level":"debug","message":"PATCH /api/devices/1","timestamp":"2026-05-26 12:29:52"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 12:29:52"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:29:54"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:29:54"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 12:29:54"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sokl","timestamp":"2026-05-26 12:29:56"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:29:58"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:29:58"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:29:58"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:29:58"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:29:58"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:29:58"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:38:33"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:38:33"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:38:33"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:38:33"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:38:33"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:38:33"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:38:33"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:38:33"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:38:35"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:38:35"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:38:35"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:38:35"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:38:35"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:38:35"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:38:35"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:38:35"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:38:38"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:38:38"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:38:38"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:38:38"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:38:38"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:38:38"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:38:38"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:38:38"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:38:43"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:38:43"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:38:43"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:38:43"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:38:43"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:38:43"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:38:43"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:38:43"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:38:46"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:38:46"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:38:46"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:38:46"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:38:46"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:38:46"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:38:46"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:38:46"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:38:48"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:38:48"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:38:48"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:38:48"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:38:48"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:38:48"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:38:48"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:38:48"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:38:49"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:38:49"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:38:49"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:38:57"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:38:57"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:38:57"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:38:57"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:38:57"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:38:57"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:38:57"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:38:57"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:40:54"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:40:54"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:40:54"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:40:54"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:40:54"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:40:54"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:40:54"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:40:54"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:43:28"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:43:28"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:43:28"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:43:28"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:43:33"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:43:33"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:43:33"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:43:33"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:43:36"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:43:36"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:43:36"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:43:36"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:43:45"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:43:45"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:43:45"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:43:45"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:43:45"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:43:45"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:43:45"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:43:45"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:44:12"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:44:12"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 12:44:12"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 12:44:12"}
+{"level":"debug","message":"GET /main.f2d83af8f63696ddcee5.hot-update.json","timestamp":"2026-05-26 12:44:12"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:44:12"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:44:13"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:44:13"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:44:13"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:44:13"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:44:13"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:44:13"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:44:13"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:44:17"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 12:44:17"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:44:17"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 12:44:17"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 12:44:18"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:44:20"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:44:20"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 12:44:21"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sokl","timestamp":"2026-05-26 12:44:22"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:44:23"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:44:23"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:44:23"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:44:23"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:44:23"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:44:23"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:44:26"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:44:26"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:44:26"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:44:26"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:44:26"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:44:26"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:44:26"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:44:26"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:45:26"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:45:26"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:45:26"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:45:26"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:45:30"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:45:30"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:45:30"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:45:30"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:45:30"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 12:45:30"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 12:45:30"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 12:45:30"}
+{"level":"debug","message":"PATCH /api/facilities/153","timestamp":"2026-05-26 12:45:55"}
+{"level":"debug","message":"PUT /api/facilities/153/sdps","timestamp":"2026-05-26 12:45:55"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:45:55"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:45:55"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:46:19"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:46:19"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 12:46:19"}
+{"level":"debug","message":"GET /api/facilities/43/sdp-stats","timestamp":"2026-05-26 12:46:20"}
+{"level":"debug","message":"GET /api/facilities/43","timestamp":"2026-05-26 12:46:20"}
+{"level":"debug","message":"GET /api/devices?facilityId=43&page=1&limit=20","timestamp":"2026-05-26 12:46:20"}
+{"level":"debug","message":"GET /api/facilities/43","timestamp":"2026-05-26 12:46:20"}
+{"level":"debug","message":"GET /api/facilities/43/sdp-stats","timestamp":"2026-05-26 12:46:20"}
+{"level":"debug","message":"GET /api/devices?facilityId=43&page=1&limit=20","timestamp":"2026-05-26 12:46:20"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:46:29"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:46:29"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 12:46:30"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sokl","timestamp":"2026-05-26 12:46:32"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:46:33"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:46:33"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:46:33"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:46:33"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:46:33"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:46:33"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:47:43"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 12:47:43"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:47:43"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 12:47:43"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 12:47:43"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 12:47:45"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 12:47:45"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 12:49:16"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 12:49:19"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 12:49:37"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 12:49:37"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:49:54"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 12:49:54"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 12:49:54"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=soklo","timestamp":"2026-05-26 12:49:57"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:49:58"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:49:58"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:49:58"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:49:58"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:49:58"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:49:58"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:52:54"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 12:52:54"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:52:54"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:52:54"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:52:54"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:52:54"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:52:54"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:52:54"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 12:57:06"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 12:57:06"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:57:10"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:57:10"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:57:10"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 12:57:10"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 12:57:10"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 12:57:10"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:02:02"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:02:02"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:02:02"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:02:03"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:02:14"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:02:14"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:02:14"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:02:15"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:02:54"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:02:54"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:02:54"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:03:08"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:03:08"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:03:08"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:03:09"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:03:10"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:03:10"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:03:11"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:03:28"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:03:28"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:03:28"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:03:28"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:03:28"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:03:28"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:03:30"}
+{"level":"debug","message":"GET /main.ce7bdf46bb407b4aaa6a.hot-update.json","timestamp":"2026-05-26 13:07:17"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:07:17"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:07:17"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:07:17"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:07:17"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:07:17"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:07:17"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 13:07:17"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:07:17"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 13:07:17"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:07:17"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:07:17"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:07:17"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:14:18"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:14:18"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:14:18"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:14:19"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:14:30"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:14:30"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:14:30"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:14:30"}
+{"level":"debug","message":"GET /main.593bee4ce575c6c6109d.hot-update.json","timestamp":"2026-05-26 13:15:07"}
+{"level":"debug","message":"GET /main.593bee4ce575c6c6109d.hot-update.json","timestamp":"2026-05-26 13:15:07"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:15:07"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:15:07"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:15:08"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:15:08"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 13:15:08"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:15:08"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:15:08"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:15:08"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 13:15:08"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:15:08"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:15:08"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:15:08"}
+{"level":"debug","message":"GET /main.08f10465ed0e4afbb8e8.hot-update.json","timestamp":"2026-05-26 13:18:30"}
+{"level":"debug","message":"GET /main.08f10465ed0e4afbb8e8.hot-update.json","timestamp":"2026-05-26 13:18:31"}
+{"level":"debug","message":"GET /main.08f10465ed0e4afbb8e8.hot-update.json","timestamp":"2026-05-26 13:18:31"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:19:41"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:19:41"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:19:41"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:19:41"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:19:41"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:19:41"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 13:19:41"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:19:41"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:19:41"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 13:19:41"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:19:41"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:19:41"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:19:46"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:19:46"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:19:48"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:19:48"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-26 13:20:06"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-26 13:20:06"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:23:07"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:23:07"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:23:07"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:23:09"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:26:56"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:26:56"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:26:56"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:26:57"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-26 13:26:59"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:26:59"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:26:59"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:27:01"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:27:01"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:27:03"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:27:03"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-26 13:27:16"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-26 13:27:16"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:27:40"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-26 13:27:40"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:27:40"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-26 13:27:40"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:27:40"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:27:40"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:27:40"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:27:40"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 13:27:40"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:27:40"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:27:40"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 13:27:40"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-26 13:28:59"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-26 13:28:59"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:31:18"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:31:18"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:31:18"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:31:20"}
+{"level":"debug","message":"GET /main.270b53310f1660805c4d.hot-update.json","timestamp":"2026-05-26 13:32:03"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /main.270b53310f1660805c4d.hot-update.json","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:32:04"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-26 13:33:54"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-26 13:33:54"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-26 13:34:38"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-26 13:34:38"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:35:16"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:35:16"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 13:35:18"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 13:35:18"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 13:35:23"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 13:35:23"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 13:35:23"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sokl","timestamp":"2026-05-26 13:35:26"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:35:27"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:35:27"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 13:35:27"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:35:27"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 13:35:27"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:35:27"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 13:35:38"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 13:35:38"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 13:35:38"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 13:35:38"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 13:35:38"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 13:35:38"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 13:35:38"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 13:35:38"}
+{"level":"debug","message":"PATCH /api/facilities/153","timestamp":"2026-05-26 13:35:46"}
+{"level":"debug","message":"PUT /api/facilities/153/sdps","timestamp":"2026-05-26 13:35:46"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:35:46"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:35:46"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 13:35:57"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 13:35:57"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 13:35:57"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 13:35:57"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 13:35:57"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 13:35:57"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-26 13:35:57"}
+{"level":"debug","message":"GET /api/facilities/153/all-sdps","timestamp":"2026-05-26 13:35:57"}
+{"level":"debug","message":"PATCH /api/facilities/153","timestamp":"2026-05-26 13:36:04"}
+{"level":"debug","message":"PUT /api/facilities/153/sdps","timestamp":"2026-05-26 13:36:04"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:36:04"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:36:04"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:56:14"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:56:14"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:56:14"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:56:15"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:56:24"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:56:24"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:56:24"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:56:25"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:56:53"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:56:53"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:56:53"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:56:54"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:56:56"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:56:56"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:56:56"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:56:57"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:57:55"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:57:55"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:57:55"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:57:57"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:58:01"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:58:01"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:58:01"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:58:02"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:58:23"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:58:23"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:58:23"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:58:25"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:58:25"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:58:25"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:58:27"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:58:32"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:58:32"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:58:32"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:58:33"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:59:01"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:59:01"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:59:01"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:59:02"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:59:02"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:59:02"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:59:03"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:59:13"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:59:14"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:59:14"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:59:14"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:59:14"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:59:14"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:59:15"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:59:23"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 13:59:24"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 13:59:24"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 13:59:24"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 13:59:25"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 13:59:43"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:02:12"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:02:12"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:02:12"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:02:12"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:02:12"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:02:12"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:02:21"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:02:21"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:02:21"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:02:21"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:02:21"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:02:21"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:02:21"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:02:21"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:02:21"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:02:21"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:02:21"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:02:21"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:02:32"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:02:43"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:02:43"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:02:43"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:02:43"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:02:43"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:02:43"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:02:43"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:02:43"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:02:43"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:02:43"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:02:47"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:02:47"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:02:47"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:02:47"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:02:47"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:02:47"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:02:47"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:02:47"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:02:47"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:02:47"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:03:57"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:03:57"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:03:57"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:03:58"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:03:58"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:03:58"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 14:03:59"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:04:11"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:04:11"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 14:04:11"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sokl","timestamp":"2026-05-26 14:04:13"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:04:14"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:04:14"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:04:14"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:04:14"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:04:14"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:04:14"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:04:14"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:04:14"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:04:14"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:04:14"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:05:38"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:05:38"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:05:38"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:05:38"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:05:38"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:05:38"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:05:42"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:05:42"}
+{"level":"debug","message":"GET /main.26da76d78739b414b006.hot-update.json","timestamp":"2026-05-26 14:05:52"}
+{"level":"debug","message":"GET /main.26da76d78739b414b006.hot-update.json","timestamp":"2026-05-26 14:05:52"}
+{"level":"debug","message":"GET /main.26da76d78739b414b006.hot-update.json","timestamp":"2026-05-26 14:05:52"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:05:52"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:05:52"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:05:52"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 14:05:52"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:05:52"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 14:05:52"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:05:53"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:05:53"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:05:53"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:05:53"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:05:57"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:05:57"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 14:05:57"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sok","timestamp":"2026-05-26 14:05:59"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:07:54"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:07:54"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:07:56"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:07:56"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:10:10"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:10:10"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:10:10"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 14:10:11"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-26 14:10:12"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 14:10:12"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 14:10:12"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:10:14"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:10:14"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 14:10:14"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sokl","timestamp":"2026-05-26 14:10:16"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:10:37"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:10:37"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:10:37"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:10:37"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:10:37"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:10:37"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:10:37"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:10:37"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:10:37"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:10:37"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:10:37"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:10:37"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:10:48"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:10:48"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:10:48"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:10:48"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 14:10:48"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:10:51"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:10:51"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 14:10:51"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sokl","timestamp":"2026-05-26 14:10:54"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:10:55"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:10:55"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:10:55"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:10:55"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:10:55"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:10:55"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:10:55"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:10:55"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:10:55"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:10:55"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-26 14:11:31"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 14:11:32"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 14:11:32"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:11:36"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:11:36"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 14:11:36"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sok","timestamp":"2026-05-26 14:11:38"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:11:39"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:11:39"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:11:39"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:11:39"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:11:39"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:11:39"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:11:39"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:11:39"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:11:39"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:11:39"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:11:44"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:11:44"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 14:11:45"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 14:12:03"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 14:12:03"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-26 14:13:22"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 14:13:22"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 14:13:22"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:13:28"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:13:28"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 14:13:29"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sokl","timestamp":"2026-05-26 14:13:35"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:13:36"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:13:36"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:13:36"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:13:36"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:13:36"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:13:36"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:13:36"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:13:36"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:13:36"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:13:36"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-26 14:13:48"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-26 14:13:48"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:15:22"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:15:22"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:15:22"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:15:22"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 14:15:22"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:15:24"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:15:24"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 14:15:25"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 14:15:25"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:15:25"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:15:25"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 14:15:25"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 14:15:25"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:15:40"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:15:40"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 14:15:40"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 14:15:40"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:15:40"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:15:40"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 14:15:40"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 14:15:40"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 14:18:00"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 14:18:00"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:21:52"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:21:52"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 14:21:52"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 14:21:52"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:21:52"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:21:52"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 14:21:52"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 14:21:52"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:22:55"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:22:55"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 14:22:55"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 14:22:55"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:22:55"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:22:55"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 14:22:55"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 14:22:55"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:23:22"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:23:22"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 14:23:22"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 14:23:22"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:23:22"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:23:22"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 14:23:22"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 14:23:22"}
+{"level":"debug","message":"PATCH /api/devices/1","timestamp":"2026-05-26 14:23:26"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 14:23:26"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:25:04"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:25:04"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:25:04"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 14:25:05"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:25:11"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:25:11"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:25:11"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 14:25:13"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:25:57"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:25:57"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:25:57"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:25:58"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:25:58"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:25:58"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 14:25:59"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:27:33"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:27:33"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 14:27:34"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sokl","timestamp":"2026-05-26 14:27:36"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:27:37"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:27:37"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:27:37"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:27:37"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:27:37"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:27:37"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:27:37"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:27:37"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:27:37"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:27:37"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:28:37"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:28:37"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:28:37"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:28:37"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:28:37"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:28:37"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:28:37"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:28:37"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:28:37"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:28:37"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:28:37"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:28:37"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:28:56"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:28:56"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:28:56"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:28:56"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:28:56"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:28:56"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:28:56"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:28:56"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:28:56"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:28:56"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:28:56"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:28:56"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:29:01"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:29:01"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:29:01"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:29:01"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 14:29:01"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:29:03"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:29:03"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 14:29:03"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 14:29:03"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:29:03"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:29:03"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 14:29:03"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 14:29:03"}
+{"level":"debug","message":"PATCH /api/devices/1","timestamp":"2026-05-26 14:29:07"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 14:29:07"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:29:09"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:29:09"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 14:29:10"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sokl","timestamp":"2026-05-26 14:29:11"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:29:12"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:29:12"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:29:12"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:29:12"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:29:12"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:29:12"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:29:12"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:29:12"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:29:12"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:29:12"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:34:49"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:34:49"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:34:49"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 14:34:50"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:35:03"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:35:03"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:35:03"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 14:35:04"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:35:12"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:35:12"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:35:12"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 14:35:13"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:35:14"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:35:14"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:35:14"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 14:35:15"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:35:24"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:35:24"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:35:24"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 14:35:25"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:36:45"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:36:45"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:36:45"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:36:45"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:36:45"}
+{"level":"error","message":"Unhandled error Unknown column 'd.has_charger' in 'field list'","stack":"Error: Unknown column 'd.has_charger' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:124:27)\n    at listDevices (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:477:33)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:346:12)","timestamp":"2026-05-26 14:36:45","url":"/api/devices?facilityId=153&page=1&limit=20"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:36:46"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:36:46"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:36:46"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:36:46"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:36:46"}
+{"level":"error","message":"Unhandled error Unknown column 'd.has_charger' in 'field list'","stack":"Error: Unknown column 'd.has_charger' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:124:27)\n    at listDevices (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:477:33)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:346:12)","timestamp":"2026-05-26 14:36:46","url":"/api/devices?facilityId=153&page=1&limit=20"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:37:28"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:37:28"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:37:28"}
+{"level":"error","message":"Unhandled error Unknown column 'd.has_charger' in 'field list'","stack":"Error: Unknown column 'd.has_charger' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:124:27)\n    at listDevices (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:477:33)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:346:12)","timestamp":"2026-05-26 14:37:28","url":"/api/devices?facilityId=153&page=1&limit=20"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:37:28"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:37:28"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:37:56"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:37:56"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:37:56"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:37:56"}
+{"level":"error","message":"Unhandled error Unknown column 'd.has_charger' in 'field list'","stack":"Error: Unknown column 'd.has_charger' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:124:27)\n    at listDevices (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:477:33)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:346:12)","timestamp":"2026-05-26 14:37:56","url":"/api/devices?facilityId=153&page=1&limit=20"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:37:56"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:38:05"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:38:05"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:38:05"}
+{"level":"error","message":"Unhandled error Unknown column 'd.has_charger' in 'field list'","stack":"Error: Unknown column 'd.has_charger' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:124:27)\n    at listDevices (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:477:33)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:346:12)","timestamp":"2026-05-26 14:38:05","url":"/api/devices?facilityId=153&page=1&limit=20"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:38:05"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:38:05"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 14:38:26"}
+{"level":"error","message":"Unhandled error Unknown column 'd.has_charger' in 'field list'","stack":"Error: Unknown column 'd.has_charger' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.getById (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:140:28)\n    at getDevice (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:503:33)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at validate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:78:3)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at middleware (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express-validator/lib/middlewares/check.js:16:13)","timestamp":"2026-05-26 14:38:26","url":"/api/devices/1"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-26 14:38:26"}
+{"level":"error","message":"Unhandled error Unknown column 'd.has_charger' in 'field list'","stack":"Error: Unknown column 'd.has_charger' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.getById (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:140:28)\n    at getDevice (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:503:33)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at validate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:78:3)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at middleware (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express-validator/lib/middlewares/check.js:16:13)","timestamp":"2026-05-26 14:38:26","url":"/api/devices/1"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:38:26"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:38:26"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:38:26"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:38:26"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 14:38:27"}
+{"level":"error","message":"Unhandled error Unknown column 'd.has_charger' in 'field list'","stack":"Error: Unknown column 'd.has_charger' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:124:27)\n    at listDevices (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:477:33)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:346:12)","timestamp":"2026-05-26 14:38:27","url":"/api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition="}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:38:41"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:38:41"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:38:41"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:38:42"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:38:42"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:38:42"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 14:38:43"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:38:53"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:38:53"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:38:53"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:38:53"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:38:53"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:38:53"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 14:38:54"}
+{"level":"error","message":"Unhandled error Unknown column 'd.hasCharger' in 'field list'","stack":"Error: Unknown column 'd.hasCharger' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:124:27)\n    at listDevices (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:477:33)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:346:12)","timestamp":"2026-05-26 14:38:54","url":"/api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition="}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:39:16"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:39:16"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:39:16"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:39:17"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:39:17"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:39:17"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 14:39:18"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:39:21"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:39:21"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:39:21"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:39:21"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:39:21"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:39:21"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 14:39:21"}
+{"level":"error","message":"Unhandled error Unknown column 'd.has_charger' in 'field list'","stack":"Error: Unknown column 'd.has_charger' in 'field list'\n    at PromisePool.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/pool.js:36:22)\n    at Object.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/config/db.js:23:42)\n    at Object.list (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:124:27)\n    at listDevices (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:477:33)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at Route.dispatch (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:119:3)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:284:15\n    at Function.process_params (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/index.js:346:12)","timestamp":"2026-05-26 14:39:21","url":"/api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition="}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:40:03"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:40:03"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:40:03"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 14:40:04"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:41:17"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:41:17"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:41:17"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 14:41:18"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:41:22"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:41:22"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:41:22"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 14:41:23"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 14:41:40"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 14:41:40"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 14:41:40"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 14:41:41"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:43:07"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 14:43:07"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:43:07"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:43:07"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:43:07"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:43:07"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 14:43:07"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:43:10"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:43:10"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 14:43:10"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 14:43:10"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:43:10"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:43:10"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-26 14:43:10"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-26 14:43:10"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:43:17"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:43:17"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 14:43:17"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sokl","timestamp":"2026-05-26 14:43:19"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:43:20"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:43:20"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:43:20"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:43:20"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:43:20"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:43:20"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:43:20"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:43:20"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:43:20"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:43:20"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:52:46"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:52:46"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:52:46"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:52:46"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:52:46"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:52:46"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:52:46"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:52:46"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:52:46"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:52:46"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&limit=1000&page=1","timestamp":"2026-05-26 14:53:00"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:53:00"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:53:00"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:53:00"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:53:00"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:53:00"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&limit=1000&page=1","timestamp":"2026-05-26 14:53:00"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:53:00"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:53:00"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:53:00"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:53:00"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:53:00"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&limit=1000&page=1","timestamp":"2026-05-26 14:54:00"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:54:00"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:54:00"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:54:00"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:54:00"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:54:00"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&limit=1000&page=1","timestamp":"2026-05-26 14:54:29"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:54:29"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:54:29"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:54:29"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:54:29"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:54:29"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&limit=1000&page=1","timestamp":"2026-05-26 14:55:49"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:55:49"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:55:49"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:55:49"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:55:49"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:55:49"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&limit=1000&page=1","timestamp":"2026-05-26 14:55:55"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:55:55"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:55:55"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:55:55"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:55:55"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:55:55"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&limit=1000&page=1","timestamp":"2026-05-26 14:56:26"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-26 14:56:26"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-26 14:56:26"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-26 14:56:26"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:56:26"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-26 14:56:26"}
+{"level":"debug","message":"PUT /api/facilities/153/chargers","timestamp":"2026-05-26 14:57:31"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-26 14:57:31"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:57:50"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:57:50"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:57:50"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:57:50"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 14:57:50"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 14:57:53"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 14:57:53"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:59:17"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:59:17"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:59:17"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-26 14:59:17"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-26 14:59:18"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-05-26 14:59:19"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-05-26 14:59:19"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:59:20"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-26 14:59:20"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-26 14:59:21"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-05-26 14:59:21"}
+{"level":"debug","message":"GET /api/returns?page=1&limit=20&status=pending","timestamp":"2026-05-26 14:59:21"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-05-26 14:59:22"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-05-26 14:59:23"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-05-26 14:59:24"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-05-26 14:59:24"}
+{"level":"debug","message":"GET /api/sims?page=1&limit=20&search=","timestamp":"2026-05-26 14:59:26"}
+{"level":"debug","message":"GET /api/admin-contacts/cadres","timestamp":"2026-05-26 14:59:28"}
+{"level":"debug","message":"GET /api/admin-contacts?search=&includeInactive=true","timestamp":"2026-05-26 14:59:28"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-05-26 14:59:29"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-26 14:59:30"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-26 14:59:32"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-26 14:59:32"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-26 14:59:34"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-26 14:59:34"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-26 14:59:35"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-26 14:59:35"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 15:03:08"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 15:03:08"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 15:03:08"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 15:03:09"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 15:03:17"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 15:03:17"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 15:03:17"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 15:03:18"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-26 15:03:30"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-26 15:03:30"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-26 15:03:30"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-26 15:03:31"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-26 15:08:36"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 15:08:36"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-26 15:08:36"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-26 15:08:36"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-26 15:08:42"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-26 15:08:42"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 15:09:24"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-26 15:09:24"}
