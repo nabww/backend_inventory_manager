@@ -49,7 +49,7 @@ const updateFacilityChargers = async (facilityId, counts, userId) => {
 const detectChargerType = (serialNumber) => {
   if (!serialNumber) return null;
   const prefix = serialNumber.substring(0, 4).toUpperCase();
-  const typeCPrefixes = ["R8Y", "R9PT", "BY9", "HA2"];
+  const typeCPrefixes = ["R8Y", "R9PT", "BY9", "HA2", "R8X"];
   return typeCPrefixes.some((p) => prefix.startsWith(p)) ? "Type C" : "Type A";
 };
 
