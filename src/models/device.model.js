@@ -21,7 +21,9 @@ const BASE = `
     lv_u.full_name AS last_verified_by,               -- ← comma added here
     -- service delivery point
     sdp.id AS sdp_id, sdp.name AS sdp_name,
-    d.has_charger as has_charger
+    d.has_charger as has_charger,
+    ct.name AS charger_type_name,
+    d.charger_type_id
   FROM devices d
   JOIN facilities f   ON f.id = d.facility_id
   JOIN counties c     ON c.id = f.county_id
@@ -36,6 +38,8 @@ const BASE = `
     FROM verifications
   ) lv ON lv.device_id = d.id AND lv.rn = 1
   LEFT JOIN users lv_u ON lv_u.id = lv.verified_by
+  LEFT JOIN charger_types ct ON ct.id = d.charger_type_id
+
 `;
 
 const decryptSim = (row) => {
@@ -190,7 +194,7 @@ const create = async (fields, createdBy) => {
         (facility_id, affiliation_id, sim_card_id, has_sim, serial_number, imei, model,
          asset_tag, ip_address, cover_condition, cover_notes, date_issued, assigned_to,
          status, notes, created_by)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)`,
       [
         parseInt(fields.facilityId),
         parseInt(fields.affiliationId),
@@ -208,6 +212,9 @@ const create = async (fields, createdBy) => {
         fields.status || "active",
         fields.notes || null,
         createdBy,
+        fields.sdpId ? parseInt(fields.sdpId) : null,
+        fields.hasCharger ? 1 : 0,
+        fields.chargerTypeId ? parseInt(fields.chargerTypeId) : null,
       ],
     );
 
@@ -318,6 +325,7 @@ const update = async (id, fields, updatedBy) => {
       locked: "locked",
       sdpId: "sdp_id",
       hasCharger: "has_charger",
+      chargerTypeId: "charger_type_id",
     };
     for (const [k, col] of Object.entries(devMap)) {
       if (fields[k] !== undefined) {

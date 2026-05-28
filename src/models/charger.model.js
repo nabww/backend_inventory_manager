@@ -45,17 +45,8 @@ const updateFacilityChargers = async (facilityId, counts, userId) => {
   }
 };
 
-// Auto-detect charger type from device serial number
-const detectChargerType = (serialNumber) => {
-  if (!serialNumber) return null;
-  const prefix = serialNumber.substring(0, 4).toUpperCase();
-  const typeCPrefixes = ["R8Y", "R9PT", "BY9", "HA2", "R8X"];
-  return typeCPrefixes.some((p) => prefix.startsWith(p)) ? "Type C" : "Type A";
-};
-
 module.exports = {
   getTypes,
   getFacilityChargers,
   updateFacilityChargers,
-  detectChargerType,
 };
