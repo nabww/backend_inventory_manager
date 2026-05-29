@@ -193,8 +193,8 @@ const create = async (fields, createdBy) => {
       `INSERT INTO devices
         (facility_id, affiliation_id, sim_card_id, has_sim, serial_number, imei, model,
          asset_tag, ip_address, cover_condition, cover_notes, date_issued, assigned_to,
-         status, notes, created_by)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)`,
+         status, notes, created_by, sdp_id, has_charger, charger_type_id)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         parseInt(fields.facilityId),
         parseInt(fields.affiliationId),
@@ -207,7 +207,7 @@ const create = async (fields, createdBy) => {
         fields.ipAddress || null,
         fields.coverCondition || "good",
         fields.coverNotes || null,
-        fields.dateIssued || null,
+        fields.dateIssued ? fields.dateIssued : null,
         fields.assignedTo || null,
         fields.status || "active",
         fields.notes || null,

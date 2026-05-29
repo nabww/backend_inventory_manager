@@ -6097,3 +6097,98 @@
 {"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-28 12:50:53"}
 {"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-28 12:50:53"}
 {"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-28 12:50:53"}
+{"level":"debug","message":"GET /api/devices/2","timestamp":"2026-05-28 13:13:16"}
+{"level":"debug","message":"GET /api/devices/2","timestamp":"2026-05-28 13:13:16"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-28 13:41:13"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-28 13:41:13"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-28 13:41:13"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-28 13:41:13"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-28 13:41:13"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-28 13:41:13"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-28 13:41:13"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-28 13:41:13"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-28 13:41:13"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-28 13:41:13"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 09:50:17"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 09:50:17"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 09:50:17"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 09:50:19"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 09:50:19"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 09:50:19"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 09:50:21"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 09:50:21"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 09:50:21"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 09:50:22"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-05-29 09:51:02"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 09:51:19"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-05-29 09:51:19"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 09:51:19"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-05-29 09:51:19"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-29 09:51:20"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 09:51:21"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 09:51:21"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-29 09:51:24"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-29 09:51:24"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-29 09:51:24"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-29 09:51:24"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-29 09:51:24"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-29 09:51:26"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-29 09:51:26"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-29 09:51:26"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-29 09:51:26"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-29 09:51:26"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-29 09:51:26"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-29 09:51:26"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-29 09:51:26"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-29 09:51:26"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-29 09:51:26"}
+{"level":"debug","message":"POST /api/devices","timestamp":"2026-05-29 09:51:54"}
+{"level":"error","message":"Unhandled error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 5","stack":"Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 5\n    at PromisePoolConnection.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/connection.js:29:22)\n    at Object.create (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:192:29)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async createDevice (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:523:16)","timestamp":"2026-05-29 09:51:54","url":"/api/devices"}
+{"level":"debug","message":"POST /api/devices","timestamp":"2026-05-29 09:51:56"}
+{"level":"error","message":"Unhandled error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 5","stack":"Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 5\n    at PromisePoolConnection.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/connection.js:29:22)\n    at Object.create (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:192:29)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async createDevice (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:523:16)","timestamp":"2026-05-29 09:51:56","url":"/api/devices"}
+{"level":"debug","message":"POST /api/devices","timestamp":"2026-05-29 09:51:57"}
+{"level":"error","message":"Unhandled error You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 5","stack":"Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?)' at line 5\n    at PromisePoolConnection.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/connection.js:29:22)\n    at Object.create (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:192:29)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async createDevice (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:523:16)","timestamp":"2026-05-29 09:51:57","url":"/api/devices"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 09:52:17"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 09:52:17"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 09:52:17"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 09:52:18"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 09:52:19"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 09:52:19"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 09:52:19"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 09:52:20"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 09:52:21"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 09:52:21"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 09:52:21"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 09:52:22"}
+{"level":"debug","message":"POST /api/devices","timestamp":"2026-05-29 09:52:24"}
+{"level":"error","message":"Unhandled error Column count doesn't match value count at row 1","stack":"Error: Column count doesn't match value count at row 1\n    at PromisePoolConnection.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/connection.js:29:22)\n    at Object.create (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:192:29)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async createDevice (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:523:16)","timestamp":"2026-05-29 09:52:24","url":"/api/devices"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 09:53:37"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 09:53:37"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 09:53:37"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 09:53:38"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 09:53:39"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 09:53:39"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 09:53:39"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 09:53:41"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 09:53:43"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 09:53:43"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 09:53:43"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 09:53:45"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 09:54:14"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 09:54:15"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 09:54:15"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 09:54:16"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 09:54:17"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 09:54:17"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 09:54:17"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 09:54:18"}
+{"level":"debug","message":"POST /api/devices","timestamp":"2026-05-29 09:54:22"}
+{"level":"error","message":"Unhandled error Column count doesn't match value count at row 1","stack":"Error: Column count doesn't match value count at row 1\n    at PromisePoolConnection.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/connection.js:29:22)\n    at Object.create (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:192:29)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async createDevice (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:523:16)","timestamp":"2026-05-29 09:54:22","url":"/api/devices"}
+{"level":"debug","message":"POST /api/devices","timestamp":"2026-05-29 09:54:23"}
+{"level":"error","message":"Unhandled error Column count doesn't match value count at row 1","stack":"Error: Column count doesn't match value count at row 1\n    at PromisePoolConnection.query (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/mysql2/lib/promise/connection.js:29:22)\n    at Object.create (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/models/device.model.js:192:29)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async createDevice (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:523:16)","timestamp":"2026-05-29 09:54:23","url":"/api/devices"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 09:56:34"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 09:56:35"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 09:56:35"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 09:56:36"}
+{"level":"debug","message":"POST /api/devices","timestamp":"2026-05-29 09:56:40"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-29 09:56:40"}
