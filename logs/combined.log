@@ -7255,3 +7255,179 @@
 {"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 16:18:36"}
 {"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 16:18:36"}
 {"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 16:18:37"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 16:24:07"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 16:24:07"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:24:18"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:24:18"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-30 16:24:18"}
+{"level":"debug","message":"GET /api/devices?facilityId=149&limit=1000&page=1","timestamp":"2026-05-30 16:24:19"}
+{"level":"debug","message":"GET /api/facilities/149","timestamp":"2026-05-30 16:24:19"}
+{"level":"debug","message":"GET /api/facilities/149/sdp-stats","timestamp":"2026-05-30 16:24:19"}
+{"level":"debug","message":"GET /api/facilities/149/chargers","timestamp":"2026-05-30 16:24:19"}
+{"level":"debug","message":"GET /api/devices?facilityId=149&page=1&limit=20","timestamp":"2026-05-30 16:24:19"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:24:19"}
+{"level":"debug","message":"GET /api/devices?facilityId=149&limit=1000&page=1","timestamp":"2026-05-30 16:24:19"}
+{"level":"debug","message":"GET /api/facilities/149","timestamp":"2026-05-30 16:24:19"}
+{"level":"debug","message":"GET /api/devices?facilityId=149&page=1&limit=20","timestamp":"2026-05-30 16:24:19"}
+{"level":"debug","message":"GET /api/facilities/149/chargers","timestamp":"2026-05-30 16:24:19"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:24:19"}
+{"level":"debug","message":"GET /api/facilities/149/sdp-stats","timestamp":"2026-05-30 16:24:19"}
+{"level":"debug","message":"GET /api/facilities/149/all-sdps","timestamp":"2026-05-30 16:24:22"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:24:22"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-30 16:24:22"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-30 16:24:22"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:24:22"}
+{"level":"debug","message":"GET /api/facilities/149/all-sdps","timestamp":"2026-05-30 16:24:22"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-30 16:24:22"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-30 16:24:22"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:24:58"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-30 16:24:58"}
+{"level":"debug","message":"GET /api/facilities/149/all-sdps","timestamp":"2026-05-30 16:24:58"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-30 16:24:58"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:24:58"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-30 16:24:58"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-30 16:24:58"}
+{"level":"debug","message":"GET /api/facilities/149/all-sdps","timestamp":"2026-05-30 16:24:58"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:25:09"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 16:25:09"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:25:09"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 16:25:09"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-30 16:25:09"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:25:13"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 16:25:13"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-30 16:25:13"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-30 16:25:13"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:25:13"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:25:13"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 16:25:13"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-30 16:25:13"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-30 16:25:13"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:25:13"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:25:19"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 16:25:19"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-30 16:25:19"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-30 16:25:19"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:25:19"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:25:19"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 16:25:19"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-30 16:25:19"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-30 16:25:19"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:25:19"}
+{"level":"debug","message":"PATCH /api/devices/3","timestamp":"2026-05-30 16:25:28"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-30 16:25:29"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-05-30 16:25:43"}
+{"level":"debug","message":"GET /api/verifications?page=1&limit=20&year=","timestamp":"2026-05-30 16:25:43"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:25:43"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:25:43"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-30 16:25:44"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&limit=1000&page=1","timestamp":"2026-05-30 16:25:45"}
+{"level":"debug","message":"GET /api/facilities/151","timestamp":"2026-05-30 16:25:45"}
+{"level":"debug","message":"GET /api/facilities/151/sdp-stats","timestamp":"2026-05-30 16:25:45"}
+{"level":"debug","message":"GET /api/facilities/151/chargers","timestamp":"2026-05-30 16:25:45"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&page=1&limit=20","timestamp":"2026-05-30 16:25:45"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:25:45"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&limit=1000&page=1","timestamp":"2026-05-30 16:25:45"}
+{"level":"debug","message":"GET /api/facilities/151","timestamp":"2026-05-30 16:25:45"}
+{"level":"debug","message":"GET /api/facilities/151/sdp-stats","timestamp":"2026-05-30 16:25:45"}
+{"level":"debug","message":"GET /api/facilities/151/chargers","timestamp":"2026-05-30 16:25:45"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:25:45"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&page=1&limit=20","timestamp":"2026-05-30 16:25:45"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 16:31:41"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 16:31:41"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 16:31:41"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 16:31:43"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 16:31:43"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 16:31:43"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 16:31:44"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 16:31:49"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 16:31:49"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 16:31:49"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 16:31:51"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 16:31:54"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 16:31:54"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 16:31:54"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 16:31:55"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&limit=1000&page=1","timestamp":"2026-05-30 16:32:29"}
+{"level":"debug","message":"GET /api/facilities/151","timestamp":"2026-05-30 16:32:29"}
+{"level":"debug","message":"GET /api/facilities/151/sdp-stats","timestamp":"2026-05-30 16:32:29"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:32:29"}
+{"level":"debug","message":"GET /api/facilities/151/chargers","timestamp":"2026-05-30 16:32:29"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&page=1&limit=20","timestamp":"2026-05-30 16:32:29"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&limit=1000&page=1","timestamp":"2026-05-30 16:32:30"}
+{"level":"debug","message":"GET /api/facilities/151","timestamp":"2026-05-30 16:32:30"}
+{"level":"debug","message":"GET /api/facilities/151/sdp-stats","timestamp":"2026-05-30 16:32:30"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:32:30"}
+{"level":"debug","message":"GET /api/facilities/151/chargers","timestamp":"2026-05-30 16:32:30"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&page=1&limit=20","timestamp":"2026-05-30 16:32:30"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&limit=1000&page=1","timestamp":"2026-05-30 16:32:50"}
+{"level":"debug","message":"GET /api/facilities/151","timestamp":"2026-05-30 16:32:50"}
+{"level":"debug","message":"GET /api/facilities/151/sdp-stats","timestamp":"2026-05-30 16:32:50"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:32:50"}
+{"level":"debug","message":"GET /api/facilities/151/chargers","timestamp":"2026-05-30 16:32:50"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&page=1&limit=20","timestamp":"2026-05-30 16:32:50"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&limit=1000&page=1","timestamp":"2026-05-30 16:33:22"}
+{"level":"debug","message":"GET /api/facilities/151","timestamp":"2026-05-30 16:33:22"}
+{"level":"debug","message":"GET /api/facilities/151/sdp-stats","timestamp":"2026-05-30 16:33:22"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:33:22"}
+{"level":"debug","message":"GET /api/facilities/151/chargers","timestamp":"2026-05-30 16:33:22"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&page=1&limit=20","timestamp":"2026-05-30 16:33:22"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&limit=1000&page=1","timestamp":"2026-05-30 16:33:24"}
+{"level":"debug","message":"GET /api/facilities/151/sdp-stats","timestamp":"2026-05-30 16:33:24"}
+{"level":"debug","message":"GET /api/facilities/151","timestamp":"2026-05-30 16:33:24"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:33:24"}
+{"level":"debug","message":"GET /api/facilities/151/chargers","timestamp":"2026-05-30 16:33:24"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&page=1&limit=20","timestamp":"2026-05-30 16:33:24"}
+{"level":"debug","message":"GET /api/devices/3","timestamp":"2026-05-30 16:33:41"}
+{"level":"debug","message":"GET /api/devices/3","timestamp":"2026-05-30 16:33:41"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:33:43"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 16:33:43"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-30 16:33:43"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-30 16:33:43"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:33:43"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:33:43"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 16:33:43"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-30 16:33:43"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-30 16:33:43"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:33:43"}
+{"level":"debug","message":"PATCH /api/devices/3","timestamp":"2026-05-30 16:33:47"}
+{"level":"debug","message":"GET /api/devices/3","timestamp":"2026-05-30 16:33:47"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&limit=1000&page=1","timestamp":"2026-05-30 16:33:50"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:33:50"}
+{"level":"debug","message":"GET /api/facilities/151","timestamp":"2026-05-30 16:33:50"}
+{"level":"debug","message":"GET /api/facilities/151/sdp-stats","timestamp":"2026-05-30 16:33:50"}
+{"level":"debug","message":"GET /api/facilities/151/chargers","timestamp":"2026-05-30 16:33:50"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&page=1&limit=20","timestamp":"2026-05-30 16:33:50"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&limit=1000&page=1","timestamp":"2026-05-30 16:33:50"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:33:50"}
+{"level":"debug","message":"GET /api/facilities/151","timestamp":"2026-05-30 16:33:50"}
+{"level":"debug","message":"GET /api/facilities/151/sdp-stats","timestamp":"2026-05-30 16:33:50"}
+{"level":"debug","message":"GET /api/facilities/151/chargers","timestamp":"2026-05-30 16:33:50"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&page=1&limit=20","timestamp":"2026-05-30 16:33:50"}
+{"level":"debug","message":"GET /api/devices/3","timestamp":"2026-05-30 16:33:54"}
+{"level":"debug","message":"GET /api/devices/3","timestamp":"2026-05-30 16:33:54"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:33:56"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 16:33:56"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-30 16:33:56"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-30 16:33:56"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:33:56"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:33:56"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 16:33:56"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-30 16:33:56"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-30 16:33:56"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:33:56"}
+{"level":"debug","message":"PATCH /api/devices/3","timestamp":"2026-05-30 16:34:01"}
+{"level":"debug","message":"GET /api/devices/3","timestamp":"2026-05-30 16:34:01"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&limit=1000&page=1","timestamp":"2026-05-30 16:34:05"}
+{"level":"debug","message":"GET /api/facilities/151","timestamp":"2026-05-30 16:34:05"}
+{"level":"debug","message":"GET /api/facilities/151/sdp-stats","timestamp":"2026-05-30 16:34:05"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:34:05"}
+{"level":"debug","message":"GET /api/facilities/151/chargers","timestamp":"2026-05-30 16:34:05"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&page=1&limit=20","timestamp":"2026-05-30 16:34:05"}
+{"level":"debug","message":"GET /api/facilities/151","timestamp":"2026-05-30 16:34:05"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&limit=1000&page=1","timestamp":"2026-05-30 16:34:05"}
+{"level":"debug","message":"GET /api/facilities/151/sdp-stats","timestamp":"2026-05-30 16:34:05"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:34:05"}
+{"level":"debug","message":"GET /api/facilities/151/chargers","timestamp":"2026-05-30 16:34:05"}
+{"level":"debug","message":"GET /api/devices?facilityId=151&page=1&limit=20","timestamp":"2026-05-30 16:34:05"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 16:34:09"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 16:34:09"}

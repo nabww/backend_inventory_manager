@@ -767,14 +767,18 @@ const getFacilitySDPStats = async (facilityId) => {
   const [rows] = await db.query(
     `SELECT 
         sdp.id, sdp.name,
-        COALESCE(fs.provider_count, 0) AS provider_count,
+        COALESCE(fs.provider_count, 0) AS provider_count,           -- manual
+        COUNT(DISTINCT d.assigned_to) AS assigned_providers,        -- auto (distinct people)
         COUNT(d.id) AS device_count
-     FROM service_delivery_points sdp
-     LEFT JOIN facility_sdps fs ON fs.sdp_id = sdp.id AND fs.facility_id = ?
-     LEFT JOIN devices d ON d.sdp_id = sdp.id AND d.facility_id = ? AND d.status != 'decommissioned'
-     WHERE fs.is_active = 1 OR d.id IS NOT NULL
-     GROUP BY sdp.id, sdp.name, fs.provider_count
-     ORDER BY sdp.display_order, sdp.name`,
+      FROM service_delivery_points sdp
+      LEFT JOIN facility_sdps fs ON fs.sdp_id = sdp.id AND fs.facility_id = ?
+      LEFT JOIN devices d ON d.sdp_id = sdp.id 
+        AND d.facility_id = ?
+        AND d.status NOT IN ('decommissioned', 'lost')
+        AND d.assigned_to IS NOT NULL   -- only count devices with an assigned person
+      WHERE fs.is_active = 1 OR d.id IS NOT NULL
+      GROUP BY sdp.id, sdp.name, fs.provider_count
+      ORDER BY sdp.display_order, sdp.name`,
     [parseInt(facilityId), parseInt(facilityId)],
   );
   return rows;
