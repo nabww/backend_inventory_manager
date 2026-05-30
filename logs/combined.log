@@ -6192,3 +6192,1066 @@
 {"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 09:56:36"}
 {"level":"debug","message":"POST /api/devices","timestamp":"2026-05-29 09:56:40"}
 {"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-29 09:56:40"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:00:12"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:00:12"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:00:24"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:00:24"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-29 10:01:26"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-29 10:01:26"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-29 10:01:27"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=soklo","timestamp":"2026-05-29 10:01:29"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&limit=1000&page=1","timestamp":"2026-05-29 10:01:30"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-29 10:01:30"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-29 10:01:30"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-29 10:01:30"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-29 10:01:30"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-29 10:01:30"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&limit=1000&page=1","timestamp":"2026-05-29 10:01:30"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-29 10:01:30"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-29 10:01:30"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-29 10:01:30"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-29 10:01:30"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-29 10:01:30"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:01:52"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:01:52"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:02:24"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:02:24"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:06:58"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:07:19"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:08:03"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:08:05"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:09:16"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:09:16"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:09:21"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:09:21"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:12:50"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:12:50"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:12:50"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:12:52"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:13:07"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:13:07"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:13:07"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:13:08"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:13:08"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:13:08"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:13:09"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:13:58"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:13:58"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:13:58"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:13:59"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:13:59"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:13:59"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:14:00"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:14:01"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:14:01"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:14:07"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:14:07"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:14:07"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:14:15"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:14:17"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:14:17"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:14:17"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:14:18"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:14:26"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:14:26"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:14:26"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:14:27"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:14:27"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:14:27"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:14:27"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:14:29"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:16:26"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:16:26"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:16:31"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:16:31"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:16:38"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:16:38"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-29 10:16:45"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-29 10:16:45"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-29 10:16:45"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-29 10:16:45"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-29 10:16:45"}
+{"level":"debug","message":"GET /api/devices/3","timestamp":"2026-05-29 10:16:47"}
+{"level":"debug","message":"GET /api/devices/3","timestamp":"2026-05-29 10:16:47"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-29 10:16:50"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-29 10:16:50"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-29 10:16:50"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-29 10:16:50"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-29 10:16:51"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-05-29 10:17:45"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-29 10:17:52"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-29 10:17:52"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-29 10:17:52"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-29 10:17:52"}
+{"level":"debug","message":"PATCH /api/users/2","timestamp":"2026-05-29 10:17:58"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-05-29 10:17:58"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-29 10:18:05"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 10:18:05"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 10:18:05"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-29 10:18:13"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 10:18:14"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 10:18:14"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-05-29 10:18:16"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-29 10:18:18"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-29 10:18:18"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-29 10:18:18"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-29 10:18:18"}
+{"level":"debug","message":"PATCH /api/users/2","timestamp":"2026-05-29 10:18:22"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-05-29 10:18:23"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-29 10:18:28"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 10:18:28"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 10:18:28"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:18:31"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:18:31"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:18:32"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:18:32"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:18:37"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:18:37"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:18:37"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:18:37"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:18:38"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:18:38"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-29 10:18:40"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:18:41"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:18:41"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:20:07"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:20:07"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:20:07"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:20:08"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:20:08"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:20:08"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:20:10"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:20:36"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:20:36"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:20:36"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:20:37"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:20:37"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:20:37"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:20:38"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:20:38"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:20:38"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:20:40"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:20:58"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:20:58"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:20:58"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:20:59"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:20:59"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:20:59"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:20:59"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:20:59"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:20:59"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:21:01"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:21:20"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:21:20"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:21:20"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:21:21"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:21:21"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:21:21"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:21:22"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:21:27"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:21:27"}
+{"level":"error","message":"getFacilitySDPGaps error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:21:27"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:21:27"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:21:27"}
+{"level":"error","message":"getFacilitySDPGaps error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:21:27"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:21:34"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:21:34"}
+{"level":"error","message":"getFacilitySDPGaps error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:21:34"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:21:34"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:21:34"}
+{"level":"error","message":"getFacilitySDPGaps error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:21:34"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-29 10:21:37"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 10:21:38"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 10:21:38"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:21:40"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1985:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:21:40"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:21:40"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1985:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:21:40"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 10:21:44"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 10:21:44"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:21:46"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1985:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:21:46"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:21:46"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1985:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:21:46"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 10:21:48"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 10:21:48"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:21:50"}
+{"level":"error","message":"getFacilitySDPGaps error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:21:50"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:21:50"}
+{"level":"error","message":"getFacilitySDPGaps error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:21:50"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 10:21:52"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 10:21:52"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:22:04"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2171:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:22:04"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:22:04"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2171:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:22:04"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:22:17"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1985:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:22:17"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:22:17"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1985:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:22:17"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:22:43"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2171:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:22:43"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:22:43"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2171:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:22:43"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:22:46"}
+{"level":"error","message":"getFacilitySDPGaps error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:22:46"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:22:46"}
+{"level":"error","message":"getFacilitySDPGaps error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:22:46"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:22:49"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1985:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:22:49"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:22:49"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1985:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:22:49"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:23:07"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:23:08"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:23:08"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:23:09"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:23:11"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:23:11"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:23:11"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:23:11"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:24:23"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2171:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:24:23"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:24:23"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2171:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:24:23"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:25:59"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:25:59"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:25:59"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:26:01"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:26:05"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:26:05"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:26:05"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:26:05"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:26:37"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:26:37"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:26:37"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:26:38"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:26:40"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:26:40"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:26:40"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:26:41"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:26:43"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:26:43"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:26:43"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:26:43"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:26:51"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:26:51"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:26:51"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:26:52"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:26:55"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:26:55"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:26:55"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:26:56"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:27:00"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:27:00"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2171:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:27:00"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:27:00"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:27:00"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2171:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:27:00"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:27:27"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:27:27"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:27:27"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:27:30"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:27:30"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:27:30"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:27:30"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:27:32"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:27:34"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:27:34"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2171:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:27:34"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-29 10:27:34"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:27:34"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2171:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:27:34"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:27:38"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:27:38"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:27:40"}
+{"level":"error","message":"getFacilitySDPGaps error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:27:40"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:27:40"}
+{"level":"error","message":"getFacilitySDPGaps error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:27:40"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:27:59"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:27:59"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:27:59"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:28:01"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:28:02"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:28:02"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:28:02"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:28:02"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:28:02"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:28:02"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:28:04"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:28:06"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:28:06"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:28:06"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:28:06"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:28:06"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:28:06"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-29 10:28:23"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:28:28"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:28:28"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:28:30"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:28:30"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:28:30"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:28:30"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-29 10:28:33"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:28:47"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:28:47"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:29:31"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:29:31"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:29:31"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:29:31"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:29:32"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:29:36"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:29:36"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:29:36"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:29:36"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:30:49"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:30:49"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:30:49"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:30:50"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:30:50"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:30:51"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:30:51"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:30:52"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:30:52"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:30:53"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:30:53"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:30:54"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:31:05"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:31:06"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:31:06"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:31:07"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:31:30"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:31:30"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:31:30"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:31:31"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:31:31"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:31:31"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:31:33"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:31:37"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:31:37"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:31:37"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:31:37"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:31:52"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:31:52"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:31:52"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:31:53"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:31:53"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:31:53"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:31:59"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:32:03"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:32:03"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:32:03"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:32:03"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:32:07"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:32:07"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:32:07"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:32:07"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:32:08"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:32:08"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:32:08"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:32:08"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:32:09"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:32:09"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:32:09"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:32:09"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:32:10"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:32:10"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-05-29 10:32:14"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:32:19"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:32:19"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:32:19"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:32:19"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:32:21"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:32:21"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:34:35"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:34:35"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:34:35"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:34:37"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:34:40"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:34:41"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:34:41"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:34:42"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:34:42"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:34:42"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:34:43"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:34:44"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:34:44"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-29 10:34:48"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 10:34:48"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-29 10:34:48"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:34:50"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:34:50"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:34:57"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:34:57"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:34:57"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:34:57"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:36:15"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:36:15"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:36:15"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:36:16"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:36:22"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:36:22"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:36:22"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:36:22"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:36:38"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:36:38"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:36:38"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:36:40"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:36:44"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:36:44"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:36:44"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:36:45"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:36:46"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:36:46"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:36:46"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:36:46"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:36:46"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:36:47"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:36:51"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:36:51"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:36:51"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:36:51"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:36:54"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:36:54"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-29 10:36:54"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1925:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:36:54"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:36:55"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:36:55"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:38:00"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:38:01"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:38:01"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:38:01"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:38:02"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:38:06"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:38:06"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:38:06"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:38:06"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:39:23"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:39:23"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:39:23"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:39:25"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:39:40"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:39:40"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:39:40"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:39:42"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:40:03"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:40:04"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:40:04"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:40:04"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:40:05"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:40:29"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:40:29"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:40:29"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:40:31"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:40:41"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:40:41"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:40:41"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:40:42"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:40:51"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:40:51"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:40:51"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:40:52"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:41:00"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:41:00"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:41:00"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:41:01"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:41:05"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:41:05"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:41:05"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:41:06"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:41:09"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:41:09"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:41:09"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:41:10"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-29 10:41:14"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-29 10:41:14"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-29 10:41:14"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-29 10:41:15"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:41:25"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:41:25"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:41:25"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 10:41:25"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 10:41:25"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 10:41:25"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 14:35:44"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 14:35:44"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 14:35:44"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-29 14:35:44"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-29 14:35:44"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-29 14:35:44"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 11:51:07"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 11:51:08"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 11:51:08"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 11:51:09"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 11:51:21"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-05-30 11:51:21"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-05-30 11:51:21"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 11:51:21"}
+{"err":"jwt expired","ip":"127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-05-30 11:51:21"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-05-30 11:51:21"}
+{"level":"debug","message":"GET /favicon.ico","timestamp":"2026-05-30 11:51:21"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-30 11:51:30"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 11:51:30"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 11:51:30"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 11:51:37"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:51:37"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 11:51:37"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:51:37"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 11:51:54"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 11:51:54"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:51:54"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 11:51:54"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 11:51:54"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:51:54"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 11:53:43"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 11:53:43"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 11:53:43"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 11:53:44"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 11:53:44"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 11:53:44"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 11:53:45"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 11:53:46"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 11:53:47"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 11:53:47"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 11:53:48"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 11:53:48"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 11:53:48"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 11:53:49"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 11:53:52"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 11:53:52"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:53:52"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 11:53:52"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 11:53:52"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:53:52"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 11:53:56"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1924:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:53:56"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 11:53:56"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1924:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:53:56"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-30 11:53:58"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2208:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:53:58"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-30 11:53:58"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2208:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:53:58"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 11:53:59"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1924:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:53:59"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 11:53:59"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1924:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:53:59"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 11:54:00"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:54:00"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 11:54:00"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:54:00"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-05-30 11:54:01"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-30 11:54:05"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 11:54:05"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 11:54:05"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-30 11:54:05"}
+{"level":"debug","message":"PATCH /api/users/2","timestamp":"2026-05-30 11:54:16"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-30 11:54:22"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 11:54:23"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 11:54:23"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 11:54:28"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1924:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:54:28"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 11:54:28"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1924:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:54:28"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 11:54:31"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:54:31"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 11:54:31"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:54:31"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-30 11:54:34"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2208:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:54:34"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-30 11:54:34"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2208:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:54:34"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-05-30 11:54:38"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 11:54:42"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1924:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:54:42"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 11:54:42"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1924:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:54:42"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 11:54:45"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 11:54:45"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-30 11:54:45"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=sokl","timestamp":"2026-05-30 11:54:47"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&limit=1000&page=1","timestamp":"2026-05-30 11:54:48"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-30 11:54:48"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 11:54:48"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-30 11:54:48"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-30 11:54:48"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-30 11:54:48"}
+{"level":"error","message":"getFacilityChargers error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilityChargers (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2115:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:62:34\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:54:48"}
+{"level":"debug","message":"GET /api/facilities/153","timestamp":"2026-05-30 11:54:48"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&limit=1000&page=1","timestamp":"2026-05-30 11:54:48"}
+{"level":"debug","message":"GET /api/facilities/153/sdp-stats","timestamp":"2026-05-30 11:54:48"}
+{"level":"debug","message":"GET /api/facilities/153/chargers","timestamp":"2026-05-30 11:54:48"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 11:54:48"}
+{"level":"debug","message":"GET /api/devices?facilityId=153&page=1&limit=20","timestamp":"2026-05-30 11:54:48"}
+{"level":"error","message":"getFacilityChargers error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilityChargers (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2115:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at /home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:62:34\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 11:54:48"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:03:02"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:03:02"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:03:02"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 12:03:03"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:03:07"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:03:07"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:03:07"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 12:03:09"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:03:09"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:03:09"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:03:09"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:03:10"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:03:10"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:03:10"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 12:03:12"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:03:12"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:03:12"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:03:12"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 12:03:14"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:03:14"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:03:14"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:03:14"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 12:03:16"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:03:17"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:03:17"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:03:17"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 12:03:18"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:03:24"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:03:24"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:03:24"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 12:03:26"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:03:31"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:03:31"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:03:31"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:03:31"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:03:34"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:03:34"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:03:34"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:03:34"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:03:34"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:03:34"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:03:36"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1924:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:03:36"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:03:36"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1924:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:03:36"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:03:38"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:03:38"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1924:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:03:38"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:03:38"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:03:38"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1924:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:03:38"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-30 12:03:39"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2207:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:03:39"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-30 12:03:39"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2207:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:03:39"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-30 12:03:43"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:03:43"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2207:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:03:43"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-30 12:03:43"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2207:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:03:43"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:03:43"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:04:08"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:04:08"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:04:08"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:04:08"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:04:11"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:04:11"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:04:11"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:04:11"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:04:11"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:04:11"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:04:39"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:04:39"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 12:04:39"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 12:04:39"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:04:49"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:04:49"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:04:49"}
+{"level":"error","message":"getFacilitySDPMatrix error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPMatrix (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1995:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:04:49"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:04:52"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1924:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:04:52"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:04:52"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1924:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:04:52"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:06:14"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:06:14"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:06:14"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:06:14"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 12:06:16"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:06:19"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:06:19"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:06:20"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:06:20"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:06:41"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1924:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:06:41"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:06:41"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getFacilitySDPGaps (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:1924:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:06:41"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-30 12:06:43"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2215:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:06:43"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-30 12:06:43"}
+{"level":"error","message":"getChargerGapsReport error user is not defined","stack":"ReferenceError: user is not defined\n    at getChargerGapsReport (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/controllers/index.js:2215:5)\n    at Layer.handle [as handle_request] (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/layer.js:95:5)\n    at next (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/node_modules/express/lib/router/route.js:149:13)\n    at authenticate (/home/nab/Documents/nab's/Inventory/backend_inventory_manager/src/middleware/index.js:45:5)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2026-05-30 12:06:43"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:08:11"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:08:11"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:08:11"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:08:12"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:08:12"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:08:12"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 12:08:13"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:08:40"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:08:40"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:08:40"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 12:08:42"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:08:47"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:08:47"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-30 12:08:48"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-30 12:08:48"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-30 12:09:00"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 12:09:00"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 12:09:00"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:09:02"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:09:02"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:09:07"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:09:07"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-30 12:09:10"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-30 12:09:10"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-30 12:09:21"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 12:09:22"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 12:09:22"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-05-30 12:09:24"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 12:09:26"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-30 12:09:26"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 12:09:26"}
+{"level":"debug","message":"GET /api/counties/43/sub-counties","timestamp":"2026-05-30 12:09:26"}
+{"level":"debug","message":"PATCH /api/users/2","timestamp":"2026-05-30 12:09:31"}
+{"level":"debug","message":"GET /api/users?page=1&limit=20&search=","timestamp":"2026-05-30 12:09:31"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-30 12:09:37"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 12:09:37"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 12:09:37"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:09:41"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:09:41"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:09:59"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:09:59"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:10:22"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:10:22"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:12:01"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 12:12:01"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:12:04"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:12:04"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:13:15"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:13:16"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:13:16"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:13:17"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:13:17"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:13:17"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 12:13:18"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:13:23"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:13:23"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:13:23"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 12:13:24"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:13:29"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:13:29"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:13:29"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:13:30"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:13:31"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:13:31"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 12:13:32"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:13:40"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:13:40"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:13:40"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:13:40"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:14:20"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:14:20"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:14:21"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:14:21"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 12:14:22"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:14:36"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:14:36"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:14:36"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:14:36"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:17:44"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:17:44"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:17:44"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 12:17:46"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:17:55"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:17:55"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 12:17:55"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:17:55"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-30 12:18:19"}
+{"level":"debug","message":"GET /api/reports/charger-gaps","timestamp":"2026-05-30 12:18:19"}
+{"level":"debug","message":"GET /api/sims?page=1&limit=20&search=","timestamp":"2026-05-30 12:18:46"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-05-30 12:18:49"}
+{"level":"debug","message":"GET /api/repairs?page=1&limit=20&status=pending","timestamp":"2026-05-30 12:18:49"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:18:53"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 12:18:53"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 12:30:51"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 12:30:51"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 12:30:51"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 12:30:52"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-30 12:57:28"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 12:57:28"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 12:57:28"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 15:22:42"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 15:22:42"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 15:22:42"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 15:22:44"}
+{"level":"debug","message":"POST /api/auth/login","timestamp":"2026-05-30 15:22:48"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:22:49"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:22:49"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-30 15:22:51"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:22:59"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:22:59"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-30 15:23:03"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:23:07"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:23:07"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-30 15:23:07"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:23:10"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:23:10"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 15:24:34"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 15:24:34"}
+{"level":"debug","message":"GET /api/facilities?page=1&limit=20&search=","timestamp":"2026-05-30 15:24:34"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 15:24:45"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 15:24:45"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 15:24:45"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 15:24:45"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-30 15:24:45"}
+{"level":"debug","message":"GET /api/devices/export?search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-30 15:24:46"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-30 15:24:52"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 15:33:46"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 15:33:46"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 15:33:46"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 15:33:47"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 15:34:32"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 15:34:32"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 15:34:32"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 15:34:33"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 15:35:27"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 15:35:27"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 15:35:27"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 15:35:28"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 15:35:28"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 15:35:28"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 15:35:29"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:38:09"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:38:09"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:38:12"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:38:12"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:38:12"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:38:13"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:38:16"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:38:16"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:38:19"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:38:19"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:38:19"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:38:19"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:38:33"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:38:33"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:38:34"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:38:34"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:38:34"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:38:34"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 15:40:54"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 15:40:54"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 15:40:54"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 15:40:55"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:40:58"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:40:58"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:40:58"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:40:58"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:41:21"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:42:39"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:42:50"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:42:56"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:42:56"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:42:56"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:42:56"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:43:42"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:43:42"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:43:42"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:43:42"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:43:47"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:43:47"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:43:49"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:43:49"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:43:49"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:43:49"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:43:53"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:43:53"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:43:55"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:43:55"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:43:55"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:43:55"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:44:19"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:44:20"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:44:25"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:44:25"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:44:25"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:44:25"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:44:41"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:44:41"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:44:41"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:44:41"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:44:45"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:44:45"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:44:45"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:44:45"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:44:49"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:44:49"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:44:52"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:44:52"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:44:52"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:44:52"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 15:46:11"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 15:46:11"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 15:46:11"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 15:46:12"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:46:16"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:46:16"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:46:16"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:46:16"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:46:37"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:46:37"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:46:37"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:46:37"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:47:05"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:47:05"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:47:05"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 15:47:05"}
+{"level":"debug","message":"GET /api/reports/sdp-matrix/export","timestamp":"2026-05-30 15:47:27"}
+{"err":"jwt malformed","ip":"::ffff:127.0.0.1","level":"warn","message":"JWT failed","timestamp":"2026-05-30 15:47:27"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:48:10"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:48:10"}
+{"level":"debug","message":"GET /api/reports/sdp-matrix/export","timestamp":"2026-05-30 15:48:12"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:54:00"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:54:07"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:54:32"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:54:32"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:54:50"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:54:59"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 15:54:59"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:55:01"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:55:01"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-30 15:56:44"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:56:52"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 15:56:52"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-30 15:56:57"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:57:01"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 15:57:01"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-30 15:57:02"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 15:59:25"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 15:59:25"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 15:59:25"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 15:59:26"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 15:59:43"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 15:59:43"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 15:59:43"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 15:59:44"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 15:59:50"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 15:59:50"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 15:59:50"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 15:59:51"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 15:59:54"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 15:59:54"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 15:59:54"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 15:59:56"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 16:00:02"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 16:00:02"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 16:00:02"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 16:00:04"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 16:01:18"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 16:01:18"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-30 16:01:18"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 16:07:56"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 16:07:56"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-30 16:07:57"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 16:08:03"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 16:08:03"}
+{"level":"debug","message":"POST /api/audit/report-export","timestamp":"2026-05-30 16:08:05"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-30 16:08:08"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 16:08:13"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-gaps","timestamp":"2026-05-30 16:08:13"}
+{"level":"debug","message":"POST /api/audit/report-export","timestamp":"2026-05-30 16:08:15"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-30 16:08:18"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 16:08:42"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 16:08:42"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-30 16:08:43"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 16:08:46"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 16:08:46"}
+{"level":"debug","message":"POST /api/audit/report-export","timestamp":"2026-05-30 16:08:49"}
+{"level":"debug","message":"POST /api/audit/report-export","timestamp":"2026-05-30 16:08:51"}
+{"level":"debug","message":"POST /api/audit/report-export","timestamp":"2026-05-30 16:08:53"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 16:10:10"}
+{"level":"debug","message":"GET /api/auth/me","timestamp":"2026-05-30 16:10:10"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 16:10:11"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 16:10:11"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 16:10:12"}
+{"level":"debug","message":"GET /api/reports/facility-sdp-matrix","timestamp":"2026-05-30 16:10:12"}
+{"level":"debug","message":"POST /api/audit/report-export","timestamp":"2026-05-30 16:10:14"}
+{"level":"debug","message":"GET /api/audit-logs?page=1&limit=20&search=&action=","timestamp":"2026-05-30 16:10:19"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-05-30 16:10:28"}
+{"level":"debug","message":"GET /api/transfer-requests?page=1&limit=20&status=pending","timestamp":"2026-05-30 16:10:28"}
+{"level":"debug","message":"GET /api/sims?page=1&limit=20&search=","timestamp":"2026-05-30 16:10:29"}
+{"level":"debug","message":"GET /api/admin-contacts?search=&includeInactive=true","timestamp":"2026-05-30 16:10:32"}
+{"level":"debug","message":"GET /api/admin-contacts/cadres","timestamp":"2026-05-30 16:10:32"}
+{"level":"debug","message":"GET /api/sims?page=1&limit=20&search=","timestamp":"2026-05-30 16:10:33"}
+{"level":"debug","message":"GET /api/devices?search=r&limit=10","timestamp":"2026-05-30 16:10:41"}
+{"level":"debug","message":"POST /api/sims/1/link","timestamp":"2026-05-30 16:10:43"}
+{"level":"debug","message":"GET /api/sims?page=1&limit=20&search=","timestamp":"2026-05-30 16:10:43"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:10:48"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 16:10:48"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 16:10:48"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:10:48"}
+{"level":"debug","message":"GET /api/devices?page=1&limit=20&search=&status=&countyId=&affiliationId=&hasSim=&coverCondition=","timestamp":"2026-05-30 16:10:48"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-30 16:10:51"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-30 16:10:51"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:10:59"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 16:10:59"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-30 16:10:59"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-30 16:10:59"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:10:59"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:10:59"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 16:10:59"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-30 16:10:59"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:10:59"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-30 16:10:59"}
+{"level":"debug","message":"PATCH /api/devices/1","timestamp":"2026-05-30 16:11:04"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-30 16:11:04"}
+{"level":"debug","message":"POST /api/devices/1/verify","timestamp":"2026-05-30 16:11:28"}
+{"level":"debug","message":"GET /api/devices/1","timestamp":"2026-05-30 16:11:28"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:11:30"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 16:11:30"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-30 16:11:30"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-30 16:11:30"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:11:30"}
+{"level":"debug","message":"GET /api/counties","timestamp":"2026-05-30 16:11:30"}
+{"level":"debug","message":"GET /api/affiliations","timestamp":"2026-05-30 16:11:30"}
+{"level":"debug","message":"GET /api/facilities?limit=500","timestamp":"2026-05-30 16:11:30"}
+{"level":"debug","message":"GET /api/charger-types","timestamp":"2026-05-30 16:11:30"}
+{"level":"debug","message":"GET /api/sdp","timestamp":"2026-05-30 16:11:30"}
+{"level":"debug","message":"GET /api/devices/1/loss-documents/police","timestamp":"2026-05-30 16:11:39"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 16:11:49"}
+{"level":"debug","message":"GET /api/dashboard","timestamp":"2026-05-30 16:11:49"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 16:13:15"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 16:13:15"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 16:13:15"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 16:13:17"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 16:13:21"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 16:13:21"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 16:13:21"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 16:13:22"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 16:13:25"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 16:13:25"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 16:13:25"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 16:13:26"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 16:13:27"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 16:13:27"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 16:13:27"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 16:13:28"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 16:18:10"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 16:18:10"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 16:18:11"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 16:18:11"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 16:18:12"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 16:18:27"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 16:18:27"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 16:18:27"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 16:18:29"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 16:18:33"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 16:18:34"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 16:18:34"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 16:18:35"}
+{"level":"info","message":"Database \"inventory\" ready","timestamp":"2026-05-30 16:18:36"}
+{"level":"info","message":"Schema bootstrap complete","timestamp":"2026-05-30 16:18:36"}
+{"level":"info","message":"🚀 Server on port 5000 [development]","timestamp":"2026-05-30 16:18:36"}
+{"level":"info","message":"SMTP ready — nabel.wambulwa@vukisha95.org","timestamp":"2026-05-30 16:18:37"}

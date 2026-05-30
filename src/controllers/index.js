@@ -1,3 +1,5 @@
+// controllers/index.js (full file with audit added)
+
 const bcrypt = require("bcryptjs");
 const xlsx = require("xlsx");
 const User = require("../models/user.model");
@@ -390,12 +392,14 @@ const createFacility = async (req, res, next) => {
 const updateFacility = async (req, res, next) => {
   try {
     const id = parseInt(req.params.id);
+    const old = await Ref.getFacilityById(id);
     await Ref.updateFacility(id, req.body);
     await Audit.write({
       userId: req.user.id,
       action: "UPDATE",
       entityType: "facility",
       entityId: id,
+      oldValues: old,
       newValues: req.body,
       req,
     });
@@ -559,14 +563,30 @@ const updateDevice = async (req, res, next) => {
         res,
         "Device is locked pending loss review. Contact an administrator.",
       );
+    // Capture relevant fields for audit
+    const oldSnapshot = {
+      sdp_id: existing.sdp_id,
+      has_charger: existing.has_charger,
+      charger_type_id: existing.charger_type_id,
+      status: existing.status,
+      facility_id: existing.facility_id,
+      assigned_to: existing.assigned_to,
+    };
+    const newSnapshot = {
+      sdp_id: req.body.sdpId,
+      has_charger: req.body.hasCharger,
+      charger_type_id: req.body.chargerTypeId,
+      status: req.body.status,
+      facility_id: req.body.facilityId,
+      assigned_to: req.body.assignedTo,
+    };
     await Audit.write({
       userId: req.user.id,
       action: "UPDATE",
       entityType: "device",
-      sdpId: req.body.sdpId,
       entityId: id,
-      oldValues: existing,
-      newValues: req.body,
+      oldValues: oldSnapshot,
+      newValues: newSnapshot,
       req,
     });
     await Device.update(id, req.body, req.user.id);
@@ -1060,6 +1080,16 @@ const reviewLossReport = async (req, res, next) => {
     if (!validActions.includes(action))
       return R.badRequest(res, "Invalid action");
 
+    // Capture audit before changes
+    await Audit.write({
+      userId: req.user.id,
+      action: "LOSS_REVIEW",
+      entityType: "device_loss_reports",
+      entityId: report.id,
+      newValues: { action, adminNotes, escalateToUserIds },
+      req,
+    });
+
     if (action === "escalate") {
       if (!escalateToUserIds || !escalateToUserIds.length)
         return R.badRequest(res, "Select at least one user to escalate to");
@@ -1087,14 +1117,6 @@ const reviewLossReport = async (req, res, next) => {
         adminNotes,
         reviewedBy: req.user.id,
       });
-      await Audit.write({
-        userId: req.user.id,
-        action: "UPDATE",
-        entityType: "device",
-        entityId: deviceId,
-        newValues: { lossAction: "escalated", escalateToUserIds },
-        req,
-      });
       return R.ok(res, null, "Report escalated");
     }
 
@@ -1115,14 +1137,6 @@ const reviewLossReport = async (req, res, next) => {
         adminNotes,
         reviewedBy: req.user.id,
       });
-      await Audit.write({
-        userId: req.user.id,
-        action: "UPDATE",
-        entityType: "device",
-        entityId: deviceId,
-        newValues: { lossAction: "rejected", adminNotes },
-        req,
-      });
       return R.ok(res, null, "Device restored to active");
     }
 
@@ -1132,14 +1146,6 @@ const reviewLossReport = async (req, res, next) => {
       status,
       adminNotes,
       reviewedBy: req.user.id,
-    });
-    await Audit.write({
-      userId: req.user.id,
-      action: "UPDATE",
-      entityType: "device",
-      entityId: deviceId,
-      newValues: { lossAction: action, adminNotes },
-      req,
     });
     return R.ok(res, null, "Loss report updated");
   } catch (e) {
@@ -1853,6 +1859,10 @@ const reviewTransferRequest = async (req, res, next) => {
   }
 };
 
+// ================================================================
+// SDP & CHARGER ADDITIONS (with audit)
+// ================================================================
+
 // GET /sdp
 const getSDPs = async (req, res) => {
   try {
@@ -1888,15 +1898,26 @@ const getAllFacilitySDPs = async (req, res) => {
   }
 };
 
-// PUT /facilities/:id/sdps – batch update SDPs for a facility
+// PUT /facilities/:id/sdps – batch update SDPs for a facility (with audit)
 const updateFacilitySDPs = async (req, res) => {
   try {
-    const facilityId = req.params.id;
+    const facilityId = parseInt(req.params.id);
     const { sdps } = req.body;
     if (!Array.isArray(sdps)) {
       return R.err(res, "sdps must be an array", 400);
     }
+    const oldSdps = await deviceModel.getAllFacilitySDPs(facilityId);
     await deviceModel.updateFacilitySDPs(facilityId, sdps, req.user.id);
+    const newSdps = await deviceModel.getAllFacilitySDPs(facilityId);
+    await Audit.write({
+      userId: req.user.id,
+      action: "UPDATE",
+      entityType: "facility_sdps",
+      entityId: facilityId,
+      oldValues: oldSdps,
+      newValues: newSdps,
+      req,
+    });
     return R.ok(res, { message: "Facility SDPs updated" });
   } catch (err) {
     logger.error("updateFacilitySDPs error", err);
@@ -1916,8 +1937,48 @@ const getFacilitySDPStats = async (req, res) => {
   }
 };
 
+// ================================================================
+// SDP GAPS REPORT
+// ================================================================
 const getFacilitySDPGaps = async (req, res) => {
   try {
+    const user = req.user;
+    let zoneConds = [];
+    let zoneParams = [];
+
+    if (user && user.zone_type !== "all") {
+      if (user.zone_type === "county" && user.zone_county_id) {
+        zoneConds.push("f.county_id = ?");
+        zoneParams.push(user.zone_county_id);
+      } else if (user.zone_type === "sub_county") {
+        const subIds =
+          user.zone_sub_county_ids ||
+          (user.zone_sub_county_id ? [user.zone_sub_county_id] : []);
+        if (subIds.length) {
+          const placeholders = subIds.map(() => "?").join(",");
+          zoneConds.push(`f.sub_county_id IN (${placeholders})`);
+          zoneParams.push(...subIds);
+        } else {
+          return R.ok(res, []);
+        }
+      } else if (user.zone_type === "facility") {
+        const facIds =
+          user.zone_facility_ids ||
+          (user.zone_facility_id ? [user.zone_facility_id] : []);
+        if (facIds.length) {
+          const placeholders = facIds.map(() => "?").join(",");
+          zoneConds.push(`f.id IN (${placeholders})`);
+          zoneParams.push(...facIds);
+        } else {
+          return R.ok(res, []);
+        }
+      }
+    }
+
+    const whereClause = zoneConds.length
+      ? ` AND ${zoneConds.join(" AND ")}`
+      : "";
+
     const query = `
       SELECT 
         f.id AS facility_id,
@@ -1930,9 +1991,10 @@ const getFacilitySDPGaps = async (req, res) => {
         COALESCE(fs.provider_count, 0) AS provider_count,
         COUNT(d.id) AS device_count,
         CASE
-          WHEN COALESCE(fs.provider_count, 0) > 0 AND COUNT(d.id) > 0 THEN 'ok'
-          WHEN COALESCE(fs.provider_count, 0) > 0 AND COUNT(d.id) = 0 THEN 'no_devices'
+          WHEN COALESCE(fs.provider_count, 0) = 0 AND COUNT(d.id) = 0 THEN 'inactive'
           WHEN COALESCE(fs.provider_count, 0) = 0 AND COUNT(d.id) > 0 THEN 'no_providers'
+          WHEN COALESCE(fs.provider_count, 0) > 0 AND COUNT(d.id) < COALESCE(fs.provider_count, 0) THEN 'no_devices'
+          WHEN COALESCE(fs.provider_count, 0) > 0 AND COUNT(d.id) >= COALESCE(fs.provider_count, 0) THEN 'ok'
           ELSE 'inactive'
         END AS gap_status
       FROM facilities f
@@ -1940,27 +2002,69 @@ const getFacilitySDPGaps = async (req, res) => {
       LEFT JOIN sub_counties sc ON sc.id = f.sub_county_id
       CROSS JOIN service_delivery_points sdp
       LEFT JOIN facility_sdps fs ON fs.facility_id = f.id AND fs.sdp_id = sdp.id
-      LEFT JOIN devices d ON d.facility_id = f.id AND d.sdp_id = sdp.id AND d.status NOT IN ('decommissioned', 'lost')
-      WHERE fs.is_active = 1 OR d.id IS NOT NULL
+      LEFT JOIN devices d ON d.facility_id = f.id AND d.sdp_id = sdp.id 
+        AND d.status NOT IN ('decommissioned', 'lost')
+      WHERE 1=1 ${whereClause}
       GROUP BY f.id, sdp.id
       ORDER BY f.name, sdp.display_order
     `;
-    const [rows] = await db.query(query);
+
+    const [rows] = await db.query(query, zoneParams);
     return R.ok(res, rows);
   } catch (err) {
     logger.error("getFacilitySDPGaps error", err);
-    return R.err(res, "Failed to generate report");
+    return R.ok(res, []);
   }
 };
 
+// ================================================================
+// SDP MATRIX REPORT
+// ================================================================
 const getFacilitySDPMatrix = async (req, res) => {
   try {
-    // Get all SDPs
+    const user = req.user;
+    let zoneConds = [];
+    let zoneParams = [];
+
+    if (user && user.zone_type !== "all") {
+      if (user.zone_type === "county" && user.zone_county_id) {
+        zoneConds.push("f.county_id = ?");
+        zoneParams.push(user.zone_county_id);
+      } else if (user.zone_type === "sub_county") {
+        const subIds =
+          user.zone_sub_county_ids ||
+          (user.zone_sub_county_id ? [user.zone_sub_county_id] : []);
+        if (subIds.length) {
+          const placeholders = subIds.map(() => "?").join(",");
+          zoneConds.push(`f.sub_county_id IN (${placeholders})`);
+          zoneParams.push(...subIds);
+        } else {
+          return R.ok(res, { sdps: [], facilities: [] });
+        }
+      } else if (user.zone_type === "facility") {
+        const facIds =
+          user.zone_facility_ids ||
+          (user.zone_facility_id ? [user.zone_facility_id] : []);
+        if (facIds.length) {
+          const placeholders = facIds.map(() => "?").join(",");
+          zoneConds.push(`f.id IN (${placeholders})`);
+          zoneParams.push(...facIds);
+        } else {
+          return R.ok(res, { sdps: [], facilities: [] });
+        }
+      }
+    }
+
+    const whereClause = zoneConds.length
+      ? ` AND ${zoneConds.join(" AND ")}`
+      : "";
+
     const [sdps] = await db.query(
       "SELECT id, name FROM service_delivery_points ORDER BY display_order, name",
     );
-    // Get device counts and provider counts per facility & SDP
-    const [rows] = await db.query(`
+
+    const [rows] = await db.query(
+      `
       SELECT 
         f.id AS facility_id,
         f.mfl_code,
@@ -1977,11 +2081,13 @@ const getFacilitySDPMatrix = async (req, res) => {
       LEFT JOIN facility_sdps fs ON fs.facility_id = f.id AND fs.sdp_id = sdp.id
       LEFT JOIN devices d ON d.facility_id = f.id AND d.sdp_id = sdp.id 
         AND d.status NOT IN ('decommissioned', 'lost')
-      WHERE fs.is_active = 1 OR d.id IS NOT NULL
+      WHERE 1=1 ${whereClause}
       GROUP BY f.id, sdp.id, fs.provider_count
       ORDER BY f.name, sdp.display_order
-    `);
-    // Build pivot structure
+      `,
+      zoneParams,
+    );
+
     const facilitiesMap = new Map();
     for (const row of rows) {
       const key = row.facility_id;
@@ -1999,7 +2105,7 @@ const getFacilitySDPMatrix = async (req, res) => {
       facilitiesMap.get(key).devices[row.sdp_id] = row.device_count;
       facilitiesMap.get(key).providers[row.sdp_id] = row.provider_count;
     }
-    // Fill missing SDPs with 0
+
     for (const facility of facilitiesMap.values()) {
       for (const sdp of sdps) {
         if (facility.devices[sdp.id] === undefined)
@@ -2008,17 +2114,24 @@ const getFacilitySDPMatrix = async (req, res) => {
           facility.providers[sdp.id] = 0;
       }
     }
+
+    if (facilitiesMap.size === 0) {
+      return R.ok(res, { sdps: [], facilities: [] });
+    }
+
     return R.ok(res, {
       sdps: sdps.map((s) => ({ id: s.id, name: s.name })),
       facilities: Array.from(facilitiesMap.values()),
     });
   } catch (err) {
     logger.error("getFacilitySDPMatrix error", err);
-    return R.err(res, "Failed to generate matrix report");
+    return R.ok(res, { sdps: [], facilities: [] });
   }
 };
 
-// GET /charger-types
+// ================================================================
+// CHARGER TYPES AND FACILITY CHARGERS (with audit)
+// ================================================================
 const getChargerTypes = async (req, res) => {
   try {
     const types = await chargerModel.getTypes();
@@ -2029,7 +2142,6 @@ const getChargerTypes = async (req, res) => {
   }
 };
 
-// GET /facilities/:id/chargers
 const getFacilityChargers = async (req, res) => {
   try {
     const facilityId = req.params.id;
@@ -2041,7 +2153,6 @@ const getFacilityChargers = async (req, res) => {
   }
 };
 
-//put facilities
 const updateFacilityChargers = async (req, res) => {
   try {
     const facilityId = parseInt(req.params.id);
@@ -2055,7 +2166,6 @@ const updateFacilityChargers = async (req, res) => {
     // Zone enforcement for admins (same logic as facility update)
     const isGlobalAdmin = user.role === "admin" && user.zone_type === "all";
     if (!isGlobalAdmin) {
-      // Check if admin has access to this facility
       let hasAccess = false;
       if (user.zone_type === "county") {
         const [[facility]] = await db.query(
@@ -2083,7 +2193,18 @@ const updateFacilityChargers = async (req, res) => {
       }
     }
 
+    const oldChargers = await chargerModel.getFacilityChargers(facilityId);
     await chargerModel.updateFacilityChargers(facilityId, counts, user.id);
+    const newChargers = await chargerModel.getFacilityChargers(facilityId);
+    await Audit.write({
+      userId: req.user.id,
+      action: "UPDATE",
+      entityType: "facility_chargers",
+      entityId: facilityId,
+      oldValues: oldChargers,
+      newValues: newChargers,
+      req,
+    });
     return R.ok(res, { message: "Charger counts updated" });
   } catch (err) {
     logger.error("updateFacilityChargers error", err);
@@ -2091,46 +2212,110 @@ const updateFacilityChargers = async (req, res) => {
   }
 };
 
+// ================================================================
+// CHARGER GAPS REPORT
+// ================================================================
 const getChargerGapsReport = async (req, res) => {
   try {
+    const user = req.user;
+    let zoneConds = [];
+    let zoneParams = [];
+
+    if (user && user.zone_type !== "all") {
+      if (user.zone_type === "county" && user.zone_county_id) {
+        zoneConds.push("f.county_id = ?");
+        zoneParams.push(user.zone_county_id);
+      } else if (user.zone_type === "sub_county") {
+        const subIds =
+          user.zone_sub_county_ids ||
+          (user.zone_sub_county_id ? [user.zone_sub_county_id] : []);
+        if (subIds.length) {
+          const placeholders = subIds.map(() => "?").join(",");
+          zoneConds.push(`f.sub_county_id IN (${placeholders})`);
+          zoneParams.push(...subIds);
+        } else {
+          return R.ok(res, []);
+        }
+      } else if (user.zone_type === "facility") {
+        const facIds =
+          user.zone_facility_ids ||
+          (user.zone_facility_id ? [user.zone_facility_id] : []);
+        if (facIds.length) {
+          const placeholders = facIds.map(() => "?").join(",");
+          zoneConds.push(`f.id IN (${placeholders})`);
+          zoneParams.push(...facIds);
+        } else {
+          return R.ok(res, []);
+        }
+      }
+    }
+
+    const whereClause = zoneConds.length
+      ? ` WHERE ${zoneConds.join(" AND ")}`
+      : "";
+
     const query = `
-                  SELECT 
-                f.id AS facility_id,
-                f.mfl_code,
-                f.name AS facility_name,
-                c.name AS county,
-                sc.name AS sub_county,
-                COALESCE(fc_typeA.count, 0) AS typeA_chargers_manual,
-                COALESCE(fc_typeC.count, 0) AS typeC_chargers_manual,
-                COUNT(CASE WHEN d.status NOT IN ('decommissioned','lost') AND d.has_charger = 1 
-                          AND d.charger_type_id = 1 THEN 1 END) AS typeA_attached,
-                COUNT(CASE WHEN d.status NOT IN ('decommissioned','lost') AND d.has_charger = 1 
-                          AND d.charger_type_id = 2 THEN 1 END) AS typeC_attached,
-                COUNT(CASE WHEN d.status NOT IN ('decommissioned','lost') 
-                          AND d.charger_type_id = 1 THEN 1 END) AS typeA_devices_total,
-                COUNT(CASE WHEN d.status NOT IN ('decommissioned','lost') 
-                          AND d.charger_type_id = 2 THEN 1 END) AS typeC_devices_total
-              FROM facilities f
-              JOIN counties c ON c.id = f.county_id
-              LEFT JOIN sub_counties sc ON sc.id = f.sub_county_id
-              LEFT JOIN (
-                SELECT facility_id, SUM(count) AS count FROM facility_chargers WHERE charger_type_id = 1 GROUP BY facility_id
-              ) fc_typeA ON fc_typeA.facility_id = f.id
-              LEFT JOIN (
-                SELECT facility_id, SUM(count) AS count FROM facility_chargers WHERE charger_type_id = 2 GROUP BY facility_id
-              ) fc_typeC ON fc_typeC.facility_id = f.id
-              LEFT JOIN devices d ON d.facility_id = f.id
-              GROUP BY f.id
-              ORDER BY f.name
+      SELECT 
+        f.id AS facility_id,
+        f.mfl_code,
+        f.name AS facility_name,
+        c.name AS county,
+        sc.name AS sub_county,
+        COALESCE(fc_typeA.count, 0) AS typeA_chargers_manual,
+        COALESCE(fc_typeC.count, 0) AS typeC_chargers_manual,
+        COUNT(CASE WHEN d.status NOT IN ('decommissioned','lost') AND d.has_charger = 1 
+                   AND d.charger_type_id = 1 THEN 1 END) AS typeA_attached,
+        COUNT(CASE WHEN d.status NOT IN ('decommissioned','lost') AND d.has_charger = 1 
+                   AND d.charger_type_id = 2 THEN 1 END) AS typeC_attached,
+        COUNT(CASE WHEN d.status NOT IN ('decommissioned','lost') 
+                   AND d.charger_type_id = 1 THEN 1 END) AS typeA_devices_total,
+        COUNT(CASE WHEN d.status NOT IN ('decommissioned','lost') 
+                   AND d.charger_type_id = 2 THEN 1 END) AS typeC_devices_total
+      FROM facilities f
+      JOIN counties c ON c.id = f.county_id
+      LEFT JOIN sub_counties sc ON sc.id = f.sub_county_id
+      LEFT JOIN (
+        SELECT facility_id, SUM(count) AS count FROM facility_chargers WHERE charger_type_id = 1 GROUP BY facility_id
+      ) fc_typeA ON fc_typeA.facility_id = f.id
+      LEFT JOIN (
+        SELECT facility_id, SUM(count) AS count FROM facility_chargers WHERE charger_type_id = 2 GROUP BY facility_id
+      ) fc_typeC ON fc_typeC.facility_id = f.id
+      LEFT JOIN devices d ON d.facility_id = f.id
+      ${whereClause}
+      GROUP BY f.id
+      ORDER BY f.name
     `;
-    const [rows] = await db.query(query);
+
+    const [rows] = await db.query(query, zoneParams);
     return R.ok(res, rows);
   } catch (err) {
     logger.error("getChargerGapsReport error", err);
-    return R.err(res, "Failed to generate charger gaps report");
+    return R.ok(res, []);
   }
 };
 
+const logReportExport = async (req, res) => {
+  try {
+    const { reportName } = req.body;
+    if (!reportName) return R.err(res, "reportName required", 400);
+    await Audit.write({
+      userId: req.user.id,
+      action: "EXPORT",
+      entityType: "report",
+      entityId: 0,
+      newValues: { reportName },
+      req,
+    });
+    return R.ok(res);
+  } catch (err) {
+    logger.error("logReportExport error", err);
+    return R.err(res, "Failed to log export");
+  }
+};
+
+// ================================================================
+// EXPORTS
+// ================================================================
 module.exports = {
   login,
   me,
@@ -2204,4 +2389,5 @@ module.exports = {
   getFacilityChargers,
   updateFacilityChargers,
   getChargerGapsReport,
+  logReportExport,
 };

@@ -330,6 +330,13 @@ router.post(
   C.reissueRepair,
 );
 
+// Report exports
+// router.get("/reports/sdp-gaps/export", authenticate, C.exportSDPGaps);
+// router.get("/reports/charger-gaps/export", authenticate, C.exportChargerGaps);
+// router.get("/reports/sdp-matrix/export", authenticate, C.exportSDPMatrix);
+
+router.post("/audit/report-export", authenticate, C.logReportExport);
+
 // ── Transfer Requests (FO requests, admin reviews)
 router.post("/transfer-requests", isOfficer, C.createTransferRequest);
 router.get("/transfer-requests", isAdmin, C.listTransferRequests);
@@ -379,5 +386,6 @@ router.put(
   C.updateFacilityChargers,
 );
 router.get("/reports/charger-gaps", authenticate, C.getChargerGapsReport);
+
 
 module.exports = router;
