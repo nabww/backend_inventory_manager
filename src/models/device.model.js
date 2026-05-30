@@ -233,6 +233,13 @@ const update = async (id, fields, updatedBy) => {
   try {
     await conn.beginTransaction();
 
+    // Convert empty strings to NULL for SIM fields
+    if (fields.simSerial === "") fields.simSerial = null;
+    if (fields.phoneNumber === "") fields.phoneNumber = null;
+    if (fields.pin === "") fields.pin = null;
+    if (fields.puk === "") fields.puk = null;
+    if (fields.network === "") fields.network = null;
+
     const [[current]] = await conn.query(
       `SELECT sim_card_id, has_sim FROM devices WHERE id = ?`,
       [parseInt(id)],
@@ -240,8 +247,8 @@ const update = async (id, fields, updatedBy) => {
 
     if (fields.hasSim) {
       if (current.sim_card_id) {
-        const simSets = [],
-          simVals = [];
+        const simSets = [];
+        const simVals = [];
         const simMap = {
           simSerial: "sim_serial",
           phoneNumber: "phone_number",
@@ -250,16 +257,16 @@ const update = async (id, fields, updatedBy) => {
         for (const [k, col] of Object.entries(simMap)) {
           if (fields[k] !== undefined) {
             simSets.push(`${col} = ?`);
-            simVals.push(fields[k]);
+            simVals.push(fields[k] ?? null); // already null if empty
           }
         }
         if (fields.pin !== undefined) {
           simSets.push("pin = ?");
-          simVals.push(encrypt(fields.pin));
+          simVals.push(fields.pin ? encrypt(fields.pin) : null);
         }
         if (fields.puk !== undefined) {
           simSets.push("puk = ?");
-          simVals.push(encrypt(fields.puk));
+          simVals.push(fields.puk ? encrypt(fields.puk) : null);
         }
         if (simSets.length) {
           simVals.push(current.sim_card_id);
@@ -269,8 +276,9 @@ const update = async (id, fields, updatedBy) => {
           );
         }
       } else if (fields.simSerial || fields.phoneNumber) {
+        // Insert or update SIM card – removed the non-existent has_charger column
         const [sr] = await conn.query(
-          `INSERT INTO sim_cards (sim_serial, phone_number, pin, puk, network, has_charger)
+          `INSERT INTO sim_cards (sim_serial, phone_number, pin, puk, network)
            VALUES (?, ?, ?, ?, ?)
            ON DUPLICATE KEY UPDATE
              sim_serial = VALUES(sim_serial),
@@ -283,7 +291,6 @@ const update = async (id, fields, updatedBy) => {
             fields.pin ? encrypt(fields.pin) : null,
             fields.puk ? encrypt(fields.puk) : null,
             fields.network || null,
-            fields.hasCharger ? 1 : 0,
           ],
         );
         const simId = sr.insertId
@@ -294,11 +301,12 @@ const update = async (id, fields, updatedBy) => {
                 [fields.phoneNumber],
               )
             )[0][0]?.id;
-        if (simId)
+        if (simId) {
           await conn.query(`UPDATE devices SET sim_card_id = ? WHERE id = ?`, [
             simId,
             parseInt(id),
           ]);
+        }
       }
     } else if (!fields.hasSim && current.sim_card_id) {
       await conn.query(`UPDATE devices SET sim_card_id = NULL WHERE id = ?`, [
@@ -306,8 +314,8 @@ const update = async (id, fields, updatedBy) => {
       ]);
     }
 
-    const devSets = [],
-      devVals = [];
+    const devSets = [];
+    const devVals = [];
     const devMap = {
       facilityId: "facility_id",
       affiliationId: "affiliation_id",
@@ -330,7 +338,6 @@ const update = async (id, fields, updatedBy) => {
     for (const [k, col] of Object.entries(devMap)) {
       if (fields[k] !== undefined) {
         let val = fields[k];
-        // Convert boolean to 0/1 for has_charger
         if (k === "hasCharger") val = val ? 1 : 0;
         if (k === "dateIssued" && val === "") val = null;
         devSets.push(`${col} = ?`);
