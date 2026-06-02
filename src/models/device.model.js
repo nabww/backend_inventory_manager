@@ -176,6 +176,8 @@ const create = async (fields, createdBy) => {
           fields.pin ? encrypt(fields.pin) : null,
           fields.puk ? encrypt(fields.puk) : null,
           fields.network || null,
+          fields.chargerTypeId ? parseInt(fields.chargerTypeId) : null,
+          fields.sdpId ? parseInt(fields.sdpId) : null,
         ],
       );
       simCardId =
@@ -340,6 +342,8 @@ const update = async (id, fields, updatedBy) => {
         let val = fields[k];
         if (k === "hasCharger") val = val ? 1 : 0;
         if (k === "dateIssued" && val === "") val = null;
+        if (k === "chargerTypeId" && (val === "" || val === null)) val = null;
+        if (k === "sdpId" && (val === "" || val === null)) val = null;
         devSets.push(`${col} = ?`);
         devVals.push(val);
       }
