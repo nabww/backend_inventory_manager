@@ -238,6 +238,44 @@ const getByMinRole = async () => {
   return rows;
 };
 
+// Get all active admins whose zone covers a specific facility
+const getAdminsByFacility = async (facilityId) => {
+  const db = require("../config/db");   // adjust path if your db config is elsewhere
+  const [[fac]] = await db.query(
+    `SELECT id, county_id, sub_county_id FROM facilities WHERE id = ?`,
+    [parseInt(facilityId)]
+  );
+  if (!fac) return [];
+
+  const [rows] = await db.query(`
+    SELECT DISTINCT u.id, u.full_name, u.email, r.name AS role
+    FROM users u
+    JOIN roles r ON r.id = u.role_id
+    WHERE r.name = 'admin'
+      AND u.is_active = 1
+      AND (
+        -- super admin or zone_type = all
+        u.id = 1
+        OR u.zone_type = 'all'
+        -- county match
+        OR (u.zone_type = 'county' AND u.zone_county_id = ?)
+        -- sub_county match via junction
+        OR (u.zone_type = 'sub_county' AND EXISTS (
+          SELECT 1 FROM user_sub_counties usc
+          WHERE usc.user_id = u.id AND usc.sub_county_id = ?
+        ))
+        -- facility match via junction
+        OR (u.zone_type = 'facility' AND EXISTS (
+          SELECT 1 FROM user_facilities uf
+          WHERE uf.user_id = u.id AND uf.facility_id = ?
+        ))
+      )
+  `, [fac.county_id, fac.sub_county_id, parseInt(facilityId)]);
+
+  return rows;
+};
+
+
 module.exports = {
   findByEmail,
   findById,
@@ -252,4 +290,5 @@ module.exports = {
   getSubCountyIds,
   setFacilities,
   setSubCounties,
+  getAdminsByFacility,
 };

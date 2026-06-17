@@ -1004,7 +1004,8 @@ const reportLost = async (req, res, next) => {
     });
 
     // Fire alert to all admins (non-blocking)
-    const admins = await User.getByRole("admin");
+    // const admins = await User.getByRole("admin");
+    const admins = await User.getAdminsByFacility(device.facility_id);
     const fullDevice = await Device.getById(deviceId);
     const report = await Loss.getByDevice(deviceId);
     sendLostDeviceAlert({ device: fullDevice, report, admins }).catch(() => {});
@@ -1099,7 +1100,8 @@ const reviewLossReport = async (req, res, next) => {
       const validTargets = escalateToUsers.filter(Boolean);
       if (!validTargets.length)
         return R.notFound(res, "No valid escalation targets found");
-      const admins = await User.getByRole("admin");
+      // const admins = await User.getByRole("admin");
+      const admins = await User.getAdminsByFacility(device.facility_id);
       const escalatedBy = await User.findById(req.user.id);
       // Send to each target (deduped against admins list)
       const allRecipients = [
@@ -1393,7 +1395,8 @@ const createReturn = async (req, res, next) => {
       requestedBy: req.user.id,
       reason,
     });
-    const admins = await User.getByRole("admin");
+    // const admins = await User.getByRole("admin");
+    const admins = await User.getAdminsByFacility(device.facility_id);
     const contacts = await AdminContact.getByIds(adminContactIds);
     const requestedBy = await User.findById(req.user.id);
     sendReturnRequestedEmail({
@@ -1542,7 +1545,8 @@ const createRepair = async (req, res, next) => {
       sentDate,
       signedOffBy,
     });
-    const admins = await User.getByRole("admin");
+    // const admins = await User.getByRole("admin");
+    const admins = await User.getAdminsByFacility(device.facility_id);
     const contacts = await AdminContact.getByIds(adminContactIds);
     const initiatedBy = await User.findById(req.user.id);
     sendRepairInitiatedEmail({
@@ -1658,7 +1662,8 @@ const markRepairReturned = async (req, res, next) => {
       adminNotes,
     });
     const device = await Device.getById(deviceId);
-    const admins = await User.getByRole("admin");
+    // const admins = await User.getByRole("admin");
+    const admins = await User.getAdminsByFacility(device.facility_id);
     const contacts = await AdminContact.getByIds(adminContactIds);
     sendRepairReturnedEmail({
       device,
@@ -1775,7 +1780,8 @@ const createTransferRequest = async (req, res, next) => {
       destinationFacilityId,
       reason,
     });
-    const admins = await User.getByRole("admin");
+    // const admins = await User.getByRole("admin");
+    const admins = await User.getAdminsByFacility(device.facility_id);
     const contacts = await AdminContact.getByIds(adminContactIds);
     const requestedBy = await User.findById(req.user.id);
     sendTransferRequestedEmail({
